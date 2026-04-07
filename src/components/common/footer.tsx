@@ -8,6 +8,9 @@ import { useTranslations } from "next-intl"
 
 import { useTheme } from "next-themes"
 
+import { Plus } from "@phosphor-icons/react"
+import { motion } from "framer-motion"
+
 export function Footer(): React.JSX.Element {
   const t = useTranslations("Config")
   const { resolvedTheme } = useTheme()
@@ -19,50 +22,98 @@ export function Footer(): React.JSX.Element {
     : "/Logos/LOGO_VAR_02_LM.png"
 
   return (
-    <footer className="w-full bg-background px-6 py-24 md:px-12 lg:px-24 border-t border-foreground/5">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-24">
-          <div className="space-y-12 max-w-md">
-            <div className="relative h-10 w-48">
+    <footer className="w-full bg-background pt-32 pb-12 border-t border-foreground/5 overflow-hidden">
+      <div className="container mx-auto max-w-[1800px] px-6 lg:px-12">
+        
+        {/* MAIN FOOTER CONTENT */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 lg:gap-12 items-start mb-32">
+          
+          {/* BRAND BLOCK */}
+          <div className="lg:col-span-5 space-y-16">
+            <div className="relative h-12 w-64">
               {mounted && (
                 <Image 
                   src={logoSrc} 
                   alt="MAGUI.studio" 
                   fill 
-                  className="object-contain"
+                  className="object-contain object-left"
                 />
               )}
             </div>
-            <p className="text-xl text-muted-foreground/50 leading-relaxed font-sans font-light">
+            <p className="max-w-md text-2xl text-muted-foreground font-medium leading-tight tracking-tight">
               {t("description")}
             </p>
           </div>
 
-          <div className="flex flex-col items-start md:items-end gap-16">
-            <div className="flex flex-wrap gap-12 justify-start md:justify-end">
-               <div className="space-y-4">
-                 <p className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">Connect</p>
-                 <div className="flex flex-col gap-2">
-                   <Link href="#" className="text-sm font-medium hover:text-brand-primary transition-colors">Instagram</Link>
-                   <Link href="#" className="text-sm font-medium hover:text-brand-primary transition-colors">LinkedIn</Link>
-                 </div>
-               </div>
-               <div className="space-y-4">
-                 <p className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">Studio</p>
-                 <div className="flex flex-col gap-2">
-                   <Link href="#portfolio" className="text-sm font-medium hover:text-brand-primary transition-colors">Cases</Link>
-                   <Link href="#services" className="text-sm font-medium hover:text-brand-primary transition-colors">Expertise</Link>
-                 </div>
-               </div>
-            </div>
+          {/* LINKS GRID */}
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12 lg:pl-24">
             
-            <div className="pt-12 border-t border-foreground/5 w-full flex flex-col md:items-end gap-4">
-              <p className="text-[10px] font-bold text-muted-foreground/30 uppercase tracking-[0.3em]">
-                © {new Date().getFullYear()} MAGUI.studio — All Rights Reserved.
-              </p>
+            <div className="space-y-10">
+              <div className="flex items-center gap-3">
+                 <Plus weight="bold" size={10} className="text-brand-primary" />
+                 <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">Navigation</span>
+              </div>
+              <ul className="space-y-6">
+                {["Services", "Showcase", "About"].map((link) => (
+                  <li key={link}>
+                    <Link href={`#${link.toLowerCase()}`} className="text-lg font-bold uppercase tracking-tighter text-foreground hover:text-brand-primary transition-colors duration-300 block">
+                      {link}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            <div className="space-y-10">
+              <div className="flex items-center gap-3">
+                 <Plus weight="bold" size={10} className="text-brand-primary" />
+                 <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">Social</span>
+              </div>
+              <ul className="space-y-6">
+                {["Instagram", "LinkedIn", "Behance"].map((link) => (
+                  <li key={link}>
+                    <Link href="#" className="text-lg font-bold uppercase tracking-tighter text-foreground hover:text-brand-primary transition-colors duration-300 block">
+                      {link}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-10 hidden md:block">
+              <div className="flex items-center gap-3">
+                 <Plus weight="bold" size={10} className="text-brand-primary" />
+                 <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">Studio</span>
+              </div>
+              <div className="space-y-6 text-sm font-medium text-muted-foreground leading-relaxed">
+                 <p>Est. 2026 — Global Strategy</p>
+                 <p>Available for International Projects</p>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        {/* BOTTOM CREDITS */}
+        <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/30">
+            <span>© {new Date().getFullYear()} MAGUI.studio</span>
+            <div className="h-1 w-1 rounded-full bg-foreground/10" />
+            <span>Privacy Policy</span>
+          </div>
+          
+          <div className="flex items-center gap-4 group cursor-default">
+             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/20 group-hover:text-brand-primary transition-colors">Digital Authority Standard</span>
+             <motion.div 
+               animate={{ rotate: 360 }}
+               transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+               className="h-10 w-10 border border-foreground/5 rounded-full flex items-center justify-center"
+             >
+                <Plus weight="bold" size={14} className="text-brand-primary/40" />
+             </motion.div>
+          </div>
+        </div>
+
       </div>
     </footer>
   )

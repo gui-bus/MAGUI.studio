@@ -9,56 +9,92 @@
       "cta": "Project Now",
       "secondary_cta": "Explore Portfolio",
       "scroll": "Discover",
-      "image_alt": "Architectural Aesthetic",
+      "image_alt": "Abstraction of Precision and Power",
       "studio_info": "MAGUI.studio / Global Presence",
-      "studio_tagline": "Est. 2026 / Precision & Aesthetics",
+      "studio_tagline": "Est. 2026 / Rigor & Excellence",
       "precision": "Technical Rigor",
-      "precision_value": "Excellence",
-      "scope": "Global Scope",
-      "scope_value": "Unlimited",
+      "precision_value": "Inflexible",
+      "scope": "Global Scale",
+      "scope_value": "Sovereign",
       "trusted": "Partner to visionary brands",
-      "brand_alt": "Partner Brand"
+      "brand_alt": "Elite Brand"
     },
     "About": {
       "title": "The MAGUI Concept",
       "description": "Born from the union between technical software engineering precision and strategic interface design. We focus on authority, scale, and performance.",
       "stats": [
         { "label": "Performance", "value": "100/100" },
-        { "label": "Fidelity", "value": "Pixel Perfect" },
-        { "label": "Architecture", "value": "Clean Code" }
+        { "label": "Fidelity", "value": "Excellence" },
+        { "label": "Architecture", "value": "Legacy" }
       ]
     },
     "Value": {
-      "title": "If you seek the ordinary, we are not for you.",
-      "description": "We exist for companies that demand rigor, exclusivity, and absolute performance. Where others deliver design, we deliver authority.",
-      "stats": [
-        { "label": "Optimized Conversion", "value": "Focus" },
-        { "label": "Elite Design", "value": "Rigor" },
-        { "label": "Scalable Architecture", "value": "Power" }
+      "eyebrow": "Our Disciplines",
+      "title": "The Science Behind Authority.",
+      "description": "We combine engineering rigor with design sensitivity to create systems that don't just function—they dominate their segment.",
+      "image_alt": "Abstraction of Excellence",
+      "disciplines": [
+        {
+          "id": "01",
+          "title": "Strategy",
+          "label": "Intention",
+          "description": "Every pixel and every line of code is planned to guide the user and consolidate your market presence."
+        },
+        {
+          "id": "02",
+          "title": "Engineering",
+          "label": "Precision",
+          "description": "Robust development focused on scale, security, and absolute performance. The foundation of an elite system."
+        },
+        {
+          "id": "03",
+          "title": "Aesthetics",
+          "label": "Impact",
+          "description": "High-fidelity design that projects luxury and credibility, transforming visuals into business value."
+        }
       ]
     },
     "Showcase": {
-      "title": "Our Delivery Standard",
-      "description": "We work only with brands that seek to be a reference in what they do.",
+      "eyebrow": "Selected Works",
+      "title": "Impact Projects.",
+      "description": "A curation of systems that elevate the standard of performance and design in the digital environment.",
+      "view_project": "Explore Case",
       "projects": [
-        { "title": "Investment Platform", "category": "Strategy & UX" },
-        { "title": "Corporate Systems", "category": "Performance & Scale" },
-        { "title": "Luxury Interfaces", "category": "Visual Identity" }
+        { 
+          "title": "Global Fintech", 
+          "category": "Strategy & UX",
+          "year": "2025"
+        },
+        { 
+          "title": "Elite Retail", 
+          "category": "E-commerce & Scale",
+          "year": "2026"
+        },
+        { 
+          "title": "Digital Infrastructure", 
+          "category": "Systems & Engineering",
+          "year": "2026"
+        }
       ]
     },
     "Services": {
-      "title": "Our Expertise",
+      "eyebrow": "Our Expertise",
+      "title": "Architecture of Value.",
+      "description": "We develop digital ecosystems where every technical decision is guided by strategic intent.",
       "uiux": {
-        "title": "Experience Design (UX/UI)",
-        "description": "High-fidelity interfaces focused on conversion and brand authority."
+        "title": "Experience Design",
+        "label": "High-Fidelity",
+        "description": "Interfaces that project authority and guide the user with surgical precision toward conversion."
       },
       "frontend": {
-        "title": "Frontend Engineering",
-        "description": "Robust development with Next.js, prioritizing Core Web Vitals and scalability."
+        "title": "Systems Engineering",
+        "label": "Scale & Power",
+        "description": "Robust systems built to support the growth and complexity of global businesses."
       },
       "performance": {
-        "title": "Performance Optimization",
-        "description": "Fast, lightweight systems prepared for search engine rankings."
+        "title": "Impact Optimization",
+        "label": "Pure Speed",
+        "description": "We ensure your digital infrastructure loads instantaneously, dominating every performance metric."
       }
     },
     "CTA": {

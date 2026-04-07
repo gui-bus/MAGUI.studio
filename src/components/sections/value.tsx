@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 
 import { useTranslations } from "next-intl"
 
@@ -15,40 +16,78 @@ export function Value(): React.JSX.Element {
     offset: ["start end", "end start"]
   })
 
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.3], [0.95, 1])
+  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0])
 
   return (
-    <section ref={containerRef} className="relative w-full py-[20vh] px-6 md:px-12 lg:px-24 bg-background overflow-hidden">
-      <motion.div 
-        style={{ opacity, scale }}
-        className="mx-auto max-w-[1400px] text-center space-y-16"
-      >
-        <span className="text-[11px] font-black uppercase tracking-[0.8em] text-brand-primary">Our_Ethos</span>
+    <section ref={containerRef} className="relative w-full bg-background pt-32 pb-64 overflow-hidden border-t border-foreground/5">
+      <div className="container mx-auto max-w-[1800px] px-6 lg:px-12 relative z-10">
         
-        <h2 className="font-heading text-5xl md:text-8xl lg:text-[10rem] font-extrabold text-foreground uppercase leading-[0.85] tracking-[-0.06em]">
-          {t("title")}
-        </h2>
+        {/* SECTION HEADER */}
+        <motion.div 
+          style={{ opacity }}
+          className="mb-32 flex flex-col md:flex-row md:items-end justify-between gap-12"
+        >
+          <div className="max-w-4xl space-y-8">
+            <div className="flex items-center gap-4">
+              <div className="h-1.5 w-1.5 rounded-full bg-brand-primary" />
+              <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
+                {t("eyebrow")}
+              </span>
+            </div>
+            <h2 className="font-heading text-6xl md:text-8xl lg:text-[110px] font-black leading-[0.8] tracking-[-0.05em] text-foreground uppercase">
+              {t("title")}
+            </h2>
+          </div>
+          <p className="max-w-md text-lg md:text-xl text-muted-foreground font-medium leading-relaxed pb-4 border-l border-foreground/10 pl-8">
+            {t("description")}
+          </p>
+        </motion.div>
 
-        <p className="mx-auto max-w-2xl text-xl md:text-3xl text-muted-foreground/80 font-sans font-light leading-relaxed">
-          {t("description")}
-        </p>
+        {/* DISCIPLINES GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-foreground/5 border border-foreground/5">
+          {(t.raw("disciplines") as any[]).map((discipline, i) => (
+            <motion.div
+              key={discipline.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative bg-background p-12 lg:p-16 h-[600px] flex flex-col justify-between overflow-hidden"
+            >
+              {/* Background Reveal Image */}
+              <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000">
+                <Image
+                  src="/utils/placeholder.svg"
+                  alt={discipline.title}
+                  fill
+                  className="object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+                />
+              </div>
 
-        <div className="pt-24 border-t border-foreground/5 flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
-           <div className="space-y-2">
-             <p className="text-4xl font-heading font-extrabold text-foreground tracking-tighter uppercase">Rigor</p>
-             <p className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">Protocol_01</p>
-           </div>
-           <div className="space-y-2">
-             <p className="text-4xl font-heading font-extrabold text-foreground tracking-tighter uppercase">Authority</p>
-             <p className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">Protocol_02</p>
-           </div>
-           <div className="space-y-2">
-             <p className="text-4xl font-heading font-extrabold text-foreground tracking-tighter uppercase">Elite</p>
-             <p className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">Protocol_03</p>
-           </div>
+              <div className="relative z-10 space-y-8">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-black text-brand-primary tracking-tighter">
+                    {discipline.label}
+                  </span>
+                  <span className="font-heading text-4xl font-black text-foreground/5 group-hover:text-brand-primary/20 transition-colors duration-500">
+                    {discipline.id}
+                  </span>
+                </div>
+                <h3 className="font-heading text-5xl md:text-6xl font-black uppercase tracking-tighter text-foreground leading-none">
+                  {discipline.title}
+                </h3>
+              </div>
+
+              <div className="relative z-10 space-y-12">
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium transform group-hover:-translate-y-2 transition-transform duration-500">
+                  {discipline.description}
+                </p>
+                <div className="h-[2px] w-12 bg-brand-primary group-hover:w-full transition-all duration-700" />
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </motion.div>
+
+      </div>
     </section>
   )
 }

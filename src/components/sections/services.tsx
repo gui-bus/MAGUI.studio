@@ -4,74 +4,146 @@ import * as React from "react"
 
 import { useTranslations } from "next-intl"
 
-import { Desktop, Strategy, TrendUp } from "@phosphor-icons/react"
-import { motion } from "framer-motion"
+import { ArrowUpRight } from "@phosphor-icons/react"
+import { motion, AnimatePresence } from "framer-motion"
+
+import { cn } from "@/src/lib/utils/utils"
 
 export function Services(): React.JSX.Element {
   const t = useTranslations("Index.Services")
-
+  const [activeIndex, setActiveIndex] = React.useState<number | null>(null)
+  
   const services = [
     {
-      icon: <Strategy size={48} weight="thin" className="text-brand-primary" />,
+      id: "01",
       title: t("uiux.title"),
+      label: t("uiux.label"),
       description: t("uiux.description"),
+      color: "bg-brand-primary",
+      textColor: "text-white",
     },
     {
-      icon: <Desktop size={48} weight="thin" className="text-brand-secondary" />,
+      id: "02",
       title: t("frontend.title"),
+      label: t("frontend.label"),
       description: t("frontend.description"),
+      color: "bg-foreground",
+      textColor: "text-background",
     },
     {
-      icon: <TrendUp size={48} weight="thin" className="text-brand-primary" />,
+      id: "03",
       title: t("performance.title"),
+      label: t("performance.label"),
       description: t("performance.description"),
+      color: "bg-brand-secondary",
+      textColor: "text-white",
     },
   ]
 
   return (
-    <section id="services" className="relative w-full py-64 px-6 md:px-12 lg:px-24 bg-foreground text-background">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between gap-12">
-          <div className="space-y-8 max-w-3xl">
-            <span className="text-[11px] font-black uppercase tracking-[0.6em] text-brand-primary">Our_Expertise</span>
-            <h2 className="font-heading text-6xl md:text-9xl font-extrabold tracking-[-0.05em] text-background uppercase leading-[0.85]">
-              {t("title")}
-            </h2>
-          </div>
-        </div>
+    <section id="services" className="relative w-full bg-background overflow-hidden border-y border-foreground/5">
+      {/* NOISE OVERLAY - Premium Texture */}
+      <div className="pointer-events-none absolute inset-0 z-50 opacity-[0.03] dark:opacity-[0.05]" 
+           style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative flex flex-col space-y-16 p-16 rounded-[3rem] border border-background/5 bg-background/[0.03] hover:bg-background/[0.08] transition-all duration-700"
-            >
-              <div className="flex h-20 w-20 items-center justify-center rounded-[2rem] bg-background/5 border border-background/10 group-hover:bg-brand-primary transition-all duration-500">
-                <div className="group-hover:text-white transition-colors">
-                  {service.icon}
-                </div>
-              </div>
+      <div className="flex flex-col lg:flex-row h-full min-h-[600px] lg:h-[800px] w-full">
+        {services.map((service, index) => (
+          <motion.div
+            key={index}
+            onMouseEnter={() => setActiveIndex(index)}
+            onMouseLeave={() => setActiveIndex(null)}
+            animate={{ 
+              width: activeIndex === null ? "33.33%" : activeIndex === index ? "60%" : "20%" 
+            }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className={cn(
+              "relative h-full flex flex-col border-b lg:border-b-0 lg:border-r border-foreground/5 overflow-hidden transition-colors duration-700 min-h-[200px] lg:min-h-0",
+              activeIndex === index ? service.color : "bg-background"
+            )}
+          >
+            {/* CONTENT CONTAINER */}
+            <div className="relative h-full w-full p-12 lg:p-20 flex flex-col justify-between">
               
-              <div className="space-y-8">
-                <h3 className="text-4xl lg:text-5xl font-heading font-extrabold text-background tracking-tighter uppercase leading-tight">
-                  {service.title}
-                </h3>
-                <p className="text-xl text-background/40 leading-relaxed font-sans font-light group-hover:text-background/70 transition-colors">
-                  {service.description}
-                </p>
+              {/* TOP: ID & LABEL */}
+              <div className="flex items-center justify-between overflow-hidden">
+                <span className={cn(
+                  "font-heading text-4xl lg:text-6xl font-black transition-colors duration-500",
+                  activeIndex === index ? service.textColor : "text-brand-primary/20"
+                )}>
+                  {service.id}
+                </span>
+                <AnimatePresence>
+                  {activeIndex === index && (
+                    <motion.span
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      className={cn("text-[10px] font-black uppercase tracking-[0.6em]", service.textColor)}
+                    >
+                      {service.label}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </div>
 
-              <div className="pt-12 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                <div className="h-px flex-1 bg-brand-primary" />
-                <span className="text-[9px] font-black tracking-[0.4em] text-brand-primary uppercase">Expert_Assigned</span>
+              {/* CENTER: ROTATED TITLE (WHEN NOT ACTIVE) */}
+              <AnimatePresence mode="wait">
+                {activeIndex !== index ? (
+                  <motion.div
+                    key="vertical"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                  >
+                    <h3 className="font-heading text-5xl lg:text-7xl font-black uppercase tracking-tighter text-foreground/10 lg:rotate-[-90deg] whitespace-nowrap">
+                      {service.title}
+                    </h3>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="horizontal"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="space-y-12"
+                  >
+                    <h3 className={cn("font-heading text-6xl md:text-8xl lg:text-[100px] font-black uppercase tracking-[-0.05em] leading-[0.85]", service.textColor)}>
+                      {service.title}
+                    </h3>
+                    <p className={cn("max-w-2xl text-xl md:text-3xl font-medium leading-tight tracking-tight opacity-80", service.textColor)}>
+                      {service.description}
+                    </p>
+                    
+                    <div className={cn(
+                      "h-24 w-24 rounded-full border flex items-center justify-center transition-all duration-700 group cursor-pointer",
+                      service.textColor === "text-white" ? "border-white/20 hover:bg-white hover:text-brand-primary" : "border-background/20 hover:bg-background hover:text-foreground"
+                    )}>
+                       <ArrowUpRight size={40} weight="bold" />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* BOTTOM: FOOTER DETAIL */}
+              <div className="flex items-end justify-between">
+                 <div className={cn(
+                   "h-px transition-all duration-700",
+                   activeIndex === index ? "w-full bg-current opacity-20" : "w-12 bg-foreground/10"
+                 )} />
               </div>
-            </motion.div>
-          ))}
-        </div>
+
+            </div>
+
+            {/* BACKGROUND TEXTURE (SUBTLE) */}
+            <div className={cn(
+              "absolute inset-0 z-0 opacity-10 transition-opacity duration-700",
+              activeIndex === index ? "opacity-20" : "opacity-0"
+            )} 
+                 style={{ backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`, backgroundSize: '40px 40px' }} 
+            />
+          </motion.div>
+        ))}
       </div>
     </section>
   )

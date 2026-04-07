@@ -9,56 +9,92 @@
       "cta": "Projetar Agora",
       "secondary_cta": "Explorar Portfolio",
       "scroll": "Descobrir",
-      "image_alt": "Estética Arquitetônica",
+      "image_alt": "Abstração de Precisão e Poder",
       "studio_info": "MAGUI.studio / Presença Global",
-      "studio_tagline": "Est. 2026 / Precisão & Estética",
+      "studio_tagline": "Est. 2026 / Rigor & Excelência",
       "precision": "Rigor Técnico",
-      "precision_value": "Excelência",
+      "precision_value": "Inflexível",
       "scope": "Escala Global",
-      "scope_value": "Ilimitada",
+      "scope_value": "Soberana",
       "trusted": "Parceiro de marcas visionárias",
-      "brand_alt": "Marca Parceira"
+      "brand_alt": "Marca de Elite"
     },
     "About": {
       "title": "O Conceito MAGUI",
       "description": "Nascido da união entre a precisão técnica da engenharia de software e o design estratégico de interface. Focamos em autoridade, escala e performance.",
       "stats": [
         { "label": "Performance", "value": "100/100" },
-        { "label": "Fidelidade", "value": "Pixel Perfect" },
-        { "label": "Arquitetura", "value": "Clean Code" }
+        { "label": "Fidelidade", "value": "Excelência" },
+        { "label": "Arquitetura", "value": "Legado" }
       ]
     },
     "Value": {
-      "title": "Se você busca o comum, não somos para você.",
-      "description": "Nascemos para atender empresas que exigem rigor, exclusividade e performance absoluta. Onde outros entregam design, nós entregamos autoridade.",
-      "stats": [
-        { "label": "Conversão Otimizada", "value": "Foco" },
-        { "label": "Design de Elite", "value": "Rigor" },
-        { "label": "Arquitetura Escalável", "value": "Poder" }
+      "eyebrow": "Nossas Disciplinas",
+      "title": "A Ciência por trás da Autoridade.",
+      "description": "Combinamos o rigor da engenharia com a sensibilidade do design para criar sistemas que não apenas funcionam, mas dominam seu segmento.",
+      "image_alt": "Abstração de Excelência",
+      "disciplines": [
+        {
+          "id": "01",
+          "title": "Estratégia",
+          "label": "Intenção",
+          "description": "Cada pixel e cada linha de código são planejados para guiar o usuário e consolidar sua presença de mercado."
+        },
+        {
+          "id": "02",
+          "title": "Engenharia",
+          "label": "Precisão",
+          "description": "Desenvolvimento robusto focado em escala, segurança e performance absoluta. O alicerce de um sistema de elite."
+        },
+        {
+          "id": "03",
+          "title": "Estética",
+          "label": "Impacto",
+          "description": "Design de alta fidelidade que projeta luxo e credibilidade, transformando visual em valor de negócio."
+        }
       ]
     },
     "Showcase": {
-      "title": "Nosso Padrão de Entrega",
-      "description": "Trabalhamos apenas com marcas que buscam ser referência no que fazem.",
+      "eyebrow": "Trabalhos Selecionados",
+      "title": "Projetos de Impacto.",
+      "description": "Uma curadoria de sistemas que elevam o padrão de performance e design no ambiente digital.",
+      "view_project": "Explorar Caso",
       "projects": [
-        { "title": "Plataforma de Investimentos", "category": "Estratégia & UX" },
-        { "title": "Sistemas Corporativos", "category": "Performance & Escala" },
-        { "title": "Interfaces de Luxo", "category": "Identidade Visual" }
+        { 
+          "title": "Global Fintech", 
+          "category": "Estratégia & UX",
+          "year": "2025"
+        },
+        { 
+          "title": "Elite Retail", 
+          "category": "E-commerce & Scale",
+          "year": "2026"
+        },
+        { 
+          "title": "Digital Infrastructure", 
+          "category": "Systems & Engineering",
+          "year": "2026"
+        }
       ]
     },
     "Services": {
-      "title": "Nossa Atuação",
+      "eyebrow": "Nossa Expertise",
+      "title": "Arquitetura de Valor.",
+      "description": "Desenvolvemos ecossistemas digitais onde cada decisão técnica é guiada pela intenção estratégica.",
       "uiux": {
-        "title": "Estratégia de Interface",
-        "description": "Desenhamos jornadas que guiam o seu cliente até a conversão, sem fricção."
+        "title": "Design de Experiência",
+        "label": "High-Fidelity",
+        "description": "Interfaces que projetam autoridade e guiam o usuário com precisão cirúrgica até a conversão."
       },
       "frontend": {
-        "title": "Sistemas Proprietários",
-        "description": "Construímos ferramentas sob medida, focadas na escala e segurança do seu negócio."
+        "title": "Engenharia de Sistemas",
+        "label": "Scale & Power",
+        "description": "Sistemas robustos construídos para suportar o crescimento e a complexidade de negócios globais."
       },
       "performance": {
-        "title": "Posicionamento de Marca",
-        "description": "Sua marca no topo dos motores de busca com a velocidade que o mercado exige."
+        "title": "Otimização de Impacto",
+        "label": "Pure Speed",
+        "description": "Garantimos que sua infraestrutura carregue instantaneamente, dominando cada métrica de performance."
       }
     },
     "CTA": {
