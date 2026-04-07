@@ -19,7 +19,7 @@ export const siteConfig = {
   contact: {
     email: "contato@magui.studio",
   },
-  locales: ["pt", "en", "es", "fr", "it"],
+  locales: ["pt", "en"],
   defaultLocale: "pt",
   analytics: {
     google: env.NEXT_PUBLIC_GA_ID || "",

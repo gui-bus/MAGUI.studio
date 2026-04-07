@@ -40,6 +40,7 @@
 @theme inline {
     --font-sans: var(--font-sans);
     --font-heading: var(--font-heading);
+    --font-decorative: var(--font-decorative);
     --color-brand-primary: var(--brand-primary);
     --color-brand-secondary: var(--brand-secondary);
     --color-background: var(--background);

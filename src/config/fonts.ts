@@ -1,9 +1,16 @@
-import { Geist_Mono, Montserrat, Lexend } from "next/font/google"
+import { Geist_Mono, Montserrat, Lexend, Syne } from "next/font/google"
 
 const fontHeading = Lexend({
   subsets: ["latin"],
   variable: "--font-heading",
   weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+})
+
+const fontDecorative = Syne({
+  subsets: ["latin"],
+  variable: "--font-decorative",
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 })
 
@@ -22,8 +29,9 @@ const fontMono = Geist_Mono({
 
 export const fonts = {
   heading: fontHeading,
+  decorative: fontDecorative,
   sans: fontSans,
   mono: fontMono,
 }
 
-export const fontVariables = `${fontHeading.variable} ${fontSans.variable} ${fontMono.variable}`
+export const fontVariables = `${fontHeading.variable} ${fontDecorative.variable} ${fontSans.variable} ${fontMono.variable}`

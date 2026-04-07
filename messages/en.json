@@ -1,12 +1,23 @@
 {
   "Index": {
     "Hero": {
-      "eyebrow": "Visual Engineering & Strategy",
-      "title": "High-performance interfaces for elite systems",
-      "description": "We transform complex business challenges into flawless digital experiences. Technical rigor and strategic design in total sync.",
-      "cta": "Start Project",
-      "secondary_cta": "View Portfolio",
-      "scroll": "Scroll"
+      "eyebrow": "Visual Strategy Studio",
+      "title_1": "Elite",
+      "title_2": "Design &",
+      "title_3": "Authority",
+      "description": "We transform complex business challenges into flawless digital experiences with technical rigor and elite aesthetics.",
+      "cta": "Project Now",
+      "secondary_cta": "Explore Portfolio",
+      "scroll": "Discover",
+      "image_alt": "Architectural Aesthetic",
+      "studio_info": "MAGUI.studio / Global Presence",
+      "studio_tagline": "Est. 2026 / Precision & Aesthetics",
+      "precision": "Technical Rigor",
+      "precision_value": "Excellence",
+      "scope": "Global Scope",
+      "scope_value": "Unlimited",
+      "trusted": "Partner to visionary brands",
+      "brand_alt": "Partner Brand"
     },
     "About": {
       "title": "The MAGUI Concept",
@@ -58,10 +69,7 @@
   },
   "Locale": {
     "en": "English",
-    "pt": "Portuguese",
-    "es": "Spanish",
-    "fr": "French",
-    "it": "Italian"
+    "pt": "Portuguese"
   },
   "LanguageSwitcher": {
     "switch_to": "Switch to {lang}"

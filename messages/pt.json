@@ -1,12 +1,23 @@
 {
   "Index": {
     "Hero": {
-      "eyebrow": "Estúdio de Engenharia Visual",
-      "title": "A autoridade digital que seu negócio merece",
-      "description": "Unimos estratégia de elite e design de alta fidelidade para transformar sua presença online em um ativo de alto valor.",
-      "cta": "Solicitar Proposta",
-      "secondary_cta": "Nossos Projetos",
-      "scroll": "Role"
+      "eyebrow": "Studio de Estratégia Visual",
+      "title_1": "Design de",
+      "title_2": "Interface &",
+      "title_3": "Autoridade",
+      "description": "Transformamos desafios complexos em sistemas digitais de alta performance com rigor técnico e estética de elite.",
+      "cta": "Projetar Agora",
+      "secondary_cta": "Explorar Portfolio",
+      "scroll": "Descobrir",
+      "image_alt": "Estética Arquitetônica",
+      "studio_info": "MAGUI.studio / Presença Global",
+      "studio_tagline": "Est. 2026 / Precisão & Estética",
+      "precision": "Rigor Técnico",
+      "precision_value": "Excelência",
+      "scope": "Escala Global",
+      "scope_value": "Ilimitada",
+      "trusted": "Parceiro de marcas visionárias",
+      "brand_alt": "Marca Parceira"
     },
     "About": {
       "title": "O Conceito MAGUI",
@@ -57,11 +68,8 @@
     }
   },
   "Locale": {
-    "en": "Inglês",
-    "pt": "Português",
-    "es": "Espanhol",
-    "fr": "Francês",
-    "it": "Italiano"
+    "en": "English",
+    "pt": "Português"
   },
   "LanguageSwitcher": {
     "switch_to": "Mudar para {lang}"
