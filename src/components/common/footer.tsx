@@ -54,7 +54,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
               {mounted && (
                 <Image 
                   src={logoSrc} 
-                  alt="MAGUI.studio Logo" 
+                  alt="MAGUI.studio Branding" 
                   fill 
                   sizes="256px"
                   className="object-contain object-left"
@@ -108,7 +108,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
                  <Plus weight="bold" size={10} className="text-brand-primary" aria-hidden="true" />
                  <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">{t("studio_title")}</span>
               </div>
-              <div className="space-y-6 text-sm font-medium text-muted-foreground leading-relaxed">
+              <div className="space-y-6 text-sm font-medium text-muted-foreground/80 leading-relaxed">
                  <p>{t("established")}</p>
                  <p>{t("availability")}</p>
               </div>
@@ -138,7 +138,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
 
         {/* BOTTOM CREDITS */}
         <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-8 gap-y-4 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/30">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-8 gap-y-4 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/70">
             <span>{t("credits", { year: new Date().getFullYear() })}</span>
             <div className="h-1 w-1 rounded-full bg-foreground/10 hidden md:block" aria-hidden="true" />
             <Link href="#" className="hover:text-brand-primary transition-colors">{t("policy")}</Link>
@@ -155,7 +155,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
           </div>
           
           <div className="flex items-center gap-4 group cursor-default">
-             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/20 group-hover:text-brand-primary transition-colors">{t("standard")}</span>
+             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/70 group-hover:text-brand-primary transition-colors">{t("standard")}</span>
              <m.div 
                animate={{ rotate: 360 }}
                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}

@@ -54,7 +54,7 @@ export const Header = React.memo(function Header(): React.JSX.Element {
           {mounted && (
             <Image 
               src={logoSrc} 
-              alt="MAGUI.studio" 
+              alt="MAGUI.studio - Visual Strategy & Interface Design" 
               width={160} 
               height={44} 
               className="h-8 md:h-9 w-auto object-contain"
@@ -70,7 +70,7 @@ export const Header = React.memo(function Header(): React.JSX.Element {
               <Link 
                 key={link.href} 
                 href={link.href} 
-                className="group relative text-[10px] font-black uppercase tracking-[0.4em] text-foreground/40 hover:text-brand-primary transition-colors duration-500"
+                className="group relative text-[10px] font-black uppercase tracking-[0.4em] text-foreground/60 hover:text-brand-primary transition-colors duration-500"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand-primary transition-all duration-500 group-hover:w-full" aria-hidden="true" />

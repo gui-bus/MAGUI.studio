@@ -46,7 +46,7 @@ export function FAQ(): React.JSX.Element {
         </div>
 
         {/* ACCORDION LIST */}
-        <div className="flex flex-col border-t border-foreground/10" role="list">
+        <div className="flex flex-col border-t border-foreground/10">
           {items.map((item, index) => {
             const isOpen = openIndex === index
             const panelId = `faq-panel-${index}`
@@ -56,7 +56,6 @@ export function FAQ(): React.JSX.Element {
               <div 
                 key={index} 
                 className="border-b border-foreground/10"
-                role="listitem"
               >
                 <button
                   id={buttonId}
@@ -68,23 +67,23 @@ export function FAQ(): React.JSX.Element {
                   <div className="flex items-center gap-8 lg:gap-12">
                     <span className={cn(
                       "font-heading text-xl font-black transition-colors duration-500",
-                      isOpen ? "text-brand-primary" : "text-foreground/20"
+                      isOpen ? "text-brand-primary" : "text-foreground/60"
                     )}>
                       0{index + 1}
                     </span>
                     <span className={cn(
                       "text-xl md:text-3xl font-bold tracking-tight transition-all duration-500",
-                      isOpen ? "text-brand-primary translate-x-2" : "text-foreground group-hover:translate-x-2"
+                      isOpen ? "text-brand-primary" : "text-foreground group-hover:text-brand-primary"
                     )}>
                       {item.question}
                     </span>
                   </div>
 
                   <div className={cn(
-                    "h-10 w-10 rounded-full border border-foreground/5 flex items-center justify-center transition-all duration-500 shrink-0",
-                    isOpen ? "rotate-90 bg-brand-primary border-brand-primary text-white shadow-lg shadow-brand-primary/20" : "text-muted-foreground group-hover:border-foreground/20 group-hover:text-foreground"
+                    "h-10 w-10 rounded-full border border-foreground/10 flex items-center justify-center transition-all duration-700 shrink-0",
+                    isOpen ? "rotate-90 bg-brand-primary border-brand-primary text-white shadow-lg shadow-brand-primary/20" : "text-foreground group-hover:border-brand-primary group-hover:text-brand-primary"
                   )}>
-                    <CaretRight weight="bold" size={20} />
+                    <CaretRight weight="bold" size={20} aria-hidden="true" />
                   </div>
                 </button>
 
@@ -101,7 +100,7 @@ export function FAQ(): React.JSX.Element {
                       className="overflow-hidden"
                     >
                       <div className="pl-16 lg:pl-24 pb-12">
-                        <p className="text-lg md:text-xl text-muted-foreground/80 leading-relaxed font-medium max-w-2xl border-l border-foreground/10 pl-8">
+                        <p className="text-lg md:text-xl text-foreground/80 leading-relaxed font-medium max-w-2xl border-l border-foreground/10 pl-8">
                           {item.answer}
                         </p>
                       </div>

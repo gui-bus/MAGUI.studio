@@ -42,31 +42,30 @@ export function Showcase(): React.JSX.Element {
           </h2>
         </div>
 
-        {/* MAIN INTERACTION AREA - Stable Height */}
+        {/* MAIN INTERACTION AREA */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center min-h-[600px]">
           
           {/* LEFT: THE LIST */}
-          <div className="lg:col-span-5 flex flex-col border-t border-foreground/5" role="list">
+          <div className="lg:col-span-5 flex flex-col border-t border-foreground/10">
             {projects.map((project, index) => (
               <button
                 key={index}
-                role="listitem"
-                aria-selected={activeIndex === index}
+                aria-label={`View ${project.title} project`}
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => setActiveIndex(index)}
-                className="group relative w-full py-10 border-b border-foreground/5 text-left transition-all duration-500 focus-visible:outline-brand-primary"
+                className="group relative w-full py-10 border-b border-foreground/10 text-left transition-all duration-500 focus-visible:outline-brand-primary"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-8">
                     <span className={cn(
                       "font-heading text-xl font-black transition-colors duration-500",
-                      activeIndex === index ? "text-brand-primary" : "text-foreground/20"
+                      activeIndex === index ? "text-brand-primary" : "text-foreground/40"
                     )}>
                       0{index + 1}
                     </span>
                     <h3 className={cn(
                       "font-heading text-3xl md:text-5xl font-black uppercase tracking-tighter transition-all duration-500",
-                      activeIndex === index ? "text-foreground translate-x-4" : "text-foreground/40"
+                      activeIndex === index ? "text-foreground translate-x-4" : "text-foreground/60"
                     )}>
                       {project.title}
                     </h3>
@@ -82,21 +81,21 @@ export function Showcase(): React.JSX.Element {
             ))}
           </div>
 
-          {/* RIGHT: THE LENS (The Preview Frame) */}
+          {/* RIGHT: THE LENS */}
           <div className="lg:col-span-7 relative aspect-[4/3] lg:aspect-[16/10] w-full">
-            <div className="absolute inset-0 rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden border border-foreground/5 bg-muted/10 shadow-2xl">
+            <div className="absolute inset-0 rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden border border-foreground/10 bg-muted/10 shadow-2xl">
               <AnimatePresence mode="wait">
                 <m.div
                   key={activeIndex}
-                  initial={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
-                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, scale: 0.95, filter: "blur(20px)" }}
-                  transition={{ duration: 0.8, ease: EASE_APPLE }}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.6, ease: EASE_APPLE }}
                   className="relative w-full h-full"
                 >
                   <Image
                     src="/utils/placeholder.svg"
-                    alt={`${projects[activeIndex].title} Preview`}
+                    alt={`${projects[activeIndex].title} Case Study Visual`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
@@ -106,7 +105,7 @@ export function Showcase(): React.JSX.Element {
               </AnimatePresence>
             </div>
 
-            <div className="absolute -inset-4 border border-foreground/[0.03] rounded-[3.5rem] lg:rounded-[4.5rem] pointer-events-none" aria-hidden="true" />
+            <div className="absolute -inset-4 border border-foreground/[0.05] rounded-[3.5rem] lg:rounded-[4.5rem] pointer-events-none" aria-hidden="true" />
           </div>
 
         </div>

@@ -43,7 +43,6 @@ export function Value(): React.JSX.Element {
       onMouseMove={handleMouseMove}
       className="relative w-full bg-background pt-32 pb-64 overflow-hidden border-t border-foreground/5"
     >
-      {/* Spotlight Background - Optimized */}
       <m.div 
         style={{ 
           background: `radial-gradient(800px circle at ${spotlightX}px ${spotlightY}px, var(--brand-primary), transparent 80%)`,
@@ -108,15 +107,15 @@ function DisciplineCard({ discipline, index }: { discipline: any, index: number 
       <AnimatePresence>
         {isHovered && (
           <m.div 
-            initial={{ opacity: 0, scale: 1.15, filter: "blur(20px)" }}
-            animate={{ opacity: 0.25, scale: 1.05, filter: "blur(0px)" }}
-            exit={{ opacity: 0, scale: 1.15, filter: "blur(20px)" }}
+            initial={{ opacity: 0, scale: 1.15 }}
+            animate={{ opacity: 0.25, scale: 1.05 }}
+            exit={{ opacity: 0, scale: 1.15 }}
             transition={{ duration: 0.8, ease: EASE_APPLE }}
             className="absolute inset-0 z-0 pointer-events-none"
           >
             <Image
               src="/utils/placeholder.svg"
-              alt={discipline.title}
+              alt={`${discipline.title} Strategy Discipline Visual`}
               fill
               sizes="(max-width: 1024px) 100vw, 33vw"
               className="object-cover"

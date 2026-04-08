@@ -104,12 +104,13 @@ export default async function RootLayout({
       className={cn("antialiased", fontVariables)}
     >
       <head>
+        <link rel="preload" as="image" href="/utils/placeholder.svg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="mx-auto w-full max-w-440">
+      <body className="mx-auto w-full max-w-440 overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <MotionProvider>
@@ -120,7 +121,7 @@ export default async function RootLayout({
         </NextIntlClientProvider>
 
         {siteConfig.analytics.google && consent === "accepted" && (
-          <GoogleAnalytics gaId={siteConfig.analytics.google} />
+          <GoogleAnalytics gaId={siteConfig.analytics.google} strategy="lazyOnload" />
         )}
       </body>
     </html>
