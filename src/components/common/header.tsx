@@ -11,6 +11,7 @@ import { useTheme } from "next-themes"
 
 import { LanguageSwitcher } from "@/src/components/common/languageSwitcher"
 import { ThemeToggle } from "@/src/components/common/themeToggle"
+import { NavLink } from "@/src/components/ui/navLink"
 
 const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -67,14 +68,11 @@ export const Header = React.memo(function Header(): React.JSX.Element {
         <div className="flex items-center gap-12">
           <nav className="hidden lg:flex items-center gap-10" aria-label="Main Navigation">
             {navLinks.map((link) => (
-              <Link 
+              <NavLink 
                 key={link.href} 
                 href={link.href} 
-                className="group relative text-[10px] font-black uppercase tracking-[0.4em] text-foreground/60 hover:text-brand-primary transition-colors duration-500"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand-primary transition-all duration-500 group-hover:w-full" aria-hidden="true" />
-              </Link>
+                label={link.label}
+              />
             ))}
           </nav>
 
@@ -133,13 +131,12 @@ export const Header = React.memo(function Header(): React.JSX.Element {
                   exit={{ opacity: 0, y: 30 }}
                   transition={{ delay: i * 0.1, duration: 0.8, ease: EASE_APPLE }}
                 >
-                  <Link 
+                  <NavLink 
                     href={link.href} 
+                    label={link.label}
+                    variant="mobile"
                     onClick={() => setIsOpen(false)}
-                    className="text-5xl md:text-7xl font-heading font-black uppercase tracking-tighter text-foreground hover:text-brand-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  />
                 </m.div>
               ))}
             </nav>

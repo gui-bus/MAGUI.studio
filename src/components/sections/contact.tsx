@@ -11,6 +11,7 @@ import { m } from "framer-motion"
 import { Button } from "@/src/components/ui/button"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 import { Section } from "@/src/components/ui/section"
+import { GrainyNoise } from "@/src/components/ui/grainyNoise"
 
 const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -26,8 +27,7 @@ export function Contact(): React.JSX.Element {
       className="py-48 lg:py-72 border-t border-foreground/5"
       withContainer={true}
     >
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05]" 
-           style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} />
+      <GrainyNoise />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-end">
 

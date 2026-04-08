@@ -10,6 +10,7 @@ import { useTheme } from "next-themes"
 
 import { Plus, ArrowUp } from "@phosphor-icons/react"
 import { m } from "framer-motion"
+import { NavLink } from "@/src/components/ui/navLink"
 
 export const Footer = React.memo(function Footer(): React.JSX.Element {
   const t = useTranslations("Footer")
@@ -77,10 +78,11 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
               <ul className="space-y-6">
                 {navigationLinks.map((link) => (
                   <li key={link.id} className="group overflow-hidden">
-                    <Link href={`#${idT(link.id)}`} className="text-lg font-bold uppercase tracking-tighter text-foreground hover:text-brand-primary transition-all duration-500 flex items-center gap-2 group-hover:translate-x-2">
-                      {link.label}
-                      <Plus size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
-                    </Link>
+                    <NavLink 
+                      href={`#${idT(link.id)}`} 
+                      label={link.label}
+                      variant="footer"
+                    />
                   </li>
                 ))}
               </ul>
@@ -94,10 +96,11 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
               <ul className="space-y-6">
                 {socialLinks.map((link) => (
                   <li key={link} className="group overflow-hidden">
-                    <Link href="#" className="text-lg font-bold uppercase tracking-tighter text-foreground hover:text-brand-primary transition-all duration-500 flex items-center gap-2 group-hover:translate-x-2">
-                      {link}
-                      <Plus size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
-                    </Link>
+                    <NavLink 
+                      href="#" 
+                      label={link}
+                      variant="footer"
+                    />
                   </li>
                 ))}
               </ul>

@@ -8,8 +8,8 @@ import { useTranslations } from "next-intl"
 import { m, useTransform, useScroll, AnimatePresence } from "framer-motion"
 
 import { cn } from "@/src/lib/utils/utils"
-import { StaggeredText } from "@/src/components/ui/staggeredText"
 import { Section } from "@/src/components/ui/section"
+import { SectionHeader } from "@/src/components/ui/sectionHeader"
 import { useSpotlight } from "@/src/lib/hooks/useSpotlight"
 import { Discipline } from "@/src/types/sections"
 import { TRANSITION_MEDIUM, VARIANTS_FADE_IN_UP } from "@/src/config/animations"
@@ -18,7 +18,7 @@ export function Value(): React.JSX.Element {
   const t = useTranslations("Index.Value")
   const idT = useTranslations("Index.Ids")
   const containerRef = React.useRef<HTMLDivElement>(null)
-  
+
   const { spotlightX, spotlightY, handleMouseMove } = useSpotlight(containerRef)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -42,33 +42,16 @@ export function Value(): React.JSX.Element {
         }}
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] hidden lg:block"
       />
-        
+
       {/* SECTION HEADER */}
-      <m.div 
+      <SectionHeader 
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        description={t("description")}
+        eyebrowType="dot"
         style={{ opacity }}
         className="mb-32 flex flex-col md:flex-row md:items-end justify-between gap-12"
-      >
-        <div className="max-w-4xl space-y-8">
-          <m.div 
-            variants={VARIANTS_FADE_IN_UP}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex items-center gap-4"
-          >
-            <div className="h-1.5 w-1.5 rounded-full bg-brand-primary" />
-            <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
-              {t("eyebrow")}
-            </span>
-          </m.div>
-          <h2 className="font-heading text-6xl md:text-8xl lg:text-[110px] font-black leading-[0.95] tracking-[-0.05em] text-foreground uppercase">
-            <StaggeredText text={t("title")} />
-          </h2>
-        </div>
-        <p className="max-w-md text-lg md:text-xl text-muted-foreground font-medium leading-relaxed pb-4 border-l border-foreground/10 pl-8">
-          <StaggeredText text={t("description")} delayBase={0.4} />
-        </p>
-      </m.div>
+      />
 
       {/* DISCIPLINES GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-foreground/5 border border-foreground/5">

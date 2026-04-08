@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl"
 import { m } from "framer-motion"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 import { Section } from "@/src/components/ui/section"
+import { SectionHeader } from "@/src/components/ui/sectionHeader"
 import { useSpotlight } from "@/src/lib/hooks/useSpotlight"
 import { EASE_APPLE } from "@/src/config/animations"
 
@@ -40,11 +41,13 @@ export function About(): React.JSX.Element {
       />
 
       <div className="flex flex-col items-center text-center space-y-16">
+        <SectionHeader 
+          title={t("title")}
+          align="center"
+          className="mb-0"
+        />
+        
         <div className="space-y-12">
-          <h2 className="font-heading text-5xl md:text-8xl lg:text-[140px] font-black tracking-tight text-foreground leading-[1.0] uppercase select-none">
-            <StaggeredText text={t("title")} />
-          </h2>
-          
           <div className="relative flex justify-center">
             <m.div 
               initial={{ scaleX: 0 }}
