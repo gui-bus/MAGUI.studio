@@ -33,7 +33,7 @@ export function Contact(): React.JSX.Element {
       <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05]" 
            style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} />
 
-      <div className="container mx-auto max-w-[1800px] px-6 lg:px-12 relative z-10">
+      <div className="px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-end">
           
           <div className="lg:col-span-8 space-y-12">

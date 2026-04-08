@@ -7,7 +7,6 @@ import { Header } from "@/src/components/common/header"
 import { Footer } from "@/src/components/common/footer"
 import { ScrollSpy } from "@/src/components/common/scrollSpy"
 
-// Dynamic imports for sections below the fold to improve LCP and TBT
 const About = dynamic(() => import("@/src/components/sections/about").then(mod => mod.About))
 const Showcase = dynamic(() => import("@/src/components/sections/showcase").then(mod => mod.Showcase))
 const Services = dynamic(() => import("@/src/components/sections/services").then(mod => mod.Services))

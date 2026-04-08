@@ -8,6 +8,8 @@ import { ArrowUpRight } from "@phosphor-icons/react"
 import { m, AnimatePresence } from "framer-motion"
 
 import { cn } from "@/src/lib/utils/utils"
+import { Service } from "@/src/types/sections"
+import { TRANSITION_MEDIUM } from "@/src/config/animations"
 
 const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -16,7 +18,7 @@ export function Services(): React.JSX.Element {
   const idT = useTranslations("Index.Ids")
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null)
   
-  const services = React.useMemo(() => [
+  const services = React.useMemo<Service[]>(() => [
     {
       id: "01",
       title: t("uiux.title"),
@@ -46,7 +48,7 @@ export function Services(): React.JSX.Element {
   return (
     <section id={idT("services")} className="relative w-full bg-background overflow-hidden border-y border-foreground/5">
       <div className="pointer-events-none absolute inset-0 z-50 opacity-[0.03] dark:opacity-[0.05]" 
-           style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} />
+           style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} aria-hidden="true" />
 
       <div className="flex flex-col lg:flex-row h-full min-h-[600px] lg:h-[800px] w-full">
         {services.map((service, index) => {
@@ -101,7 +103,7 @@ export function Services(): React.JSX.Element {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.1 }}
-                      transition={{ duration: 0.8, ease: EASE_APPLE }}
+                      transition={TRANSITION_MEDIUM}
                       className="absolute inset-0 flex items-center justify-center pointer-events-none"
                     >
                       <h3 className={cn(
@@ -130,7 +132,7 @@ export function Services(): React.JSX.Element {
                           hidden: { opacity: 0, y: 30 },
                           visible: { opacity: 1, y: 0 }
                         }}
-                        transition={{ duration: 0.8, ease: EASE_APPLE }}
+                        transition={TRANSITION_MEDIUM}
                         className={cn("font-heading text-6xl md:text-8xl lg:text-[100px] font-black uppercase tracking-[-0.05em] leading-[0.85]", service.textColor)}
                       >
                         {service.title}
@@ -140,7 +142,7 @@ export function Services(): React.JSX.Element {
                           hidden: { opacity: 0, y: 30 },
                           visible: { opacity: 1, y: 0 }
                         }}
-                        transition={{ duration: 0.8, ease: EASE_APPLE }}
+                        transition={TRANSITION_MEDIUM}
                         className={cn("max-w-2xl text-xl md:text-3xl font-medium leading-tight tracking-tight opacity-80", service.textColor)}
                       >
                         {service.description}
@@ -180,6 +182,7 @@ export function Services(): React.JSX.Element {
                 isActive ? "opacity-20" : "opacity-0"
               )} 
                    style={{ backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`, backgroundSize: '40px 40px' }} 
+                   aria-hidden="true"
               />
             </m.div>
           )

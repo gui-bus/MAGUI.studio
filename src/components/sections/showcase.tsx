@@ -10,26 +10,26 @@ import { m, AnimatePresence } from "framer-motion"
 
 import { cn } from "@/src/lib/utils/utils"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
-
-const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
+import { Project } from "@/src/types/sections"
+import { TRANSITION_MEDIUM, VARIANTS_FADE_IN_UP } from "@/src/config/animations"
 
 export function Showcase(): React.JSX.Element {
   const t = useTranslations("Index.Showcase")
   const idT = useTranslations("Index.Ids")
-  const projects = t.raw("projects") as { title: string }[]
+  const projects = t.raw("projects") as Project[]
   const [activeIndex, setActiveIndex] = React.useState(0)
 
   return (
     <section id={idT("portfolio")} className="relative w-full py-32 lg:py-64 bg-background overflow-hidden px-6 md:px-12 lg:px-24">
-      <div className="mx-auto max-w-7xl">
+     
         
         {/* SECTION HEADER */}
         <div className="mb-32 space-y-8">
           <m.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            variants={VARIANTS_FADE_IN_UP}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: EASE_APPLE }}
             className="flex items-center gap-4"
           >
             <div className="h-px w-12 bg-brand-primary" />
@@ -47,38 +47,41 @@ export function Showcase(): React.JSX.Element {
           
           {/* LEFT: THE LIST */}
           <div className="lg:col-span-5 flex flex-col border-t border-foreground/10">
-            {projects.map((project, index) => (
-              <button
-                key={index}
-                aria-label={`View ${project.title} project`}
-                onMouseEnter={() => setActiveIndex(index)}
-                onClick={() => setActiveIndex(index)}
-                className="group relative w-full py-10 border-b border-foreground/10 text-left transition-all duration-500 focus-visible:outline-brand-primary"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-8">
-                    <span className={cn(
-                      "font-heading text-xl font-black transition-colors duration-500",
-                      activeIndex === index ? "text-brand-primary" : "text-foreground/40"
+            {projects.map((project, index) => {
+              const isActive = activeIndex === index
+              return (
+                <button
+                  key={index}
+                  aria-label={`View ${project.title} project`}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onClick={() => setActiveIndex(index)}
+                  className="group relative w-full py-10 border-b border-foreground/10 text-left transition-all duration-500 focus-visible:outline-brand-primary"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-8">
+                      <span className={cn(
+                        "font-heading text-xl font-black transition-colors duration-500",
+                        isActive ? "text-brand-primary" : "text-foreground/40"
+                      )}>
+                        0{index + 1}
+                      </span>
+                      <h3 className={cn(
+                        "font-heading text-3xl md:text-5xl font-black uppercase tracking-tighter transition-all duration-500",
+                        isActive ? "text-foreground translate-x-4" : "text-foreground/60"
+                      )}>
+                        {project.title}
+                      </h3>
+                    </div>
+                    <div className={cn(
+                      "h-12 w-12 rounded-full border flex items-center justify-center transition-all duration-500",
+                      isActive ? "bg-brand-primary border-brand-primary text-white scale-110" : "border-foreground/10 text-transparent"
                     )}>
-                      0{index + 1}
-                    </span>
-                    <h3 className={cn(
-                      "font-heading text-3xl md:text-5xl font-black uppercase tracking-tighter transition-all duration-500",
-                      activeIndex === index ? "text-foreground translate-x-4" : "text-foreground/60"
-                    )}>
-                      {project.title}
-                    </h3>
+                      <ArrowRight weight="bold" size={20} aria-hidden="true" />
+                    </div>
                   </div>
-                  <div className={cn(
-                    "h-12 w-12 rounded-full border flex items-center justify-center transition-all duration-500",
-                    activeIndex === index ? "bg-brand-primary border-brand-primary text-white scale-110" : "border-foreground/10 text-transparent"
-                  )}>
-                    <ArrowRight weight="bold" size={20} aria-hidden="true" />
-                  </div>
-                </div>
-              </button>
-            ))}
+                </button>
+              )
+            })}
           </div>
 
           {/* RIGHT: THE LENS */}
@@ -90,7 +93,7 @@ export function Showcase(): React.JSX.Element {
                   initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.6, ease: EASE_APPLE }}
+                  transition={TRANSITION_MEDIUM}
                   className="relative w-full h-full"
                 >
                   <Image
@@ -110,7 +113,7 @@ export function Showcase(): React.JSX.Element {
 
         </div>
 
-      </div>
+
     </section>
   )
 }

@@ -25,8 +25,8 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
 
   const logoSrc = React.useMemo(() => 
     resolvedTheme === "dark" 
-      ? "/Logos/LOGO_VAR_02_DM.png" 
-      : "/Logos/LOGO_VAR_02_LM.png"
+      ? "/Logos/LOGO_VAR_03_DM.png" 
+      : "/Logos/LOGO_VAR_03_LM.png"
   , [resolvedTheme])
 
   const scrollToTop = React.useCallback(() => {
@@ -43,7 +43,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
 
   return (
     <footer className="w-full bg-background pt-32 pb-12 border-t border-foreground/5 overflow-hidden" aria-label="Site Footer">
-      <div className="container mx-auto max-w-[1800px] px-6 lg:px-12">
+      <div className="px-6 lg:px-12">
         
         {/* MAIN FOOTER CONTENT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 lg:gap-12 items-start mb-48">
@@ -77,7 +77,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
               <ul className="space-y-6">
                 {navigationLinks.map((link) => (
                   <li key={link.id} className="group overflow-hidden">
-                    <Link href={`#${idT(link.id as any)}`} className="text-lg font-bold uppercase tracking-tighter text-foreground hover:text-brand-primary transition-all duration-500 flex items-center gap-2 group-hover:translate-x-2">
+                    <Link href={`#${idT(link.id)}`} className="text-lg font-bold uppercase tracking-tighter text-foreground hover:text-brand-primary transition-all duration-500 flex items-center gap-2 group-hover:translate-x-2">
                       {link.label}
                       <Plus size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
                     </Link>
@@ -132,7 +132,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
                className="absolute inset-0 z-10 bg-gradient-to-r from-transparent via-brand-primary/5 to-transparent skew-x-12 pointer-events-none"
                aria-hidden="true"
              />
-             MAGUI<span className="text-[0.2em] align-top text-brand-primary">®</span>
+             MAGUI
            </m.h2>
         </div>
 

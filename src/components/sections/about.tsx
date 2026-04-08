@@ -4,27 +4,17 @@ import * as React from "react"
 
 import { useTranslations } from "next-intl"
 
-import { m, useMotionValue, useSpring } from "framer-motion"
+import { m } from "framer-motion"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
-
-const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
+import { useSpotlight } from "@/src/lib/hooks/useSpotlight"
+import { EASE_APPLE } from "@/src/config/animations"
 
 export function About(): React.JSX.Element {
   const t = useTranslations("Index.About")
   const idT = useTranslations("Index.Ids")
-  const containerRef = React.useRef<HTMLDivElement>(null)
+  const containerRef = React.useRef<HTMLElement>(null)
 
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-  const spotlightX = useSpring(mouseX, { damping: 50, stiffness: 200 })
-  const spotlightY = useSpring(mouseY, { damping: 50, stiffness: 200 })
-
-  const handleMouseMove = React.useCallback((e: React.MouseEvent) => {
-    if (!containerRef.current || window.innerWidth < 1024) return
-    const rect = containerRef.current.getBoundingClientRect()
-    mouseX.set(e.clientX - rect.left)
-    mouseY.set(e.clientY - rect.top)
-  }, [mouseX, mouseY])
+  const { spotlightX, spotlightY, handleMouseMove } = useSpotlight(containerRef)
 
   return (
     <section 
@@ -44,9 +34,10 @@ export function About(): React.JSX.Element {
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="pointer-events-none absolute inset-0 z-0 hidden lg:block"
+        aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl relative z-10">
+      <div className="relative z-10">
         <div className="flex flex-col items-center text-center space-y-16">
           <div className="space-y-12">
             <h2 className="font-heading text-5xl md:text-8xl lg:text-[140px] font-black tracking-tight text-foreground leading-[1.0] uppercase select-none">
@@ -65,11 +56,12 @@ export function About(): React.JSX.Element {
                   animate={{ x: ["-100%", "100%"] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                  aria-hidden="true"
                 />
               </m.div>
             </div>
 
-            <p className="max-w-5xl mx-auto text-2xl md:text-4xl lg:text-5xl text-muted-foreground/80 font-medium leading-[1.2] tracking-tight">
+            <p className="max-w-5xl mx-auto text-2xl md:text-4xl lg:text-5xl text-muted-foreground/70 font-medium leading-[1.2] tracking-tight">
               <StaggeredText text={t("description")} delayBase={0.5} />
             </p>
           </div>
@@ -80,6 +72,7 @@ export function About(): React.JSX.Element {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.05 }}
         className="absolute bottom-12 left-12 text-[10px] font-black uppercase tracking-[0.8em] text-foreground rotate-90 origin-left"
+        aria-hidden="true"
       >
         Manifesto v1.0
       </m.div>

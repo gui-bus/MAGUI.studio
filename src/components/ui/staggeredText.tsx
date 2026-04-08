@@ -2,21 +2,18 @@
 
 import * as React from "react"
 import { m } from "framer-motion"
+import { VARIANTS_TEXT_REVEAL } from "@/src/config/animations"
 
 interface StaggeredTextProps {
   text: string
   delayBase?: number
   className?: string
-  duration?: number
   once?: boolean
 }
-
-const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export const StaggeredText = React.memo(function StaggeredText({
   text,
   delayBase = 0,
-  duration = 1.2,
   once = true
 }: StaggeredTextProps) {
   const words = React.useMemo(() => text.split(" "), [text])
@@ -26,14 +23,11 @@ export const StaggeredText = React.memo(function StaggeredText({
       {words.map((word, i) => (
         <span key={`${word}-${i}`} className="inline-block overflow-hidden mr-[0.2em] last:mr-0">
           <m.span
-            initial={{ y: "100%" }}
-            whileInView={{ y: 0 }}
+            custom={delayBase + (i * 0.08)}
+            variants={VARIANTS_TEXT_REVEAL}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once }}
-            transition={{ 
-              duration, 
-              ease: EASE_APPLE, 
-              delay: delayBase + (i * 0.08) 
-            }}
             className="inline-block"
           >
             {word}
