@@ -2,7 +2,7 @@
   "Index": {
     "Ids": {
       "hero": "home",
-      "value": "disciplines",
+      "value": "foundations",
       "about": "manifesto",
       "portfolio": "portfolio",
       "services": "expertise",
@@ -58,7 +58,7 @@
       ]
     },
     "Value": {
-      "eyebrow": "Our Disciplines",
+      "eyebrow": "Foundations",
       "title": "The Science Behind Authority.",
       "description": "We combine engineering rigor with design sensitivity to create systems that don't just function—they dominate their segment.",
       "image_alt": "Abstraction of Excellence",
@@ -107,9 +107,9 @@
       ]
     },
     "Services": {
-      "eyebrow": "Our Expertise",
-      "title": "Architecture of Value.",
-      "description": "We develop digital ecosystems where every technical decision is guided by strategic intent.",
+      "eyebrow": "Our Specialties",
+      "title": "Services that Elevate Your Business.",
+      "description": "Strategic solutions designed for brands seeking visual authority and concrete results.",
       "landing": {
         "title": "Landing Pages",
         "label": "High-Conversion",

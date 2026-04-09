@@ -11,6 +11,8 @@ import { cn } from "@/src/lib/utils/utils"
 import { Service } from "@/src/types/sections"
 import { Section } from "@/src/components/ui/section"
 import { GrainyNoise } from "@/src/components/ui/grainyNoise"
+import { StaggeredText } from "@/src/components/ui/staggeredText"
+import { VARIANTS_FADE_IN_UP } from "@/src/config/animations"
 import Image from "next/image"
 
 const SERVICE_IMAGES = [
@@ -52,10 +54,67 @@ export function Services(): React.JSX.Element {
   ], [t])
 
   return (
-    <Section id={idT("services")} className="border-y border-foreground/5 overflow-hidden" withContainer={false}>
+    <Section id={idT("services")} className="border-y border-foreground/5 overflow-hidden py-32 md:py-44" withContainer={false}>
       <GrainyNoise zIndex="z-50" opacity="opacity-[0.03] dark:opacity-[0.05]" />
 
-      <div className="flex flex-col lg:flex-row h-full min-h-175 lg:h-225 w-full relative z-10">
+      <div className="container px-6 md:px-10 mb-32 relative">
+        <div className="flex flex-col gap-16 md:gap-24">
+          {/* TOP PORTION: EYEBROW + TITLE */}
+          <div className="space-y-12">
+            <m.div
+              variants={VARIANTS_FADE_IN_UP}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="flex items-center gap-4"
+            >
+              <div className="h-px w-12 bg-brand-primary" />
+              <m.span 
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary"
+              >
+                {t("eyebrow")}
+              </m.span>
+            </m.div>
+
+            <h2 className="font-heading text-6xl md:text-9xl lg:text-[160px] font-black leading-[0.7] tracking-[-0.06em] text-foreground uppercase select-none">
+              <m.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="block"
+              >
+                <StaggeredText text="Serviços" />
+              </m.div>
+              <m.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                className="block text-brand-primary mt-4"
+              >
+                <StaggeredText text="Especializados" delayBase={0.3} />
+              </m.div>
+            </h2>
+          </div>
+
+          {/* BOTTOM PORTION: DESCRIPTION */}
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+            <m.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+              className="max-w-4xl text-2xl md:text-3xl lg:text-5xl text-muted-foreground font-medium leading-tight tracking-tighter"
+            >
+              {t("description")}
+            </m.p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col lg:flex-row h-full min-h-175 lg:h-225 w-full relative z-10 border-t border-foreground/5">
         {services.map((service, index) => (
           <ServicePanel 
             key={service.id}
@@ -207,13 +266,6 @@ function ServicePanel({ service, index, activeIndex, setActiveIndex, image }: Se
             </m.div>
           )}
         </AnimatePresence>
-
-        <div className="flex items-center justify-between opacity-20">
-           <span className="text-[10px] font-mono font-bold text-current">
-             SERVICES // 2026
-           </span>
-           <div className="h-1 w-1 rounded-full bg-current" />
-        </div>
       </div>
     </m.div>
   )

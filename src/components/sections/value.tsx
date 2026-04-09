@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl"
 import { m, useTransform, useScroll, AnimatePresence } from "framer-motion"
 
 import { Section } from "@/src/components/ui/section"
-import { SectionHeader } from "@/src/components/ui/sectionHeader"
+import { StaggeredText } from "@/src/components/ui/staggeredText"
 import { useSpotlight } from "@/src/lib/hooks/useSpotlight"
 import { Discipline } from "@/src/types/sections"
 import { TRANSITION_MEDIUM, VARIANTS_FADE_IN_UP } from "@/src/config/animations"
@@ -47,15 +47,69 @@ export function Value(): React.JSX.Element {
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] hidden lg:block"
       />
 
-      {/* SECTION HEADER */}
-      <SectionHeader 
-        eyebrow={t("eyebrow")}
-        title={t("title")}
-        description={t("description")}
-        eyebrowType="dot"
-        style={{ opacity }}
-        className="mb-32 flex flex-col md:flex-row md:items-end justify-between gap-12"
-      />
+      {/* UNIQUE STRUCTURAL HEADER FOR VALUE */}
+      <m.div style={{ opacity }} className="mb-40 relative">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+          
+          {/* VERTICAL SIDEBAR EYEBROW */}
+          <div className="hidden lg:flex flex-col items-center gap-8 py-4">
+             <m.div 
+               initial={{ height: 0 }}
+               whileInView={{ height: 120 }}
+               viewport={{ once: true }}
+               transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+               className="w-[2px] bg-brand-primary" 
+             />
+             <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-black uppercase tracking-[0.6em] text-brand-primary whitespace-nowrap">
+                {t("eyebrow")}
+             </span>
+          </div>
+
+          <div className="flex-1 space-y-20">
+            {/* CLEAN SOLID TITLE WITH INDENTATION */}
+            <h2 className="font-heading text-6xl md:text-9xl lg:text-[160px] font-black leading-[0.75] tracking-[-0.06em] text-foreground uppercase select-none">
+              <m.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="block"
+              >
+                <StaggeredText text="A Ciência da" />
+              </m.div>
+              <m.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                className="block lg:ml-32 text-brand-primary mt-2"
+              >
+                <StaggeredText text="Autoridade." delayBase={0.3} />
+              </m.div>
+            </h2>
+
+            {/* DESCRIPTION WITH TECHNICAL BOX */}
+            <div className="grid grid-cols-1 lg:grid-cols-12">
+               <div className="lg:col-start-4 lg:col-span-9">
+                  <m.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.4 }}
+                    className="relative p-8 md:p-12 border border-foreground/5 bg-foreground/[0.01] rounded-2xl"
+                  >
+                    {/* Decorative Corner Marker */}
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-primary/40 -translate-x-[1px] -translate-y-[1px]" />
+                    
+                    <p className="text-xl md:text-2xl text-muted-foreground font-medium leading-tight tracking-tight">
+                      {t("description")}
+                    </p>
+                  </m.div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </m.div>
 
       {/* DISCIPLINES GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-foreground/5 border border-foreground/5">

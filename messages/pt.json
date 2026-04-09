@@ -2,7 +2,7 @@
   "Index": {
     "Ids": {
       "hero": "inicio",
-      "value": "disciplinas",
+      "value": "fundamentos",
       "about": "manifesto",
       "portfolio": "portfolio",
       "services": "expertise",
@@ -58,7 +58,7 @@
       ]
     },
     "Value": {
-      "eyebrow": "Nossas Disciplinas",
+      "eyebrow": "Fundamentos",
       "title": "A Ciência por trás da Autoridade.",
       "description": "Combinamos o rigor da engenharia com a sensibilidade do design para criar sistemas que não apenas funcionam, mas dominam seu segmento.",
       "image_alt": "Abstração de Excelência",
@@ -107,9 +107,9 @@
       ]
     },
     "Services": {
-      "eyebrow": "Nossa Expertise",
-      "title": "Arquitetura de Valor.",
-      "description": "Desenvolvemos ecossistemas digitais onde cada decisão técnica é guiada pela intenção estratégica.",
+      "eyebrow": "Nossas Especialidades",
+      "title": "Serviços que Elevam seu Negócio.",
+      "description": "Soluções estratégicas desenhadas para marcas que buscam autoridade visual e resultados concretos.",
       "landing": {
         "title": "Landing Pages",
         "label": "High-Conversion",
