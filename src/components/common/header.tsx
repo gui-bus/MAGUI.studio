@@ -36,8 +36,8 @@ export const Header = React.memo(function Header(): React.JSX.Element {
 
   const logoSrc = React.useMemo(() => 
     resolvedTheme === "dark" 
-      ? "/Logos/LOGO_VAR_02_DM.png" 
-      : "/Logos/LOGO_VAR_02_LM.png"
+      ? "/logos/LOGO_VAR_03_LM.svg" 
+      : "/logos/LOGO_VAR_03_DM.svg"
   , [resolvedTheme])
 
   const navLinks = React.useMemo(() => [
@@ -56,9 +56,10 @@ export const Header = React.memo(function Header(): React.JSX.Element {
             <Image 
               src={logoSrc} 
               alt="MAGUI.studio - Visual Strategy & Interface Design" 
-              width={160} 
-              height={44} 
-              className="h-8 md:h-9 w-auto object-contain"
+              width={0} 
+              height={0} 
+              sizes="100vw"
+              className="h-6 w-auto object-contain"
               priority
             />
           )}

@@ -26,8 +26,8 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
 
   const logoSrc = React.useMemo(() => 
     resolvedTheme === "dark" 
-      ? "/Logos/LOGO_VAR_03_DM.png" 
-      : "/Logos/LOGO_VAR_03_LM.png"
+      ? "/logos/LOGO_VAR_03_LM.svg" 
+      : "/logos/LOGO_VAR_03_DM.svg"
   , [resolvedTheme])
 
   const scrollToTop = React.useCallback(() => {

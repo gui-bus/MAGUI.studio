@@ -45,7 +45,7 @@ export function Process(): React.JSX.Element {
         <div className="hidden md:block absolute top-12 left-0 -translate-x-1/2 -translate-y-1/2 z-20">
           <div className="bg-background p-2">
             <Image 
-              src="/Logos/icon.png" 
+              src="/logos/icon.png" 
               alt="" 
               width={24} 
               height={24} 
