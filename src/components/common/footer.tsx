@@ -129,12 +129,6 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
              className="text-7xl md:text-[160px] lg:text-[280px] xl:text-[360px] font-black leading-none text-foreground uppercase tracking-[-0.08em] select-none text-center relative"
            >
-             <m.div 
-               animate={{ x: ["-100%", "200%"] }}
-               transition={{ duration: 4, repeat: Infinity, ease: "linear", repeatDelay: 3 }}
-               className="absolute inset-0 z-10 bg-gradient-to-r from-transparent via-brand-primary/5 to-transparent skew-x-12 pointer-events-none"
-               aria-hidden="true"
-             />
              MAGUI
            </m.h2>
         </div>

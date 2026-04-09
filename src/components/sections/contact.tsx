@@ -41,13 +41,13 @@ export function Contact(): React.JSX.Element {
           >
             <div className="relative h-12 w-48 lg:h-16 lg:w-64">
               <Image 
-                src="/logos/LOGO_VAR_03_LM.svg" 
-                alt="MAGUI" 
+                src="/logos/LOGO_VAR_03_DM.svg" 
+              alt="MAGUI" 
                 fill
                 className="object-contain object-left dark:hidden"
               />
               <Image 
-                src="/logos/LOGO_VAR_03_DM.svg" 
+                src="/logos/LOGO_VAR_03_LM.svg" 
                 alt="MAGUI" 
                 fill
                 className="object-contain object-left hidden dark:block"

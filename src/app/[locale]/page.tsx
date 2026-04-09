@@ -7,7 +7,6 @@ import { Header } from "@/src/components/common/header"
 import { Footer } from "@/src/components/common/footer"
 import { ScrollSpy } from "@/src/components/common/scrollSpy"
 
-const About = dynamic(() => import("@/src/components/sections/about").then(mod => mod.About))
 const Showcase = dynamic(() => import("@/src/components/sections/showcase").then(mod => mod.Showcase))
 const Services = dynamic(() => import("@/src/components/sections/services").then(mod => mod.Services))
 const Process = dynamic(() => import("@/src/components/sections/process").then(mod => mod.Process))
@@ -22,7 +21,6 @@ export default function Page(): React.JSX.Element {
       <main>
         <Hero />
         <Value />
-        <About />
         <Showcase />
         <Services />
         <Process />

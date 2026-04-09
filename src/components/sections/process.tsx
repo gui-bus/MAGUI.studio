@@ -22,7 +22,6 @@ export function Process(): React.JSX.Element {
     >
       {/* SECTION HEADER */}
       <SectionHeader 
-        eyebrow="Protocol V4.0"
         title={t("title")}
         align="center"
         eyebrowType="double-line"
@@ -39,19 +38,6 @@ export function Process(): React.JSX.Element {
             transition={{ duration: 2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
             className="w-full h-full bg-gradient-to-r from-brand-primary/10 via-brand-primary to-brand-primary/10 origin-left"
           />
-        </div>
-
-        {/* Brand Anchor */}
-        <div className="hidden md:block absolute top-12 left-0 -translate-x-1/2 -translate-y-1/2 z-20">
-          <div className="bg-background p-2">
-            <Image 
-              src="/logos/icon.png" 
-              alt="" 
-              width={24} 
-              height={24} 
-              className="object-contain"
-            />
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8 relative z-10">

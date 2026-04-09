@@ -104,20 +104,20 @@
       "eyebrow": "Nossa Expertise",
       "title": "Arquitetura de Valor.",
       "description": "Desenvolvemos ecossistemas digitais onde cada decisão técnica é guiada pela intenção estratégica.",
-      "uiux": {
-        "title": "Design de Experiência",
-        "label": "High-Fidelity",
-        "description": "Interfaces que projetam autoridade e guiam o usuário com precisão cirúrgica até a conversão."
+      "landing": {
+        "title": "Landing Pages",
+        "label": "High-Conversion",
+        "description": "Páginas de captura otimizadas para converter visitantes em leads com design persuasivo e performance extrema."
       },
-      "frontend": {
-        "title": "Engenharia de Sistemas",
-        "label": "Scale & Power",
-        "description": "Sistemas robustos construídos para suportar o crescimento e a complexidade de negócios globais."
+      "sales": {
+        "title": "Páginas de Vendas",
+        "label": "Profit & Power",
+        "description": "Sistemas de vendas focados em autoridade e faturamento, desenhados para maximizar o seu ROI digital."
       },
-      "performance": {
-        "title": "Otimização de Impacto",
-        "label": "Pure Speed",
-        "description": "Garantimos que sua infraestrutura carregue instantaneamente, dominando cada métrica de performance."
+      "institutional": {
+        "title": "Sites Institucionais",
+        "label": "Brand Authority",
+        "description": "Presença digital de elite que projeta confiança e solidez para empresas que buscam liderança de mercado."
       }
     },
     "FAQ": {
