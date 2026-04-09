@@ -89,17 +89,20 @@
         { 
           "title": "Global Fintech", 
           "category": "Strategy & UX",
-          "year": "2025"
+          "year": "2025",
+          "image": "/projects/thais.png"
         },
         { 
           "title": "Elite Retail", 
           "category": "E-commerce & Scale",
-          "year": "2026"
+          "year": "2026",
+          "image": "/projects/powervet.png"
         },
         { 
           "title": "Digital Infrastructure", 
           "category": "Systems & Engineering",
-          "year": "2026"
+          "year": "2026",
+          "image": "/projects/horizon.png"
         }
       ]
     },

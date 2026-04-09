@@ -5,13 +5,15 @@ import * as React from "react"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 
-import { ArrowUpRight, Globe } from "@phosphor-icons/react"
+import { ArrowUpRightIcon } from "@phosphor-icons/react"
 import { m } from "framer-motion"
 
 import { Button } from "@/src/components/ui/button"
-import { StaggeredText } from "@/src/components/ui/staggeredText"
 import { Section } from "@/src/components/ui/section"
+import { StaggeredText } from "@/src/components/ui/staggeredText"
+
 import { useSpotlight } from "@/src/lib/hooks/useSpotlight"
+
 import { TRANSITION_SLOW, VARIANTS_FADE_IN_UP } from "@/src/config/animations"
 
 export function Hero(): React.JSX.Element {
@@ -24,19 +26,24 @@ export function Hero(): React.JSX.Element {
 
   React.useEffect(() => setMounted(true), [])
 
-  if (!mounted) return <Section className="min-h-svh" withContainer={false}> {null} </Section>
+  if (!mounted)
+    return (
+      <Section className="min-h-svh" withContainer={false}>
+        {" "}
+        {null}{" "}
+      </Section>
+    )
 
   return (
-    <Section 
+    <Section
       id={idT("hero")}
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className="flex items-center min-h-svh"
       withContainer={false}
     >
-      {/* Background Spotlight */}
-      <m.div 
-        style={{ 
+      <m.div
+        style={{
           background: `radial-gradient(600px circle at ${spotlightX}px ${spotlightY}px, var(--brand-primary), transparent 80%)`,
         }}
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.08] hidden lg:block"
@@ -51,11 +58,11 @@ export function Hero(): React.JSX.Element {
           className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.4em] text-muted-foreground"
         >
           <div className="relative flex h-5 w-5 items-center justify-center">
-            <Image 
-              src="/Logos/icon.png" 
-              alt="MAGUI" 
-              width={20} 
-              height={20} 
+            <Image
+              src="/Logos/icon.png"
+              alt="MAGUI"
+              width={20}
+              height={20}
               className="object-contain"
             />
           </div>
@@ -82,20 +89,17 @@ export function Hero(): React.JSX.Element {
               animate="visible"
               className="mb-8 flex items-center gap-4"
             >
-              <div className="h-[1px] w-12 bg-brand-primary" />
+              <div className="h-px w-12 bg-brand-primary" />
               <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
                 {t("eyebrow")}
               </span>
             </m.div>
 
             <h1 className="font-heading text-6xl md:text-9xl lg:text-[140px] font-black leading-[0.75] tracking-[-0.06em] text-foreground uppercase select-none">
-              <div className="block"><StaggeredText text={t("title_1")} /></div>
-              <div className="flex flex-wrap ml-[0.5em] text-brand-primary drop-shadow-xl relative overflow-hidden">
-                <m.div 
-                  animate={{ x: ["-100%", "200%"] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 5 }}
-                  className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
-                />
+              <div className="block">
+                <StaggeredText text={t("title_1")} />
+              </div>
+              <div className="flex flex-wrap ml-[0.5em] text-brand-primary drop-shadow-xl">
                 <StaggeredText text={t("title_2")} delayBase={0.2} />
               </div>
               <div className="block leading-[0.8] mt-2">
@@ -105,21 +109,24 @@ export function Hero(): React.JSX.Element {
           </div>
 
           {/* ARTISTIC IMAGE */}
-          <m.div 
-            initial={{ opacity: 0, clipPath: "inset(20% 40% 20% 40% round 2rem)" }}
+          <m.div
+            initial={{
+              opacity: 0,
+              clipPath: "inset(20% 40% 20% 40% round 2rem)",
+            }}
             animate={{ opacity: 1, clipPath: "inset(0% 0% 0% 0% round 2rem)" }}
             transition={{ ...TRANSITION_SLOW, delay: 0.6 }}
-            className="absolute top-1/2 right-0 -translate-y-[20%] lg:-translate-y-1/2 z-10 w-[80%] lg:w-[55%] aspect-[16/10] lg:aspect-[16/9] overflow-hidden rounded-[2rem] shadow-2xl"
+            className="absolute top-1/2 right-0 -translate-y-[20%] lg:-translate-y-1/2 z-10 w-[80%] lg:w-[55%] aspect-16/10 lg:aspect-video overflow-hidden rounded-r-4xl"
           >
             <Image
-              src="/utils/placeholder.svg"
+              src="/images/hero.png"
               alt={t("image_alt")}
               fill
               sizes="(max-width: 1024px) 80vw, 55vw"
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-linear-to-r from-background via-background/40 to-transparent opacity-100" />
             <div className="absolute inset-0 bg-brand-primary/5 mix-blend-overlay" />
           </m.div>
         </div>
@@ -143,7 +150,10 @@ export function Hero(): React.JSX.Element {
               >
                 <span className="relative z-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.2em]">
                   {t("cta")}
-                  <ArrowUpRight weight="bold" className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <ArrowUpRightIcon
+                    weight="bold"
+                    className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
                 </span>
               </Button>
 
@@ -151,7 +161,7 @@ export function Hero(): React.JSX.Element {
                 <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-muted-foreground group-hover:text-brand-primary transition-colors">
                   {t("secondary_cta")}
                 </span>
-                <div className="h-[1px] w-8 bg-muted-foreground/30 group-hover:w-full transition-all duration-500 group-hover:bg-brand-primary" />
+                <div className="h-px w-8 bg-muted-foreground/30 group-hover:w-full transition-all duration-500 group-hover:bg-brand-primary" />
               </button>
             </div>
           </m.div>

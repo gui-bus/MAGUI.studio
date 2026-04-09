@@ -7,7 +7,6 @@ import { useTranslations } from "next-intl"
 
 import { m, useTransform, useScroll, AnimatePresence } from "framer-motion"
 
-import { cn } from "@/src/lib/utils/utils"
 import { Section } from "@/src/components/ui/section"
 import { SectionHeader } from "@/src/components/ui/sectionHeader"
 import { useSpotlight } from "@/src/lib/hooks/useSpotlight"
@@ -27,6 +26,11 @@ export function Value(): React.JSX.Element {
 
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0])
   const disciplines = t.raw("disciplines") as Discipline[]
+  const disciplineImages = [
+    "/images/strategy.avif",
+    "/images/code.jpg",
+    "/images/ui.avif",
+  ]
 
   return (
     <Section 
@@ -56,7 +60,12 @@ export function Value(): React.JSX.Element {
       {/* DISCIPLINES GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-foreground/5 border border-foreground/5">
         {disciplines.map((discipline, i) => (
-          <DisciplineCard key={discipline.id} discipline={discipline} index={i} />
+          <DisciplineCard 
+            key={discipline.id} 
+            discipline={discipline} 
+            index={i} 
+            image={disciplineImages[i] || disciplineImages[0]}
+          />
         ))}
       </div>
 
@@ -64,7 +73,7 @@ export function Value(): React.JSX.Element {
   )
 }
 
-function DisciplineCard({ discipline, index }: { discipline: Discipline, index: number }): React.JSX.Element {
+function DisciplineCard({ discipline, index, image }: { discipline: Discipline, index: number, image: string }): React.JSX.Element {
   const [isHovered, setIsHovered] = React.useState(false)
 
   return (
@@ -82,18 +91,19 @@ function DisciplineCard({ discipline, index }: { discipline: Discipline, index: 
         {isHovered && (
           <m.div 
             initial={{ opacity: 0, scale: 1.15 }}
-            animate={{ opacity: 0.25, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1.05 }}
             exit={{ opacity: 0, scale: 1.15 }}
             transition={TRANSITION_MEDIUM}
             className="absolute inset-0 z-0 pointer-events-none"
           >
             <Image
-              src="/utils/placeholder.svg"
+              src={image}
               alt={`${discipline.title} Context`}
               fill
               sizes="(max-width: 1024px) 100vw, 33vw"
               className="object-cover"
             />
+            <div className="absolute inset-0 bg-black/60 transition-opacity duration-500" />
           </m.div>
         )}
       </AnimatePresence>
@@ -108,19 +118,19 @@ function DisciplineCard({ discipline, index }: { discipline: Discipline, index: 
               animate={{ y: isHovered ? 0 : "100%" }}
               initial={{ y: "100%" }}
               transition={TRANSITION_MEDIUM}
-              className="block font-heading text-4xl font-black text-brand-primary/40 transition-colors duration-500"
+              className="block font-heading text-4xl font-black text-white transition-colors duration-500"
             >
               {discipline.id}
             </m.span>
           </div>
         </div>
-        <h3 className="font-heading text-5xl md:text-6xl font-black uppercase tracking-tighter text-foreground leading-[1.1]">
+        <h3 className="font-heading text-5xl md:text-6xl font-black uppercase tracking-tighter text-foreground leading-[1.1] group-hover:text-white transition-colors duration-500">
           {discipline.title}
         </h3>
       </div>
 
       <div className="relative z-10 space-y-12">
-        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium transform group-hover:-translate-y-2 transition-all duration-700">
+        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium transform group-hover:-translate-y-2 group-hover:text-white/80 transition-all duration-700">
           {discipline.description}
         </p>
         <div className="relative h-[2px] w-12 bg-foreground/10 overflow-hidden">

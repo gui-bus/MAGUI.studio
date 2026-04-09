@@ -1,7 +1,8 @@
 export interface Project {
   title: string
-  category: string
-  year: string
+  image: string
+  category?: string
+  year?: string
 }
 
 export interface Service {

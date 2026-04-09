@@ -47,7 +47,10 @@ export function Showcase(): React.JSX.Element {
 
           {/* RIGHT: THE LENS */}
           <div className="lg:col-span-7 relative aspect-[4/3] lg:aspect-[16/10] w-full">
-            <ProjectLens activeProject={projects[activeIndex]} activeIndex={activeIndex} />
+            <ProjectLens 
+              activeProject={projects[activeIndex]} 
+              activeIndex={activeIndex} 
+            />
           </div>
         </div>
     </Section>
@@ -114,7 +117,7 @@ function ProjectLens({ activeProject, activeIndex }: ProjectLensProps) {
             className="relative w-full h-full"
           >
             <Image
-              src="/utils/placeholder.svg"
+              src={activeProject.image}
               alt={`${activeProject.title} Case Study Visual`}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

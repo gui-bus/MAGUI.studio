@@ -87,19 +87,16 @@
       "view_project": "Explorar Caso",
       "projects": [
         { 
-          "title": "Global Fintech", 
-          "category": "Estratégia & UX",
-          "year": "2025"
+          "title": "Apareça e venda",
+          "image": "/projects/thais.png"
         },
         { 
-          "title": "Elite Retail", 
-          "category": "E-commerce & Scale",
-          "year": "2026"
+          "title": "Powervet",
+          "image": "/projects/powervet.png"
         },
         { 
-          "title": "Digital Infrastructure", 
-          "category": "Systems & Engineering",
-          "year": "2026"
+          "title": "Horizon Travels",
+          "image": "/projects/horizon.png"
         }
       ]
     },
