@@ -5,8 +5,6 @@ import * as React from "react"
 import { useTranslations } from "next-intl"
 import { AnimatePresence, Variants, m } from "framer-motion"
 
-import { GrainyNoise } from "@/src/components/ui/grainyNoise"
-
 export function Preloader(): React.JSX.Element {
   const [isLoading, setIsLoading] = React.useState(true)
   const configT = useTranslations("Config")
@@ -70,11 +68,6 @@ export function Preloader(): React.JSX.Element {
               delay: 0.1,
             }}
             className="absolute inset-0 z-20 bg-background"
-          />
-
-          <GrainyNoise
-            zIndex="z-30"
-            opacity="opacity-[0.04] dark:opacity-[0.06]"
           />
 
           <m.div

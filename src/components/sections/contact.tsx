@@ -11,7 +11,6 @@ import { m } from "framer-motion"
 import { Button } from "@/src/components/ui/button"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 import { Section } from "@/src/components/ui/section"
-import { GrainyNoise } from "@/src/components/ui/grainyNoise"
 
 const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -28,8 +27,6 @@ export function Contact(): React.JSX.Element {
       className="py-48 lg:py-72 border-t border-foreground/5"
       withContainer={true}
     >
-      <GrainyNoise />
-
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-end">
 
         <div className="lg:col-span-8 space-y-12">
