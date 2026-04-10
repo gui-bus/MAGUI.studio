@@ -1,65 +1,148 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
 
 import { useTranslations } from "next-intl"
 
 import { FAQItem } from "@/src/types/sections"
 import { Section } from "@/src/components/ui/section"
-import { SectionHeader } from "@/src/components/ui/sectionHeader"
-import { AccordionItem } from "@/src/components/ui/accordion"
-import { ArrowUpRight } from "@phosphor-icons/react"
+import { m, AnimatePresence } from "framer-motion"
+import { StaggeredText } from "@/src/components/ui/staggeredText"
+import { cn } from "@/src/lib/utils/utils"
 
 export function FAQ(): React.JSX.Element {
   const t = useTranslations("Index.FAQ")
   const idT = useTranslations("Index.Ids")
   const items = t.raw("items") as FAQItem[]
-  const [openIndex, setOpenIndex] = React.useState<number | null>(0)
-
+  
   return (
-    <Section id={idT("faq")} className="py-32 lg:py-64">
-      <div className="max-w-6xl mx-auto space-y-24 lg:space-y-32">
-        {/* HEADER */}
-        <div className="text-center space-y-8">
-          <SectionHeader 
-            eyebrow={t("eyebrow")} 
-            title={t("title")}
-            align="center"
-            className="mb-0"
-          />
+    <Section id={idT("faq")} className="py-32 lg:py-64 relative overflow-hidden">
+      {/* BACKGROUND DECORATIVE ELEMENTS */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-primary/5 blur-[120px] rounded-full -mr-1/4 -mt-1/4 pointer-events-none" />
+      
+      <div className="container px-6 md:px-10 relative z-10">
+        {/* MINIMALIST HEADER */}
+        <div className="flex flex-col gap-12 mb-32">
+          <m.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-4"
+          >
+            <div className="h-px w-12 bg-brand-primary" />
+            <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
+              {t("eyebrow")}
+            </span>
+          </m.div>
+
+          <h2 className="font-heading text-6xl md:text-9xl lg:text-[140px] font-black uppercase tracking-[-0.05em] leading-[0.8] text-foreground">
+            <StaggeredText text={t("title")} />
+          </h2>
         </div>
 
-        {/* ACCORDION LIST */}
-        <div className="border-t border-foreground/10">
+        {/* TECHNICAL MODULE GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground/10 border border-foreground/10 overflow-hidden rounded-3xl lg:rounded-[3rem]">
           {items.map((item, index) => (
-            <AccordionItem
+            <FAQModule 
               key={index}
               index={index}
-              question={item.question}
-              answer={item.answer}
-              isOpen={openIndex === index}
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
+              item={item}
             />
           ))}
         </div>
 
-        {/* BOTTOM CONTACT FOOTNOTE */}
-        <div className="text-center pt-12 border-t border-foreground/5 flex flex-col items-center gap-8">
-          <p className="text-sm text-muted-foreground font-medium uppercase tracking-[0.2em]">
-            Ainda com dúvidas?
-          </p>
-          <Link 
-            href={`#${idT("contact")}`}
-            className="group flex flex-col items-center gap-2"
-          >
-            <span className="text-brand-primary font-black uppercase tracking-[0.4em] text-xs">
-              Iniciar Protocolo de Atendimento
-            </span>
-            <div className="h-px w-12 bg-brand-primary/30 group-hover:w-full transition-all duration-700" />
-          </Link>
+        {/* SECTION FOOTER - DATA ONLY */}
+        <div className="mt-12 flex items-center justify-between opacity-30 font-mono text-[10px] uppercase tracking-widest px-4">
+           <div className="flex items-center gap-4">
+              <span className="flex h-2 w-2 rounded-full bg-brand-primary animate-pulse" />
+              <span>Database // Index: {items.length}</span>
+           </div>
+           <span>System Status: Optimal</span>
         </div>
       </div>
     </Section>
+  )
+}
+
+function FAQModule({ item, index }: { item: FAQItem, index: number }) {
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  return (
+    <m.div 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      onClick={() => setIsOpen(!isOpen)}
+      className={cn(
+        "relative p-10 lg:p-16 bg-background group cursor-pointer transition-colors duration-700 overflow-hidden",
+        isOpen ? "bg-foreground/5" : "hover:bg-foreground/[0.02]"
+      )}
+    >
+      {/* MODULE CORNER CLIP */}
+      <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none opacity-20 group-hover:opacity-100 transition-opacity duration-500">
+         <div className="absolute top-0 right-0 w-full h-full bg-foreground/5" style={{ clipPath: "polygon(100% 0, 100% 100%, 0 0)" }} />
+      </div>
+
+      <div className="relative z-10 flex flex-col gap-12">
+        <div className="flex items-start justify-between gap-8">
+          <div className="space-y-6">
+            <span className="font-mono text-xs font-bold text-brand-primary/40 uppercase tracking-widest">
+              Entry // 0{index + 1}
+            </span>
+            <h3 className={cn(
+              "text-2xl md:text-3xl lg:text-4xl font-heading font-black uppercase tracking-tighter leading-tight transition-colors duration-500",
+              isOpen ? "text-brand-primary" : "text-foreground"
+            )}>
+              {item.question}
+            </h3>
+          </div>
+          
+          <div className="flex-shrink-0 pt-2">
+             <div className={cn(
+               "h-10 w-10 rounded-full border border-foreground/10 flex items-center justify-center transition-all duration-500",
+               isOpen ? "rotate-180 bg-brand-primary border-brand-primary text-white" : ""
+             )}>
+                <div className={cn(
+                  "h-0.5 w-4 bg-current transition-transform duration-500",
+                  isOpen ? "rotate-0" : ""
+                )} />
+                {!isOpen && <div className="absolute h-4 w-0.5 bg-current" />}
+             </div>
+          </div>
+        </div>
+
+        <AnimatePresence>
+          {isOpen && (
+            <m.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden"
+            >
+              <div className="pt-4 pb-8 space-y-8">
+                <div className="h-px w-12 bg-brand-primary/30" />
+                <p className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
+                  {item.answer}
+                </p>
+                
+                {/* Technical "Scan" Detail */}
+                <div className="flex items-center gap-4 opacity-20 font-mono text-[9px] uppercase tracking-widest pt-4">
+                   <div className="h-1 w-1 bg-brand-primary" />
+                   <span>Analysis Complete // Retrieval Successful</span>
+                </div>
+              </div>
+            </m.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* ACTIVE MODULE DECORATION */}
+      <m.div 
+        animate={{ scaleX: isOpen ? 1 : 0 }}
+        className="absolute bottom-0 left-0 h-1 w-full bg-brand-primary origin-left"
+      />
+    </m.div>
   )
 }
