@@ -247,7 +247,7 @@ function ServicePanel({
               >
                 <h3
                   className={cn(
-                    "font-heading text-5xl lg:text-8xl font-black uppercase tracking-tighter lg:-rotate-90 whitespace-nowrap transition-all duration-500",
+                    "font-heading text-5xl font-black uppercase tracking-tighter lg:-rotate-90 whitespace-nowrap transition-all duration-500",
                     isOthersActive
                       ? "text-foreground/3"
                       : "text-foreground/[0.07]"
@@ -278,7 +278,7 @@ function ServicePanel({
                     hidden: { opacity: 0, y: 40 },
                     visible: { opacity: 1, y: 0 },
                   }}
-                  className="font-heading text-6xl md:text-8xl lg:text-[120px] font-black uppercase tracking-tighter leading-[0.8] text-white"
+                  className="font-heading text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.8] text-white"
                 >
                   <StaggeredText text={service.title} />
                 </m.h3>
@@ -300,7 +300,7 @@ function ServicePanel({
                   }}
                   className="flex items-center gap-8"
                 >
-                  <div className="h-24 w-24 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 hover:bg-white hover:text-black cursor-pointer group/btn shadow-2xl">
+                  <div className="h-24 w-24 rounded-full border border-white flex items-center justify-center transition-all duration-500 hover:bg-white text-white hover:text-black cursor-pointer group/btn shadow-2xl">
                     <ArrowUpRightIcon
                       size={40}
                       weight="bold"
@@ -311,13 +311,6 @@ function ServicePanel({
               </m.div>
             )}
           </AnimatePresence>
-        </div>
-
-        <div className="flex items-center justify-between opacity-20 mt-10">
-          <span className="text-[10px] font-mono font-bold text-current uppercase tracking-widest">
-            {t("selection")}
-          </span>
-          <div className="h-1 w-1 rounded-full bg-current animate-pulse" />
         </div>
       </div>
     </m.div>

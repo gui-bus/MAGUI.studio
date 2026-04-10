@@ -125,17 +125,17 @@
       "selection": "Seleção",
       "landing": {
         "title": "Landing Pages",
-        "label": "High-Conversion",
+        "label": "Alta Conversão",
         "description": "Páginas de captura otimizadas para converter visitantes em leads com design persuasivo e performance extrema."
       },
       "sales": {
         "title": "Páginas de Vendas",
-        "label": "Profit & Power",
+        "label": "Lucro & Poder",
         "description": "Sistemas de vendas focados em autoridade e faturamento, desenhados para maximizar o seu ROI digital."
       },
       "institutional": {
         "title": "Sites Institucionais",
-        "label": "Brand Authority",
+        "label": "Autoridade de Marca",
         "description": "Presença digital de elite que projeta confiança e solidez para empresas que buscam liderança de mercado."
       }
     },
