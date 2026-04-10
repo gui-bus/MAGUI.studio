@@ -5,7 +5,7 @@
       "value": "foundations",
       "about": "manifesto",
       "portfolio": "portfolio",
-      "services": "expertise",
+      "services": "services",
       "process": "process",
       "faq": "inquiries",
       "contact": "contact"
@@ -15,15 +15,19 @@
     },
     "Nav": {
       "portfolio": "Portfolio",
-      "services": "Expertise",
+      "services": "Services",
       "about": "Studio",
+      "process": "Process",
       "faq": "Inquiries",
       "home_label": "MAGUI.studio Home",
       "logo_alt": "MAGUI.studio - Visual Strategy & Interface Design",
       "main_nav_label": "Main Navigation",
       "mobile_nav_label": "Mobile Navigation",
       "open_menu": "Open Menu",
-      "close_menu": "Close Menu"
+      "close_menu": "Close Menu",
+      "preferences": "Preferences",
+      "studio_year": "Studio 2026",
+      "technical_rigor": "Technical Rigor"
     },
     "Hero": {
       "eyebrow": "Visual Strategy Studio",
@@ -40,7 +44,43 @@
     },
     "About": {
       "title": "The MAGUI Concept",
-      "description": "Born from the union between technical software engineering precision and strategic interface design. We focus on authority, scale, and performance for brands that refuse the ordinary."
+      "description": "MAGUI combines visual direction, aesthetic judgment, and meticulous attention to detail to create digital products that make a strong first impression and sustain value throughout the experience.",
+      "eyebrow": "Studio Manifesto",
+      "title_1": "Editorial",
+      "title_2": "Precision.",
+      "badge": "Interface Direction",
+      "image_alt": "MAGUI.studio visual composition",
+      "highlights": [
+        {
+          "id": "01",
+          "title": "Visual Strategy",
+          "label": "Visual Strategy",
+          "description": "Composition, pacing, and visual language designed to elevate perception and presence."
+        },
+        {
+          "id": "02",
+          "title": "Refined Delivery",
+          "label": "Refined Delivery",
+          "description": "Interfaces with fluid reading flow, precise finishing, and visible care in every detail."
+        }
+      ],
+      "principles": [
+        "Visual hierarchy that guides reading without friction.",
+        "Details that reinforce sophistication, clarity, and trust.",
+        "Compositions that turn digital presence into perceived value."
+      ],
+      "panel_eyebrow": "The Studio",
+      "panel_title": "Visual rigor.",
+      "panel_description": "A strong interface does not depend on excess. It depends on proportion, contrast, rhythm, and visual decisions made with precision.",
+      "pillars": [
+        "Clarity",
+        "Aesthetics",
+        "Authority",
+        "Precision"
+      ],
+      "sidebar_description": "The brand's strength lives in the finish: resolved typography, confident compositions, measured contrast, and real attention to what the user perceives.",
+      "focus": "Visual appeal, clear reading flow, and obsession with detail.",
+      "focus_label": "MAGUI Standard"
     },
     "Process": {
       "title": "Execution Protocol.",
@@ -61,7 +101,13 @@
           "title": "Engineering",
           "description": "Implementation with mathematical rigor and extreme performance optimization."
         }
-      ]
+      ],
+      "eyebrow": "MAGUI Protocol",
+      "title_1": "Execution",
+      "title_2": "Protocol.",
+      "description": "A clear, deliberate, technical protocol that turns a briefing into a high-performance visual system.",
+      "step_label": "Step {step}",
+      "method_label": "MAGUI Method"
     },
     "Value": {
       "eyebrow": "Foundations",
@@ -98,18 +144,18 @@
       "view_project": "View Project",
       "background_text": "Selected Work",
       "projects": [
-        { 
-          "title": "Apareça e venda", 
+        {
+          "title": "Apareça e venda",
           "image": "/projects/thais.png",
           "link": "https://aparecaevenda.com.br"
         },
-        { 
-          "title": "Powervet", 
+        {
+          "title": "Powervet",
           "image": "/projects/powervet.png",
           "link": "https://powervet.com.br"
         },
-        { 
-          "title": "Horizon Travels", 
+        {
+          "title": "Horizon Travels",
           "image": "/projects/horizon.png",
           "link": "https://horizontravels.com.br"
         }

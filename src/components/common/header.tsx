@@ -55,9 +55,10 @@ export const Header = React.memo(function Header(): React.JSX.Element {
 
   const navLinks = React.useMemo(
     () => [
-      { href: `#${idT("portfolio")}`, label: t("portfolio") },
-      { href: `#${idT("services")}`, label: t("services") },
       { href: `#${idT("about")}`, label: t("about") },
+      { href: `#${idT("portfolio")}`, label: t("portfolio") },
+      { href: `#${idT("process")}`, label: t("process") },
+      { href: `#${idT("services")}`, label: t("services") },
       { href: `#${idT("faq")}`, label: t("faq") },
     ],
     [idT, t]
@@ -94,7 +95,8 @@ export const Header = React.memo(function Header(): React.JSX.Element {
     <>
       <header
         className={cn(
-          "fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-440 z-100 flex h-24 items-center justify-between px-6 md:px-12 lg:px-24 border-b transition-all duration-700",
+          "fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-440 flex h-24 items-center justify-between px-6 md:px-10 xl:px-20 border-b transition-all duration-700",
+          isOpen ? "z-[220]" : "z-100",
           scrolled || isOpen
             ? "border-foreground/5 bg-background/80 backdrop-blur-xl"
             : "border-transparent bg-transparent backdrop-blur-none"
@@ -102,7 +104,7 @@ export const Header = React.memo(function Header(): React.JSX.Element {
       >
         <Link
           href="/"
-          className="relative z-220 flex items-center h-full"
+          className="relative z-220 flex h-full shrink-0 items-center pr-6 xl:pr-8"
           aria-label={t("home_label")}
           onClick={() => setIsOpen(false)}
         >
@@ -113,30 +115,35 @@ export const Header = React.memo(function Header(): React.JSX.Element {
               width={0}
               height={0}
               sizes="100vw"
-              className="h-6 w-auto object-contain"
+              className="h-6 w-auto min-w-28 object-contain xl:min-w-32"
               priority
             />
           )}
         </Link>
 
-        <div className="flex items-center gap-12">
+        <div className="flex min-w-0 items-center justify-end gap-6 xl:flex-1 xl:gap-8">
           <nav
-            className="hidden lg:flex items-center gap-10"
+            className="hidden min-w-0 flex-1 items-center justify-center gap-6 xl:flex xl:gap-8"
             aria-label={t("main_nav_label")}
           >
             {navLinks.map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} />
+              <NavLink
+                key={link.href}
+                href={link.href}
+                label={link.label}
+                className="whitespace-nowrap"
+              />
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-6 border-l border-foreground/10 pl-8">
+          <div className="hidden shrink-0 items-center gap-5 border-l border-foreground/10 pl-6 xl:flex">
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden relative z-[220] h-12 w-12 flex flex-col items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-full bg-foreground/5 border border-foreground/5 backdrop-blur-sm"
+            className="relative z-[220] flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full border border-foreground/5 bg-foreground/5 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary xl:hidden"
             aria-label={isOpen ? t("close_menu") : t("open_menu")}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
@@ -218,7 +225,7 @@ export const Header = React.memo(function Header(): React.JSX.Element {
             >
               <div className="flex flex-col gap-4">
                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/60">
-                  Preferências
+                  {t("preferences")}
                 </span>
                 <div className="flex items-center gap-4">
                   <LanguageSwitcher />
@@ -232,9 +239,9 @@ export const Header = React.memo(function Header(): React.JSX.Element {
               variants={itemVariants}
               className="absolute bottom-10 left-6 md:left-12 flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/40"
             >
-              <span>Estúdio 2026</span>
+              <span>{t("studio_year")}</span>
               <span className="h-1 w-1 rounded-full bg-brand-primary/40" />
-              <span>Rigor Técnico</span>
+              <span>{t("technical_rigor")}</span>
             </m.div>
           </m.div>
         )}

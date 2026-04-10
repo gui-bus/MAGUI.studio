@@ -136,7 +136,7 @@ export function Services(): React.JSX.Element {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row h-full md:min-h-275 lg:h-225 w-full relative z-10 border-t border-foreground/5 bg-foreground/5 gap-px">
+      <div className="flex flex-col lg:flex-row h-full md:min-h-175 lg:h-175 w-full relative z-10 border-t border-foreground/5 bg-foreground/5 gap-px">
         {services.map((service, index) => (
           <ServicePanel
             key={service.id}

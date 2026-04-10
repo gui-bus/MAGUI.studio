@@ -5,7 +5,7 @@
       "value": "fundamentos",
       "about": "manifesto",
       "portfolio": "portfolio",
-      "services": "expertise",
+      "services": "servicos",
       "process": "processo",
       "faq": "duvidas",
       "contact": "contato"
@@ -15,15 +15,19 @@
     },
     "Nav": {
       "portfolio": "Portfólio",
-      "services": "Expertise",
+      "services": "Serviços",
       "about": "O Estúdio",
+      "process": "Processo",
       "faq": "Dúvidas",
       "home_label": "MAGUI.studio Início",
       "logo_alt": "MAGUI.studio - Estratégia Visual & Design de Interface",
       "main_nav_label": "Navegação Principal",
       "mobile_nav_label": "Navegação Mobile",
       "open_menu": "Abrir Menu",
-      "close_menu": "Fechar Menu"
+      "close_menu": "Fechar Menu",
+      "preferences": "Preferências",
+      "studio_year": "Estúdio 2026",
+      "technical_rigor": "Rigor Técnico"
     },
     "Hero": {
       "eyebrow": "Studio de Estratégia Visual",
@@ -40,7 +44,43 @@
     },
     "About": {
       "title": "O Conceito MAGUI",
-      "description": "Nascido da união entre a precisão técnica da engenharia de software e o design estratégico de interface. Focamos em autoridade, escala e performance para marcas que não aceitam o comum."
+      "description": "A MAGUI une direção visual, critério estético e atenção minuciosa aos detalhes para criar produtos digitais que impressionam no primeiro olhar e sustentam valor ao longo da experiência.",
+      "eyebrow": "Manifesto do Estúdio",
+      "title_1": "Precisão",
+      "title_2": "Visual.",
+      "badge": "Direção de Interface",
+      "image_alt": "Composição visual da MAGUI.studio",
+      "highlights": [
+        {
+          "id": "01",
+          "title": "Estratégia Visual",
+          "label": "Estratégia Visual",
+          "description": "Composição, ritmo e linguagem visual desenhados para elevar percepção e presença."
+        },
+        {
+          "id": "02",
+          "title": "Entrega Refinada",
+          "label": "Entrega Refinada",
+          "description": "Interfaces com leitura fluida, acabamento preciso e cuidado visível em cada detalhe."
+        }
+      ],
+      "principles": [
+        "Hierarquia visual que conduz a leitura sem esforço.",
+        "Detalhes que reforçam sofisticação, clareza e confiança.",
+        "Composições que transformam presença digital em percepção de valor."
+      ],
+      "panel_eyebrow": "O Estúdio",
+      "panel_title": "Rigor visual.",
+      "panel_description": "Uma interface forte não depende de excesso. Ela depende de proporção, contraste, ritmo e decisões visuais feitas com precisão.",
+      "pillars": [
+        "Clareza",
+        "Estética",
+        "Autoridade",
+        "Precisão"
+      ],
+      "sidebar_description": "A força da marca está no acabamento: tipografia bem resolvida, composições seguras, contraste bem medido e atenção real ao que o usuário percebe.",
+      "focus": "Atratividade visual, leitura clara e obsessão por detalhe.",
+      "focus_label": "Padrão MAGUI"
     },
     "Process": {
       "title": "Protocolo de Execução.",
@@ -61,7 +101,13 @@
           "title": "Engenharia",
           "description": "Implementação com rigor matemático e otimização extrema de performance."
         }
-      ]
+      ],
+      "eyebrow": "Protocolo MAGUI",
+      "title_1": "Protocolo",
+      "title_2": "de Execução.",
+      "description": "Um protocolo claro, cadenciado e técnico para transformar o briefing em um sistema visual de alta performance.",
+      "step_label": "Etapa {step}",
+      "method_label": "Método MAGUI"
     },
     "Value": {
       "eyebrow": "Fundamentos",
@@ -98,17 +144,17 @@
       "view_project": "Ver Projeto",
       "background_text": "Trabalho Selecionado",
       "projects": [
-        { 
+        {
           "title": "Apareça e venda",
           "image": "/projects/thais.png",
           "link": "https://aparecaevenda.com.br"
         },
-        { 
+        {
           "title": "Powervet",
           "image": "/projects/powervet.png",
           "link": "https://powervet.com.br"
         },
-        { 
+        {
           "title": "Horizon Travels",
           "image": "/projects/horizon.png",
           "link": "https://horizontravels.com.br"
@@ -143,22 +189,22 @@
       "title": "Perguntas Frequentes.",
       "items": [
         {
-          "question": "Qual o tempo médio de entrega de um projeto?",
+          "question": "Qual o tempo m�dio de entrega de um projeto?",
           "answer": "Nossos projetos seguem um protocolo de 8 a 12 semanas, dependendo da complexidade do ecossistema e das integrações necessárias."
         },
         {
-          "question": "Como funciona o suporte pós-lançamento?",
+          "question": "Como funciona o suporte p�s-lan�amento?",
           "answer": "Oferecemos monitoramento de performance contínuo e atualizações de segurança críticas para garantir que o sistema permaneça na elite."
         },
         {
-          "question": "O estúdio trabalha com tecnologias específicas?",
+          "question": "O est�dio trabalha com tecnologias espec�ficas?",
           "answer": "Focamos em tecnologias de ponta como Next.js, React para garantir a máxima performance e segurança do mercado."
         }
       ]
     },
     "CTA": {
       "eyebrow": "Próximo Passo",
-      "title": "Pronto para elevar o nível?",
+      "title": "Pronto para elevar o n�vel?",
       "description": "Fale agora com nossos especialistas e descubra como a MAGUI pode transformar sua empresa.",
       "button": "Iniciar Projeto"
     }

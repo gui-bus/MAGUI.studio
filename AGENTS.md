@@ -55,6 +55,7 @@ Copy `.env.example` to `.env` for local setup and never commit secrets. Run `pnp
 - **UI TEXT:** NEVER hardcode strings in components. All user-facing text must be retrieved via `useTranslations` (client) or `getTranslations` (server).
 - **TYPED KEYS:** Ensure `src/types/intl.d.ts` is updated when adding new translation namespaces to maintain type safety.
 - **I18N SYNC:** All translation files (`messages/*.json`) MUST have identical keys. The build will fail if they are out of sync. Run `pnpm check-i18n` to verify.
+- **ENCODING INTEGRITY:** Translation files MUST remain valid UTF-8 with correct accents and diacritics. Never leave `?` or `??` in place of characters like `ã`, `ç`, `é`, or `õ`; if any appear, fix them before finishing.
 - **METADATA:** Use `generateMetadata` in `layout.tsx` or `page.tsx` for locale-aware SEO.
 - **ERRORS:** Use the `Errors` namespace in JSON for `error.tsx` and `not-found.tsx` messages.
 

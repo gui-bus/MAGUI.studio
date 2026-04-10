@@ -8,6 +8,8 @@ import { Footer } from "@/src/components/common/footer"
 import { Header } from "@/src/components/common/header"
 import { ScrollSpy } from "@/src/components/common/scrollSpy"
 import { Hero } from "@/src/components/sections/hero"
+import { Manifesto } from "@/src/components/sections/manifesto"
+import { Process } from "@/src/components/sections/process"
 import { Value } from "@/src/components/sections/value"
 
 const Showcase = dynamic(() =>
@@ -33,7 +35,9 @@ export default function Page(): React.JSX.Element {
       <main className="pt-24 md:pt-32">
         <Hero />
         <Value />
+        <Manifesto />
         <Showcase />
+        <Process />
         <Services />
 
         <div className="pt-44!">

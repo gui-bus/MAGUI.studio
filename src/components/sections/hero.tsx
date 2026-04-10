@@ -32,7 +32,7 @@ export function Hero(): React.JSX.Element {
       withContainer={false}
     >
       <div className="relative z-10 py-5 md:py-20 w-full px-6 md:px-12 lg:px-24">
-        <div className="relative">
+        <div className="relative flex">
           <div className="relative z-30">
             <m.div
               variants={VARIANTS_FADE_IN_UP}
@@ -76,7 +76,7 @@ export function Hero(): React.JSX.Element {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-linear-to-r from-background via-background/40 to-transparent opacity-100" />
+            <div className="absolute inset-0 bg-linear-to-r from-background via-background/40 md:via-background/10 to-transparent opacity-100" />
             <div className="absolute inset-0 bg-brand-primary/5 mix-blend-overlay" />
           </m.div>
         </div>
