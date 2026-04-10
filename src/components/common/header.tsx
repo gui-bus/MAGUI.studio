@@ -1,17 +1,20 @@
 "use client"
 
 import * as React from "react"
+
+import { useTranslations } from "next-intl"
+import { useTheme } from "next-themes"
 import Image from "next/image"
 import Link from "next/link"
 
-import { useTranslations } from "next-intl"
+import { AnimatePresence, m } from "framer-motion"
 
-import { m, AnimatePresence } from "framer-motion"
-import { useTheme } from "next-themes"
+import { NavLink } from "@/src/components/ui/navLink"
 
 import { LanguageSwitcher } from "@/src/components/common/languageSwitcher"
 import { ThemeToggle } from "@/src/components/common/themeToggle"
-import { NavLink } from "@/src/components/ui/navLink"
+
+import { cn } from "@/src/lib/utils/utils"
 
 const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -20,10 +23,18 @@ export const Header = React.memo(function Header(): React.JSX.Element {
   const idT = useTranslations("Index.Ids")
   const { resolvedTheme } = useTheme()
   const [isOpen, setIsOpen] = React.useState(false)
-  
+  const [scrolled, setScrolled] = React.useState(false)
+
   const [mounted, setMounted] = React.useState(false)
   React.useEffect(() => {
     setMounted(true)
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   React.useEffect(() => {
@@ -34,29 +45,73 @@ export const Header = React.memo(function Header(): React.JSX.Element {
     }
   }, [isOpen])
 
-  const logoSrc = React.useMemo(() => 
-    resolvedTheme === "dark" 
-      ? "/logos/LOGO_VAR_03_LM.svg" 
-      : "/logos/LOGO_VAR_03_DM.svg"
-  , [resolvedTheme])
+  const logoSrc = React.useMemo(
+    () =>
+      resolvedTheme === "dark"
+        ? "/logos/LOGO_VAR_03_LM.svg"
+        : "/logos/LOGO_VAR_03_DM.svg",
+    [resolvedTheme]
+  )
 
-  const navLinks = React.useMemo(() => [
-    { href: `#${idT("portfolio")}`, label: t("portfolio") },
-    { href: `#${idT("services")}`, label: t("services") },
-    { href: `#${idT("about")}`, label: t("about") },
-    { href: `#${idT("faq")}`, label: t("faq") },
-  ], [idT, t])
+  const navLinks = React.useMemo(
+    () => [
+      { href: `#${idT("portfolio")}`, label: t("portfolio") },
+      { href: `#${idT("services")}`, label: t("services") },
+      { href: `#${idT("about")}`, label: t("about") },
+      { href: `#${idT("faq")}`, label: t("faq") },
+    ],
+    [idT, t]
+  )
+
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      clipPath: "inset(0% 0% 100% 0%)",
+      transition: {
+        duration: 0.8,
+        ease: EASE_APPLE,
+        when: "afterChildren",
+      },
+    },
+    open: {
+      opacity: 1,
+      clipPath: "inset(0% 0% 0% 0%)",
+      transition: {
+        duration: 0.8,
+        ease: EASE_APPLE,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    closed: { opacity: 0, y: 50 },
+    open: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE_APPLE } },
+  }
 
   return (
     <>
-      <header className="relative w-full z-[100] flex h-32 items-center justify-between px-6 md:px-12 lg:px-24 border-b border-foreground/5 bg-background">
-        <Link href="/" className="relative z-[110] flex items-center h-full" aria-label={t("home_label")}>
+      <header
+        className={cn(
+          "fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-440 z-100 flex h-24 items-center justify-between px-6 md:px-12 lg:px-24 border-b transition-all duration-700",
+          scrolled || isOpen
+            ? "border-foreground/5 bg-background/80 backdrop-blur-xl"
+            : "border-transparent bg-transparent backdrop-blur-none"
+        )}
+      >
+        <Link
+          href="/"
+          className="relative z-220 flex items-center h-full"
+          aria-label={t("home_label")}
+          onClick={() => setIsOpen(false)}
+        >
           {mounted && (
-            <Image 
-              src={logoSrc} 
-              alt={t("logo_alt")} 
-              width={0} 
-              height={0} 
+            <Image
+              src={logoSrc}
+              alt={t("logo_alt")}
+              width={0}
+              height={0}
               sizes="100vw"
               className="h-6 w-auto object-contain"
               priority
@@ -65,13 +120,12 @@ export const Header = React.memo(function Header(): React.JSX.Element {
         </Link>
 
         <div className="flex items-center gap-12">
-          <nav className="hidden lg:flex items-center gap-10" aria-label={t("main_nav_label")}>
+          <nav
+            className="hidden lg:flex items-center gap-10"
+            aria-label={t("main_nav_label")}
+          >
             {navLinks.map((link) => (
-              <NavLink 
-                key={link.href} 
-                href={link.href} 
-                label={link.label}
-              />
+              <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
           </nav>
 
@@ -80,26 +134,38 @@ export const Header = React.memo(function Header(): React.JSX.Element {
             <ThemeToggle />
           </div>
 
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden relative z-[110] h-10 w-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-lg"
+            className="lg:hidden relative z-[220] h-12 w-12 flex flex-col items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-full bg-foreground/5 border border-foreground/5 backdrop-blur-sm"
             aria-label={isOpen ? t("close_menu") : t("open_menu")}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
-            <m.span 
-              animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}
-              className="h-[2px] w-6 bg-foreground rounded-full origin-center"
+            <m.span
+              animate={{
+                rotate: isOpen ? 45 : 0,
+                y: isOpen ? 4 : 0,
+                width: isOpen ? 24 : 16,
+              }}
+              className="h-[2px] bg-foreground rounded-full origin-center"
               aria-hidden="true"
             />
-            <m.span 
-              animate={{ opacity: isOpen ? 0 : 1, x: isOpen ? 10 : 0 }}
-              className="h-[2px] w-6 bg-foreground rounded-full"
+            <m.span
+              animate={{
+                opacity: isOpen ? 0 : 1,
+                x: isOpen ? 10 : 0,
+                width: 24,
+              }}
+              className="h-[2px] bg-foreground rounded-full"
               aria-hidden="true"
             />
-            <m.span 
-              animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }}
-              className="h-[2px] w-6 bg-foreground rounded-full origin-center"
+            <m.span
+              animate={{
+                rotate: isOpen ? -45 : 0,
+                y: isOpen ? -4 : 0,
+                width: isOpen ? 24 : 16,
+              }}
+              className="h-[2px] bg-foreground rounded-full origin-center"
               aria-hidden="true"
             />
           </button>
@@ -113,23 +179,31 @@ export const Header = React.memo(function Header(): React.JSX.Element {
             role="dialog"
             aria-modal="true"
             aria-label={t("mobile_nav_label")}
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            transition={{ duration: 0.5, ease: EASE_APPLE }}
-            className="fixed inset-0 z-[105] bg-background/80 flex flex-col justify-center px-6 md:px-12"
+            variants={menuVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="fixed inset-0 z-[190] bg-background flex flex-col justify-center px-6 md:px-12 pt-24 overflow-hidden"
           >
-            <nav className="flex flex-col gap-8">
-              {navLinks.map((link, i) => (
-                <m.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 30 }}
-                  transition={{ delay: i * 0.1, duration: 0.8, ease: EASE_APPLE }}
-                >
-                  <NavLink 
-                    href={link.href} 
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 h-full w-1/4 border-l border-foreground/5 bg-muted/20 -z-10 hidden md:block" />
+            <div className="absolute -bottom-10 -right-10 -z-10 opacity-[0.03] select-none pointer-events-none">
+              <span className="text-[20rem] font-black uppercase tracking-tighter rotate-90 origin-bottom-right">
+                MAGUI
+              </span>
+            </div>
+
+            <nav className="flex flex-col gap-4 md:gap-6 relative">
+              <m.div variants={itemVariants} className="mb-8">
+                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">
+                  {t("main_nav_label")}
+                </span>
+              </m.div>
+
+              {navLinks.map((link) => (
+                <m.div key={link.href} variants={itemVariants}>
+                  <NavLink
+                    href={link.href}
                     label={link.label}
                     variant="mobile"
                     onClick={() => setIsOpen(false)}
@@ -138,14 +212,29 @@ export const Header = React.memo(function Header(): React.JSX.Element {
               ))}
             </nav>
 
-            <m.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="mt-20 pt-12 border-t border-foreground/10 flex items-center gap-8"
+            <m.div
+              variants={itemVariants}
+              className="mt-16 md:mt-24 pt-8 md:pt-12 border-t border-foreground/10 flex flex-wrap items-center gap-6 md:gap-10"
             >
-              <LanguageSwitcher />
-              <ThemeToggle />
+              <div className="flex flex-col gap-4">
+                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/60">
+                  Preferências
+                </span>
+                <div className="flex items-center gap-4">
+                  <LanguageSwitcher />
+                  <ThemeToggle />
+                </div>
+              </div>
+            </m.div>
+
+            {/* Bottom info */}
+            <m.div
+              variants={itemVariants}
+              className="absolute bottom-10 left-6 md:left-12 flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/40"
+            >
+              <span>Estúdio 2026</span>
+              <span className="h-1 w-1 rounded-full bg-brand-primary/40" />
+              <span>Rigor Técnico</span>
             </m.div>
           </m.div>
         )}

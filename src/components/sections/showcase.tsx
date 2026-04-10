@@ -81,7 +81,7 @@ export function Showcase(): React.JSX.Element {
                 {t("eyebrow")}
               </span>
             </m.div>
-            <h2 className="font-heading text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-[-0.04em] leading-[0.8]">
+            <h2 className="font-heading text-5xl md:text-8xl lg:text-9xl font-black uppercase tracking-[-0.04em] leading-[0.8]">
               {t("title")}
             </h2>
           </div>

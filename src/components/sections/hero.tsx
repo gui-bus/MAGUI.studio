@@ -37,7 +37,7 @@ export function Hero(): React.JSX.Element {
       className="flex items-center"
       withContainer={false}
     >
-      <div className="relative z-10 py-20 w-full px-6 md:px-12 lg:px-24">
+      <div className="relative z-10 py-5 md:py-20 w-full px-6 md:px-12 lg:px-24">
         <div className="relative">
           <div className="relative z-30">
             <m.div
@@ -47,12 +47,12 @@ export function Hero(): React.JSX.Element {
               className="mb-8 flex items-center gap-4"
             >
               <div className="h-px w-12 bg-brand-primary" />
-              <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
+              <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.5em] text-brand-primary">
                 {t("eyebrow")}
               </span>
             </m.div>
 
-            <h1 className="font-heading text-6xl md:text-9xl lg:text-[140px] font-black leading-[0.75] tracking-[-0.06em] text-foreground uppercase select-none">
+            <h1 className="font-heading text-5xl md:text-9xl lg:text-[140px] font-black leading-[0.75] tracking-[-0.06em] text-foreground uppercase select-none">
               <div className="block">
                 <StaggeredText text={t("title_1")} />
               </div>

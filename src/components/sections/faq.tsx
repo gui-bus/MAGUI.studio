@@ -5,23 +5,26 @@ import * as React from "react"
 import { useTranslations } from "next-intl"
 
 import { FAQItem } from "@/src/types/sections"
+import { AnimatePresence, m } from "framer-motion"
+
 import { Section } from "@/src/components/ui/section"
-import { m, AnimatePresence } from "framer-motion"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
+
 import { cn } from "@/src/lib/utils/utils"
 
 export function FAQ(): React.JSX.Element {
   const t = useTranslations("Index.FAQ")
   const idT = useTranslations("Index.Ids")
   const items = t.raw("items") as FAQItem[]
-  
+
   return (
-    <Section id={idT("faq")} className="py-32 lg:py-64 relative overflow-hidden">
-      {}
+    <Section
+      id={idT("faq")}
+      className="py-32 lg:py-64 relative overflow-hidden"
+    >
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-primary/5 blur-[120px] rounded-full -mr-1/4 -mt-1/4 pointer-events-none" />
-      
+
       <div className="container px-6 md:px-10 relative z-10">
-        {}
         <div className="flex flex-col gap-12 mb-32">
           <m.div
             initial={{ opacity: 0, x: -20 }}
@@ -40,14 +43,9 @@ export function FAQ(): React.JSX.Element {
           </h2>
         </div>
 
-        {}
         <div className="flex flex-col gap-px bg-foreground/10 border border-foreground/10 overflow-hidden rounded-3xl lg:rounded-[3rem]">
           {items.map((item, index) => (
-            <FAQModule 
-              key={index}
-              index={index}
-              item={item}
-            />
+            <FAQModule key={index} index={index} item={item} />
           ))}
         </div>
       </div>
@@ -55,11 +53,11 @@ export function FAQ(): React.JSX.Element {
   )
 }
 
-function FAQModule({ item, index }: { item: FAQItem, index: number }) {
+function FAQModule({ item, index }: { item: FAQItem; index: number }) {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <m.div 
+    <m.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -70,28 +68,36 @@ function FAQModule({ item, index }: { item: FAQItem, index: number }) {
         isOpen ? "bg-foreground/5" : "hover:bg-foreground/[0.02]"
       )}
     >
-      <div className="relative z-10 flex flex-col gap-12"> 
+      <div className="relative z-10 flex flex-col gap-12">
         <div className="flex items-start justify-between gap-8">
           <div className="space-y-6">
-            <h3 className={cn(
-              "text-2xl md:text-3xl lg:text-4xl font-heading font-black uppercase tracking-tighter leading-tight transition-colors duration-500",
-              isOpen ? "text-brand-primary" : "text-foreground"
-            )}>
+            <h3
+              className={cn(
+                "text-2xl md:text-3xl lg:text-4xl font-heading font-black uppercase tracking-tighter leading-tight transition-colors duration-500",
+                isOpen ? "text-brand-primary" : "text-foreground"
+              )}
+            >
               {item.question}
             </h3>
           </div>
-          
+
           <div className="flex-shrink-0 pt-2">
-             <div className={cn(
-               "h-10 w-10 rounded-full border border-foreground/10 flex items-center justify-center transition-all duration-500",
-               isOpen ? "rotate-180 bg-brand-primary border-brand-primary text-white" : ""
-             )}>
-                <div className={cn(
+            <div
+              className={cn(
+                "h-10 w-10 rounded-full border border-foreground/10 flex items-center justify-center transition-all duration-500",
+                isOpen
+                  ? "rotate-180 bg-brand-primary border-brand-primary text-white"
+                  : ""
+              )}
+            >
+              <div
+                className={cn(
                   "h-0.5 w-4 bg-current transition-transform duration-500",
                   isOpen ? "rotate-0" : ""
-                )} />
-                {!isOpen && <div className="absolute h-4 w-0.5 bg-current" />}
-             </div>
+                )}
+              />
+              {!isOpen && <div className="absolute h-4 w-0.5 bg-current" />}
+            </div>
           </div>
         </div>
 
@@ -115,8 +121,7 @@ function FAQModule({ item, index }: { item: FAQItem, index: number }) {
         </AnimatePresence>
       </div>
 
-      {}
-      <m.div 
+      <m.div
         animate={{ scaleX: isOpen ? 1 : 0 }}
         className="absolute bottom-0 left-0 h-1 w-full bg-brand-primary origin-left"
       />

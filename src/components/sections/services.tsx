@@ -136,7 +136,7 @@ export function Services(): React.JSX.Element {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row h-full min-h-[1100px] lg:h-225 w-full relative z-10 border-t border-foreground/5 bg-foreground/5 gap-px">
+      <div className="flex flex-col lg:flex-row h-full md:min-h-275 lg:h-225 w-full relative z-10 border-t border-foreground/5 bg-foreground/5 gap-px">
         {services.map((service, index) => (
           <ServicePanel
             key={service.id}
@@ -246,7 +246,7 @@ function ServicePanel({
           </AnimatePresence>
         </div>
 
-        <div className="relative flex-1 flex flex-col justify-center">
+        <div className={cn("relative flex-1 flex justify-start", isActive ? "" : "ml-16 md:ml-0")}>
           <AnimatePresence mode="wait">
             {!isActive ? (
               <m.div
@@ -254,14 +254,12 @@ function ServicePanel({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                className="flex items-center justify-center pointer-events-none"
               >
                 <h3
                   className={cn(
-                    "font-heading text-3xl md:text-5xl font-black uppercase tracking-tighter lg:-rotate-90 whitespace-nowrap transition-all duration-500",
-                    isOthersActive
-                      ? "text-foreground/3"
-                      : "text-foreground/[0.07]"
+                    "font-heading text-lg md:text-5xl font-black uppercase tracking-tighter lg:-rotate-90 whitespace-nowrap transition-all duration-500 text-white -mt-8 md:mt-0",
+                    
                   )}
                 >
                   {service.title}
@@ -288,7 +286,7 @@ function ServicePanel({
                     hidden: { opacity: 0, y: 40 },
                     visible: { opacity: 1, y: 0 },
                   }}
-                  className="font-heading text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[0.8] text-white"
+                  className="font-heading text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[0.8] text-white mt-5"
                 >
                   <StaggeredText text={service.title} />
                 </m.h3>

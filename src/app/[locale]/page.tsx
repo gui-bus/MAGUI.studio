@@ -30,7 +30,7 @@ export default function Page(): React.JSX.Element {
     <div className="relative min-h-svh w-full bg-background font-sans text-foreground selection:bg-brand-primary/30 selection:text-brand-primary overflow-x-hidden">
       <ScrollSpy />
       <Header />
-      <main>
+      <main className="pt-24 md:pt-32">
         <Hero />
         <Value />
         <Showcase />
