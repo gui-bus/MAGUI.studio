@@ -63,7 +63,6 @@ export function Services(): React.JSX.Element {
       className="border-y border-foreground/5 overflow-hidden py-32 md:py-44"
       withContainer={false}
     >
-
       <div className="container px-6 md:px-10 mb-32 relative">
         <div className="flex flex-col gap-16 md:gap-24">
           {}
@@ -155,28 +154,44 @@ function ServicePanel({
   activeIndex,
   setActiveIndex,
   image,
-}: ServicePanelProps) {
-  const t = useTranslations("Index.Services")
+}: ServicePanelProps): React.JSX.Element {
+  const [isMobile, setIsMobile] = React.useState(false)
+
+  React.useEffect((): (() => void) => {
+    const checkMobile = (): void => setIsMobile(window.innerWidth < 1024)
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return (): void => window.removeEventListener("resize", checkMobile)
+  }, [])
+
   const isActive = activeIndex === index
-  const isOthersActive = activeIndex !== null && !isActive
+  const isExpanded = isMobile || isActive
+  const isOthersActive = !isMobile && activeIndex !== null && !isActive
 
   return (
     <m.div
       layout
-      onMouseEnter={() => setActiveIndex(index)}
-      onMouseLeave={() => setActiveIndex(null)}
+      onMouseEnter={isMobile ? undefined : (): void => setActiveIndex(index)}
+      onMouseLeave={isMobile ? undefined : (): void => setActiveIndex(null)}
       animate={{
-        width: activeIndex === null ? "33.33%" : isActive ? "65%" : "17.5%",
+        width: isMobile
+          ? "100%"
+          : activeIndex === null
+            ? "33.33%"
+            : isActive
+              ? "65%"
+              : "17.5%",
       }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
         "relative h-full flex flex-col overflow-hidden transition-colors duration-700 min-h-75 lg:min-h-0",
-        isActive ? "z-20 shadow-2xl" : "z-10 bg-background"
+        isExpanded ? "z-20 shadow-2xl" : "z-10 bg-background"
       )}
     >
-      {}
       <AnimatePresence>
-        {isActive && (
+        {isExpanded && (
           <m.div
             initial={{ clipPath: "inset(0 100% 0 0)" }}
             animate={{ clipPath: "inset(0 0 0 0)" }}
@@ -199,7 +214,7 @@ function ServicePanel({
             />
 
             {}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%] pointer-events-none opacity-20" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-size-[100%_4px,3px_100%] pointer-events-none opacity-20" />
           </m.div>
         )}
       </AnimatePresence>
@@ -210,14 +225,14 @@ function ServicePanel({
             layout
             className={cn(
               "font-heading text-5xl lg:text-7xl font-black transition-colors duration-500 leading-none",
-              isActive ? "text-white" : "text-foreground/10"
+              isExpanded ? "text-white" : "text-foreground/10"
             )}
           >
             {service.id}
           </m.span>
 
           <AnimatePresence>
-            {isActive && (
+            {isExpanded && (
               <m.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -235,7 +250,7 @@ function ServicePanel({
 
         <div className="relative flex-1 flex flex-col justify-center">
           <AnimatePresence mode="wait">
-            {!isActive ? (
+            {!isExpanded ? (
               <m.div
                 key="vertical"
                 initial={{ opacity: 0 }}
@@ -245,7 +260,7 @@ function ServicePanel({
               >
                 <h3
                   className={cn(
-                    "font-heading text-5xl lg:text-8xl font-black uppercase tracking-tighter lg:-rotate-90 whitespace-nowrap transition-all duration-500",
+                    "font-heading text-5xl lg:text-6xl font-black uppercase tracking-tighter lg:-rotate-90 whitespace-nowrap transition-all duration-500",
                     isOthersActive
                       ? "text-foreground/3"
                       : "text-foreground/[0.07]"
@@ -268,7 +283,6 @@ function ServicePanel({
                 }}
                 className="space-y-12"
               >
-                {}
                 <div className="absolute -top-10 -left-10 w-20 h-20 border-t-2 border-l-2 border-white/20 pointer-events-none" />
 
                 <m.h3
@@ -276,7 +290,7 @@ function ServicePanel({
                     hidden: { opacity: 0, y: 40 },
                     visible: { opacity: 1, y: 0 },
                   }}
-                  className="font-heading text-6xl md:text-8xl lg:text-[120px] font-black uppercase tracking-tighter leading-[0.8] text-white"
+                  className="font-heading text-3xl mt-10 md:mt-0 md:text-8xl font-black uppercase tracking-tighter leading-[0.8] text-white"
                 >
                   <StaggeredText text={service.title} />
                 </m.h3>
@@ -298,7 +312,7 @@ function ServicePanel({
                   }}
                   className="flex items-center gap-8"
                 >
-                  <div className="h-24 w-24 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 hover:bg-white hover:text-black cursor-pointer group/btn shadow-2xl">
+                  <div className="h-24 w-24 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 hover:bg-white text-white hover:text-black cursor-pointer group/btn shadow-2xl">
                     <ArrowUpRightIcon
                       size={40}
                       weight="bold"
@@ -309,13 +323,6 @@ function ServicePanel({
               </m.div>
             )}
           </AnimatePresence>
-        </div>
-
-        <div className="flex items-center justify-between opacity-20 mt-10">
-          <span className="text-[10px] font-mono font-bold text-current uppercase tracking-widest">
-            {t("selection")}
-          </span>
-          <div className="h-1 w-1 rounded-full bg-current animate-pulse" />
         </div>
       </div>
     </m.div>

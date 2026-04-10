@@ -5,7 +5,7 @@ import * as React from "react"
 import { useTranslations } from "next-intl"
 
 import { FAQItem } from "@/src/types/sections"
-import { CaretDownIcon, QuestionIcon } from "@phosphor-icons/react"
+import { CaretDownIcon } from "@phosphor-icons/react"
 import { AnimatePresence, m } from "framer-motion"
 
 import { Section } from "@/src/components/ui/section"
@@ -85,7 +85,7 @@ function FAQModule({ item, index }: FAQModuleProps): React.JSX.Element {
         aria-controls={panelId}
         className={cn(
           "group flex w-full flex-col gap-6 px-6 py-7 text-left transition-colors duration-500 md:px-8 md:py-8 lg:px-10 lg:py-10",
-          isOpen ? "bg-foreground/[0.03] dark:bg-white/[0.03]" : ""
+          isOpen ? "bg-foreground/3 dark:bg-white/3" : ""
         )}
       >
         <div className="flex items-start justify-between gap-5">

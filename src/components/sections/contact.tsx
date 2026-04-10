@@ -52,7 +52,7 @@ export function Contact(): React.JSX.Element {
             </div>
 
             <div className="flex items-center gap-6">
-              <div className="h-[2px] w-16 bg-brand-primary" />
+              <div className="h-0.5 w-16 bg-brand-primary" />
               <span className="text-[11px] font-black uppercase tracking-[0.6em] text-brand-primary">
                 {t("eyebrow")}
               </span>

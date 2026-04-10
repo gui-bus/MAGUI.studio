@@ -96,10 +96,10 @@ export function Manifesto(): React.JSX.Element {
               >
                 <m.div
                   style={{ y: imageY }}
-                  className="relative h-[22rem] w-full md:h-[30rem]"
+                  className="relative h-88 w-full md:h-120"
                 >
                   <Image
-                    src="/images/hero.webp"
+                    src="/images/manifesto.webp"
                     alt={t("image_alt")}
                     fill
                     sizes="(max-width: 1280px) 100vw, 56vw"
