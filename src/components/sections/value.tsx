@@ -57,11 +57,11 @@ export function Value(): React.JSX.Element {
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] hidden lg:block"
       />
 
-      {/* UNIQUE STRUCTURAL HEADER FOR VALUE */}
+      {}
       <m.div style={{ opacity }} className="mb-40 relative">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
           
-          {/* VERTICAL SIDEBAR EYEBROW */}
+          {}
           <div className="hidden lg:flex flex-col items-center gap-8 py-4">
              <m.div 
                initial={{ height: 0 }}
@@ -76,7 +76,7 @@ export function Value(): React.JSX.Element {
           </div>
 
           <div className="flex-1 space-y-20">
-            {/* CLEAN SOLID TITLE WITH INDENTATION */}
+            {}
             <h2 className="font-heading text-6xl md:text-9xl lg:text-[150px] font-black leading-[0.75] tracking-[-0.06em] text-foreground uppercase select-none">
               <m.div 
                 initial={{ opacity: 0, y: 50 }}
@@ -85,7 +85,7 @@ export function Value(): React.JSX.Element {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="block"
               >
-                <StaggeredText text="A Ciência da" />
+                <StaggeredText text={t("title_1")} />
               </m.div>
               <m.div 
                 initial={{ opacity: 0, y: 50 }}
@@ -94,11 +94,11 @@ export function Value(): React.JSX.Element {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                 className="block lg:ml-32 text-brand-primary mt-2"
               >
-                <StaggeredText text="Autoridade." delayBase={0.3} />
+                <StaggeredText text={t("title_2")} delayBase={0.3} />
               </m.div>
             </h2>
 
-            {/* DESCRIPTION WITH TECHNICAL BOX */}
+            {}
             <div className="grid grid-cols-1 lg:grid-cols-12">
                <div className="lg:col-start-4 lg:col-span-9">
                   <m.div
@@ -120,7 +120,7 @@ export function Value(): React.JSX.Element {
         </div>
       </m.div>
 
-      {/* DISCIPLINES GRID - CLEAN DOUBLE-CLIP BORDERS */}
+      {}
       <div className="grid grid-cols-1 lg:grid-cols-3">
         {disciplines.map((discipline, i) => (
           <DisciplineCard 
@@ -180,7 +180,6 @@ function DisciplineCard({
         className="absolute inset-px bg-background overflow-hidden flex flex-col justify-between"
         style={{ clipPath: clipPath !== "none" ? clipPath : undefined }}
       >
-        {/* BACKGROUND IMAGE - AUTO ROTATING */}
         <AnimatePresence mode="wait">
           {isActive && (
             <m.div 

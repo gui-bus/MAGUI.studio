@@ -17,7 +17,13 @@
       "portfolio": "Portfolio",
       "services": "Expertise",
       "about": "Studio",
-      "faq": "Inquiries"
+      "faq": "Inquiries",
+      "home_label": "MAGUI.studio Home",
+      "logo_alt": "MAGUI.studio - Visual Strategy & Interface Design",
+      "main_nav_label": "Main Navigation",
+      "mobile_nav_label": "Mobile Navigation",
+      "open_menu": "Open Menu",
+      "close_menu": "Close Menu"
     },
     "Hero": {
       "eyebrow": "Visual Strategy Studio",
@@ -60,6 +66,8 @@
     "Value": {
       "eyebrow": "Foundations",
       "title": "The Science Behind Authority.",
+      "title_1": "The Science of",
+      "title_2": "Authority.",
       "description": "We combine engineering rigor with design sensitivity to create systems that don't just function—they dominate their segment.",
       "image_alt": "Abstraction of Excellence",
       "disciplines": [
@@ -88,6 +96,8 @@
       "title": "Impact Projects.",
       "description": "A curation of systems that elevate the standard of performance and design in the digital environment.",
       "view_project": "View Project",
+      "background_text": "Selected Work",
+      "case_study_label": "Case Study",
       "projects": [
         { 
           "title": "Apareça e venda", 
@@ -110,6 +120,9 @@
       "eyebrow": "Our Specialties",
       "title": "Services that Elevate Your Business.",
       "description": "Strategic solutions designed for brands seeking visual authority and concrete results.",
+      "title_1": "Services",
+      "title_2": "Specialized",
+      "selection": "Selection",
       "landing": {
         "title": "Landing Pages",
         "label": "High-Conversion",
@@ -145,6 +158,7 @@
       ]
     },
     "CTA": {
+      "eyebrow": "Next Step",
       "title": "Ready to elevate your system?",
       "description": "Contact us now and discover how MAGUI can transform your digital presence.",
       "button": "Talk to Specialists"
@@ -152,6 +166,10 @@
   },
   "Footer": {
     "studio_title": "Studio",
+    "nav_title": "Navigation",
+    "social_title": "Social",
+    "site_footer_label": "Site Footer",
+    "scroll_to_top_label": "Back to Top",
     "established": "Est. 2026 — Global Strategy",
     "availability": "Available for International Projects",
     "credits": "© {year} MAGUI.studio",

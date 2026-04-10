@@ -50,12 +50,11 @@ export const Header = React.memo(function Header(): React.JSX.Element {
   return (
     <>
       <header className="relative w-full z-[100] flex h-32 items-center justify-between px-6 md:px-12 lg:px-24 border-b border-foreground/5 bg-background">
-        {/* LOGO */}
-        <Link href="/" className="relative z-[110] flex items-center h-full" aria-label="MAGUI.studio Home">
+        <Link href="/" className="relative z-[110] flex items-center h-full" aria-label={t("home_label")}>
           {mounted && (
             <Image 
               src={logoSrc} 
-              alt="MAGUI.studio - Visual Strategy & Interface Design" 
+              alt={t("logo_alt")} 
               width={0} 
               height={0} 
               sizes="100vw"
@@ -65,9 +64,8 @@ export const Header = React.memo(function Header(): React.JSX.Element {
           )}
         </Link>
 
-        {/* DESKTOP NAV */}
         <div className="flex items-center gap-12">
-          <nav className="hidden lg:flex items-center gap-10" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center gap-10" aria-label={t("main_nav_label")}>
             {navLinks.map((link) => (
               <NavLink 
                 key={link.href} 
@@ -82,11 +80,10 @@ export const Header = React.memo(function Header(): React.JSX.Element {
             <ThemeToggle />
           </div>
 
-          {/* MOBILE MENU TOGGLE */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden relative z-[110] h-10 w-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-lg"
-            aria-label={isOpen ? "Close Menu" : "Open Menu"}
+            aria-label={isOpen ? t("close_menu") : t("open_menu")}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
@@ -109,14 +106,13 @@ export const Header = React.memo(function Header(): React.JSX.Element {
         </div>
       </header>
 
-      {/* MOBILE OVERLAY */}
       <AnimatePresence>
         {isOpen && (
           <m.div
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
-            aria-label="Mobile Navigation"
+            aria-label={t("mobile_nav_label")}
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}

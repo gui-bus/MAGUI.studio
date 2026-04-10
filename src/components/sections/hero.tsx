@@ -39,7 +39,6 @@ export function Hero(): React.JSX.Element {
     >
       <div className="relative z-10 py-20 w-full px-6 md:px-12 lg:px-24">
         <div className="relative">
-          {/* MAIN HEADLINE */}
           <div className="relative z-30">
             <m.div
               variants={VARIANTS_FADE_IN_UP}
@@ -66,7 +65,6 @@ export function Hero(): React.JSX.Element {
             </h1>
           </div>
 
-          {/* ARTISTIC IMAGE */}
           <m.div
             initial={{
               opacity: 0,

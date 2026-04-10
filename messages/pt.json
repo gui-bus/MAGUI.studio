@@ -17,7 +17,13 @@
       "portfolio": "Portfólio",
       "services": "Expertise",
       "about": "O Estúdio",
-      "faq": "Dúvidas"
+      "faq": "Dúvidas",
+      "home_label": "MAGUI.studio Início",
+      "logo_alt": "MAGUI.studio - Estratégia Visual & Design de Interface",
+      "main_nav_label": "Navegação Principal",
+      "mobile_nav_label": "Navegação Mobile",
+      "open_menu": "Abrir Menu",
+      "close_menu": "Fechar Menu"
     },
     "Hero": {
       "eyebrow": "Studio de Estratégia Visual",
@@ -60,6 +66,8 @@
     "Value": {
       "eyebrow": "Fundamentos",
       "title": "A Ciência por trás da Autoridade.",
+      "title_1": "A Ciência da",
+      "title_2": "Autoridade.",
       "description": "Combinamos o rigor da engenharia com a sensibilidade do design para criar sistemas que não apenas funcionam, mas dominam seu segmento.",
       "image_alt": "Abstração de Excelência",
       "disciplines": [
@@ -88,6 +96,8 @@
       "title": "Projetos de Impacto.",
       "description": "Uma curadoria de sistemas que elevam o padrão de performance e design no ambiente digital.",
       "view_project": "Ver Projeto",
+      "background_text": "Trabalho Selecionado",
+      "case_study_label": "Estudo de Caso",
       "projects": [
         { 
           "title": "Apareça e venda",
@@ -110,6 +120,9 @@
       "eyebrow": "Nossas Especialidades",
       "title": "Serviços que Elevam seu Negócio.",
       "description": "Soluções estratégicas desenhadas para marcas que buscam autoridade visual e resultados concretos.",
+      "title_1": "Serviços",
+      "title_2": "Especializados",
+      "selection": "Seleção",
       "landing": {
         "title": "Landing Pages",
         "label": "High-Conversion",
@@ -145,6 +158,7 @@
       ]
     },
     "CTA": {
+      "eyebrow": "Próximo Passo",
       "title": "Pronto para elevar o nível?",
       "description": "Fale agora com nossos especialistas e descubra como a MAGUI pode transformar sua empresa.",
       "button": "Iniciar Projeto"
@@ -152,6 +166,10 @@
   },
   "Footer": {
     "studio_title": "O Estúdio",
+    "nav_title": "Navegação",
+    "social_title": "Social",
+    "site_footer_label": "Rodapé do Site",
+    "scroll_to_top_label": "Voltar ao Topo",
     "established": "Desde 2026 — Estratégia Global",
     "availability": "Disponível para Projetos Internacionais",
     "credits": "© {year} MAGUI.studio",

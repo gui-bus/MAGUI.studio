@@ -18,6 +18,7 @@ const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 export function Contact(): React.JSX.Element {
   const t = useTranslations("Index.CTA")
   const idT = useTranslations("Index.Ids")
+  const configT = useTranslations("Config")
   const containerRef = React.useRef<HTMLDivElement>(null)
 
   return (
@@ -42,13 +43,13 @@ export function Contact(): React.JSX.Element {
             <div className="relative h-12 w-48 lg:h-16 lg:w-64">
               <Image 
                 src="/logos/LOGO_VAR_03_DM.svg" 
-              alt="MAGUI" 
+                alt={configT("name")} 
                 fill
                 className="object-contain object-left dark:hidden"
               />
               <Image 
                 src="/logos/LOGO_VAR_03_LM.svg" 
-                alt="MAGUI" 
+                alt={configT("name")} 
                 fill
                 className="object-contain object-left hidden dark:block"
               />
@@ -57,7 +58,7 @@ export function Contact(): React.JSX.Element {
             <div className="flex items-center gap-6">
               <div className="h-[2px] w-16 bg-brand-primary" />
               <span className="text-[11px] font-black uppercase tracking-[0.6em] text-brand-primary">
-                Next Step
+                {t("eyebrow")}
               </span>
             </div>
           </m.div>

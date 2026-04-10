@@ -2,12 +2,14 @@
 
 import * as React from "react"
 
+import { useTranslations } from "next-intl"
 import { AnimatePresence, Variants, m } from "framer-motion"
 
 import { GrainyNoise } from "@/src/components/ui/grainyNoise"
 
 export function Preloader(): React.JSX.Element {
   const [isLoading, setIsLoading] = React.useState(true)
+  const configT = useTranslations("Config")
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,8 +19,7 @@ export function Preloader(): React.JSX.Element {
     return () => clearTimeout(timer)
   }, [])
 
-  const mainText = "MAGUI"
-  const studioText = "studio"
+  const [mainText, studioText] = configT("name").split(".")
 
   const container: Variants = {
     hidden: { opacity: 0 },
@@ -105,23 +106,27 @@ export function Preloader(): React.JSX.Element {
                   {letter}
                 </m.span>
               ))}
-              <m.span
-                variants={child}
-                className="font-heading text-5xl md:text-8xl lg:text-9xl font-black tracking-[-0.05em] text-brand-primary leading-none"
-              >
-                .
-              </m.span>
-              <div className="flex">
-                {studioText.split("").map((letter, index) => (
+              {studioText && (
+                <>
                   <m.span
-                    key={index}
                     variants={child}
-                    className="font-heading text-5xl md:text-8xl lg:text-9xl font-light lowercase tracking-[-0.05em] text-foreground leading-none"
+                    className="font-heading text-5xl md:text-8xl lg:text-9xl font-black tracking-[-0.05em] text-brand-primary leading-none"
                   >
-                    {letter}
+                    .
                   </m.span>
-                ))}
-              </div>
+                  <div className="flex">
+                    {studioText.split("").map((letter, index) => (
+                      <m.span
+                        key={index}
+                        variants={child}
+                        className="font-heading text-5xl md:text-8xl lg:text-9xl font-light lowercase tracking-[-0.05em] text-foreground leading-none"
+                      >
+                        {letter}
+                      </m.span>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </m.div>
         </m.div>

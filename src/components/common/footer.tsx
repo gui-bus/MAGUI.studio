@@ -44,19 +44,17 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
   const socialLinks = ["Instagram", "LinkedIn", "Behance"]
 
   return (
-    <footer className="w-full bg-background pt-32 pb-12 border-t border-foreground/5 overflow-hidden" aria-label="Site Footer">
+    <footer className="w-full bg-background pt-32 pb-12 border-t border-foreground/5 overflow-hidden" aria-label={t("site_footer_label")}>
       <div className="px-6 lg:px-12">
         
-        {/* MAIN FOOTER CONTENT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 lg:gap-12 items-start mb-48">
           
-          {/* BRAND BLOCK */}
           <div className="lg:col-span-5 space-y-16">
             <div className="relative h-12 w-64">
               {mounted && (
                 <Image 
                   src={logoSrc} 
-                  alt="MAGUI.studio Branding" 
+                  alt={configT("name")} 
                   fill 
                   sizes="256px"
                   className="object-contain object-left"
@@ -68,13 +66,12 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
             </p>
           </div>
 
-          {/* LINKS GRID */}
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12 lg:pl-24">
             
             <div className="space-y-10">
               <div className="flex items-center gap-3">
                  <Plus weight="bold" size={10} className="text-brand-primary" aria-hidden="true" />
-                 <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">Navigation</span>
+                 <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">{t("nav_title")}</span>
               </div>
               <ul className="space-y-6">
                 {navigationLinks.map((link) => (
@@ -92,7 +89,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
             <div className="space-y-10">
               <div className="flex items-center gap-3">
                  <Plus weight="bold" size={10} className="text-brand-primary" aria-hidden="true" />
-                 <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">Social</span>
+                 <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">{t("social_title")}</span>
               </div>
               <ul className="space-y-6">
                 {socialLinks.map((link) => (
@@ -121,7 +118,6 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
           </div>
         </div>
 
-        {/* MASSIVE SIGNATURE LOGO */}
         <div className="relative w-full mb-24 overflow-hidden py-12">
            <m.h2 
              initial={{ opacity: 0, y: 100 }}
@@ -130,11 +126,10 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
              className="text-7xl md:text-[160px] lg:text-[280px] xl:text-[360px] font-black leading-none text-foreground uppercase tracking-[-0.08em] select-none text-center relative"
            >
-             MAGUI
+             {configT("name").split('.')[0]}
            </m.h2>
         </div>
 
-        {/* BOTTOM CREDITS */}
         <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-8 gap-y-4 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/70">
             <span>{t("credits", { year: new Date().getFullYear() })}</span>
@@ -144,7 +139,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
             <button 
               onClick={scrollToTop}
               className="flex items-center gap-2 text-brand-primary hover:text-foreground transition-all duration-500 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-full px-2"
-              aria-label="Scroll to Top"
+              aria-label={t("scroll_to_top_label")}
             >
               <span>{t("back_to_top")}</span>
               <ArrowUp weight="bold" className="transition-transform group-hover:-translate-y-1" aria-hidden="true" />

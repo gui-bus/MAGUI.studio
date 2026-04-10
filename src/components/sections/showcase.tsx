@@ -59,17 +59,15 @@ export function Showcase(): React.JSX.Element {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-        {/* PARALLAX BACKGROUND TEXT */}
         <m.div 
           style={{ x: backgroundX }}
           className="absolute top-0 right-0 -translate-y-1/4 pointer-events-none select-none z-0"
         >
           <span className="text-9xl md:text-[200px] lg:text-[350px] font-black text-foreground/2 dark:text-white/1 uppercase leading-none whitespace-nowrap">
-            Selected Work
+            {t("background_text")}
           </span>
         </m.div>
 
-        {/* HEADER AREA */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-24 lg:mb-40 relative z-10">
           <div className="space-y-8">
             <m.div
@@ -88,7 +86,6 @@ export function Showcase(): React.JSX.Element {
             </h2>
           </div>
 
-          {/* CAROUSEL CONTROLS */}
           <div className="flex items-center gap-10">
             <div className="flex items-center gap-4">
               <button 
@@ -134,7 +131,6 @@ export function Showcase(): React.JSX.Element {
           </div>
         </div>
 
-        {/* CAROUSEL CONTENT */}
         <div className="relative min-h-150 lg:min-h-212.5 z-10">
           <AnimatePresence mode="wait" initial={false} custom={direction}>
             <m.div
@@ -146,7 +142,6 @@ export function Showcase(): React.JSX.Element {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center"
             >
-              {/* IMAGE SIDE */}
               <div className="lg:col-span-7 relative aspect-video lg:aspect-16/10 group/img">
       
 
@@ -168,12 +163,10 @@ export function Showcase(): React.JSX.Element {
                   <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60" />
                 </m.div>
 
-                {/* Decorative technical markers */}
                 <div className="absolute -top-4 -left-4 w-16 h-16 border-t-2 border-l-2 border-brand-primary/40 z-20" />
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 border-b-2 border-r-2 border-brand-primary/40 z-20" />
               </div>
 
-              {/* CONTENT SIDE */}
               <div className="lg:col-span-5 space-y-12">
                 <div className="space-y-10">
                   <div className="flex items-center gap-6 overflow-hidden">
@@ -182,7 +175,7 @@ export function Showcase(): React.JSX.Element {
                       animate={{ y: 0 }}
                       className="font-mono text-sm lg:text-xl text-brand-primary font-bold uppercase tracking-widest"
                     >
-                      Case Study
+                      {t("case_study_label")}
                     </m.span>
                     <m.div 
                       initial={{ scaleX: 0 }}

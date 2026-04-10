@@ -3,8 +3,8 @@ import { cn } from "@/src/lib/utils/utils"
 
 interface GrainyNoiseProps {
   className?: string
-  opacity?: string // e.g. "opacity-[0.03]"
-  zIndex?: string // e.g. "z-10"
+  opacity?: string
+  zIndex?: string
 }
 
 export function GrainyNoise({ 

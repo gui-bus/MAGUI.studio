@@ -12,7 +12,7 @@ export function ScrollSpy(): null {
     
     const options = {
       root: null,
-      rootMargin: "-25% 0px -65% 0px", // Slightly adjusted for better precision
+      rootMargin: "-25% 0px -65% 0px",
       threshold: 0
     }
 
@@ -22,10 +22,10 @@ export function ScrollSpy(): null {
           const id = entry.target.getAttribute("id")
           if (id) {
             if (id === heroId) {
-              // If it's the hero, remove the hash from URL
+
               window.history.replaceState(null, "", window.location.pathname)
             } else {
-              // Update URL hash for other sections
+
               window.history.replaceState(null, "", `#${id}`)
             }
           }
@@ -35,7 +35,7 @@ export function ScrollSpy(): null {
 
     sections.forEach((section) => observer.observe(section))
 
-    // Handle the case where the user scrolls to the very top manually
+
     const handleScroll = () => {
       if (window.scrollY < 100) {
         window.history.replaceState(null, "", window.location.pathname)

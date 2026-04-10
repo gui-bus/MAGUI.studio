@@ -1,18 +1,20 @@
 "use client"
 
 import * as React from "react"
-import Image from "next/image"
 
 import { useTranslations } from "next-intl"
+import Image from "next/image"
 
+import { Service } from "@/src/types/sections"
 import { ArrowUpRightIcon } from "@phosphor-icons/react"
-import { m, AnimatePresence } from "framer-motion"
+import { AnimatePresence, m } from "framer-motion"
+
+import { GrainyNoise } from "@/src/components/ui/grainyNoise"
+import { Section } from "@/src/components/ui/section"
+import { StaggeredText } from "@/src/components/ui/staggeredText"
 
 import { cn } from "@/src/lib/utils/utils"
-import { Service } from "@/src/types/sections"
-import { Section } from "@/src/components/ui/section"
-import { GrainyNoise } from "@/src/components/ui/grainyNoise"
-import { StaggeredText } from "@/src/components/ui/staggeredText"
+
 import { VARIANTS_FADE_IN_UP } from "@/src/config/animations"
 
 const SERVICE_IMAGES = [
@@ -25,41 +27,48 @@ export function Services(): React.JSX.Element {
   const t = useTranslations("Index.Services")
   const idT = useTranslations("Index.Ids")
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null)
-  
-  const services = React.useMemo<Service[]>(() => [
-    {
-      id: "01",
-      title: t("landing.title"),
-      label: t("landing.label"),
-      description: t("landing.description"),
-      color: "bg-brand-primary",
-      textColor: "text-white",
-    },
-    {
-      id: "02",
-      title: t("sales.title"),
-      label: t("sales.label"),
-      description: t("sales.description"),
-      color: "bg-zinc-900",
-      textColor: "text-white",
-    },
-    {
-      id: "03",
-      title: t("institutional.title"),
-      label: t("institutional.label"),
-      description: t("institutional.description"),
-      color: "bg-brand-secondary",
-      textColor: "text-white",
-    },
-  ], [t])
+
+  const services = React.useMemo<Service[]>(
+    () => [
+      {
+        id: "01",
+        title: t("landing.title"),
+        label: t("landing.label"),
+        description: t("landing.description"),
+        color: "bg-brand-primary",
+        textColor: "text-white",
+      },
+      {
+        id: "02",
+        title: t("sales.title"),
+        label: t("sales.label"),
+        description: t("sales.description"),
+        color: "bg-zinc-900",
+        textColor: "text-white",
+      },
+      {
+        id: "03",
+        title: t("institutional.title"),
+        label: t("institutional.label"),
+        description: t("institutional.description"),
+        color: "bg-brand-secondary",
+        textColor: "text-white",
+      },
+    ],
+    [t]
+  )
 
   return (
-    <Section id={idT("services")} className="border-y border-foreground/5 overflow-hidden py-32 md:py-44" withContainer={false}>
+    <Section
+      id={idT("services")}
+      className="border-y border-foreground/5 overflow-hidden py-32 md:py-44"
+      withContainer={false}
+    >
       <GrainyNoise zIndex="z-50" opacity="opacity-[0.03] dark:opacity-[0.05]" />
 
       <div className="container px-6 md:px-10 mb-32 relative">
         <div className="flex flex-col gap-16 md:gap-24">
-          {/* TOP PORTION: EYEBROW + TITLE */}
+          {}
           <div className="space-y-12">
             <m.div
               variants={VARIANTS_FADE_IN_UP}
@@ -69,7 +78,7 @@ export function Services(): React.JSX.Element {
               className="flex items-center gap-4"
             >
               <div className="h-px w-12 bg-brand-primary" />
-              <m.span 
+              <m.span
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -80,28 +89,32 @@ export function Services(): React.JSX.Element {
             </m.div>
 
             <h2 className="font-heading text-6xl md:text-9xl lg:text-[160px] font-black leading-[0.7] tracking-[-0.06em] text-foreground uppercase select-none">
-              <m.div 
+              <m.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="block"
               >
-                <StaggeredText text="Serviços" />
+                <StaggeredText text={t("title_1")} />
               </m.div>
-              <m.div 
+              <m.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                transition={{
+                  duration: 1,
+                  ease: [0.16, 1, 0.3, 1],
+                  delay: 0.2,
+                }}
                 className="block text-brand-primary mt-4"
               >
-                <StaggeredText text="Especializados" delayBase={0.3} />
+                <StaggeredText text={t("title_2")} delayBase={0.3} />
               </m.div>
             </h2>
           </div>
 
-          {/* BOTTOM PORTION: DESCRIPTION */}
+          {}
           <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-            <m.p 
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -116,7 +129,7 @@ export function Services(): React.JSX.Element {
 
       <div className="flex flex-col lg:flex-row h-full min-h-175 lg:h-225 w-full relative z-10 border-t border-foreground/5 bg-foreground/5 gap-px">
         {services.map((service, index) => (
-          <ServicePanel 
+          <ServicePanel
             key={service.id}
             service={service}
             index={index}
@@ -138,7 +151,14 @@ interface ServicePanelProps {
   image: string
 }
 
-function ServicePanel({ service, index, activeIndex, setActiveIndex, image }: ServicePanelProps) {
+function ServicePanel({
+  service,
+  index,
+  activeIndex,
+  setActiveIndex,
+  image,
+}: ServicePanelProps) {
+  const t = useTranslations("Index.Services")
   const isActive = activeIndex === index
   const isOthersActive = activeIndex !== null && !isActive
 
@@ -147,8 +167,8 @@ function ServicePanel({ service, index, activeIndex, setActiveIndex, image }: Se
       layout
       onMouseEnter={() => setActiveIndex(index)}
       onMouseLeave={() => setActiveIndex(null)}
-      animate={{ 
-        width: activeIndex === null ? "33.33%" : isActive ? "65%" : "17.5%" 
+      animate={{
+        width: activeIndex === null ? "33.33%" : isActive ? "65%" : "17.5%",
       }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
@@ -156,29 +176,31 @@ function ServicePanel({ service, index, activeIndex, setActiveIndex, image }: Se
         isActive ? "z-20 shadow-2xl" : "z-10 bg-background"
       )}
     >
-      {/* BACKGROUND IMAGE WITH CLIP-PATH REVEAL */}
+      {}
       <AnimatePresence>
         {isActive && (
-          <m.div 
+          <m.div
             initial={{ clipPath: "inset(0 100% 0 0)" }}
             animate={{ clipPath: "inset(0 0 0 0)" }}
             exit={{ clipPath: "inset(0 0 0 100%)" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="absolute inset-0 z-0 pointer-events-none"
           >
-            <Image 
+            <Image
               src={image}
               alt=""
               fill
               sizes="(max-width: 1024px) 100vw, 65vw"
               className="object-cover scale-110 blur-0 opacity-40"
             />
-            <div className={cn(
-              "absolute inset-0 transition-opacity duration-700 opacity-90",
-              service.color
-            )} />
-            
-            {/* Technical Detail Overlays */}
+            <div
+              className={cn(
+                "absolute inset-0 transition-opacity duration-700 opacity-90",
+                service.color
+              )}
+            />
+
+            {}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%] pointer-events-none opacity-20" />
           </m.div>
         )}
@@ -186,7 +208,7 @@ function ServicePanel({ service, index, activeIndex, setActiveIndex, image }: Se
 
       <div className="relative h-full w-full p-10 lg:p-24 flex flex-col justify-between z-10">
         <div className="flex items-center justify-between">
-          <m.span 
+          <m.span
             layout
             className={cn(
               "font-heading text-5xl lg:text-7xl font-black transition-colors duration-500 leading-none",
@@ -195,7 +217,7 @@ function ServicePanel({ service, index, activeIndex, setActiveIndex, image }: Se
           >
             {service.id}
           </m.span>
-          
+
           <AnimatePresence>
             {isActive && (
               <m.div
@@ -223,10 +245,14 @@ function ServicePanel({ service, index, activeIndex, setActiveIndex, image }: Se
                 exit={{ opacity: 0 }}
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
               >
-                <h3 className={cn(
-                  "font-heading text-5xl lg:text-8xl font-black uppercase tracking-tighter lg:-rotate-90 whitespace-nowrap transition-all duration-500",
-                  isOthersActive ? "text-foreground/3" : "text-foreground/[0.07]"
-                )}>
+                <h3
+                  className={cn(
+                    "font-heading text-5xl lg:text-8xl font-black uppercase tracking-tighter lg:-rotate-90 whitespace-nowrap transition-all duration-500",
+                    isOthersActive
+                      ? "text-foreground/3"
+                      : "text-foreground/[0.07]"
+                  )}
+                >
                   {service.title}
                 </h3>
               </m.div>
@@ -237,45 +263,49 @@ function ServicePanel({ service, index, activeIndex, setActiveIndex, image }: Se
                 animate="visible"
                 variants={{
                   hidden: { opacity: 0 },
-                  visible: { 
+                  visible: {
                     opacity: 1,
-                    transition: { staggerChildren: 0.1, delayChildren: 0.2 } 
-                  }
+                    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+                  },
                 }}
                 className="space-y-12"
               >
-                {/* Technical Frames for active state */}
+                {}
                 <div className="absolute -top-10 -left-10 w-20 h-20 border-t-2 border-l-2 border-white/20 pointer-events-none" />
-                
-                <m.h3 
+
+                <m.h3
                   variants={{
                     hidden: { opacity: 0, y: 40 },
-                    visible: { opacity: 1, y: 0 }
+                    visible: { opacity: 1, y: 0 },
                   }}
                   className="font-heading text-6xl md:text-8xl lg:text-[120px] font-black uppercase tracking-tighter leading-[0.8] text-white"
                 >
                   <StaggeredText text={service.title} />
                 </m.h3>
-                
-                <m.p 
+
+                <m.p
                   variants={{
                     hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 }
+                    visible: { opacity: 1, y: 0 },
                   }}
                   className="max-w-2xl text-xl md:text-3xl font-medium leading-tight tracking-tight text-white/80"
                 >
                   {service.description}
                 </m.p>
-                
-                <m.div 
+
+                <m.div
                   variants={{
                     hidden: { opacity: 0, scale: 0.8 },
-                    visible: { opacity: 1, scale: 1 }
+                    visible: { opacity: 1, scale: 1 },
                   }}
                   className="flex items-center gap-8"
                 >
                   <div className="h-24 w-24 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 hover:bg-white hover:text-black cursor-pointer group/btn shadow-2xl">
-                     <ArrowUpRightIcon size={40} weight="bold" className="transition-transform duration-500 group-hover/btn:rotate-45" />
+                    <ArrowUpRightIcon
+                      size={40}
+                      weight="bold"
+                      className="transition-transform duration-500 group-hover/btn:rotate-45"
+                    />
                   </div>
                 </m.div>
               </m.div>
@@ -284,10 +314,10 @@ function ServicePanel({ service, index, activeIndex, setActiveIndex, image }: Se
         </div>
 
         <div className="flex items-center justify-between opacity-20 mt-10">
-           <span className="text-[10px] font-mono font-bold text-current uppercase tracking-widest">
-             Selection // {service.id}
-           </span>
-           <div className="h-1 w-1 rounded-full bg-current animate-pulse" />
+          <span className="text-[10px] font-mono font-bold text-current uppercase tracking-widest">
+            {t("selection")}
+          </span>
+          <div className="h-1 w-1 rounded-full bg-current animate-pulse" />
         </div>
       </div>
     </m.div>

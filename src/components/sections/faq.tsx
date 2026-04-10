@@ -17,11 +17,11 @@ export function FAQ(): React.JSX.Element {
   
   return (
     <Section id={idT("faq")} className="py-32 lg:py-64 relative overflow-hidden">
-      {/* BACKGROUND DECORATIVE ELEMENTS */}
+      {}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-primary/5 blur-[120px] rounded-full -mr-1/4 -mt-1/4 pointer-events-none" />
       
       <div className="container px-6 md:px-10 relative z-10">
-        {/* MINIMALIST HEADER */}
+        {}
         <div className="flex flex-col gap-12 mb-32">
           <m.div
             initial={{ opacity: 0, x: -20 }}
@@ -40,7 +40,7 @@ export function FAQ(): React.JSX.Element {
           </h2>
         </div>
 
-        {/* QUESTIONS LIST */}
+        {}
         <div className="flex flex-col gap-px bg-foreground/10 border border-foreground/10 overflow-hidden rounded-3xl lg:rounded-[3rem]">
           {items.map((item, index) => (
             <FAQModule 
@@ -115,7 +115,7 @@ function FAQModule({ item, index }: { item: FAQItem, index: number }) {
         </AnimatePresence>
       </div>
 
-      {/* ACTIVE MODULE DECORATION */}
+      {}
       <m.div 
         animate={{ scaleX: isOpen ? 1 : 0 }}
         className="absolute bottom-0 left-0 h-1 w-full bg-brand-primary origin-left"
