@@ -35,7 +35,7 @@
       "title_2": "Interface &",
       "title_3": "Autoridade",
       "description": "Transformamos desafios complexos em sistemas digitais de alta performance com rigor técnico e estética de elite.",
-      "cta": "Projetar Agora",
+      "cta": "Abrir Briefing",
       "secondary_cta": "Explorar Portfolio",
       "scroll": "Descobrir",
       "image_alt": "Abstração de Precisão e Poder",
@@ -206,10 +206,106 @@
       "question_label": "Pergunta"
     },
     "CTA": {
-      "eyebrow": "Próximo Passo",
-      "title": "Pronto para elevar o nível?",
-      "description": "Fale agora com nossos especialistas e descubra como a MAGUI pode transformar sua empresa.",
-      "button": "Iniciar Projeto"
+      "eyebrow": "Contato",
+      "title": "Seu projeto começa aqui",
+      "description": "Abra o briefing e envie o contexto essencial para transformar a ideia em uma direção clara.",
+      "button": "Abrir Briefing",
+      "cardEyebrow": "Próximo passo",
+      "cardTitle": "Clareza antes da execução.",
+      "cardDescription": "Um bom projeto começa com um briefing objetivo, bem estruturado e sem ruído."
+    },
+    "ContactDrawer": {
+      "eyebrow": "Briefing",
+      "title": "Briefing",
+      "description": "Preencha os pontos principais para alinhar escopo, prazo e objetivo logo no primeiro contato.",
+      "close": "Fechar formulário",
+      "referralLabel": "Indicação ativa",
+      "referralText": "{name} indicou você. Essa informação será considerada no contexto do contato.",
+      "successTitle": "Briefing recebido.",
+      "successMessage": "As informações foram enviadas com sucesso. O próximo passo agora é a análise do contexto enviado.",
+      "errorMessage": "Não foi possível enviar agora. Tente novamente em instantes.",
+      "submit": "Enviar Briefing",
+      "submitting": "Enviando",
+      "footerNote": "",
+      "notProvided": "Não informado",
+      "emailSubject": "Novo briefing de projeto: {name}",
+      "fields": {
+        "name": {
+          "label": "Nome",
+          "placeholder": "Como devo te chamar?"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Qual e-mail deve receber a resposta?"
+        },
+        "company": {
+          "label": "Empresa",
+          "placeholder": "Nome da marca, empresa ou projeto"
+        },
+        "projectType": {
+          "label": "Tipo de projeto"
+        },
+        "budget": {
+          "label": "Faixa de investimento"
+        },
+        "deadline": {
+          "label": "Prazo esperado"
+        },
+        "message": {
+          "label": "Briefing",
+          "placeholder": "Resuma o projeto, o objetivo principal e qualquer referência importante."
+        }
+      },
+      "projectTypes": {
+        "landing": "Landing Page",
+        "sales": "Página de Vendas",
+        "institutional": "Site Institucional",
+        "other": "Outro"
+      },
+      "budgets": {
+        "range1": "Até R$ 3 mil",
+        "range2": "R$ 3 mil a R$ 6 mil",
+        "range3": "R$ 6 mil a R$ 10 mil",
+        "range4": "Acima de R$ 10 mil"
+      },
+      "deadlines": {
+        "urgent": "Urgente",
+        "thirtyDays": "Até 30 dias",
+        "sixtyDays": "30 a 60 dias",
+        "flexible": "Sem pressa"
+      },
+      "validation": {
+        "nameMin": "Informe pelo menos 2 caracteres.",
+        "emailInvalid": "Digite um e-mail válido.",
+        "projectTypeRequired": "Selecione o tipo de projeto.",
+        "budgetRequired": "Selecione a faixa de investimento.",
+        "deadlineRequired": "Selecione o prazo esperado.",
+        "messageMin": "Explique o contexto com pelo menos 10 caracteres."
+      }
+    },
+    "ContactPage": {
+      "metaTitle": "Contato",
+      "metaDescription": "Envie o briefing do seu projeto e alinhe escopo, prazo e objetivo em uma página dedicada de contato.",
+      "eyebrow": "Contato",
+      "title": "Contato",
+      "description": "Uma pagina pensada para organizar o contexto do projeto com clareza, ritmo e direcao desde o primeiro envio.",
+      "pill1Label": "Escopo",
+      "pill1Text": "Defina o tipo de projeto e o resultado esperado.",
+      "pill2Label": "Prazo",
+      "pill2Text": "Sinalize a janela ideal para estruturar a entrega.",
+      "pill3Label": "Contexto",
+      "pill3Text": "Compartilhe referencias, objetivo e momento atual.",
+      "sideEyebrow": "Fluxo",
+      "sideTitle": "Mais clareza logo no inicio.",
+      "sideDescription": "A pagina concentra o briefing em um unico lugar para tornar o primeiro contato mais objetivo.",
+      "miniCardLabel": "Direcao",
+      "miniCardText": "Um envio bem estruturado acelera escopo, leitura e proximos passos.",
+      "imageAlt": "Composicao visual da pagina de contato da MAGUI.studio",
+      "imageCardLabel": "Leitura",
+      "imageCardTitle": "Contexto organizado.",
+      "imageCardText": "A combinacao entre imagem, ritmo e estrutura reforca a experiencia antes mesmo do envio.",
+      "formEyebrow": "Formulario",
+      "formTitle": "Envie o briefing"
     }
   },
   "Footer": {

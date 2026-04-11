@@ -55,11 +55,11 @@ export const Header = React.memo(function Header(): React.JSX.Element {
 
   const navLinks = React.useMemo(
     () => [
-      { href: `#${idT("about")}`, label: t("about") },
-      { href: `#${idT("portfolio")}`, label: t("portfolio") },
-      { href: `#${idT("process")}`, label: t("process") },
-      { href: `#${idT("services")}`, label: t("services") },
-      { href: `#${idT("faq")}`, label: t("faq") },
+      { href: `/#${idT("about")}`, label: t("about") },
+      { href: `/#${idT("portfolio")}`, label: t("portfolio") },
+      { href: `/#${idT("process")}`, label: t("process") },
+      { href: `/#${idT("services")}`, label: t("services") },
+      { href: `/#${idT("faq")}`, label: t("faq") },
     ],
     [idT, t]
   )

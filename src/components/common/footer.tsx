@@ -89,7 +89,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
                 {navigationLinks.map((link) => (
                   <li key={link.id} className="group overflow-hidden">
                     <NavLink
-                      href={`#${idT(link.id)}`}
+                      href={`/#${idT(link.id)}`}
                       label={link.label}
                       variant="footer"
                     />

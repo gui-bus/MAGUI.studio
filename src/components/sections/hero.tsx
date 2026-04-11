@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { useTranslations } from "next-intl"
 import Image from "next/image"
+import Link from "next/link"
 
 import { ArrowUpRightIcon } from "@phosphor-icons/react"
 import { m } from "framer-motion"
@@ -103,16 +104,19 @@ export function Hero(): React.JSX.Element {
           >
             <div className="flex flex-wrap items-center gap-10">
               <Button
+                asChild={true}
                 size="lg"
-                className="group relative h-20 px-12 rounded-full bg-brand-primary text-white hover:scale-105 transition-all duration-500 shadow-2xl shadow-brand-primary/20"
+                className="group relative h-20 rounded-full bg-brand-primary px-12 text-white shadow-2xl shadow-brand-primary/20 transition-all duration-500 hover:scale-105"
               >
-                <span className="relative z-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.2em]">
-                  {t("cta")}
-                  <ArrowUpRightIcon
-                    weight="bold"
-                    className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                  />
-                </span>
+                <Link href="/contato">
+                  <span className="relative z-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.2em]">
+                    {t("cta")}
+                    <ArrowUpRightIcon
+                      weight="bold"
+                      className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                    />
+                  </span>
+                </Link>
               </Button>
 
               <button className="flex items-start gap-1 group flex-col">

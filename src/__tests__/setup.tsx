@@ -4,6 +4,8 @@ import "@testing-library/jest-dom/vitest"
 import { vi } from "vitest"
 
 process.env.NEXT_PUBLIC_SITE_URL = "https://example.com"
+process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY =
+  "4fc93430-7b53-491f-a7ed-8cb2c3b3fd46"
 
 const translationData: Record<string, Record<string, unknown>> = {
   "Index.About": {
@@ -89,6 +91,7 @@ vi.mock("next/navigation", () => ({
     refresh: vi.fn(),
   }),
   usePathname: () => "/",
+  useSearchParams: () => new URLSearchParams(),
 }))
 
 const motionElement = ({

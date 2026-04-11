@@ -4,13 +4,13 @@ import * as React from "react"
 
 import { useTranslations } from "next-intl"
 import Image from "next/image"
+import Link from "next/link"
 
-import { ArrowUpRight } from "@phosphor-icons/react"
+import { ArrowUpRightIcon } from "@phosphor-icons/react"
 import { m } from "framer-motion"
 
 import { Button } from "@/src/components/ui/button"
 import { Section } from "@/src/components/ui/section"
-import { StaggeredText } from "@/src/components/ui/staggeredText"
 
 const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -24,82 +24,101 @@ export function Contact(): React.JSX.Element {
     <Section
       id={idT("contact")}
       ref={containerRef}
-      className="py-48 lg:py-72 border-t border-foreground/5"
+      className="border-t border-foreground/5 py-32 md:py-40 lg:py-48"
       withContainer={true}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-end">
-        <div className="lg:col-span-8 space-y-12">
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: EASE_APPLE }}
-            className="space-y-8"
-          >
-            <div className="relative h-12 w-48 lg:h-16 lg:w-64">
-              <Image
-                src="/logos/LOGO_VAR_03_DM.svg"
-                alt={configT("name")}
-                fill
-                className="object-contain object-left dark:hidden"
-              />
-              <Image
-                src="/logos/LOGO_VAR_03_LM.svg"
-                alt={configT("name")}
-                fill
-                className="object-contain object-left hidden dark:block"
-              />
-            </div>
+      <article className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_360px]">
+        <m.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: EASE_APPLE }}
+          className="relative overflow-hidden border border-border/60 bg-background px-6 py-8 md:px-10 md:py-10 lg:px-14 lg:py-14"
+          style={{
+            clipPath:
+              "polygon(0 0, calc(100% - 64px) 0, 100% 64px, 100% 100%, 0 100%)",
+          }}
+        >
+          <div className="absolute right-0 top-0 h-16 w-16 border-l border-b border-border/60 bg-brand-primary/8" />
+          <div className="absolute bottom-0 left-0 h-20 w-20 border-r border-t border-border/60 bg-foreground/[0.03]" />
 
-            <div className="flex items-center gap-6">
-              <div className="h-0.5 w-16 bg-brand-primary" />
-              <span className="text-[11px] font-black uppercase tracking-[0.6em] text-brand-primary">
-                {t("eyebrow")}
-              </span>
-            </div>
-          </m.div>
-
-          <h2 className="font-heading text-6xl md:text-9xl lg:text-[140px] font-black leading-[0.8] tracking-[-0.06em] text-foreground uppercase max-w-5xl">
-            <StaggeredText text={t("title")} />
-          </h2>
-        </div>
-
-        <div className="lg:col-span-4 space-y-16">
-          <m.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 1, ease: EASE_APPLE }}
-            className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed border-l border-foreground/10 pl-10"
-          >
-            {t("description")}
-          </m.p>
-
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 1, ease: EASE_APPLE }}
-            className="pl-10"
-          >
-            <Button
-              size="lg"
-              className="group relative h-24 px-12 rounded-full bg-foreground text-background dark:bg-foreground dark:text-background overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95"
-            >
-              <div className="absolute inset-0 bg-brand-primary translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.16,1,0.3,1]" />
-              <span className="relative z-10 flex items-center gap-6 text-xs font-black uppercase tracking-[0.4em]">
-                {t("button")}
-                <ArrowUpRight
-                  weight="bold"
-                  size={24}
-                  className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-500"
-                  aria-hidden="true"
+          <div className="relative space-y-10">
+            <div className="space-y-5 border-b border-border/60 pb-8">
+              <div className="relative h-12 w-48 lg:h-16 lg:w-64">
+                <Image
+                  src="/logos/LOGO_VAR_03_DM.svg"
+                  alt={configT("name")}
+                  fill
+                  className="object-contain object-left dark:hidden"
                 />
+                <Image
+                  src="/logos/LOGO_VAR_03_LM.svg"
+                  alt={configT("name")}
+                  fill
+                  className="hidden object-contain object-left dark:block"
+                />
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="h-px w-12 bg-brand-primary" />
+                <span className="text-brand-primary text-[11px] font-black uppercase tracking-[0.45em]">
+                  {t("eyebrow")}
+                </span>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <h2 className="font-heading text-5xl font-black leading-[0.82] tracking-[-0.06em] text-foreground uppercase md:text-8xl lg:text-[104px]">
+                {t("title")}
+              </h2>
+
+              <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-2xl">
+                {t("description")}
+              </p>
+            </div>
+          </div>
+        </m.div>
+
+        <m.aside
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1, duration: 0.9, ease: EASE_APPLE }}
+          className="relative overflow-hidden border border-border/60 bg-foreground px-6 py-8 text-background md:px-8 md:py-10"
+          style={{
+            clipPath:
+              "polygon(0 0, 100% 0, 100% calc(100% - 52px), calc(100% - 52px) 100%, 0 100%)",
+          }}
+        >
+          <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
+          <div className="absolute right-0 top-0 h-16 w-16 border-l border-b border-white/10 bg-white/5" />
+
+          <div className="relative flex h-full flex-col justify-between gap-10">
+            <div className="space-y-4">
+              <span className="text-brand-primary text-[11px] font-black uppercase tracking-[0.35em]">
+                {t("cardEyebrow")}
               </span>
+              <p className="font-heading text-3xl font-black uppercase leading-[0.92] tracking-[-0.05em] md:text-4xl">
+                {t("cardTitle")}
+              </p>
+              <p className="text-base leading-relaxed text-white/68">
+                {t("cardDescription")}
+              </p>
+            </div>
+
+            <Button
+              asChild={true}
+              size="lg"
+              className="h-16 w-full rounded-full border border-white/12 bg-brand-primary px-8 text-[11px] font-black uppercase tracking-[0.35em] text-white hover:bg-white hover:text-black"
+            >
+              <Link href="/contato">
+                {t("button")}
+                <ArrowUpRightIcon size={18} weight="bold" />
+              </Link>
             </Button>
-          </m.div>
-        </div>
-      </div>
+          </div>
+        </m.aside>
+      </article>
     </Section>
   )
 }

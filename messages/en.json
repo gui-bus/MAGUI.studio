@@ -35,7 +35,7 @@
       "title_2": "Design &",
       "title_3": "Authority",
       "description": "We transform complex business challenges into flawless digital experiences with technical rigor and elite aesthetics.",
-      "cta": "Project Now",
+      "cta": "Open Brief",
       "secondary_cta": "Explore Portfolio",
       "scroll": "Discover",
       "image_alt": "Abstraction of Precision and Power",
@@ -206,10 +206,106 @@
       "question_label": "Question"
     },
     "CTA": {
-      "eyebrow": "Next Step",
-      "title": "Ready to elevate your system?",
-      "description": "Contact us now and discover how MAGUI can transform your digital presence.",
-      "button": "Talk to Specialists"
+      "eyebrow": "Contact",
+      "title": "Your project starts here",
+      "description": "Open the brief and send the essential context needed to turn the idea into clear direction.",
+      "button": "Open Brief",
+      "cardEyebrow": "Next step",
+      "cardTitle": "Clarity before execution.",
+      "cardDescription": "A strong project starts with an objective brief, structured well and without noise."
+    },
+    "ContactDrawer": {
+      "eyebrow": "Brief",
+      "title": "Brief",
+      "description": "Fill in the key points to align scope, timeline, and goals from the very first contact.",
+      "close": "Close form",
+      "referralLabel": "Referral active",
+      "referralText": "{name} referred you. That information will be considered in the contact context.",
+      "successTitle": "Brief received.",
+      "successMessage": "The information was sent successfully. The next step is reviewing the context you shared.",
+      "errorMessage": "It could not be sent right now. Please try again in a moment.",
+      "submit": "Send Brief",
+      "submitting": "Sending",
+      "footerNote": "",
+      "notProvided": "Not provided",
+      "emailSubject": "New project brief: {name}",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "How should I address you?"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Which email should receive the reply?"
+        },
+        "company": {
+          "label": "Company",
+          "placeholder": "Brand, company, or project name"
+        },
+        "projectType": {
+          "label": "Project type"
+        },
+        "budget": {
+          "label": "Budget range"
+        },
+        "deadline": {
+          "label": "Expected timeline"
+        },
+        "message": {
+          "label": "Brief",
+          "placeholder": "Summarize the project, the main goal, and any important references."
+        }
+      },
+      "projectTypes": {
+        "landing": "Landing Page",
+        "sales": "Sales Page",
+        "institutional": "Institutional Website",
+        "other": "Other"
+      },
+      "budgets": {
+        "range1": "Up to R$ 3k",
+        "range2": "R$ 3k to R$ 6k",
+        "range3": "R$ 6k to R$ 10k",
+        "range4": "Above R$ 10k"
+      },
+      "deadlines": {
+        "urgent": "Urgent",
+        "thirtyDays": "Within 30 days",
+        "sixtyDays": "30 to 60 days",
+        "flexible": "Flexible"
+      },
+      "validation": {
+        "nameMin": "Enter at least 2 characters.",
+        "emailInvalid": "Enter a valid email.",
+        "projectTypeRequired": "Select a project type.",
+        "budgetRequired": "Select a budget range.",
+        "deadlineRequired": "Select a timeline.",
+        "messageMin": "Add at least 10 characters of context."
+      }
+    },
+    "ContactPage": {
+      "metaTitle": "Contact",
+      "metaDescription": "Send your project brief and align scope, timeline, and goals on a dedicated contact page.",
+      "eyebrow": "Contact",
+      "title": "Contact",
+      "description": "A page designed to organize project context with clarity, pace, and direction from the very first submission.",
+      "pill1Label": "Scope",
+      "pill1Text": "Define the project type and the outcome you expect.",
+      "pill2Label": "Timeline",
+      "pill2Text": "Signal the ideal delivery window for the work.",
+      "pill3Label": "Context",
+      "pill3Text": "Share references, goals, and the current moment of the project.",
+      "sideEyebrow": "Flow",
+      "sideTitle": "More clarity from the start.",
+      "sideDescription": "The page concentrates the brief in one place to make first contact more objective.",
+      "miniCardLabel": "Direction",
+      "miniCardText": "A structured submission speeds up scope review, reading, and next steps.",
+      "imageAlt": "Visual composition for the MAGUI.studio contact page",
+      "imageCardLabel": "Reading",
+      "imageCardTitle": "Organized context.",
+      "imageCardText": "The combination of image, rhythm, and structure reinforces the experience before the form is even submitted.",
+      "formEyebrow": "Form",
+      "formTitle": "Send the brief"
     }
   },
   "Footer": {

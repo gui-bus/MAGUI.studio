@@ -17,7 +17,7 @@ export const siteConfig = {
     github: "https://github.com/maguistudio",
   },
   contact: {
-    email: "contato@magui.studio",
+    email: "contato@guibus.dev",
   },
   locales: ["pt", "en"],
   defaultLocale: "pt",
