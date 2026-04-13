@@ -15,4 +15,19 @@ describe("siteConfig", () => {
     expect(siteConfig.analytics).toBeDefined()
     expect(siteConfig.analytics.google).toBeDefined()
   })
+
+  it("should expose the primary social profiles", () => {
+    expect(siteConfig.socials).toHaveLength(3)
+    expect(siteConfig.sameAs).toContain(siteConfig.links.instagram)
+    expect(siteConfig.sameAs).toContain(siteConfig.links.linkedin)
+    expect(siteConfig.sameAs).toContain(siteConfig.links.x)
+  })
+
+  it("should expose the dedicated contact route", () => {
+    expect(siteConfig.contact.path).toBe("/contato")
+  })
+
+  it("should expose the portfolio route", () => {
+    expect(siteConfig.projects.path).toBe("/projetos")
+  })
 })

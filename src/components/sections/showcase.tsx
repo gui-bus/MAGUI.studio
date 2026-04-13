@@ -2,11 +2,11 @@
 
 import * as React from "react"
 
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import Image from "next/image"
 import Link from "next/link"
 
-import { Project } from "@/src/types/sections"
+import { AppLocale, getProjectCases } from "@/src/content/projects"
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -23,14 +23,19 @@ import {
 import { Section } from "@/src/components/ui/section"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 
+import { trackEvent } from "@/src/lib/analytics"
+
+import { siteConfig } from "@/src/config/site"
+
 const AUTO_PLAY_DURATION = 6000
 const DRAG_THRESHOLD = 80
 const SWIPE_THRESHOLD = 500
 
 export function Showcase(): React.JSX.Element {
+  const locale = useLocale()
   const t = useTranslations("Index.Showcase")
   const idT = useTranslations("Index.Ids")
-  const projects = t.raw("projects") as Project[]
+  const projects = getProjectCases(locale as AppLocale)
   const hasMultipleProjects = projects.length > 1
 
   const [currentIndex, setCurrentIndex] = React.useState(0)
@@ -89,6 +94,7 @@ export function Showcase(): React.JSX.Element {
   }, [hasMultipleProjects, isPaused, nextProject])
 
   const activeProject = projects[currentIndex]
+  const activeProjectTitle = activeProject.title
   const carouselClassName = hasMultipleProjects
     ? "grid cursor-grab grid-cols-1 items-center gap-8 touch-pan-y lg:grid-cols-12 lg:gap-16"
     : "grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16"
@@ -112,7 +118,7 @@ export function Showcase(): React.JSX.Element {
       </m.div>
 
       <div className="relative z-10 mb-14 flex flex-col gap-8 md:mb-20 md:flex-row md:items-end md:justify-between lg:mb-32">
-        <div className="space-y-6 sm:space-y-8">
+        <div className="max-w-3xl space-y-6 sm:space-y-8">
           <m.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -128,6 +134,12 @@ export function Showcase(): React.JSX.Element {
           <h2 className="font-heading text-4xl font-black uppercase tracking-[-0.04em] leading-[0.82] sm:text-6xl md:text-7xl lg:text-9xl">
             {t("title")}
           </h2>
+
+          <div className="space-y-4">
+            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              {t("description")}
+            </p>
+          </div>
         </div>
 
         {hasMultipleProjects ? (
@@ -135,7 +147,7 @@ export function Showcase(): React.JSX.Element {
             <button
               type="button"
               onClick={prevProject}
-              aria-label="Projeto anterior"
+              aria-label={t("previous_project_label")}
               className="group flex h-12 w-12 items-center justify-center rounded-full border border-border/60 bg-background/80 text-foreground backdrop-blur-sm transition-all duration-500 hover:border-foreground hover:bg-foreground hover:text-background active:scale-90 sm:h-14 sm:w-14 md:h-16 md:w-16"
             >
               <ArrowLeftIcon
@@ -200,7 +212,7 @@ export function Showcase(): React.JSX.Element {
             <button
               type="button"
               onClick={nextProject}
-              aria-label="Pr�ximo projeto"
+              aria-label={t("next_project_label")}
               className="group flex h-12 w-12 items-center justify-center rounded-full border border-border/60 bg-background/80 text-foreground backdrop-blur-sm transition-all duration-500 hover:border-foreground hover:bg-foreground hover:text-background active:scale-90 sm:h-14 sm:w-14 md:h-16 md:w-16"
             >
               <ArrowRightIcon
@@ -246,7 +258,7 @@ export function Showcase(): React.JSX.Element {
               >
                 <Image
                   src={activeProject.image}
-                  alt={activeProject.title}
+                  alt={activeProjectTitle}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 60vw"
                   className="object-cover scale-[1.02] transition-transform duration-[4s] ease-out group-hover/img:scale-105 sm:object-contain sm:group-hover/img:scale-110"
@@ -263,7 +275,7 @@ export function Showcase(): React.JSX.Element {
               <div className="space-y-8 sm:space-y-10 lg:space-y-12">
                 <div className="overflow-hidden">
                   <m.h2
-                    key={activeProject.title}
+                    key={activeProject.id}
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     transition={{
@@ -273,16 +285,20 @@ export function Showcase(): React.JSX.Element {
                     }}
                     className="font-heading text-4xl font-black uppercase tracking-tighter leading-[0.82] text-foreground sm:text-6xl md:text-7xl lg:text-[110px]"
                   >
-                    <StaggeredText text={activeProject.title} />
+                    <StaggeredText text={activeProjectTitle} />
                   </m.h2>
                 </div>
               </div>
 
               <div className="pt-6 sm:pt-8">
                 <Link
-                  href={activeProject.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`${siteConfig.projects.path}/${activeProject.slug}`}
+                  onClick={() =>
+                    trackEvent("select_content", {
+                      content_type: "portfolio_case",
+                      item_id: activeProject.id,
+                    })
+                  }
                   className="group/btn inline-flex w-full items-center justify-between gap-6 rounded-full bg-foreground px-6 py-4 text-background transition-all duration-500 hover:scale-[1.02] active:scale-95 dark:bg-white dark:text-black sm:w-auto sm:gap-8 sm:px-10 sm:py-6 lg:gap-10 lg:px-14 lg:py-8"
                 >
                   <span className="text-xs font-black uppercase tracking-[0.32em] sm:text-sm sm:tracking-[0.4em]">

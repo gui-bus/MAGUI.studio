@@ -1,30 +1,21 @@
-"use client"
-
 import * as React from "react"
 
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 
-import { ArrowUpRightIcon, SparkleIcon } from "@phosphor-icons/react"
-import { m } from "framer-motion"
-
 import { Section } from "@/src/components/ui/section"
+import { ArrowUpRightIcon, SparkleIcon } from "@/src/components/ui/serverIcons"
 
 import { ProjectInquiryForm } from "@/src/components/common/projectInquiryForm"
 
-import { EASE_APPLE } from "@/src/config/animations"
-
-export function ContactPageExperience(): React.JSX.Element {
-  const t = useTranslations("Index.ContactPage")
+export async function ContactPageExperience(): Promise<React.JSX.Element> {
+  const t = await getTranslations("Index.ContactPage")
 
   return (
     <Section className="border-b border-foreground/5 py-16 md:py-24">
       <div className="space-y-8 md:space-y-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end">
-          <m.article
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EASE_APPLE }}
+          <article
             className="relative overflow-hidden border border-border/60 bg-foreground px-6 py-8 text-background md:px-10 md:py-10"
             style={{
               clipPath:
@@ -74,14 +65,9 @@ export function ContactPageExperience(): React.JSX.Element {
                 ))}
               </div>
             </div>
-          </m.article>
+          </article>
 
-          <m.aside
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.08, ease: EASE_APPLE }}
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1"
-          >
+          <aside className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
             <div
               className="relative overflow-hidden border border-border/60 bg-background px-5 py-6"
               style={{
@@ -134,16 +120,11 @@ export function ContactPageExperience(): React.JSX.Element {
                 />
               </div>
             </div>
-          </m.aside>
+          </aside>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
-          <m.div
-            initial={{ opacity: 0, y: 36 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.16, ease: EASE_APPLE }}
-            className="relative"
-          >
+          <div className="relative">
             <div
               className="relative aspect-[0.9] overflow-hidden border border-border/60 bg-muted/20"
               style={{
@@ -163,12 +144,7 @@ export function ContactPageExperience(): React.JSX.Element {
               <div className="absolute inset-0 bg-brand-primary/8 mix-blend-overlay" />
             </div>
 
-            <m.div
-              initial={{ opacity: 0, x: -24, y: 12 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.28, ease: EASE_APPLE }}
-              className="absolute -bottom-4 left-4 w-[72%] md:left-6 md:w-[68%]"
-            >
+            <div className="absolute -bottom-4 left-4 w-[72%] md:left-6 md:w-[68%]">
               <div
                 className="relative overflow-hidden border border-border/60 bg-background px-5 py-5 shadow-2xl shadow-black/10"
                 style={{
@@ -189,13 +165,10 @@ export function ContactPageExperience(): React.JSX.Element {
                   </p>
                 </div>
               </div>
-            </m.div>
-          </m.div>
+            </div>
+          </div>
 
-          <m.aside
-            initial={{ opacity: 0, y: 36 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.22, ease: EASE_APPLE }}
+          <aside
             className="relative overflow-hidden border border-border/60 bg-background p-4 md:p-5"
             style={{
               clipPath:
@@ -218,7 +191,7 @@ export function ContactPageExperience(): React.JSX.Element {
 
               <ProjectInquiryForm origin="contactPage" />
             </div>
-          </m.aside>
+          </aside>
         </div>
       </div>
     </Section>

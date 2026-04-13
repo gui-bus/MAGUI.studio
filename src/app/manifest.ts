@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteConfig.name,
     short_name: siteConfig.shortName,
-    description: "A professional landing page template",
+    description: siteConfig.manifestDescription,
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

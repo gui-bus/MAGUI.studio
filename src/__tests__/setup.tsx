@@ -51,6 +51,30 @@ const translationData: Record<string, Record<string, unknown>> = {
       { title: "Engenharia", description: "Implementação" },
     ],
   },
+  "Index.FAQ": {
+    eyebrow: "Dúvidas Técnicas",
+    title: "Perguntas Frequentes.",
+    items: [
+      {
+        answer: "Resposta um",
+        question: "Pergunta um",
+      },
+    ],
+  },
+  "Index.Ids": {
+    about: "manifesto",
+    faq: "duvidas",
+    process: "processo",
+  },
+}
+
+const serverMessages = {
+  Index: {
+    About: translationData["Index.About"],
+    FAQ: translationData["Index.FAQ"],
+    Ids: translationData["Index.Ids"],
+    Process: translationData["Index.Process"],
+  },
 }
 
 vi.mock("next-intl", () => ({
@@ -82,6 +106,31 @@ vi.mock("next-intl", () => ({
     return translate
   },
   useLocale: () => "pt",
+}))
+
+vi.mock("next-intl/server", () => ({
+  getMessages: async () => serverMessages,
+  getTranslations: async (namespace?: string) => {
+    const scopedData = namespace ? (translationData[namespace] ?? {}) : {}
+
+    return (key: string, values?: Record<string, string | number>): string => {
+      const value = scopedData[key]
+
+      if (typeof value !== "string") {
+        return key
+      }
+
+      if (!values) {
+        return value
+      }
+
+      return Object.entries(values).reduce(
+        (result, [token, tokenValue]) =>
+          result.replace(`{${token}}`, String(tokenValue)),
+        value
+      )
+    }
+  },
 }))
 
 vi.mock("next/navigation", () => ({

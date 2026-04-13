@@ -3,7 +3,6 @@
 import * as React from "react"
 
 import { useTranslations } from "next-intl"
-import { useTheme } from "next-themes"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -21,14 +20,9 @@ const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 export const Header = React.memo(function Header(): React.JSX.Element {
   const t = useTranslations("Index.Nav")
   const idT = useTranslations("Index.Ids")
-  const { resolvedTheme } = useTheme()
   const [isOpen, setIsOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
-
-  const [mounted, setMounted] = React.useState(false)
   React.useEffect(() => {
-    setMounted(true)
-
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
     }
@@ -44,14 +38,6 @@ export const Header = React.memo(function Header(): React.JSX.Element {
       document.body.style.overflow = "unset"
     }
   }, [isOpen])
-
-  const logoSrc = React.useMemo(
-    () =>
-      resolvedTheme === "dark"
-        ? "/logos/LOGO_VAR_03_LM.svg"
-        : "/logos/LOGO_VAR_03_DM.svg",
-    [resolvedTheme]
-  )
 
   const navLinks = React.useMemo(
     () => [
@@ -108,17 +94,24 @@ export const Header = React.memo(function Header(): React.JSX.Element {
           aria-label={t("home_label")}
           onClick={() => setIsOpen(false)}
         >
-          {mounted && (
-            <Image
-              src={logoSrc}
-              alt={t("logo_alt")}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="h-6 w-auto min-w-28 object-contain xl:min-w-32"
-              priority
-            />
-          )}
+          <Image
+            src="/logos/LOGO_VAR_03_DM.svg"
+            alt={t("logo_alt")}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="h-6 w-auto min-w-28 object-contain dark:hidden xl:min-w-32"
+            priority
+          />
+          <Image
+            src="/logos/LOGO_VAR_03_LM.svg"
+            alt={t("logo_alt")}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="hidden h-6 w-auto min-w-28 object-contain dark:block xl:min-w-32"
+            priority
+          />
         </Link>
 
         <div className="flex min-w-0 items-center justify-end gap-6 xl:flex-1 xl:gap-8">

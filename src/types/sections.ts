@@ -1,7 +1,10 @@
+import { PortfolioProjectId } from "@/src/content/projects"
+
 export interface Project {
-  title: string
+  id: PortfolioProjectId
+  slug: string
   image: string
-  link: string
+  liveUrl: string
 }
 
 export interface Service {

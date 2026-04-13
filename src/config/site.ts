@@ -3,6 +3,9 @@ import { env } from "./env"
 export const siteConfig = {
   name: "MAGUI.studio",
   shortName: "MAGUI",
+  legalName: "MAGUI.studio",
+  manifestDescription:
+    "Est\u00fadio de dire\u00e7\u00e3o visual, interface e experi\u00eancias digitais com foco em performance, clareza e autoridade.",
   url: env.NEXT_PUBLIC_SITE_URL,
   ogImage: `${env.NEXT_PUBLIC_SITE_URL}/og.png`,
   authors: [
@@ -13,11 +16,35 @@ export const siteConfig = {
   ],
   creator: "MAGUI.studio",
   links: {
-    twitter: "https://twitter.com/maguistudio",
-    github: "https://github.com/maguistudio",
+    instagram: "https://www.instagram.com/_magui.studio",
+    linkedin: "https://www.linkedin.com/company/magui-studio",
+    x: "https://x.com/magui_studio",
   },
+  socials: [
+    {
+      href: "https://www.instagram.com/_magui.studio",
+      label: "Instagram",
+    },
+    {
+      href: "https://www.linkedin.com/company/magui-studio",
+      label: "LinkedIn",
+    },
+    {
+      href: "https://x.com/magui_studio",
+      label: "X",
+    },
+  ],
+  sameAs: [
+    "https://www.instagram.com/_magui.studio",
+    "https://www.linkedin.com/company/magui-studio",
+    "https://x.com/magui_studio",
+  ],
   contact: {
     email: "contato@magui.studio",
+    path: "/contato",
+  },
+  projects: {
+    path: "/projetos",
   },
   locales: ["pt", "en"],
   defaultLocale: "pt",

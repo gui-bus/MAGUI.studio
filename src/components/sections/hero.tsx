@@ -13,17 +13,15 @@ import { Button } from "@/src/components/ui/button"
 import { Section } from "@/src/components/ui/section"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 
+import { trackEvent } from "@/src/lib/analytics"
+
 import { TRANSITION_SLOW, VARIANTS_FADE_IN_UP } from "@/src/config/animations"
+import { siteConfig } from "@/src/config/site"
 
 export function Hero(): React.JSX.Element {
   const t = useTranslations("Index.Hero")
   const idT = useTranslations("Index.Ids")
-  const [mounted, setMounted] = React.useState(false)
   const containerRef = React.useRef<HTMLElement>(null)
-
-  React.useEffect(() => setMounted(true), [])
-
-  if (!mounted) return <Section withContainer={false}> {null} </Section>
 
   return (
     <Section
@@ -108,7 +106,15 @@ export function Hero(): React.JSX.Element {
                 size="lg"
                 className="group relative h-20 rounded-full bg-brand-primary px-12 text-white shadow-2xl shadow-brand-primary/20 transition-all duration-500 hover:scale-105"
               >
-                <Link href="/contato">
+                <Link
+                  href={siteConfig.contact.path}
+                  onClick={() =>
+                    trackEvent("select_content", {
+                      content_type: "cta",
+                      item_id: "hero-brief",
+                    })
+                  }
+                >
                   <span className="relative z-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.2em]">
                     {t("cta")}
                     <ArrowUpRightIcon
@@ -121,6 +127,12 @@ export function Hero(): React.JSX.Element {
 
               <Link
                 href="/#portfolio"
+                onClick={() =>
+                  trackEvent("select_content", {
+                    content_type: "navigation",
+                    item_id: "hero-portfolio",
+                  })
+                }
                 className="flex items-start gap-1 group flex-col"
               >
                 <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-muted-foreground group-hover:text-brand-primary transition-colors">

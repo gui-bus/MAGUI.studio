@@ -1,38 +1,27 @@
-"use client"
-
 import * as React from "react"
 
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 import Link from "next/link"
 
-import { ArrowUpRightIcon } from "@phosphor-icons/react"
-import { m } from "framer-motion"
-
-import { Button } from "@/src/components/ui/button"
 import { Section } from "@/src/components/ui/section"
+import { ArrowUpRightIcon } from "@/src/components/ui/serverIcons"
 
-const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
+import { siteConfig } from "@/src/config/site"
 
-export function Contact(): React.JSX.Element {
-  const t = useTranslations("Index.CTA")
-  const idT = useTranslations("Index.Ids")
-  const configT = useTranslations("Config")
-  const containerRef = React.useRef<HTMLDivElement>(null)
+export async function Contact(): Promise<React.JSX.Element> {
+  const t = await getTranslations("Index.CTA")
+  const idT = await getTranslations("Index.Ids")
+  const configT = await getTranslations("Config")
 
   return (
     <Section
       id={idT("contact")}
-      ref={containerRef}
       className="border-t border-foreground/5 py-32 md:py-40 lg:py-48"
       withContainer={true}
     >
       <article className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_360px]">
-        <m.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: EASE_APPLE }}
+        <div
           className="relative overflow-hidden border border-border/60 bg-background px-6 py-8 md:px-10 md:py-10 lg:px-14 lg:py-14"
           style={{
             clipPath:
@@ -77,13 +66,9 @@ export function Contact(): React.JSX.Element {
               </p>
             </div>
           </div>
-        </m.div>
+        </div>
 
-        <m.aside
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.9, ease: EASE_APPLE }}
+        <aside
           className="relative overflow-hidden border border-border/60 bg-foreground px-6 py-8 text-background md:px-8 md:py-10"
           style={{
             clipPath:
@@ -106,18 +91,15 @@ export function Contact(): React.JSX.Element {
               </p>
             </div>
 
-            <Button
-              asChild={true}
-              size="lg"
-              className="h-16 w-full rounded-full border border-white/12 bg-brand-primary px-8 text-[11px] font-black uppercase tracking-[0.35em] text-white hover:bg-white hover:text-black"
+            <Link
+              href={siteConfig.contact.path}
+              className="inline-flex h-16 w-full items-center justify-center gap-1.5 rounded-full border border-white/12 bg-brand-primary px-8 text-[11px] font-black uppercase tracking-[0.35em] text-white transition-colors hover:bg-white hover:text-black"
             >
-              <Link href="/contato">
-                {t("button")}
-                <ArrowUpRightIcon size={18} weight="bold" />
-              </Link>
-            </Button>
+              {t("button")}
+              <ArrowUpRightIcon size={18} weight="bold" />
+            </Link>
           </div>
-        </m.aside>
+        </aside>
       </article>
     </Section>
   )

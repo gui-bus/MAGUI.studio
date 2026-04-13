@@ -25,17 +25,21 @@ export const viewport: Viewport = {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
   const t = await getTranslations("Config")
   const ogUrl = new URL(`${siteConfig.url}/api/og`)
   ogUrl.searchParams.set("title", t("name"))
   ogUrl.searchParams.set("description", t("description"))
 
   return {
+    metadataBase: new URL(siteConfig.url),
     title: {
       default: t("name"),
       template: `%s | ${t("name")}`,
     },
     description: t("description"),
+    applicationName: t("name"),
+    category: "design",
     keywords: t("keywords")
       .split(",")
       .map((k) => k.trim()),
@@ -47,6 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: t("name"),
       description: t("description"),
       siteName: t("name"),
+      locale,
       images: [
         {
           url: ogUrl.toString(),
@@ -67,7 +72,7 @@ export async function generateMetadata(): Promise<Metadata> {
       shortcut: "/favicon-16x16.png",
       apple: "/apple-touch-icon.png",
     },
-    manifest: `${siteConfig.url}/site.webmanifest`,
+    manifest: `${siteConfig.url}/manifest.webmanifest`,
     appleWebApp: {
       capable: true,
       statusBarStyle: "default",
@@ -92,10 +97,25 @@ export default async function RootLayout({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: t("name"),
-    description: t("description"),
-    url: siteConfig.url,
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteConfig.url}/#website`,
+        name: t("name"),
+        description: t("description"),
+        url: siteConfig.url,
+        inLanguage: locale,
+      },
+      {
+        "@type": "Organization",
+        "@id": `${siteConfig.url}/#organization`,
+        name: siteConfig.legalName,
+        url: siteConfig.url,
+        description: t("description"),
+        email: siteConfig.contact.email,
+        sameAs: siteConfig.sameAs,
+      },
+    ],
   }
 
   return (
@@ -111,7 +131,10 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="mx-auto w-full max-w-440 overflow-x-hidden">
+      <body
+        id="page-top"
+        className="mx-auto w-full max-w-440 overflow-x-hidden"
+      >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <MotionProvider>

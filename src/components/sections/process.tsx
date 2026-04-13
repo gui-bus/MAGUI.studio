@@ -1,20 +1,17 @@
-"use client"
-
 import * as React from "react"
 
-import { useTranslations } from "next-intl"
+import { getMessages, getTranslations } from "next-intl/server"
 import Image from "next/image"
 
 import { ProcessStep } from "@/src/types/sections"
+
+import { Section } from "@/src/components/ui/section"
 import {
   BracketsCurlyIcon,
   CompassRoseIcon,
   PaintBrushIcon,
   RocketLaunchIcon,
-} from "@phosphor-icons/react"
-import { m } from "framer-motion"
-
-import { Section } from "@/src/components/ui/section"
+} from "@/src/components/ui/serverIcons"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 
 const PROCESS_IMAGES = [
@@ -31,10 +28,11 @@ const PROCESS_ICONS = [
   RocketLaunchIcon,
 ] as const
 
-export function Process(): React.JSX.Element {
-  const t = useTranslations("Index.Process")
-  const idT = useTranslations("Index.Ids")
-  const steps = t.raw("steps") as ProcessStep[]
+export async function Process(): Promise<React.JSX.Element> {
+  const t = await getTranslations("Index.Process")
+  const idT = await getTranslations("Index.Ids")
+  const messages = await getMessages()
+  const steps = messages.Index.Process.steps as ProcessStep[]
 
   return (
     <Section
@@ -44,43 +42,39 @@ export function Process(): React.JSX.Element {
     >
       <div className="mb-14 flex flex-col gap-10 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
         <div className="space-y-8">
-          <m.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-4"
-          >
+          <div className="flex items-center gap-4">
             <div className="h-px w-12 bg-brand-primary" />
             <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
               {t("eyebrow")}
             </span>
-          </m.div>
+          </div>
 
           <h2 className="font-heading text-5xl font-black uppercase leading-[0.8] tracking-[-0.06em] text-foreground md:text-7xl lg:text-[132px]">
             <span className="block">
               <StaggeredText text={t("title_1")} />
             </span>
             <span className="mt-2 block text-brand-primary lg:ml-24">
-              <StaggeredText text={t("title_2")} delayBase={0.28} />
+              <StaggeredText text={t("title_2")} />
             </span>
           </h2>
         </div>
 
-        <m.p
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.85, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl"
-        >
+        <p className="max-w-3xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl">
           {t("description")}
-        </m.p>
+        </p>
       </div>
 
       <div className="grid grid-cols-1 gap-px overflow-hidden rounded-4xl border border-foreground/8 bg-foreground/8 xl:grid-cols-2">
         {steps.map((step, index) => (
-          <ProcessCard key={step.title} index={index} step={step} />
+          <ProcessCard
+            key={step.title}
+            index={index}
+            methodLabel={t("method_label")}
+            step={step}
+            stepLabel={t("step_label", {
+              step: String(index + 1).padStart(2, "0"),
+            })}
+          />
         ))}
       </div>
     </Section>
@@ -89,11 +83,17 @@ export function Process(): React.JSX.Element {
 
 interface ProcessCardProps {
   index: number
+  methodLabel: string
   step: ProcessStep
+  stepLabel: string
 }
 
-function ProcessCard({ index, step }: ProcessCardProps): React.JSX.Element {
-  const t = useTranslations("Index.Process")
+function ProcessCard({
+  index,
+  methodLabel,
+  step,
+  stepLabel,
+}: ProcessCardProps): React.JSX.Element {
   const Icon = PROCESS_ICONS[index] ?? RocketLaunchIcon
   const imageSrc = PROCESS_IMAGES[index] ?? PROCESS_IMAGES[0]
   const stepId = String(index + 1).padStart(2, "0")
@@ -103,22 +103,12 @@ function ProcessCard({ index, step }: ProcessCardProps): React.JSX.Element {
       : "polygon(56px 0, 100% 0, 100% 100%, 0 100%, 0 56px)"
 
   return (
-    <m.article
-      initial={{ opacity: 0, y: 34 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: 0.85,
-        delay: index * 0.08,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className="group relative bg-background p-8 md:p-10 lg:p-12"
-    >
+    <article className="group relative bg-background p-8 md:p-10 lg:p-12">
       <div className="relative z-10 flex h-full flex-col gap-10">
         <div className="flex items-start justify-between gap-6">
           <div className="space-y-3">
             <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
-              {t("step_label", { step: stepId })}
+              {stepLabel}
             </span>
             <h3 className="font-heading text-3xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-foreground md:text-6xl">
               {step.title}
@@ -161,11 +151,11 @@ function ProcessCard({ index, step }: ProcessCardProps): React.JSX.Element {
               {stepId}
             </div>
             <div className="bg-black/20 px-5 py-4 text-[11px] font-black uppercase tracking-[0.38em] text-white/70">
-              {t("method_label")}
+              {methodLabel}
             </div>
           </div>
         </div>
       </div>
-    </m.article>
+    </article>
   )
 }

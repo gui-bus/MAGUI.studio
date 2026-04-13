@@ -138,28 +138,13 @@
       ]
     },
     "Showcase": {
-      "eyebrow": "Trabalhos Selecionados",
-      "title": "Projetos de Impacto.",
+      "eyebrow": "Portfólio Curado",
+      "title": "Projetos em Destaque.",
       "description": "Uma curadoria de sistemas que elevam o padrão de performance e design no ambiente digital.",
       "view_project": "Ver Projeto",
       "background_text": "Trabalho Selecionado",
-      "projects": [
-        {
-          "title": "Apareça e venda",
-          "image": "/projects/thais.png",
-          "link": "https://aparecaevenda.com.br"
-        },
-        {
-          "title": "Powervet",
-          "image": "/projects/powervet.png",
-          "link": "https://powervet.com.br"
-        },
-        {
-          "title": "Horizon Travels",
-          "image": "/projects/horizon.png",
-          "link": "https://horizontravels.com.br"
-        }
-      ]
+      "previous_project_label": "Projeto anterior",
+      "next_project_label": "Próximo projeto"
     },
     "Services": {
       "eyebrow": "Nossas Especialidades",
@@ -319,6 +304,33 @@
       "formEyebrow": "Formulario",
       "formTitle": "Envie o briefing"
     }
+  },
+  "ProjectCases": {
+    "archive_eyebrow": "Portf\u00f3lio",
+    "archive_title": "Projetos individuais.",
+    "archive_description": "P\u00e1ginas dedicadas para mostrar dire\u00e7\u00e3o visual, estrutura, sistema e decis\u00f5es de interface em cada projeto do portf\u00f3lio.",
+    "archive_open": "Abrir projeto",
+    "archive_live": "Ver ao vivo",
+    "archive_back_home": "Voltar ao in\u00edcio",
+    "back_to_projects": "Voltar aos projetos",
+    "hero_label": "Projeto",
+    "summary_label": "Resumo",
+    "facts_sector": "Setor",
+    "facts_scope": "Escopo",
+    "facts_role": "Atua\u00e7\u00e3o",
+    "context_label": "Contexto",
+    "direction_label": "Dire\u00e7\u00e3o",
+    "system_label": "Sistema",
+    "deliverables_label": "Entreg\u00e1veis",
+    "stack_label": "Stack",
+    "notes_label": "Destaques",
+    "live_project": "Ver projeto ao vivo",
+    "open_brief": "Abrir briefing",
+    "more_projects": "Outros projetos",
+    "next_project": "Pr\u00f3ximo projeto",
+    "previous_project": "Projeto anterior",
+    "cta_title": "Quer um projeto com esse n\u00edvel de dire\u00e7\u00e3o?",
+    "cta_description": "Abra o briefing e envie o contexto do que precisa. A partir disso, a MAGUI organiza escopo, linguagem visual e caminho de execu\u00e7\u00e3o."
   },
   "Footer": {
     "studio_title": "O Estúdio",

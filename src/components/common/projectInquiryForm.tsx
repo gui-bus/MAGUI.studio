@@ -15,14 +15,12 @@ import { useForm } from "react-hook-form"
 
 import { Button } from "@/src/components/ui/button"
 
+import { trackEvent } from "@/src/lib/analytics"
 import { cn } from "@/src/lib/utils/utils"
 import {
   ProjectInquiryFormData,
   createProjectInquirySchema,
 } from "@/src/lib/validations/projectInquiry"
-
-import { env } from "@/src/config/env"
-import { siteConfig } from "@/src/config/site"
 
 interface ProjectInquiryFormProps {
   origin: "hero" | "contact" | "contactPage"
@@ -41,9 +39,12 @@ interface ProjectInquirySelectionGroupProps {
   onSelect: (value: string) => void
 }
 
-interface Web3FormsResponse {
+interface Web3FormsClientResponse {
+  message?: string
   success?: boolean
 }
+
+const web3FormsAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
 
 function ProjectInquirySelectionGroup({
   label,
@@ -214,41 +215,57 @@ export function ProjectInquiryForm({
       setIsSubmitting(true)
       setSubmissionError(null)
 
-      const formData = new FormData()
-
-      formData.append("access_key", env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY)
-      formData.append("name", data.name)
-      formData.append("email", data.email)
-      formData.append("replyto", data.email)
-      formData.append("company", data.company || t("notProvided"))
-      formData.append("project_type", t(`projectTypes.${data.projectType}`))
-      formData.append("budget", t(`budgets.${data.budget}`))
-      formData.append("deadline", t(`deadlines.${data.deadline}`))
-      formData.append("message", data.message)
-      formData.append("from_name", siteConfig.name)
-      formData.append("subject", t("emailSubject", { name: data.name }))
-      formData.append("origin", origin)
-      formData.append("contact_email", siteConfig.contact.email)
-      formData.append("botcheck", "")
-
-      if (referral) {
-        formData.append("referral_source", referral)
-      }
-
       try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData,
-        })
-        const result = (await response.json()) as Web3FormsResponse
-
-        if (!response.ok || !result.success) {
-          throw new Error("web3forms_submission_failed")
+        if (!web3FormsAccessKey) {
+          throw new Error("missing_access_key")
         }
 
+        const formData = new FormData()
+
+        formData.append("access_key", web3FormsAccessKey)
+        formData.append("name", data.name)
+        formData.append("email", data.email)
+        formData.append("message", data.message)
+        formData.append("subject", `Novo briefing de projeto: ${data.name}`)
+        formData.append("replyto", data.email)
+        formData.append("company", data.company || t("notProvided"))
+        formData.append("budget", t(`budgets.${data.budget}`))
+        formData.append("deadline", t(`deadlines.${data.deadline}`))
+        formData.append("project_type", t(`projectTypes.${data.projectType}`))
+        formData.append("origin", origin)
+        formData.append("botcheck", "")
+
+        if (referral) {
+          formData.append("referral_source", referral)
+        }
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+          method: "POST",
+        })
+        const result = (await response.json()) as Web3FormsClientResponse
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "web3forms_submission_failed")
+        }
+
+        trackEvent("generate_lead", {
+          budget: data.budget,
+          deadline: data.deadline,
+          origin,
+          project_type: data.projectType,
+          referral: Boolean(referral),
+        })
         setIsSuccess(true)
         reset()
       } catch {
+        trackEvent("brief_submit_error", {
+          origin,
+          project_type: data.projectType,
+        })
         setSubmissionError(t("errorMessage"))
       } finally {
         setIsSubmitting(false)

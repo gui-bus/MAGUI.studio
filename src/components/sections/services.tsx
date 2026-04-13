@@ -1,330 +1,145 @@
-"use client"
-
 import * as React from "react"
 
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 
-import { Service } from "@/src/types/sections"
-import { ArrowUpRightIcon } from "@phosphor-icons/react"
-import { AnimatePresence, m } from "framer-motion"
-
 import { Section } from "@/src/components/ui/section"
+import { ArrowUpRightIcon } from "@/src/components/ui/serverIcons"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 
 import { cn } from "@/src/lib/utils/utils"
 
-import { VARIANTS_FADE_IN_UP } from "@/src/config/animations"
+interface ServiceShowcaseItem {
+  id: string
+  title: string
+  label: string
+  description: string
+  image: string
+  overlayClassName: string
+}
 
-const SERVICE_IMAGES = [
+const serviceImages = [
   "/images/landing.webp",
   "/images/sales.webp",
   "/images/institutional.webp",
-]
+] as const
 
-export function Services(): React.JSX.Element {
-  const t = useTranslations("Index.Services")
-  const idT = useTranslations("Index.Ids")
-  const [activeIndex, setActiveIndex] = React.useState<number | null>(null)
+export async function Services(): Promise<React.JSX.Element> {
+  const t = await getTranslations("Index.Services")
+  const idT = await getTranslations("Index.Ids")
 
-  const services = React.useMemo<Service[]>(
-    () => [
-      {
-        id: "01",
-        title: t("landing.title"),
-        label: t("landing.label"),
-        description: t("landing.description"),
-        color: "bg-brand-primary",
-        textColor: "text-white",
-      },
-      {
-        id: "02",
-        title: t("sales.title"),
-        label: t("sales.label"),
-        description: t("sales.description"),
-        color: "bg-zinc-900",
-        textColor: "text-white",
-      },
-      {
-        id: "03",
-        title: t("institutional.title"),
-        label: t("institutional.label"),
-        description: t("institutional.description"),
-        color: "bg-brand-secondary",
-        textColor: "text-white",
-      },
-    ],
-    [t]
-  )
+  const services: ServiceShowcaseItem[] = [
+    {
+      id: "01",
+      title: t("landing.title"),
+      label: t("landing.label"),
+      description: t("landing.description"),
+      image: serviceImages[0],
+      overlayClassName:
+        "from-brand-primary/94 via-brand-primary/84 to-brand-primary/68",
+    },
+    {
+      id: "02",
+      title: t("sales.title"),
+      label: t("sales.label"),
+      description: t("sales.description"),
+      image: serviceImages[1],
+      overlayClassName: "from-black/92 via-zinc-900/84 to-zinc-800/70",
+    },
+    {
+      id: "03",
+      title: t("institutional.title"),
+      label: t("institutional.label"),
+      description: t("institutional.description"),
+      image: serviceImages[2],
+      overlayClassName:
+        "from-brand-secondary/94 via-brand-secondary/84 to-brand-secondary/70",
+    },
+  ]
 
   return (
     <Section
       id={idT("services")}
-      className="border-y border-foreground/5 overflow-hidden py-32 md:py-44"
-      withContainer={false}
+      className="overflow-hidden border-y border-foreground/5 py-24 md:py-32 lg:py-40"
+      withContainer={true}
     >
-      <div className="container px-6 md:px-10 mb-32 relative">
-        <div className="flex flex-col gap-16 md:gap-24">
-          {}
-          <div className="space-y-12">
-            <m.div
-              variants={VARIANTS_FADE_IN_UP}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex items-center gap-4"
-            >
+      <div className="space-y-16 lg:space-y-24">
+        <div className="flex flex-col gap-12 lg:gap-16">
+          <div className="space-y-10">
+            <div className="flex items-center gap-4">
               <div className="h-px w-12 bg-brand-primary" />
-              <m.span
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary"
-              >
+              <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
                 {t("eyebrow")}
-              </m.span>
-            </m.div>
+              </span>
+            </div>
 
-            <h2 className="font-heading text-5xl md:text-9xl lg:text-[160px] font-black leading-[0.7] tracking-[-0.06em] text-foreground uppercase select-none">
-              <m.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="block"
-              >
+            <h2 className="max-w-7xl font-heading text-5xl font-black uppercase leading-[0.74] tracking-[-0.06em] text-foreground md:text-7xl lg:text-[136px]">
+              <span className="block">
                 <StaggeredText text={t("title_1")} />
-              </m.div>
-              <m.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 1,
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: 0.2,
-                }}
-                className="block text-brand-primary mt-4"
-              >
-                <StaggeredText text={t("title_2")} delayBase={0.3} />
-              </m.div>
+              </span>
+              <span className="mt-3 block text-brand-primary">
+                <StaggeredText text={t("title_2")} />
+              </span>
             </h2>
           </div>
 
-          {}
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-              className="max-w-4xl text-2xl md:text-3xl lg:text-5xl text-muted-foreground font-medium leading-tight tracking-tighter"
-            >
-              {t("description")}
-            </m.p>
-          </div>
+          <p className="max-w-4xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl lg:text-4xl">
+            {t("description")}
+          </p>
         </div>
-      </div>
 
-      <div className="flex flex-col lg:flex-row h-full min-h-175 lg:h-225 w-full relative z-10 border-t border-foreground/5 bg-foreground/5 gap-px">
-        {services.map((service, index) => (
-          <ServicePanel
-            key={service.id}
-            service={service}
-            index={index}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            image={SERVICE_IMAGES[index]}
-          />
-        ))}
+        <div className="grid grid-cols-1 gap-px border border-foreground/8 bg-foreground/8 lg:grid-cols-3">
+          {services.map((service) => (
+            <article
+              key={service.id}
+              className="group relative isolate min-h-[30rem] overflow-hidden bg-background lg:min-h-[38rem]"
+            >
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                className={cn(
+                  "absolute inset-0 bg-linear-to-br opacity-95 transition-opacity duration-700 group-hover:opacity-88",
+                  service.overlayClassName
+                )}
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-20" />
+
+              <div className="relative flex h-full flex-col justify-between p-8 text-white md:p-10 lg:p-12">
+                <div className="flex items-start justify-between gap-6">
+                  <span className="font-heading text-5xl font-black leading-none text-white/24 md:text-6xl">
+                    {service.id}
+                  </span>
+                  <div className="flex items-center gap-3">
+                    <div className="h-px w-8 bg-white/30" />
+                    <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/68">
+                      {service.label}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-8">
+                  <h3 className="max-w-[11ch] font-heading text-4xl font-black uppercase leading-[0.84] tracking-[-0.05em] md:text-6xl">
+                    <StaggeredText text={service.title} />
+                  </h3>
+
+                  <p className="max-w-2xl text-lg font-medium leading-relaxed text-white/78 md:text-xl">
+                    {service.description}
+                  </p>
+
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-white/8 text-white transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:border-white/35 group-hover:bg-white/14">
+                    <ArrowUpRightIcon size={20} weight="bold" />
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </Section>
-  )
-}
-
-interface ServicePanelProps {
-  service: Service
-  index: number
-  activeIndex: number | null
-  setActiveIndex: (index: number | null) => void
-  image: string
-}
-
-function ServicePanel({
-  service,
-  index,
-  activeIndex,
-  setActiveIndex,
-  image,
-}: ServicePanelProps): React.JSX.Element {
-  const [isMobile, setIsMobile] = React.useState(false)
-
-  React.useEffect((): (() => void) => {
-    const checkMobile = (): void => setIsMobile(window.innerWidth < 1024)
-
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-
-    return (): void => window.removeEventListener("resize", checkMobile)
-  }, [])
-
-  const isActive = activeIndex === index
-  const isExpanded = isMobile || isActive
-  const isOthersActive = !isMobile && activeIndex !== null && !isActive
-
-  return (
-    <m.div
-      layout
-      onMouseEnter={isMobile ? undefined : (): void => setActiveIndex(index)}
-      onMouseLeave={isMobile ? undefined : (): void => setActiveIndex(null)}
-      animate={{
-        width: isMobile
-          ? "100%"
-          : activeIndex === null
-            ? "33.33%"
-            : isActive
-              ? "65%"
-              : "17.5%",
-      }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={cn(
-        "relative h-full flex flex-col overflow-hidden transition-colors duration-700 min-h-75 lg:min-h-0",
-        isExpanded ? "z-20 shadow-2xl" : "z-10 bg-background"
-      )}
-    >
-      <AnimatePresence>
-        {isExpanded && (
-          <m.div
-            initial={{ clipPath: "inset(0 100% 0 0)" }}
-            animate={{ clipPath: "inset(0 0 0 0)" }}
-            exit={{ clipPath: "inset(0 0 0 100%)" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 z-0 pointer-events-none"
-          >
-            <Image
-              src={image}
-              alt=""
-              fill
-              sizes="(max-width: 1024px) 100vw, 65vw"
-              className="object-cover scale-110 blur-0 opacity-40"
-            />
-            <div
-              className={cn(
-                "absolute inset-0 transition-opacity duration-700 opacity-90",
-                service.color
-              )}
-            />
-
-            {}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-size-[100%_4px,3px_100%] pointer-events-none opacity-20" />
-          </m.div>
-        )}
-      </AnimatePresence>
-
-      <div className="relative h-full w-full p-10 lg:p-24 flex flex-col justify-between z-10">
-        <div className="flex items-center justify-between">
-          <m.span
-            layout
-            className={cn(
-              "font-heading text-5xl lg:text-7xl font-black transition-colors duration-500 leading-none",
-              isExpanded ? "text-white" : "text-foreground/10"
-            )}
-          >
-            {service.id}
-          </m.span>
-
-          <AnimatePresence>
-            {isExpanded && (
-              <m.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                className="flex items-center gap-4"
-              >
-                <div className="h-px w-8 bg-white/30" />
-                <span className="text-[11px] font-black uppercase tracking-[0.5em] text-white/60">
-                  {service.label}
-                </span>
-              </m.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        <div className="relative flex-1 flex flex-col justify-center">
-          <AnimatePresence mode="wait">
-            {!isExpanded ? (
-              <m.div
-                key="vertical"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
-              >
-                <h3
-                  className={cn(
-                    "font-heading text-5xl lg:text-6xl font-black uppercase tracking-tighter lg:-rotate-90 whitespace-nowrap transition-all duration-500",
-                    isOthersActive
-                      ? "text-foreground/3"
-                      : "text-foreground/[0.07]"
-                  )}
-                >
-                  {service.title}
-                </h3>
-              </m.div>
-            ) : (
-              <m.div
-                key="horizontal"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-                  },
-                }}
-                className="space-y-12"
-              >
-                <div className="absolute -top-10 -left-10 w-20 h-20 border-t-2 border-l-2 border-white/20 pointer-events-none" />
-
-                <m.h3
-                  variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  className="font-heading text-3xl mt-10 md:mt-0 md:text-8xl font-black uppercase tracking-tighter leading-[0.8] text-white"
-                >
-                  <StaggeredText text={service.title} />
-                </m.h3>
-
-                <m.p
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  className="max-w-2xl text-xl md:text-3xl font-medium leading-tight tracking-tight text-white/80"
-                >
-                  {service.description}
-                </m.p>
-
-                <m.div
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.8 },
-                    visible: { opacity: 1, scale: 1 },
-                  }}
-                  className="flex items-center gap-8"
-                >
-                  <div className="h-24 w-24 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 hover:bg-white text-white hover:text-black cursor-pointer group/btn shadow-2xl">
-                    <ArrowUpRightIcon
-                      size={40}
-                      weight="bold"
-                      className="transition-transform duration-500 group-hover/btn:rotate-45"
-                    />
-                  </div>
-                </m.div>
-              </m.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-    </m.div>
   )
 }
