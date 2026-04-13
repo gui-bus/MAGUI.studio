@@ -42,6 +42,22 @@ export interface ProjectCaseRecord {
     accent: string
     glow: string
     panel: string
+    typeface: string
+    mood: [string, string, string]
+    palette: [
+      {
+        hex: string
+        label: string
+      },
+      {
+        hex: string
+        label: string
+      },
+      {
+        hex: string
+        label: string
+      },
+    ]
   }
   content: Record<AppLocale, ProjectCaseContent>
 }
@@ -56,6 +72,13 @@ export const projectCases: readonly ProjectCaseRecord[] = [
       accent: "from-[#ff7a18] via-[#ff8f3f] to-[#ffb36b]",
       glow: "shadow-[0_0_140px_rgba(255,138,61,0.28)]",
       panel: "bg-[#16110d]",
+      typeface: "Lexend / Montserrat",
+      mood: ["Contraste alto", "Ritmo comercial", "Calor visual"],
+      palette: [
+        { label: "Primary", hex: "#FF7A18" },
+        { label: "Accent", hex: "#FFB36B" },
+        { label: "Surface", hex: "#16110D" },
+      ],
     },
     content: {
       pt: {
@@ -229,6 +252,17 @@ export const projectCases: readonly ProjectCaseRecord[] = [
       accent: "from-[#4f46e5] via-[#2563eb] to-[#38bdf8]",
       glow: "shadow-[0_0_140px_rgba(59,130,246,0.24)]",
       panel: "bg-[#0b1220]",
+      typeface: "Lexend / Montserrat",
+      mood: [
+        "Precisão técnica",
+        "Confiança institucional",
+        "Respiro controlado",
+      ],
+      palette: [
+        { label: "Primary", hex: "#4F46E5" },
+        { label: "Accent", hex: "#38BDF8" },
+        { label: "Surface", hex: "#0B1220" },
+      ],
     },
     content: {
       pt: {
@@ -390,6 +424,13 @@ export const projectCases: readonly ProjectCaseRecord[] = [
       accent: "from-[#0f766e] via-[#14b8a6] to-[#7dd3fc]",
       glow: "shadow-[0_0_140px_rgba(20,184,166,0.22)]",
       panel: "bg-[#071918]",
+      typeface: "Syne / Montserrat",
+      mood: ["Atmosfera editorial", "Cadência visual", "Desejo aspiracional"],
+      palette: [
+        { label: "Primary", hex: "#0F766E" },
+        { label: "Accent", hex: "#7DD3FC" },
+        { label: "Surface", hex: "#071918" },
+      ],
     },
     content: {
       pt: {

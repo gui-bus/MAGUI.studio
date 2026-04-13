@@ -25,11 +25,16 @@ describe("project case routes", () => {
 
     expect(screen.getByText("Projetos individuais.")).toBeInTheDocument()
     expect(screen.getByText("Apareça e venda")).toBeInTheDocument()
-    expect(screen.getByText("Powervet")).toBeInTheDocument()
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: "Powervet",
+      })
+    ).toBeInTheDocument()
     expect(screen.getByText("Horizon Travels")).toBeInTheDocument()
   })
 
-  it("renders the project case page with editorial sections", async () => {
+  it("renders the project case page with visual sections", async () => {
     render(
       await ProjectCasePage({
         params: Promise.resolve({
@@ -39,13 +44,17 @@ describe("project case routes", () => {
       })
     )
 
-    expect(screen.getByText("Powervet")).toBeInTheDocument()
-    expect(screen.getByText("Leitura do projeto")).toBeInTheDocument()
-    expect(screen.getByText("O que essa página faz")).toBeInTheDocument()
     expect(
-      screen.getByText(
-        "Organiza conteúdo técnico em camadas claras para evitar sobrecarga de leitura."
-      )
+      screen.getByRole("heading", {
+        level: 1,
+        name: "Powervet",
+      })
+    ).toBeInTheDocument()
+    expect(screen.queryByText("Style guide")).not.toBeInTheDocument()
+    expect(screen.queryByText("Mockups")).not.toBeInTheDocument()
+    expect(screen.getAllByAltText("Powervet").length).toBeGreaterThanOrEqual(3)
+    expect(
+      screen.getByText("Tom visual mais confiável e controlado")
     ).toBeInTheDocument()
     expect(screen.getByText("Outros projetos")).toBeInTheDocument()
   })
