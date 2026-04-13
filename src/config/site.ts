@@ -46,6 +46,12 @@ export const siteConfig = {
   projects: {
     path: "/projetos",
   },
+  method: {
+    path: "/metodo",
+  },
+  studio: {
+    path: "/estudio",
+  },
   locales: ["pt", "en"],
   defaultLocale: "pt",
   analytics: {

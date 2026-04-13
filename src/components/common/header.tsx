@@ -13,6 +13,7 @@ import { NavLink } from "@/src/components/ui/navLink"
 import { LanguageSwitcher } from "@/src/components/common/languageSwitcher"
 import { ThemeToggle } from "@/src/components/common/themeToggle"
 
+import { siteConfig } from "@/src/config/site"
 import { cn } from "@/src/lib/utils/utils"
 
 const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
@@ -41,11 +42,10 @@ export const Header = React.memo(function Header(): React.JSX.Element {
 
   const navLinks = React.useMemo(
     () => [
-      { href: `/#${idT("about")}`, label: t("about") },
-      { href: `/#${idT("portfolio")}`, label: t("portfolio") },
-      { href: `/#${idT("process")}`, label: t("process") },
-      { href: `/#${idT("services")}`, label: t("services") },
-      { href: `/#${idT("faq")}`, label: t("faq") },
+      { href: siteConfig.projects.path, label: t("portfolio") },
+      { href: siteConfig.method.path, label: t("method") },
+      { href: siteConfig.studio.path, label: t("about") },
+      { href: siteConfig.contact.path, label: t("contact") },
     ],
     [idT, t]
   )

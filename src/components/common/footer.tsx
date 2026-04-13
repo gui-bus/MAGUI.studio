@@ -16,10 +16,10 @@ export async function Footer(): Promise<React.JSX.Element> {
   const idT = await getTranslations("Index.Ids")
 
   const navigationLinks = [
-    { id: "about", label: navT("about") },
-    { id: "services", label: navT("services") },
-    { id: "portfolio", label: navT("portfolio") },
-    { id: "faq", label: navT("faq") },
+    { href: siteConfig.studio.path, label: navT("about") },
+    { href: siteConfig.method.path, label: navT("method") },
+    { href: siteConfig.projects.path, label: navT("portfolio") },
+    { href: siteConfig.contact.path, label: navT("contact") },
   ]
 
   return (
@@ -66,9 +66,9 @@ export async function Footer(): Promise<React.JSX.Element> {
               </div>
               <ul className="space-y-6">
                 {navigationLinks.map((link) => (
-                  <li key={link.id} className="group overflow-hidden">
+                  <li key={link.href} className="group overflow-hidden">
                     <NavLink
-                      href={`/#${idT(link.id)}`}
+                      href={link.href}
                       label={link.label}
                       variant="footer"
                     />

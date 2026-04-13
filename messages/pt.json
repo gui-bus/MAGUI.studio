@@ -16,9 +16,11 @@
     "Nav": {
       "portfolio": "Portfólio",
       "services": "Serviços",
-      "about": "O Estúdio",
+      "method": "Método",
+      "about": "Estúdio",
       "process": "Processo",
       "faq": "Dúvidas",
+      "contact": "Contato",
       "home_label": "MAGUI.studio Início",
       "logo_alt": "MAGUI.studio - Estratégia Visual & Design de Interface",
       "main_nav_label": "Navegação Principal",
@@ -34,7 +36,7 @@
       "title_1": "Design de",
       "title_2": "Interface &",
       "title_3": "Autoridade",
-      "description": "Transformamos desafios complexos em sistemas digitais de alta performance com rigor técnico e estética de elite.",
+      "description": "Transformamos desafios de negócio em sistemas digitais sólidos, unindo direção visual consciente e engenharia aplicada.",
       "cta": "Solicitar Proposta",
       "secondary_cta": "Explorar Portfolio",
       "scroll": "Descobrir",
@@ -44,7 +46,7 @@
     },
     "About": {
       "title": "O Conceito MAGUI",
-      "description": "A MAGUI une direção visual, critério estético e atenção minuciosa aos detalhes para criar produtos digitais que impressionam no primeiro olhar e sustentam valor ao longo da experiência.",
+      "description": "A MAGUI une direção visual, critério estético e um olhar técnico minucioso para criar produtos digitais que buscam equilibrar impacto visual e funcionalidade real.",
       "eyebrow": "Manifesto do Estúdio",
       "title_1": "Precisão",
       "title_2": "Visual.",
@@ -55,31 +57,31 @@
           "id": "01",
           "title": "Estratégia Visual",
           "label": "Estratégia Visual",
-          "description": "Composição, ritmo e linguagem visual desenhados para elevar percepção e presença."
+          "description": "Composição e linguagem visual desenhadas para fortalecer a presença digital da marca."
         },
         {
           "id": "02",
-          "title": "Entrega Refinada",
-          "label": "Entrega Refinada",
-          "description": "Interfaces com leitura fluida, acabamento preciso e cuidado visível em cada detalhe."
+          "title": "Entrega Cuidada",
+          "label": "Entrega Cuidada",
+          "description": "Interfaces com acabamento atento e foco na clareza do fluxo de leitura."
         }
       ],
       "principles": [
-        "Hierarquia visual que conduz a leitura sem esforço.",
-        "Detalhes que reforçam sofisticação, clareza e confiança.",
+        "Hierarquia visual que busca conduzir a leitura de forma natural.",
+        "Detalhes pensados para transmitir seriedade e confiança.",
         "Composições que transformam presença digital em percepção de valor."
       ],
       "panel_eyebrow": "O Estúdio",
       "panel_title": "Rigor visual.",
-      "panel_description": "Uma interface forte não depende de excesso. Ela depende de proporção, contraste, ritmo e decisões visuais feitas com precisão.",
+      "panel_description": "Acreditamos que uma boa interface nasce da proporção, do contraste e de decisões visuais feitas com critério técnico.",
       "pillars": [
         "Clareza",
         "Estética",
         "Autoridade",
-        "Precisão"
+        "Rigor"
       ],
-      "sidebar_description": "A força da marca está no acabamento: tipografia bem resolvida, composições seguras, contraste bem medido e atenção real ao que o usuário percebe.",
-      "focus": "Atratividade visual, leitura clara e obsessão por detalhe.",
+      "sidebar_description": "Nosso foco está no equilíbrio: tipografia resolvida, composições seguras e atenção ao que o usuário realmente percebe.",
+      "focus": "Atratividade visual e clareza técnica.",
       "focus_label": "Padrão MAGUI"
     },
     "Process": {
@@ -87,25 +89,25 @@
       "steps": [
         {
           "title": "Estratégia",
-          "description": "Mapeamento profundo do ecossistema de negócio e definição de metas de impacto."
+          "description": "Mapeamento do ecossistema de negócio e definição de metas reais."
         },
         {
           "title": "Arquitetura",
-          "description": "Estruturação técnica focada em escalabilidade e segurança de dados crítica."
+          "description": "Estruturação técnica focada em organização e viabilidade do projeto."
         },
         {
           "title": "Design",
-          "description": "Criação de interfaces de alta fidelidade com foco em autoridade visual."
+          "description": "Criação de interfaces de alta fidelidade com foco em clareza visual."
         },
         {
           "title": "Engenharia",
-          "description": "Implementação com rigor matemático e otimização extrema de performance."
+          "description": "Implementação técnica focada em performance e boas práticas de código."
         }
       ],
       "eyebrow": "Protocolo MAGUI",
       "title_1": "Protocolo",
       "title_2": "de Execução.",
-      "description": "Um protocolo claro, cadenciado e técnico para transformar as informações em um sistema visual de alta performance.",
+      "description": "Um processo claro e cadenciado para transformar necessidades em sistemas visuais funcionais.",
       "step_label": "Etapa {step}",
       "method_label": "Método MAGUI"
     },
@@ -114,33 +116,33 @@
       "title": "A Ciência por trás da Autoridade.",
       "title_1": "A Ciência da",
       "title_2": "Autoridade.",
-      "description": "Combinamos o rigor da engenharia com a sensibilidade do design para criar sistemas que não apenas funcionam, mas dominam seu segmento.",
+      "description": "Unimos o rigor da engenharia com a sensibilidade do design para construir sistemas digitais consistentes.",
       "image_alt": "Abstração de Excelência",
       "disciplines": [
         {
           "id": "01",
           "title": "Estratégia",
           "label": "Intenção",
-          "description": "Cada pixel e cada linha de código são planejados para guiar o usuário e consolidar sua presença de mercado."
+          "description": "Planejamento focado em guiar o usuário e consolidar a presença de mercado da marca."
         },
         {
           "id": "02",
           "title": "Engenharia",
-          "label": "Precisão",
-          "description": "Desenvolvimento robusto focado em escala, segurança e performance absoluta. O alicerce de um sistema de elite."
+          "label": "Construção",
+          "description": "Desenvolvimento focado em estabilidade, segurança e performance otimizada."
         },
         {
           "id": "03",
           "title": "Estética",
           "label": "Impacto",
-          "description": "Design de alta fidelidade que projeta luxo e credibilidade, transformando visual em valor de negócio."
+          "description": "Design que busca projetar credibilidade e alinhar o visual aos objetivos do negócio."
         }
       ]
     },
     "Showcase": {
       "eyebrow": "Portfólio Curado",
       "title": "Projetos em Destaque.",
-      "description": "Uma curadoria de sistemas que elevam o padrão de performance e design no ambiente digital.",
+      "description": "Uma seleção de trabalhos que buscam elevar o padrão de design e performance no ambiente digital.",
       "view_project": "Ver Projeto",
       "background_text": "Trabalho Selecionado",
       "previous_project_label": "Projeto anterior",
@@ -149,24 +151,24 @@
     "Services": {
       "eyebrow": "Nossas Especialidades",
       "title": "Serviços que Elevam seu Negócio.",
-      "description": "Soluções estratégicas desenhadas para marcas que buscam autoridade visual e resultados concretos.",
+      "description": "Soluções desenhadas para marcas que buscam clareza visual e resultados sólidos.",
       "title_1": "Serviços",
       "title_2": "Disponíveis",
       "selection": "Seleção",
       "landing": {
         "title": "Landing Pages",
-        "label": "High-Conversion",
-        "description": "Páginas de captura otimizadas para converter visitantes em leads com design persuasivo e performance extrema."
+        "label": "Conversão Consciente",
+        "description": "Páginas focadas em guiar o visitante com design persuasivo e carregamento otimizado."
       },
       "sales": {
         "title": "Páginas de Vendas",
-        "label": "Profit & Power",
-        "description": "Sistemas de vendas focados em autoridade e faturamento, desenhados para maximizar o seu ROI digital."
+        "label": "Autoridade & Venda",
+        "description": "Sistemas de vendas desenhados para transmitir confiança e apoiar o faturamento digital."
       },
       "institutional": {
         "title": "Sites Institucionais",
-        "label": "Brand Authority",
-        "description": "Presença digital de elite que projeta confiança e solidez para empresas que buscam liderança de mercado."
+        "label": "Presença de Marca",
+        "description": "Presença digital que busca projetar a solidez e os diferenciais de empresas no mercado."
       }
     },
     "FAQ": {
@@ -175,49 +177,49 @@
       "items": [
         {
           "question": "Quanto tempo leva para um projeto ficar pronto?",
-          "answer": "O prazo varia conforme escopo, quantidade de páginas, integrações e nível de personalização. Projetos mais enxutos avançam em poucas semanas, enquanto experiências mais robustas pedem um cronograma maior e etapas de validação mais detalhadas."
+          "answer": "O prazo varia conforme o escopo e a complexidade. Projetos focados podem avançar em poucas semanas, enquanto experiências mais densas pedem um cronograma maior para garantir a qualidade de cada etapa."
         },
         {
           "question": "Como vocês definem o orçamento?",
-          "answer": "O investimento é calculado a partir dos objetivos do projeto, complexidade técnica, volume de conteúdo, integrações e entregáveis envolvidos. Após o envio das informações, a proposta deixa claro o que está incluído em cada etapa."
+          "answer": "O investimento é calculado a partir dos objetivos, volume de conteúdo e entregáveis envolvidos. Após o envio das informações, a proposta detalha o que está incluído no projeto."
         },
         {
           "question": "O que eu preciso ter pronto antes de começar?",
-          "answer": "Você não precisa chegar com tudo resolvido. Referências, textos, identidade visual ou metas comerciais ajudam a acelerar, mas também podemos conduzir o processo desde a fase de direção para transformar uma ideia inicial em escopo consistente."
+          "answer": "Você não precisa ter tudo resolvido. Referências, metas ou identidade visual ajudam, mas podemos conduzir o processo desde a fase inicial para dar forma à sua ideia."
         },
         {
           "question": "Posso pedir ajustes durante o projeto?",
-          "answer": "Sim. Trabalhamos com rodadas de alinhamento e refinamento ao longo das entregas. Ajustes fazem parte do processo; mudanças muito grandes de escopo são reavaliadas para proteger prazo, qualidade e previsibilidade."
+          "answer": "Sim. Trabalhamos com etapas de alinhamento ao longo do processo. Ajustes fazem parte da evolução natural da entrega para chegarmos ao melhor resultado possível."
         },
         {
           "question": "Como funciona o suporte depois da entrega?",
-          "answer": "Após o lançamento, podemos seguir com acompanhamento, manutenção evolutiva e ajustes estratégicos conforme a necessidade. A ideia é não deixar o projeto parado e permitir otimizações com base em uso real, performance e novas metas."
+          "answer": "Após o lançamento, podemos oferecer acompanhamento para manutenção técnica e ajustes pontuais conforme o uso real e as necessidades do negócio."
         },
         {
           "question": "Quais tecnologias o estúdio utiliza?",
-          "answer": "Trabalhamos com tecnologias modernas focadas em performance, escalabilidade e experiência, como Next.js e React. A direção técnica sempre considera o contexto do projeto, o momento da marca e o que faz mais sentido para o resultado esperado."
+          "answer": "Trabalhamos com tecnologias modernas como Next.js e React, focando em performance e escalabilidade. A escolha técnica sempre visa o melhor suporte para o resultado final do cliente."
         }
       ],
       "summary_label": "FAQ",
-      "summary_description": "{count} respostas sobre processo, investimento, escopo e direção técnica.",
+      "summary_description": "{count} respostas sobre processo, investimento e direção técnica.",
       "question_label": "Pergunta"
     },
     "CTA": {
       "eyebrow": "Contato",
       "title": "Seu projeto começa aqui",
-      "description": "Inicie sua solicitação e envie o contexto essencial para transformar a ideia em uma direção clara.",
-      "cardTitle": "Clareza antes da execução.",
-      "cardDescription": "Um bom projeto começa com um direcionamento objetivo, bem estruturado e sem ruído."
+      "description": "Inicie sua solicitação e envie o contexto para transformarmos a ideia em uma direção técnica clara.",
+      "cardTitle": "Clareza no início.",
+      "cardDescription": "Um bom projeto começa com um direcionamento objetivo e bem estruturado."
     },
     "ContactDrawer": {
       "eyebrow": "Proposta",
       "title": "Solicitar Proposta",
-      "description": "Preencha os pontos principais para alinhar escopo, prazo e objetivo logo no primeiro contato.",
+      "description": "Preencha os pontos principais para alinharmos escopo e objetivo logo no primeiro contato.",
       "close": "Fechar formulário",
       "referralLabel": "Indicação ativa",
-      "referralText": "{name} indicou você. Essa informação será considerada no contexto do contato.",
+      "referralText": "{name} indicou você. Essa informação será considerada no nosso contato.",
       "successTitle": "Solicitação recebida.",
-      "successMessage": "As informações foram enviadas com sucesso. O próximo passo agora é a análise do contexto enviado.",
+      "successMessage": "As informações foram enviadas. O próximo passo é a análise do contexto para darmos sequência ao atendimento.",
       "errorMessage": "Não foi possível enviar agora. Tente novamente em instantes.",
       "submit": "Enviar Solicitação",
       "submitting": "Enviando",
@@ -291,28 +293,124 @@
         "deadlineRequired": "Selecione o prazo esperado.",
         "messageMin": "Explique o contexto com pelo menos 10 caracteres."
       }
-    },
-    "ContactPage": {
-      "metaTitle": "Contato",
-      "metaDescription": "Inicie a solicitação do seu projeto e alinhe escopo, prazo e objetivo em uma página dedicada de contato."
     }
   },
+  "ContactPage": {
+    "metaTitle": "Contato",
+    "metaDescription": "Inicie a solicitação do seu projeto e alinhe escopo, prazo e objetivo em uma página dedicada de contato."
+  },
+  "MethodPage": {
+    "metaTitle": "Método",
+    "metaDescription": "Conheça o processo da MAGUI: um protocolo técnico que busca previsibilidade, performance e clareza visual em cada entrega.",
+    "eyebrow": "Processo",
+    "title": "Protocolo de Execução",
+    "description": "Buscamos transformar incerteza em processos claros. Nosso método combina organização estratégica com engenharia aplicada para entregar soluções digitais consistentes.",
+    "phases": [
+      {
+        "id": "01",
+        "title": "Estratégia & Alinhamento",
+        "label": "A primeira camada",
+        "description": "Mapeamos os objetivos principais, definimos o escopo viável e estabelecemos os canais de comunicação para o projeto. O foco aqui é clareza absoluta sobre o que será construído.",
+        "details": [
+          "Definição de metas comerciais",
+          "Análise de ecossistema digital",
+          "Roadmap de execução"
+        ]
+      },
+      {
+        "id": "02",
+        "title": "Arquitetura & Design",
+        "label": "System design",
+        "description": "Definimos o sistema visual e a organização das informações. Cada decisão busca equilibrar estética e funcionalidade para criar uma experiência que converte.",
+        "details": [
+          "Information architecture",
+          "Interface design (UI)",
+          "Editorial art direction"
+        ]
+      },
+      {
+        "id": "03",
+        "title": "Engenharia & Construção",
+        "label": "A fundação técnica",
+        "description": "Desenvolvimento focado em código limpo, utilizando ferramentas modernas para garantir uma base técnica sólida e carregamento ágil no mundo real.",
+        "details": [
+          "Crafted development",
+          "Performance optimization",
+          "Reactive systems"
+        ]
+      },
+      {
+        "id": "04",
+        "title": "Entrega & Acompanhamento",
+        "label": "Suporte evolutivo",
+        "description": "Lançamento do projeto, entrega de acessos e início do suporte para garantir que a solução performe como esperado no mundo real e continue evoluindo.",
+        "details": [
+          "Production deploy",
+          "Initial monitoring",
+          "Ciclo de suporte"
+        ]
+      }
+    ],
+    "qa_title": "Cuidado Técnico",
+    "qa_description": "O rigor técnico é parte do nosso dia a dia. Revisamos cada entrega para garantir que ela atenda aos nossos critérios internos de qualidade e clareza.",
+    "qa_items": [
+      "Revisão de Performance e Carregamento",
+      "Verificação de Acessibilidade Básica",
+      "Segurança e Boas Práticas de Código",
+      "Configuração de SEO e Metadados"
+    ]
+  },
+  "StudioPage": {
+    "metaTitle": "O Estúdio",
+    "metaDescription": "MAGUI.studio é um estúdio de engenharia visual fundado por Guilherme Bustamante, focado em clareza, estética e funcionalidade técnica.",
+    "eyebrow": "Manifesto",
+    "title": "O Estúdio",
+    "description": "Somos um estúdio boutique focado em entregar qualidade artesanal e soluções técnicas bem resolvidas para quem valoriza o impacto do digital.",
+    "founder_label": "O Fundador",
+    "founder_title": "Guilherme Bustamante",
+    "founder_description": "Desenvolvedor e designer com foco em interfaces. Fundou a MAGUI para aplicar seu olhar técnico e estético na criação de produtos que buscam ser autênticos e funcionais.",
+    "approach_label": "Nossa Abordagem",
+    "approach_title": "Estética intencional, engenharia aplicada.",
+    "approach_description": "Acreditamos que design deve servir ao propósito do negócio. Na MAGUI, cada detalhe busca um equilíbrio entre ser visualmente interessante e tecnicamente eficiente.",
+    "values": [
+      "Código autoral escrito para cada necessidade.",
+      "Foco constante na melhor performance possível.",
+      "Atenção aos detalhes técnicos e visuais.",
+      "Design que busca transmitir seriedade e valor."
+    ],
+    "philosophy_title": "Critério Visual",
+    "philosophy_description": "Design é comunicação. Aplicamos princípios de organização e ritmo visual para criar experiências que sejam claras, diretas e memoráveis.",
+    "philosophy_items": [
+      {
+        "title": "Simplicidade",
+        "description": "Focar no que importa para que a mensagem do cliente seja ouvida."
+      },
+      {
+        "title": "Clareza Tipográfica",
+        "description": "Uso da tipografia para criar hierarquias de leitura eficientes."
+      },
+      {
+        "title": "Consistência Técnica",
+        "description": "Garantir que a visão de design seja executada com precisão no código."
+      }
+    ]
+  },
   "ProjectCases": {
-    "archive_eyebrow": "Portf\u00f3lio",
-    "archive_title": "Projetos individuais.",
-    "archive_description": "P\u00e1ginas dedicadas para mostrar dire\u00e7\u00e3o visual, estrutura, sistema e decis\u00f5es de interface em cada projeto do portf\u00f3lio.",
+    "archive_eyebrow": "Portfólio",
+    "archive_title": "Individual projetos.",
+    "archive_description": "Páginas que detalham a direção, estrutura e decisões de interface por trás de cada trabalho.",
     "archive_open": "Abrir projeto",
     "archive_live": "Ver ao vivo",
-    "archive_back_home": "Voltar ao in\u00edcio",
+    "archive_back_home": "Voltar ao início",
     "back_to_projects": "Voltar aos projetos",
     "hero_label": "Projeto",
     "summary_label": "Resumo",
     "facts_sector": "Setor",
     "facts_scope": "Escopo",
-    "facts_role": "Atua\u00e7\u00e3o",
+    "facts_role": "Atuação",
     "facts_format": "Formato",
     "facts_year": "Ano",
-    "facts_audience": "P\u00fablico",
+    "facts_audience": "Público",
     "style_guide_label": "Style guide",
     "palette_label": "Paleta",
     "typeface_label": "Tipografia",
@@ -327,13 +425,13 @@
     "solution_label": "Solução",
     "design_system_label": "Design System",
     "context_label": "Contexto",
-    "direction_label": "Dire\u00e7\u00e3o",
+    "direction_label": "Direção",
     "system_label": "Sistema",
-    "experience_label": "Experi\u00eancia",
-    "capabilities_label": "O que essa p\u00e1gina faz",
+    "experience_label": "Experiência",
+    "capabilities_label": "O que essa página faz",
     "journey_label": "Como a leitura se organiza",
-    "differentiators_label": "Decis\u00f5es que elevam o projeto",
-    "deliverables_label": "Entreg\u00e1veis",
+    "differentiators_label": "Decisões que elevam o projeto",
+    "deliverables_label": "Entregáveis",
     "stack_label": "Stack",
     "notes_label": "Destaques",
     "quote_label": "Leitura editorial",

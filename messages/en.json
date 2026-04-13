@@ -16,9 +16,11 @@
     "Nav": {
       "portfolio": "Portfolio",
       "services": "Services",
+      "method": "Method",
       "about": "Studio",
       "process": "Process",
       "faq": "Inquiries",
+      "contact": "Contact",
       "home_label": "MAGUI.studio Home",
       "logo_alt": "MAGUI.studio - Visual Strategy & Interface Design",
       "main_nav_label": "Main Navigation",
@@ -34,7 +36,7 @@
       "title_1": "Elite",
       "title_2": "Design &",
       "title_3": "Authority",
-      "description": "We transform complex business challenges into flawless digital experiences with technical rigor and elite aesthetics.",
+      "description": "We transform business challenges into solid digital systems, combining conscious visual direction and applied engineering.",
       "cta": "Request Proposal",
       "secondary_cta": "Explore Portfolio",
       "scroll": "Discover",
@@ -44,7 +46,7 @@
     },
     "About": {
       "title": "The MAGUI Concept",
-      "description": "MAGUI combines visual direction, aesthetic judgment, and meticulous attention to detail to create digital products that make a strong first impression and sustain value throughout the experience.",
+      "description": "MAGUI combines visual direction, aesthetic judgment, and a meticulous technical eye to create digital products that seek to balance visual impact and real functionality.",
       "eyebrow": "Studio Manifesto",
       "title_1": "Editorial",
       "title_2": "Precision.",
@@ -55,31 +57,31 @@
           "id": "01",
           "title": "Visual Strategy",
           "label": "Visual Strategy",
-          "description": "Composition, pacing, and visual language designed to elevate perception and presence."
+          "description": "Composition and visual language designed to strengthen the brand's digital presence."
         },
         {
           "id": "02",
-          "title": "Refined Delivery",
-          "label": "Refined Delivery",
-          "description": "Interfaces with fluid reading flow, precise finishing, and visible care in every detail."
+          "title": "Cared Delivery",
+          "label": "Cared Delivery",
+          "description": "Interfaces with attentive finishing and a focus on the clarity of the reading flow."
         }
       ],
       "principles": [
-        "Visual hierarchy that guides reading without friction.",
-        "Details that reinforce sophistication, clarity, and trust.",
+        "Visual hierarchy that seeks to guide reading naturally.",
+        "Details designed to convey seriousness and trust.",
         "Compositions that turn digital presence into perceived value."
       ],
       "panel_eyebrow": "The Studio",
       "panel_title": "Visual rigor.",
-      "panel_description": "A strong interface does not depend on excess. It depends on proportion, contrast, rhythm, and visual decisions made with precision.",
+      "panel_description": "We believe a good interface is born from proportion, contrast, and visual decisions made with technical criteria.",
       "pillars": [
         "Clarity",
         "Aesthetics",
         "Authority",
-        "Precision"
+        "Rigor"
       ],
-      "sidebar_description": "The brand's strength lives in the finish: resolved typography, confident compositions, measured contrast, and real attention to what the user perceives.",
-      "focus": "Visual appeal, clear reading flow, and obsession with detail.",
+      "sidebar_description": "Our focus is on balance: resolved typography, confident compositions, and attention to what the user really perceives.",
+      "focus": "Visual appeal and technical clarity.",
       "focus_label": "MAGUI Standard"
     },
     "Process": {
@@ -87,25 +89,25 @@
       "steps": [
         {
           "title": "Strategy",
-          "description": "Deep mapping of the business ecosystem and definition of impact goals."
+          "description": "Mapping the business ecosystem and defining real goals."
         },
         {
           "title": "Architecture",
-          "description": "Technical structuring focused on scalability and critical data security."
+          "description": "Technical structuring focused on project organization and feasibility."
         },
         {
           "title": "Design",
-          "description": "Creation of high-fidelity interfaces with a focus on visual authority."
+          "description": "Creation of high-fidelity interfaces with a focus on visual clarity."
         },
         {
           "title": "Engineering",
-          "description": "Implementation with mathematical rigor and extreme performance optimization."
+          "description": "Technical implementation focused on performance and code best practices."
         }
       ],
       "eyebrow": "MAGUI Protocol",
       "title_1": "Execution",
       "title_2": "Protocol.",
-      "description": "A clear, deliberate, technical protocol that turns a project inquiry into a high-performance visual system.",
+      "description": "A clear and paced process to transform needs into functional visual systems.",
       "step_label": "Step {step}",
       "method_label": "MAGUI Method"
     },
@@ -114,33 +116,33 @@
       "title": "The Science Behind Authority.",
       "title_1": "The Science of",
       "title_2": "Authority.",
-      "description": "We combine engineering rigor with design sensitivity to create systems that don't just function, they dominate their segment.",
+      "description": "We combine engineering rigor with design sensitivity to build consistent digital systems.",
       "image_alt": "Abstraction of Excellence",
       "disciplines": [
         {
           "id": "01",
           "title": "Strategy",
           "label": "Intention",
-          "description": "Every pixel and every line of code is planned to guide the user and consolidate your market presence."
+          "description": "Planning focused on guiding the user and consolidating the brand's market presence."
         },
         {
           "id": "02",
           "title": "Engineering",
-          "label": "Precision",
-          "description": "Robust development focused on scale, security, and absolute performance. The foundation of an elite system."
+          "label": "Construction",
+          "description": "Development focused on stability, security, and optimized performance."
         },
         {
           "id": "03",
           "title": "Aesthetics",
           "label": "Impact",
-          "description": "High-fidelity design that projects luxury and credibility, transforming visuals into business value."
+          "description": "Design that seeks to project credibility and align visuals with business goals."
         }
       ]
     },
     "Showcase": {
       "eyebrow": "Curated Portfolio",
       "title": "Featured Projects.",
-      "description": "A curation of systems that elevate the standard of performance and design in the digital environment.",
+      "description": "A selection of works that seek to elevate the standard of design and performance in the digital environment.",
       "view_project": "View Project",
       "background_text": "Selected Work",
       "previous_project_label": "Previous project",
@@ -149,24 +151,24 @@
     "Services": {
       "eyebrow": "Our Specialties",
       "title": "Services that Elevate Your Business.",
-      "description": "Strategic solutions designed for brands seeking visual authority and concrete results.",
+      "description": "Solutions designed for brands seeking visual clarity and solid results.",
       "title_1": "Available",
       "title_2": "Services",
       "selection": "Selection",
       "landing": {
         "title": "Landing Pages",
-        "label": "High-Conversion",
-        "description": "High-performance capture pages designed to convert visitors into leads through persuasive design and extreme speed."
+        "label": "Conscious Conversion",
+        "description": "Pages focused on guiding the visitor with persuasive design and optimized loading."
       },
       "sales": {
         "title": "Sales Pages",
-        "label": "Profit & Power",
-        "description": "Sales systems focused on authority and revenue, engineered to maximize your digital ROI."
+        "label": "Authority & Sales",
+        "description": "Sales systems designed to convey trust and support digital revenue."
       },
       "institutional": {
         "title": "Institutional Sites",
-        "label": "Brand Authority",
-        "description": "Elite digital presence that projects trust and stability for companies aiming for market leadership."
+        "label": "Brand Presence",
+        "description": "Digital presence that seeks to project the strength and differentiators of companies in the market."
       }
     },
     "FAQ": {
@@ -175,49 +177,49 @@
       "items": [
         {
           "question": "How long does a project usually take?",
-          "answer": "The timeline depends on scope, number of pages, integrations, and the level of customization. Leaner projects can move in a few weeks, while more ambitious experiences require a broader schedule and more detailed validation stages."
+          "answer": "The timeline depends on scope and complexity. Focused projects can move in a few weeks, while more dense experiences require a broader schedule to ensure the quality of each stage."
         },
         {
           "question": "How do you define the budget?",
-          "answer": "Pricing is shaped by project goals, technical complexity, content volume, integrations, and deliverables. After the initial analysis, the proposal makes it clear what is included in each stage."
+          "answer": "Pricing is shaped by goals, content volume, and deliverables involved. After the initial analysis, the proposal details what is included in the project."
         },
         {
           "question": "What do I need to have ready before we start?",
-          "answer": "You do not need to arrive with everything solved. References, copy, brand assets, or business goals help speed things up, but we can also guide the process from the early direction stage and shape an initial idea into a solid scope."
+          "answer": "You do not need to arrive with everything solved. References, goals, or brand assets help, but we can also guide the process from the early stages to shape your idea."
         },
         {
           "question": "Can I request changes during the project?",
-          "answer": "Yes. We work with alignment and refinement rounds throughout the delivery process. Adjustments are expected; larger scope changes are reassessed so we can protect timeline, quality, and predictability."
+          "answer": "Yes. We work with alignment stages throughout the process. Adjustments are part of the natural evolution of the delivery to reach the best possible result."
         },
         {
           "question": "How does support work after delivery?",
-          "answer": "After launch, we can continue with monitoring, iterative maintenance, and strategic adjustments when needed. The goal is to keep the project evolving based on real usage, performance, and new business goals."
+          "answer": "After launch, we can offer technical maintenance and specific adjustments based on real usage and business needs."
         },
         {
           "question": "Which technologies does the studio use?",
-          "answer": "We work with modern technologies focused on performance, scalability, and experience, such as Next.js and React. Every technical decision considers the project context, the brand's moment, and what best supports the intended outcome."
+          "answer": "We work with modern technologies like Next.js and React, focusing on performance and scalability. Technical choices always aim for the best support for the client's final outcome."
         }
       ],
       "summary_label": "FAQ",
-      "summary_description": "{count} answers about process, budget, scope, and technical direction.",
+      "summary_description": "{count} answers about process, budget, and technical direction.",
       "question_label": "Question"
     },
     "CTA": {
       "eyebrow": "Contact",
       "title": "Your project starts here",
-      "description": "Start your inquiry and send the essential context needed to turn the idea into clear direction.",
-      "cardTitle": "Clarity before execution.",
-      "cardDescription": "A strong project starts with an objective inquiry, structured well and without noise."
+      "description": "Start your inquiry and send the context so we can transform the idea into a clear technical direction.",
+      "cardTitle": "Clarity at the start.",
+      "cardDescription": "A strong project starts with an objective inquiry and a well-structured approach."
     },
     "ContactDrawer": {
       "eyebrow": "Proposal",
       "title": "Request Proposal",
-      "description": "Fill in the key points to align scope, timeline, and goals from the very first contact.",
+      "description": "Fill in the key points so we can align scope and goals from the very first contact.",
       "close": "Close form",
       "referralLabel": "Referral active",
-      "referralText": "{name} referred you. That information will be considered in the contact context.",
+      "referralText": "{name} referred you. That information will be considered in our contact.",
       "successTitle": "Inquiry received.",
-      "successMessage": "The information was sent successfully. The next step is reviewing the context you shared.",
+      "successMessage": "The information was sent successfully. The next step is reviewing the context to move forward with the service.",
       "errorMessage": "It could not be sent right now. Please try again in a moment.",
       "submit": "Send Inquiry",
       "submitting": "Sending",
@@ -291,16 +293,112 @@
         "deadlineRequired": "Select a timeline.",
         "messageMin": "Add at least 10 characters of context."
       }
-    },
-    "ContactPage": {
-      "metaTitle": "Contact",
-      "metaDescription": "Start your project inquiry and align scope, timeline, and goals on a dedicated contact page."
     }
+  },
+  "ContactPage": {
+    "metaTitle": "Contact",
+    "metaDescription": "Start your project inquiry and align scope, timeline, and goals on a dedicated contact page."
+  },
+  "MethodPage": {
+    "metaTitle": "Method",
+    "metaDescription": "Discover the MAGUI process: a technical protocol that seeks predictability, performance, and visual clarity in every delivery.",
+    "eyebrow": "Process",
+    "title": "Execution Protocol",
+    "description": "We transform uncertainty into clear processes. Our method combines strategic organization with applied engineering to deliver consistent digital solutions.",
+    "phases": [
+      {
+        "id": "01",
+        "title": "Alignment & Strategy",
+        "label": "The first layer",
+        "description": "We map the main goals, define the feasible scope, and establish the communication channels for the project. The focus here is absolute clarity on what will be built.",
+        "details": [
+          "Business goals definition",
+          "Digital ecosystem analysis",
+          "Execution roadmap"
+        ]
+      },
+      {
+        "id": "02",
+        "title": "Architecture & Design",
+        "label": "System design",
+        "description": "We define the visual system and information organization. Every decision seeks to balance aesthetics and functionality to create an experience that converts.",
+        "details": [
+          "Information architecture",
+          "Interface design (UI)",
+          "Editorial art direction"
+        ]
+      },
+      {
+        "id": "03",
+        "title": "Engineering & Construction",
+        "label": "Technical foundation",
+        "description": "Development focused on clean code, using modern tools to ensure a solid technical foundation and agile loading in the real world.",
+        "details": [
+          "Crafted development",
+          "Performance optimization",
+          "Reactive systems"
+        ]
+      },
+      {
+        "id": "04",
+        "title": "Delivery & Monitoring",
+        "label": "Evolutionary support",
+        "description": "Project launch, access delivery, and the start of support to ensure the solution performs as expected in the real world and continues to evolve.",
+        "details": [
+          "Production deploy",
+          "Initial monitoring",
+          "Support cycle"
+        ]
+      }
+    ],
+    "qa_title": "Technical Care",
+    "qa_description": "Technical rigor is part of our day-to-day. We review each delivery to ensure it meets our internal quality and clarity criteria.",
+    "qa_items": [
+      "Performance and Loading Review",
+      "Basic Accessibility Verification",
+      "Security and Code Best Practices",
+      "SEO and Metadata Configuration"
+    ]
+  },
+  "StudioPage": {
+    "metaTitle": "The Studio",
+    "metaDescription": "MAGUI.studio is a visual engineering studio founded by Guilherme Bustamante, focused on clarity, aesthetics, and technical functionality.",
+    "eyebrow": "Manifesto",
+    "title": "The Studio",
+    "description": "We are a boutique studio focused on delivering artisanal quality and well-resolved technical solutions for those who value digital impact.",
+    "founder_label": "The Founder",
+    "founder_title": "Guilherme Bustamante",
+    "founder_description": "Developer and designer focused on interfaces. Founded MAGUI to apply his technical and aesthetic eye in creating products that seek to be authentic and functional.",
+    "approach_label": "Our Approach",
+    "approach_title": "Intentional aesthetics, applied engineering.",
+    "approach_description": "We believe design should serve the business purpose. At MAGUI, every detail seeks a balance between being visually interesting and technically efficient.",
+    "values": [
+      "Original code written for each need.",
+      "Constant focus on the best possible performance.",
+      "Attention to technical and visual details.",
+      "Design that seeks to convey seriousness and value."
+    ],
+    "philosophy_title": "Visual Criteria",
+    "philosophy_description": "Design is communication. We apply principles of organization and visual rhythm to create experiences that are clear, direct, and memorable.",
+    "philosophy_items": [
+      {
+        "title": "Simplicity",
+        "description": "Focus on what matters so that the client's message is heard."
+      },
+      {
+        "title": "Typographic Clarity",
+        "description": "Use of typography to create efficient reading hierarchies."
+      },
+      {
+        "title": "Technical Consistency",
+        "description": "Ensure that the design vision is executed with precision in code."
+      }
+    ]
   },
   "ProjectCases": {
     "archive_eyebrow": "Portfolio",
     "archive_title": "Individual projects.",
-    "archive_description": "Dedicated pages that show the visual direction, structure, system, and interface decisions behind each project in the portfolio.",
+    "archive_description": "Dedicated pages that detail the direction, structure, and interface decisions behind each work.",
     "archive_open": "Open project",
     "archive_live": "View live",
     "archive_back_home": "Back home",
