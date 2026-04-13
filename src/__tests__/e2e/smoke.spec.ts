@@ -33,14 +33,14 @@ test.describe("Critical flows", () => {
     await acceptCookiesIfVisible(page)
 
     await expect(
-      page.getByRole("link", { name: /Abrir Briefing/i }).first()
+      page.getByRole("link", { name: /Solicitar Proposta/i }).first()
     ).toBeVisible()
 
     await setLocaleCookie(page, "en")
     await page.goto("/")
 
     await expect(
-      page.getByRole("link", { name: /Open Brief/i }).first()
+      page.getByRole("link", { name: /Request Proposal/i }).first()
     ).toBeVisible()
   })
 
@@ -92,7 +92,7 @@ test.describe("Critical flows", () => {
     ).toBeVisible()
   })
 
-  test("submits the contact brief successfully", async ({ page }) => {
+  test("submits the contact inquiry successfully", async ({ page }) => {
     await setLocaleCookie(page, "pt")
     await page.route("https://api.web3forms.com/submit", async (route) => {
       await route.fulfill({
@@ -109,13 +109,13 @@ test.describe("Critical flows", () => {
     await page.getByLabel("E-mail").fill("guibus.dev@gmail.com")
     await page.getByLabel("Empresa").fill("MAGUI")
     await page
-      .getByLabel("Briefing")
+      .getByLabel(/Contexto/i)
       .fill("Quero uma landing page com posicionamento premium.")
 
-    await page.getByRole("button", { name: /Enviar Briefing/i }).click()
+    await page.getByRole("button", { name: /Enviar Solicitação/i }).click()
 
     await expect(
-      page.getByRole("heading", { name: /Briefing recebido/i })
+      page.getByRole("heading", { name: /Solicitação recebida/i })
     ).toBeVisible()
   })
 })

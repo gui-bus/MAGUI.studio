@@ -35,7 +35,7 @@
       "title_2": "Interface &",
       "title_3": "Autoridade",
       "description": "Transformamos desafios complexos em sistemas digitais de alta performance com rigor técnico e estética de elite.",
-      "cta": "Abrir Briefing",
+      "cta": "Solicitar Proposta",
       "secondary_cta": "Explorar Portfolio",
       "scroll": "Descobrir",
       "image_alt": "Abstração de Precisão e Poder",
@@ -105,7 +105,7 @@
       "eyebrow": "Protocolo MAGUI",
       "title_1": "Protocolo",
       "title_2": "de Execução.",
-      "description": "Um protocolo claro, cadenciado e técnico para transformar o briefing em um sistema visual de alta performance.",
+      "description": "Um protocolo claro, cadenciado e técnico para transformar as informações em um sistema visual de alta performance.",
       "step_label": "Etapa {step}",
       "method_label": "Método MAGUI"
     },
@@ -179,7 +179,7 @@
         },
         {
           "question": "Como vocês definem o orçamento?",
-          "answer": "O investimento é calculado a partir dos objetivos do projeto, complexidade técnica, volume de conteúdo, integrações e entregáveis envolvidos. Depois do briefing, a proposta deixa claro o que está incluído em cada etapa."
+          "answer": "O investimento é calculado a partir dos objetivos do projeto, complexidade técnica, volume de conteúdo, integrações e entregáveis envolvidos. Após o envio das informações, a proposta deixa claro o que está incluído em cada etapa."
         },
         {
           "question": "O que eu preciso ter pronto antes de começar?",
@@ -205,25 +205,25 @@
     "CTA": {
       "eyebrow": "Contato",
       "title": "Seu projeto começa aqui",
-      "description": "Abra o briefing e envie o contexto essencial para transformar a ideia em uma direção clara.",
+      "description": "Inicie sua solicitação e envie o contexto essencial para transformar a ideia em uma direção clara.",
       "cardTitle": "Clareza antes da execução.",
-      "cardDescription": "Um bom projeto começa com um briefing objetivo, bem estruturado e sem ruído."
+      "cardDescription": "Um bom projeto começa com um direcionamento objetivo, bem estruturado e sem ruído."
     },
     "ContactDrawer": {
-      "eyebrow": "Briefing",
-      "title": "Briefing",
+      "eyebrow": "Proposta",
+      "title": "Solicitar Proposta",
       "description": "Preencha os pontos principais para alinhar escopo, prazo e objetivo logo no primeiro contato.",
       "close": "Fechar formulário",
       "referralLabel": "Indicação ativa",
       "referralText": "{name} indicou você. Essa informação será considerada no contexto do contato.",
-      "successTitle": "Briefing recebido.",
+      "successTitle": "Solicitação recebida.",
       "successMessage": "As informações foram enviadas com sucesso. O próximo passo agora é a análise do contexto enviado.",
       "errorMessage": "Não foi possível enviar agora. Tente novamente em instantes.",
-      "submit": "Enviar Briefing",
+      "submit": "Enviar Solicitação",
       "submitting": "Enviando",
       "footerNote": "",
       "notProvided": "Não informado",
-      "emailSubject": "Novo briefing de projeto: {name}",
+      "emailSubject": "Nova solicitação de projeto: {name}",
       "fields": {
         "name": {
           "label": "Nome",
@@ -231,14 +231,26 @@
         },
         "email": {
           "label": "E-mail",
-          "placeholder": "Qual e-mail deve receber a resposta?"
+          "placeholder": "Seu melhor e-mail"
+        },
+        "phone": {
+          "label": "WhatsApp / Telefone",
+          "placeholder": "(00) 00000-0000"
+        },
+        "link": {
+          "label": "Site atual ou Instagram",
+          "placeholder": "https://..."
         },
         "company": {
           "label": "Empresa",
-          "placeholder": "Nome da marca, empresa ou projeto"
+          "placeholder": "Nome da marca ou projeto"
         },
         "projectType": {
           "label": "Tipo de projeto"
+        },
+        "projectTypeOther": {
+          "label": "Especifique o tipo de projeto",
+          "placeholder": "Ex: Branding, App Mobile, etc."
         },
         "budget": {
           "label": "Faixa de investimento"
@@ -247,7 +259,7 @@
           "label": "Prazo esperado"
         },
         "message": {
-          "label": "Briefing",
+          "label": "Contexto do Projeto",
           "placeholder": "Resuma o projeto, o objetivo principal e qualquer referência importante."
         }
       },
@@ -272,7 +284,9 @@
       "validation": {
         "nameMin": "Informe pelo menos 2 caracteres.",
         "emailInvalid": "Digite um e-mail válido.",
+        "phoneMin": "Informe um número de contato válido.",
         "projectTypeRequired": "Selecione o tipo de projeto.",
+        "projectTypeOtherRequired": "Por favor, especifique o tipo de projeto.",
         "budgetRequired": "Selecione a faixa de investimento.",
         "deadlineRequired": "Selecione o prazo esperado.",
         "messageMin": "Explique o contexto com pelo menos 10 caracteres."
@@ -280,7 +294,7 @@
     },
     "ContactPage": {
       "metaTitle": "Contato",
-      "metaDescription": "Envie o briefing do seu projeto e alinhe escopo, prazo e objetivo em uma página dedicada de contato."
+      "metaDescription": "Inicie a solicitação do seu projeto e alinhe escopo, prazo e objetivo em uma página dedicada de contato."
     }
   },
   "ProjectCases": {

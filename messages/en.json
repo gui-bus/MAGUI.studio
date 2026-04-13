@@ -35,7 +35,7 @@
       "title_2": "Design &",
       "title_3": "Authority",
       "description": "We transform complex business challenges into flawless digital experiences with technical rigor and elite aesthetics.",
-      "cta": "Open Brief",
+      "cta": "Request Proposal",
       "secondary_cta": "Explore Portfolio",
       "scroll": "Discover",
       "image_alt": "Abstraction of Precision and Power",
@@ -105,7 +105,7 @@
       "eyebrow": "MAGUI Protocol",
       "title_1": "Execution",
       "title_2": "Protocol.",
-      "description": "A clear, deliberate, technical protocol that turns a briefing into a high-performance visual system.",
+      "description": "A clear, deliberate, technical protocol that turns a project inquiry into a high-performance visual system.",
       "step_label": "Step {step}",
       "method_label": "MAGUI Method"
     },
@@ -179,7 +179,7 @@
         },
         {
           "question": "How do you define the budget?",
-          "answer": "Pricing is shaped by project goals, technical complexity, content volume, integrations, and deliverables. After the brief, the proposal makes it clear what is included in each stage."
+          "answer": "Pricing is shaped by project goals, technical complexity, content volume, integrations, and deliverables. After the initial analysis, the proposal makes it clear what is included in each stage."
         },
         {
           "question": "What do I need to have ready before we start?",
@@ -205,25 +205,25 @@
     "CTA": {
       "eyebrow": "Contact",
       "title": "Your project starts here",
-      "description": "Open the brief and send the essential context needed to turn the idea into clear direction.",
+      "description": "Start your inquiry and send the essential context needed to turn the idea into clear direction.",
       "cardTitle": "Clarity before execution.",
-      "cardDescription": "A strong project starts with an objective brief, structured well and without noise."
+      "cardDescription": "A strong project starts with an objective inquiry, structured well and without noise."
     },
     "ContactDrawer": {
-      "eyebrow": "Brief",
-      "title": "Brief",
+      "eyebrow": "Proposal",
+      "title": "Request Proposal",
       "description": "Fill in the key points to align scope, timeline, and goals from the very first contact.",
       "close": "Close form",
       "referralLabel": "Referral active",
       "referralText": "{name} referred you. That information will be considered in the contact context.",
-      "successTitle": "Brief received.",
+      "successTitle": "Inquiry received.",
       "successMessage": "The information was sent successfully. The next step is reviewing the context you shared.",
       "errorMessage": "It could not be sent right now. Please try again in a moment.",
-      "submit": "Send Brief",
+      "submit": "Send Inquiry",
       "submitting": "Sending",
       "footerNote": "",
       "notProvided": "Not provided",
-      "emailSubject": "New project brief: {name}",
+      "emailSubject": "New project inquiry: {name}",
       "fields": {
         "name": {
           "label": "Name",
@@ -231,14 +231,26 @@
         },
         "email": {
           "label": "Email",
-          "placeholder": "Which email should receive the reply?"
+          "placeholder": "Your best email"
+        },
+        "phone": {
+          "label": "WhatsApp / Phone",
+          "placeholder": "+00 00 00000-0000"
+        },
+        "link": {
+          "label": "Current site or Instagram",
+          "placeholder": "https://..."
         },
         "company": {
           "label": "Company",
-          "placeholder": "Brand, company, or project name"
+          "placeholder": "Brand or project name"
         },
         "projectType": {
           "label": "Project type"
+        },
+        "projectTypeOther": {
+          "label": "Specify the project type",
+          "placeholder": "e.g. Branding, Mobile App, etc."
         },
         "budget": {
           "label": "Budget range"
@@ -247,7 +259,7 @@
           "label": "Expected timeline"
         },
         "message": {
-          "label": "Brief",
+          "label": "Project Context",
           "placeholder": "Summarize the project, the main goal, and any important references."
         }
       },
@@ -272,7 +284,9 @@
       "validation": {
         "nameMin": "Enter at least 2 characters.",
         "emailInvalid": "Enter a valid email.",
+        "phoneMin": "Enter a valid contact number.",
         "projectTypeRequired": "Select a project type.",
+        "projectTypeOtherRequired": "Please specify the project type.",
         "budgetRequired": "Select a budget range.",
         "deadlineRequired": "Select a timeline.",
         "messageMin": "Add at least 10 characters of context."
@@ -280,7 +294,7 @@
     },
     "ContactPage": {
       "metaTitle": "Contact",
-      "metaDescription": "Send your project brief and align scope, timeline, and goals on a dedicated contact page."
+      "metaDescription": "Start your project inquiry and align scope, timeline, and goals on a dedicated contact page."
     }
   },
   "ProjectCases": {

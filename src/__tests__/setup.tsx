@@ -108,7 +108,7 @@ const translationData: Record<string, Record<string, unknown>> = {
     quote_label: "Leitura editorial",
     closing_label: "Fechamento",
     live_project: "Ver projeto ao vivo",
-    open_brief: "Abrir briefing",
+    open_brief: "Solicitar proposta",
     more_projects: "Outros projetos",
     next_project: "Próximo projeto",
     previous_project: "Projeto anterior",

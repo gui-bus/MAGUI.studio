@@ -11,8 +11,10 @@ import {
   CheckCircleIcon,
   TicketIcon,
 } from "@phosphor-icons/react"
+import { AnimatePresence, m } from "framer-motion"
 import { useForm } from "react-hook-form"
 
+import { MotionProvider } from "@/src/components/common/motionProvider"
 import { Button } from "@/src/components/ui/button"
 
 import { trackEvent } from "@/src/lib/analytics"
@@ -37,6 +39,7 @@ interface ProjectInquirySelectionGroupProps {
   options: ProjectInquiryOption[]
   selectedValue: string
   onSelect: (value: string) => void
+  required?: boolean
 }
 
 interface Web3FormsClientResponse {
@@ -52,11 +55,13 @@ function ProjectInquirySelectionGroup({
   options,
   selectedValue,
   onSelect,
+  required = false,
 }: ProjectInquirySelectionGroupProps): React.JSX.Element {
   return (
     <fieldset className="space-y-4">
       <legend className="text-[11px] font-black uppercase tracking-[0.35em] text-muted-foreground">
         {label}
+        {required && <span className="ml-1 text-destructive">*</span>}
       </legend>
       <div className="grid gap-3 sm:grid-cols-2">
         {options.map((option) => (
@@ -97,7 +102,6 @@ function FieldShell({
           "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px))",
       }}
     >
-      <div className="absolute left-0 top-0 h-12 w-12 border-r border-b border-border/60 bg-brand-primary/10" />
       <div className="absolute bottom-0 right-0 h-14 w-14 border-l border-t border-border/60 bg-foreground/[0.04]" />
       <div className="relative">{children}</div>
     </section>
@@ -148,7 +152,9 @@ export function ProjectInquiryForm({
       createProjectInquirySchema({
         nameMin: t("validation.nameMin"),
         emailInvalid: t("validation.emailInvalid"),
+        phoneMin: t("validation.phoneMin"),
         projectTypeRequired: t("validation.projectTypeRequired"),
+        projectTypeOtherRequired: t("validation.projectTypeOtherRequired"),
         budgetRequired: t("validation.budgetRequired"),
         deadlineRequired: t("validation.deadlineRequired"),
         messageMin: t("validation.messageMin"),
@@ -171,8 +177,11 @@ export function ProjectInquiryForm({
       deadline: "thirtyDays",
       company: "",
       email: "",
+      phone: "",
+      link: "",
       message: "",
       name: "",
+      projectTypeOther: "",
     },
   })
 
@@ -225,13 +234,20 @@ export function ProjectInquiryForm({
         formData.append("access_key", web3FormsAccessKey)
         formData.append("name", data.name)
         formData.append("email", data.email)
+        formData.append("phone", data.phone)
+        formData.append("link", data.link || t("notProvided"))
         formData.append("message", data.message)
-        formData.append("subject", `Novo briefing de projeto: ${data.name}`)
+        formData.append("subject", t("emailSubject", { name: data.name }))
         formData.append("replyto", data.email)
         formData.append("company", data.company || t("notProvided"))
         formData.append("budget", t(`budgets.${data.budget}`))
         formData.append("deadline", t(`deadlines.${data.deadline}`))
-        formData.append("project_type", t(`projectTypes.${data.projectType}`))
+        formData.append(
+          "project_type",
+          data.projectType === "other"
+            ? `${t("projectTypes.other")} (${data.projectTypeOther})`
+            : t(`projectTypes.${data.projectType}`)
+        )
         formData.append("origin", origin)
         formData.append("botcheck", "")
 
@@ -262,7 +278,7 @@ export function ProjectInquiryForm({
         setIsSuccess(true)
         reset()
       } catch {
-        trackEvent("brief_submit_error", {
+        trackEvent("inquiry_submit_error", {
           origin,
           project_type: data.projectType,
         })
@@ -336,6 +352,7 @@ export function ProjectInquiryForm({
             <label className="space-y-3" htmlFor={`${idPrefix}-name`}>
               <span className="text-[11px] font-black uppercase tracking-[0.35em] text-muted-foreground">
                 {t("fields.name.label")}
+                <span className="ml-1 text-destructive">*</span>
               </span>
               <TextField hasError={Boolean(errors.name)}>
                 <input
@@ -355,6 +372,7 @@ export function ProjectInquiryForm({
             <label className="space-y-3" htmlFor={`${idPrefix}-email`}>
               <span className="text-[11px] font-black uppercase tracking-[0.35em] text-muted-foreground">
                 {t("fields.email.label")}
+                <span className="ml-1 text-destructive">*</span>
               </span>
               <TextField hasError={Boolean(errors.email)}>
                 <input
@@ -370,6 +388,42 @@ export function ProjectInquiryForm({
                   {errors.email.message}
                 </span>
               ) : null}
+            </label>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <label className="space-y-3" htmlFor={`${idPrefix}-phone`}>
+              <span className="text-[11px] font-black uppercase tracking-[0.35em] text-muted-foreground">
+                {t("fields.phone.label")}
+                <span className="ml-1 text-destructive">*</span>
+              </span>
+              <TextField hasError={Boolean(errors.phone)}>
+                <input
+                  {...register("phone")}
+                  id={`${idPrefix}-phone`}
+                  placeholder={t("fields.phone.placeholder")}
+                  className="h-14 w-full bg-transparent text-base text-foreground outline-none placeholder:text-muted-foreground/40"
+                />
+              </TextField>
+              {errors.phone ? (
+                <span className="text-sm text-destructive">
+                  {errors.phone.message}
+                </span>
+              ) : null}
+            </label>
+
+            <label className="space-y-3" htmlFor={`${idPrefix}-link`}>
+              <span className="text-[11px] font-black uppercase tracking-[0.35em] text-muted-foreground">
+                {t("fields.link.label")}
+              </span>
+              <TextField hasError={Boolean(errors.link)}>
+                <input
+                  {...register("link")}
+                  id={`${idPrefix}-link`}
+                  placeholder={t("fields.link.placeholder")}
+                  className="h-14 w-full bg-transparent text-base text-foreground outline-none placeholder:text-muted-foreground/40"
+                />
+              </TextField>
             </label>
           </div>
 
@@ -390,6 +444,7 @@ export function ProjectInquiryForm({
           <label className="block space-y-3" htmlFor={`${idPrefix}-message`}>
             <span className="text-[11px] font-black uppercase tracking-[0.35em] text-muted-foreground">
               {t("fields.message.label")}
+              <span className="ml-1 text-destructive">*</span>
             </span>
             <TextField hasError={Boolean(errors.message)}>
               <textarea
@@ -410,19 +465,59 @@ export function ProjectInquiryForm({
       </FieldShell>
 
       <FieldShell>
-        <ProjectInquirySelectionGroup
-          label={t("fields.projectType.label")}
-          name="projectType"
-          options={projectTypes}
-          selectedValue={selectedProjectType}
-          onSelect={(value: string): void =>
-            setValue("projectType", value, {
-              shouldDirty: true,
-              shouldTouch: true,
-              shouldValidate: true,
-            })
-          }
-        />
+        <div className="space-y-6">
+          <ProjectInquirySelectionGroup
+            label={t("fields.projectType.label")}
+            name="projectType"
+            options={projectTypes}
+            selectedValue={selectedProjectType}
+            required
+            onSelect={(value: string): void =>
+              setValue("projectType", value, {
+                shouldDirty: true,
+                shouldTouch: true,
+                shouldValidate: true,
+              })
+            }
+          />
+
+          <MotionProvider>
+            <AnimatePresence>
+              {selectedProjectType === "other" && (
+                <m.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="overflow-hidden"
+                >
+                  <label
+                    className="block space-y-3 pt-2"
+                    htmlFor={`${idPrefix}-projectTypeOther`}
+                  >
+                    <span className="text-[11px] font-black uppercase tracking-[0.35em] text-muted-foreground">
+                      {t("fields.projectTypeOther.label")}
+                      <span className="ml-1 text-destructive">*</span>
+                    </span>
+                    <TextField hasError={Boolean(errors.projectTypeOther)}>
+                      <input
+                        {...register("projectTypeOther")}
+                        id={`${idPrefix}-projectTypeOther`}
+                        placeholder={t("fields.projectTypeOther.placeholder")}
+                        className="h-14 w-full bg-transparent text-base text-foreground outline-none placeholder:text-muted-foreground/40"
+                      />
+                    </TextField>
+                    {errors.projectTypeOther ? (
+                      <span className="text-sm text-destructive">
+                        {errors.projectTypeOther.message}
+                      </span>
+                    ) : null}
+                  </label>
+                </m.div>
+              )}
+            </AnimatePresence>
+          </MotionProvider>
+        </div>
       </FieldShell>
 
       <FieldShell>
@@ -431,6 +526,7 @@ export function ProjectInquiryForm({
           name="budget"
           options={budgetOptions}
           selectedValue={selectedBudget}
+          required
           onSelect={(value: string): void =>
             setValue("budget", value, {
               shouldDirty: true,
@@ -447,6 +543,7 @@ export function ProjectInquiryForm({
           name="deadline"
           options={deadlineOptions}
           selectedValue={selectedDeadline}
+          required
           onSelect={(value: string): void =>
             setValue("deadline", value, {
               shouldDirty: true,
