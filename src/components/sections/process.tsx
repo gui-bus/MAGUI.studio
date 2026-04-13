@@ -78,7 +78,7 @@ export function Process(): React.JSX.Element {
         </m.p>
       </div>
 
-      <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[2rem] border border-foreground/8 bg-foreground/8 xl:grid-cols-2">
+      <div className="grid grid-cols-1 gap-px overflow-hidden rounded-4xl border border-foreground/8 bg-foreground/8 xl:grid-cols-2">
         {steps.map((step, index) => (
           <ProcessCard key={step.title} index={index} step={step} />
         ))}
@@ -120,7 +120,7 @@ function ProcessCard({ index, step }: ProcessCardProps): React.JSX.Element {
             <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
               {t("step_label", { step: stepId })}
             </span>
-            <h3 className="font-heading text-4xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-foreground md:text-6xl">
+            <h3 className="font-heading text-3xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-foreground md:text-6xl">
               {step.title}
             </h3>
           </div>

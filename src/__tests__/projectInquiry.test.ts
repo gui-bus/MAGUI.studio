@@ -15,7 +15,7 @@ describe("Project inquiry schema", () => {
   it("accepts a valid payload", () => {
     const result = schema.safeParse({
       name: "Gui Borges",
-      email: "contato@guibus.dev",
+      email: "contato@magui.studio",
       company: "MAGUI",
       projectType: "landing",
       budget: "range2",

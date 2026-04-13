@@ -85,7 +85,7 @@ export function Services(): React.JSX.Element {
               </m.span>
             </m.div>
 
-            <h2 className="font-heading text-6xl md:text-9xl lg:text-[160px] font-black leading-[0.7] tracking-[-0.06em] text-foreground uppercase select-none">
+            <h2 className="font-heading text-5xl md:text-9xl lg:text-[160px] font-black leading-[0.7] tracking-[-0.06em] text-foreground uppercase select-none">
               <m.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}

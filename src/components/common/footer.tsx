@@ -5,9 +5,8 @@ import * as React from "react"
 import { useTranslations } from "next-intl"
 import { useTheme } from "next-themes"
 import Image from "next/image"
-import Link from "next/link"
 
-import { ArrowUp, Plus } from "@phosphor-icons/react"
+import { ArrowUpIcon, PlusIcon } from "@phosphor-icons/react"
 import { m } from "framer-motion"
 
 import { NavLink } from "@/src/components/ui/navLink"
@@ -46,7 +45,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
     [navT]
   )
 
-  const socialLinks = ["Instagram", "LinkedIn", "Behance"]
+  const socialLinks = ["Instagram"]
 
   return (
     <footer
@@ -75,7 +74,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12 lg:pl-24">
             <div className="space-y-10">
               <div className="flex items-center gap-3">
-                <Plus
+                <PlusIcon
                   weight="bold"
                   size={10}
                   className="text-brand-primary"
@@ -100,7 +99,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
 
             <div className="space-y-10">
               <div className="flex items-center gap-3">
-                <Plus
+                <PlusIcon
                   weight="bold"
                   size={10}
                   className="text-brand-primary"
@@ -121,7 +120,7 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
 
             <div className="space-y-10 hidden md:block">
               <div className="flex items-center gap-3">
-                <Plus
+                <PlusIcon
                   weight="bold"
                   size={10}
                   className="text-brand-primary"
@@ -162,12 +161,12 @@ export const Footer = React.memo(function Footer(): React.JSX.Element {
 
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-2 text-brand-primary hover:text-foreground transition-all duration-500 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-full px-2"
+              className="flex items-center gap-2 text-brand-primary hover:text-foreground transition-all duration-500 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-full px-2 uppercase"
               aria-label={t("scroll_to_top_label")}
             >
               <span>{t("back_to_top")}</span>
-              <ArrowUp
-                weight="bold"
+              <ArrowUpIcon
+                weight="duotone"
                 className="transition-transform group-hover:-translate-y-1"
                 aria-hidden="true"
               />
