@@ -50,8 +50,9 @@ describe("project case routes", () => {
         name: "Powervet",
       })
     ).toBeInTheDocument()
-    expect(screen.queryByText("Style guide")).not.toBeInTheDocument()
-    expect(screen.queryByText("Mockups")).not.toBeInTheDocument()
+    expect(screen.getByText("Style guide")).toBeInTheDocument()
+    expect(screen.getByText("Desafio")).toBeInTheDocument()
+    expect(screen.getByText("Solução")).toBeInTheDocument()
     expect(screen.getAllByAltText("Powervet").length).toBeGreaterThanOrEqual(3)
     expect(
       screen.getByText("Tom visual mais confiável e controlado")

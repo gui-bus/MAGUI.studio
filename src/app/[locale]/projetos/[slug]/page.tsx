@@ -14,7 +14,11 @@ import {
 } from "@/src/content/projects"
 import { locales } from "@/src/i18n/config"
 
-import { ArrowUpRightIcon } from "@/src/components/ui/serverIcons"
+import {
+  ArrowUpRightIcon,
+  LightbulbIcon,
+  TargetIcon,
+} from "@/src/components/ui/serverIcons"
 
 import { Footer } from "@/src/components/common/footer"
 import { Header } from "@/src/components/common/header"
@@ -141,6 +145,7 @@ export default async function ProjectCasePage({
     { label: t("facts_scope"), value: project.scope },
     { label: t("facts_year"), value: project.year },
     { label: t("facts_role"), value: project.role },
+    { label: t("stack_label"), value: project.stack.join(", ") },
   ]
 
   return (
@@ -200,7 +205,7 @@ export default async function ProjectCasePage({
           <figure className="overflow-hidden bg-white shadow-[0_38px_120px_rgba(15,23,42,0.1)]">
             <div className="relative aspect-[16/9] overflow-hidden bg-[#f5f4ef]">
               <Image
-                src="/utils/placeholder.svg"
+                src={project.image}
                 alt={project.title}
                 fill
                 priority
@@ -230,11 +235,133 @@ export default async function ProjectCasePage({
           </div>
         </section>
 
+        <section className="relative overflow-hidden border-t border-foreground/8 bg-foreground/[0.01] px-6 py-16 md:px-12 md:py-20 lg:px-16 lg:py-24">
+          <div className="absolute inset-0 z-0 opacity-[0.03] [background-image:radial-gradient(circle_at_center,currentColor_1px,transparent_1px)] [background-size:32px_32px]" />
+
+          <div className="relative z-10 grid gap-16 lg:grid-cols-2 lg:gap-24">
+            <article className="group space-y-8">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground/8 bg-background shadow-sm transition-transform group-hover:scale-110">
+                  <TargetIcon className="text-brand-primary" size={20} />
+                </div>
+                <h2 className="text-[11px] font-black uppercase tracking-[0.34em] text-brand-primary">
+                  {t("challenge_label")}
+                </h2>
+              </div>
+              <div className="space-y-6">
+                <p className="font-heading text-2xl font-black uppercase leading-tight tracking-[-0.04em] md:text-3xl">
+                  {project.challenge}
+                </p>
+                <div className="h-px w-12 bg-foreground/10 transition-all group-hover:w-24" />
+              </div>
+              <div className="pointer-events-none absolute -left-12 top-0 opacity-[0.02] transition-transform group-hover:translate-x-4">
+                <TargetIcon size={240} />
+              </div>
+            </article>
+
+            <article className="group space-y-8">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground/8 bg-background shadow-sm transition-transform group-hover:scale-110">
+                  <LightbulbIcon className="text-brand-primary" size={20} />
+                </div>
+                <h2 className="text-[11px] font-black uppercase tracking-[0.34em] text-brand-primary">
+                  {t("solution_label")}
+                </h2>
+              </div>
+              <div className="space-y-6">
+                <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                  {project.solution}
+                </p>
+                <div className="h-px w-12 bg-foreground/10 transition-all group-hover:w-24" />
+              </div>
+              <div className="pointer-events-none absolute -right-12 top-0 opacity-[0.02] transition-transform group-hover:-translate-x-4">
+                <LightbulbIcon size={240} />
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="space-y-16 border-t border-foreground/8 px-6 py-16 md:px-12 md:py-20 lg:px-16 lg:py-24">
+          <div className="space-y-4">
+            <p className="text-[11px] font-black uppercase tracking-[0.34em] text-brand-primary">
+              {t("design_system_label")}
+            </p>
+            <h2 className="font-heading text-4xl font-black uppercase leading-[0.84] tracking-[-0.06em] md:text-6xl">
+              {t("style_guide_label")}
+            </h2>
+          </div>
+
+          <div className="grid gap-20 lg:grid-cols-[0.4fr_1fr]">
+            <div className="space-y-12">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.28em] text-foreground/40">
+                {t("typeface_label")}
+              </h3>
+              <div className="space-y-24">
+                {project.typography.map((font) => (
+                  <div key={font.name} className="relative space-y-4">
+                    <div
+                      className="pointer-events-none absolute -top-12 -left-4 select-none text-[12rem] leading-none text-foreground/[0.03]"
+                      style={{ fontFamily: font.name }}
+                    >
+                      Aa
+                    </div>
+                    <div className="relative z-10 space-y-2">
+                      <p
+                        className="text-4xl font-black uppercase tracking-tighter md:text-6xl"
+                        style={{ fontFamily: font.name }}
+                      >
+                        {font.name}
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <span className="h-px w-8 bg-brand-primary" />
+                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">
+                          {font.category}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-12">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.28em] text-foreground/40">
+                {t("palette_label")}
+              </h3>
+              <div className="grid grid-cols-1 gap-px bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
+                {project.colors.map((color) => (
+                  <div
+                    key={color.hex}
+                    className="group relative flex flex-col bg-background"
+                  >
+                    <div
+                      className="aspect-video w-full transition-transform duration-700 md:aspect-square"
+                      style={{ backgroundColor: color.hex }}
+                    />
+                    <div className="space-y-4 p-6 transition-colors group-hover:bg-foreground/[0.02]">
+                      <div className="space-y-1">
+                        <p className="text-[11px] font-black uppercase tracking-widest">
+                          {color.name}
+                        </p>
+                        <div className="h-px w-8 bg-brand-primary transition-all group-hover:w-full" />
+                      </div>
+                      <div className="flex flex-col gap-1 font-mono text-[10px] leading-none text-muted-foreground/60">
+                        <span className="text-foreground/80">{color.hex}</span>
+                        <span>{color.oklch}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="space-y-6 border-t border-foreground/8 px-6 py-16 md:px-12 md:py-20 lg:px-16 lg:py-24">
           <figure className="overflow-hidden bg-white shadow-[0_34px_110px_rgba(15,23,42,0.1)]">
             <div className="relative aspect-[16/10] overflow-hidden bg-[#f5f4ef]">
               <Image
-                src="/utils/placeholder.svg"
+                src={project.gallery[0] ?? "/utils/placeholder.svg"}
                 alt={project.title}
                 fill
                 sizes="100vw"
@@ -247,7 +374,7 @@ export default async function ProjectCasePage({
             <figure className="overflow-hidden bg-white shadow-[0_30px_96px_rgba(15,23,42,0.09)]">
               <div className="relative aspect-[4/5] overflow-hidden bg-[#f5f4ef]">
                 <Image
-                  src="/utils/placeholder.svg"
+                  src={project.gallery[1] ?? "/utils/placeholder.svg"}
                   alt={project.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 48vw"
@@ -259,7 +386,7 @@ export default async function ProjectCasePage({
             <figure className="overflow-hidden bg-white shadow-[0_30px_96px_rgba(15,23,42,0.09)]">
               <div className="relative aspect-[4/5] overflow-hidden bg-[#f5f4ef]">
                 <Image
-                  src="/utils/placeholder.svg"
+                  src={project.gallery[2] ?? "/utils/placeholder.svg"}
                   alt={project.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 48vw"

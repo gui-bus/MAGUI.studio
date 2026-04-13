@@ -95,6 +95,20 @@ export function CompassRoseIcon(props: ServerIconProps): React.JSX.Element {
   )
 }
 
+export function LightbulbIcon(props: ServerIconProps): React.JSX.Element {
+  return (
+    <BaseIcon {...props}>
+      <path
+        d="M9 21H15M12 3C8.13 3 5 6.13 5 10C5 12.38 6.19 14.47 8 15.74V18C8 18.55 8.45 19 9 19H15C15.55 19 16 18.55 16 18V15.74C17.81 14.47 19 12.38 19 10C19 6.13 15.87 3 12 3Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </BaseIcon>
+  )
+}
+
 export function PaintBrushIcon(props: ServerIconProps): React.JSX.Element {
   return (
     <BaseIcon {...props}>
@@ -189,6 +203,16 @@ export function SquaresFourIcon(props: ServerIconProps): React.JSX.Element {
         stroke="currentColor"
         strokeWidth="2"
       />
+    </BaseIcon>
+  )
+}
+
+export function TargetIcon(props: ServerIconProps): React.JSX.Element {
+  return (
+    <BaseIcon {...props}>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+      <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2" />
+      <circle cx="12" cy="12" r="1" fill="currentColor" />
     </BaseIcon>
   )
 }

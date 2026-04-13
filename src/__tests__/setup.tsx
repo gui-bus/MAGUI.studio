@@ -93,6 +93,8 @@ const translationData: Record<string, Record<string, unknown>> = {
     article_label: "Leitura do projeto",
     objective_label: "Objetivo",
     challenge_label: "Desafio",
+    solution_label: "Solução",
+    design_system_label: "Design System",
     context_label: "Contexto",
     direction_label: "Direção",
     system_label: "Sistema",

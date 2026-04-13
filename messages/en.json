@@ -332,6 +332,8 @@
     "article_label": "Project reading",
     "objective_label": "Objective",
     "challenge_label": "Challenge",
+    "solution_label": "Solution",
+    "design_system_label": "Design System",
     "context_label": "Context",
     "direction_label": "Direction",
     "system_label": "System",
