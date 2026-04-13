@@ -66,15 +66,73 @@ const translationData: Record<string, Record<string, unknown>> = {
     faq: "duvidas",
     process: "processo",
   },
+  ProjectCases: {
+    archive_eyebrow: "Portfólio",
+    archive_title: "Projetos individuais.",
+    archive_description: "Descrição do arquivo",
+    archive_open: "Abrir projeto",
+    archive_live: "Ver ao vivo",
+    archive_back_home: "Voltar ao início",
+    back_to_projects: "Voltar aos projetos",
+    hero_label: "Projeto",
+    summary_label: "Resumo",
+    facts_sector: "Setor",
+    facts_scope: "Escopo",
+    facts_role: "Atuação",
+    facts_format: "Formato",
+    facts_year: "Ano",
+    facts_audience: "Público",
+    article_label: "Leitura do projeto",
+    objective_label: "Objetivo",
+    challenge_label: "Desafio",
+    context_label: "Contexto",
+    direction_label: "Direção",
+    system_label: "Sistema",
+    experience_label: "Experiência",
+    capabilities_label: "O que essa página faz",
+    journey_label: "Como a leitura se organiza",
+    differentiators_label: "Decisões que elevam o projeto",
+    deliverables_label: "Entregáveis",
+    stack_label: "Stack",
+    notes_label: "Destaques",
+    quote_label: "Leitura editorial",
+    closing_label: "Fechamento",
+    live_project: "Ver projeto ao vivo",
+    open_brief: "Abrir briefing",
+    more_projects: "Outros projetos",
+    next_project: "Próximo projeto",
+    previous_project: "Projeto anterior",
+    cta_title: "Quer um projeto com esse nível de direção?",
+    cta_description: "Descrição CTA",
+  },
+  Footer: {
+    studio_title: "O Estúdio",
+    nav_title: "Navegação",
+    social_title: "Social",
+    site_footer_label: "Rodapé do Site",
+    scroll_to_top_label: "Voltar ao Topo",
+    established: "Desde 2026",
+    availability: "Disponível",
+    credits: "© {year} MAGUI.studio",
+    back_to_top: "Voltar ao Topo",
+  },
+  Config: {
+    name: "MAGUI.studio",
+    description: "Descrição",
+    keywords: "MAGUI",
+  },
 }
 
 const serverMessages = {
+  Config: translationData.Config,
+  Footer: translationData.Footer,
   Index: {
     About: translationData["Index.About"],
     FAQ: translationData["Index.FAQ"],
     Ids: translationData["Index.Ids"],
     Process: translationData["Index.Process"],
   },
+  ProjectCases: translationData.ProjectCases,
 }
 
 vi.mock("next-intl", () => ({
@@ -109,6 +167,7 @@ vi.mock("next-intl", () => ({
 }))
 
 vi.mock("next-intl/server", () => ({
+  getLocale: async () => "pt",
   getMessages: async () => serverMessages,
   getTranslations: async (namespace?: string) => {
     const scopedData = namespace ? (translationData[namespace] ?? {}) : {}

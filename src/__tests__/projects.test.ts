@@ -23,6 +23,13 @@ describe("project cases content", () => {
     const adjacent = getAdjacentProjectCases("powervet", "pt")
 
     expect(cases).toHaveLength(3)
+    expect(cases[0]).toMatchObject({
+      audience: "Especialistas, consultores e marcas pessoais",
+      format: "Landing page de aquisição",
+      year: "2026",
+    })
+    expect(cases[1]?.capabilities).toHaveLength(4)
+    expect(cases[2]?.journey).toHaveLength(4)
     expect(adjacent?.previousProject.slug).toBe("apareca-e-venda")
     expect(adjacent?.nextProject.slug).toBe("horizon-travels")
   })
