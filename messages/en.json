@@ -305,10 +305,11 @@
     "eyebrow": "Process",
     "title": "Execution Protocol",
     "description": "We transform uncertainty into clear processes. Our method combines strategic organization with applied engineering to deliver consistent digital solutions.",
+    "phase_focus_label": "Stage Focus",
     "phases": [
       {
         "id": "01",
-        "title": "Strategy & Alignment",
+        "title": "Alignment & Strategy",
         "label": "The first layer",
         "description": "We map the main goals, define the feasible scope, and establish the communication channels for the project. The focus here is absolute clarity on what will be built.",
         "details": [
@@ -362,36 +363,43 @@
   },
   "StudioPage": {
     "metaTitle": "The Studio",
-    "metaDescription": "MAGUI.studio is a visual engineering studio founded by Guilherme Bustamante, focused on clarity, aesthetics, and technical functionality.",
-    "eyebrow": "Manifesto",
-    "title": "The Studio",
-    "description": "We are a boutique studio focused on delivering artisanal quality and well-resolved technical solutions for those who value digital impact.",
-    "founder_label": "The Founder",
+    "metaDescription": "MAGUI.studio is a visual engineering studio focused on transforming brand challenges into elite digital experiences.",
+    "eyebrow": "About",
+    "title": "Visual Engineering.",
+    "description": "MAGUI.studio was born to bridge the gap between luxury aesthetics and engineering rigor. We are a boutique studio, which means we do not operate in volume, but in technical and visual depth.",
+    "vision_label": "Positioning",
+    "vision_title": "Where form meets critical function.",
+    "vision_description": "We believe a website should not just be a 'page on the internet', but a brand's most valuable asset. At MAGUI, every pixel is planned to sustain authority and every line of code is written to ensure absolute performance.",
+    "boutique_label": "Boutique Model",
+    "boutique_title": "Quality over volume.",
+    "boutique_description": "We work with a limited number of projects at a time. This allows us to maintain a level of attention to detail that scale agencies could never replicate. You don't talk to an account manager; you talk to the one who executes.",
+    "founder_label": "Technical Direction",
     "founder_title": "Guilherme Bustamante",
-    "founder_description": "Developer and designer focused on interfaces. Founded MAGUI to apply his technical and aesthetic eye in creating products that seek to be authentic and functional.",
+    "founder_description": "Developer and designer. Founded MAGUI to apply his technical and aesthetic eye in creating products that seek to be authentic and functional, without the constraints of bureaucratic processes.",
     "approach_label": "Our Approach",
     "approach_title": "Intentional aesthetics, applied engineering.",
-    "approach_description": "We believe design should serve the business purpose. At MAGUI, every detail seeks a balance between being visually interesting and technically efficient.",
+    "approach_description": "We eliminate the obvious and focus on the exceptional. Every detail has a strategic intention for your business.",
+    "values_label": "Non-negotiable Values",
     "values": [
-      "Original code written for each need.",
-      "Constant focus on the best possible performance.",
-      "Attention to technical and visual details.",
-      "Design that seeks to convey seriousness and value."
+      "100% original code, zero templates.",
+      "Performance as a foundation, not optional.",
+      "Visible and invisible technical rigor.",
+      "Design that communicates immediate authority."
     ],
     "philosophy_title": "Visual Criteria",
-    "philosophy_description": "Design is communication. We apply principles of organization and visual rhythm to create experiences that are clear, direct, and memorable.",
+    "philosophy_description": "We apply principles of organization and visual rhythm to create experiences that are clear, direct, and memorable.",
     "philosophy_items": [
       {
         "title": "Simplicity",
-        "description": "Focus on what matters so that the client's message is heard."
+        "description": "Focus on what matters so that your message is heard without noise."
       },
       {
-        "title": "Typographic Clarity",
-        "description": "Use of typography to create efficient reading hierarchies."
+        "title": "Typographic Rigor",
+        "description": "Reading hierarchies designed to guide the eye with precision."
       },
       {
-        "title": "Technical Consistency",
-        "description": "Ensure that the design vision is executed with precision in code."
+        "title": "Technical Fidelity",
+        "description": "The design vision is executed with mathematical precision in the final code."
       }
     ]
   },

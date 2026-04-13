@@ -57,7 +57,7 @@ export default async function MethodPage(): Promise<React.JSX.Element> {
         <Section className="border-t border-foreground/5 py-0" withContainer={false}>
           <div className="grid grid-cols-1">
             {Array.isArray(phases) &&
-              phases.map((phase, index) => (
+              phases.map((phase) => (
                 <article
                   key={phase.id}
                   className="group relative border-b border-foreground/5 px-6 py-20 md:px-12 md:py-32 lg:px-24 lg:py-40 last:border-0"
@@ -65,7 +65,7 @@ export default async function MethodPage(): Promise<React.JSX.Element> {
                   {/* Phase Background Decor */}
                   <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/3 border-l border-foreground/5 bg-foreground/[0.01] lg:block" />
                   
-                  <div className="relative z-10 grid gap-16 lg:grid-cols-[0.4fr_1fr_0.4fr] lg:items-start lg:gap-24">
+                  <div className="relative z-10 grid gap-12 lg:grid-cols-[0.4fr_1.2fr_0.4fr] lg:items-start lg:gap-20">
                     {/* Column 1: Number & Label */}
                     <div className="space-y-6">
                       <span className="font-heading text-8xl font-black leading-none tracking-tighter text-foreground/5 md:text-[12rem] lg:text-[16rem]">
@@ -80,7 +80,7 @@ export default async function MethodPage(): Promise<React.JSX.Element> {
                     </div>
 
                     {/* Column 2: Narrative */}
-                    <div className="space-y-10">
+                    <div className="space-y-10 lg:pt-16">
                       <h2 className="font-heading text-4xl font-black uppercase leading-none tracking-tight md:text-6xl lg:text-7xl">
                         {phase.title}
                       </h2>
@@ -90,9 +90,9 @@ export default async function MethodPage(): Promise<React.JSX.Element> {
                     </div>
 
                     {/* Column 3: Artifacts/Details */}
-                    <div className="space-y-8 rounded-3xl border border-foreground/5 bg-foreground/[0.02] p-8 md:p-10">
+                    <div className="space-y-8 rounded-3xl border border-foreground/5 bg-foreground/[0.02] p-8 md:p-10 lg:mt-16">
                       <p className="text-[9px] font-black uppercase tracking-[0.4em] text-foreground/40">
-                        Entregáveis / Foco
+                        {t("phase_focus_label")}
                       </p>
                       <ul className="space-y-4">
                         {Array.isArray(phase.details) && phase.details.map((detail) => (

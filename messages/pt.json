@@ -150,7 +150,7 @@
     },
     "Services": {
       "eyebrow": "Nossas Especialidades",
-      "title": "Serviços que Elevam seu Negócio.",
+      "title": "Serviços que Elevam seu Negócio.",
       "description": "Soluções desenhadas para marcas que buscam clareza visual e resultados sólidos.",
       "title_1": "Serviços",
       "title_2": "Disponíveis",
@@ -305,6 +305,7 @@
     "eyebrow": "Processo",
     "title": "Protocolo de Execução",
     "description": "Buscamos transformar incerteza em processos claros. Nosso método combina organização estratégica com engenharia aplicada para entregar soluções digitais consistentes.",
+    "phase_focus_label": "Foco da Etapa",
     "phases": [
       {
         "id": "01",
@@ -320,12 +321,12 @@
       {
         "id": "02",
         "title": "Arquitetura & Design",
-        "label": "System design",
+        "label": "O desenho do sistema",
         "description": "Definimos o sistema visual e a organização das informações. Cada decisão busca equilibrar estética e funcionalidade para criar uma experiência que converte.",
         "details": [
-          "Information architecture",
-          "Interface design (UI)",
-          "Editorial art direction"
+          "Arquitetura de informação",
+          "Design de interface (UI)",
+          "Direção de arte editorial"
         ]
       },
       {
@@ -334,19 +335,19 @@
         "label": "A fundação técnica",
         "description": "Desenvolvimento focado em código limpo, utilizando ferramentas modernas para garantir uma base técnica sólida e carregamento ágil no mundo real.",
         "details": [
-          "Crafted development",
-          "Performance optimization",
-          "Reactive systems"
+          "Desenvolvimento artesanal",
+          "Otimização de performance",
+          "Sistemas reativos"
         ]
       },
       {
         "id": "04",
         "title": "Entrega & Acompanhamento",
-        "label": "Suporte evolutivo",
+        "label": "O suporte evolutivo",
         "description": "Lançamento do projeto, entrega de acessos e início do suporte para garantir que a solução performe como esperado no mundo real e continue evoluindo.",
         "details": [
-          "Production deploy",
-          "Initial monitoring",
+          "Deploy em produção",
+          "Monitoramento inicial",
           "Ciclo de suporte"
         ]
       }
@@ -362,38 +363,44 @@
   },
   "StudioPage": {
     "metaTitle": "O Estúdio",
-    "metaDescription": "MAGUI.studio é um estúdio de engenharia visual fundado por Guilherme Bustamante, focado em clareza, estética e funcionalidade técnica.",
-    "eyebrow": "Manifesto",
-    "title": "O Estúdio",
-    "description": "Somos uma boutique de engenharia visual focada em qualidade artesanal. Criamos para marcas que entendem que o digital é seu ativo mais valioso.",
+    "metaDescription": "MAGUI.studio é um estúdio de engenharia visual focado em transformar desafios de marcas em experiências digitais de elite.",
+    "eyebrow": "Sobre",
+    "title": "A Engenharia Visual.",
+    "description": "A MAGUI.studio nasceu para preencher o lacuna entre a estética de luxo e o rigor da engenharia. Somos um estúdio boutique, o que significa que não operamos em volume, mas em profundidade técnica e visual.",
+    "vision_label": "Posicionamento",
+    "vision_title": "Onde a forma encontra a função crítica.",
+    "vision_description": "Acreditamos que um site não deve ser apenas uma 'página na internet', mas o ativo de maior valor de uma marca. Na MAGUI, cada pixel é planejado para sustentar autoridade e cada linha de código é escrita para garantir performance absoluta.",
+    "boutique_label": "Modelo Boutique",
+    "boutique_title": "Qualidade sobre volume.",
+    "boutique_description": "Trabalhamos com um número limitado de projetos por vez. Isso nos permite manter um nível de atenção aos detalhes que agências de escala jamais conseguiriam replicar. Você não fala com um gerente de contas; você fala com quem executa.",
     "founder_label": "Direção Técnica",
     "founder_title": "Guilherme Bustamante",
-    "founder_description": "Desenvolvedor e designer com obsessão por interface. Com anos de experiência no mercado, fundou a MAGUI para preencher o gap entre o design que impressiona e a engenharia que escala.",
-    "approach_label": "Visão",
+    "founder_description": "Desenvolvedor e designer. Fundou a MAGUI para aplicar seu olhar técnico e estético na criação de produtos que buscam ser autênticos e funcionais, sem as amarras de processos burocráticos.",
+    "approach_label": "Nossa Abordagem",
     "approach_title": "Estética intencional, engenharia aplicada.",
-    "approach_description": "Acreditamos que design deve servir ao propósito do negócio. Na MAGUI, eliminamos o óbvio e focamos no excepcional, onde cada detalhe tem uma intenção estratégica.",
+    "approach_description": "Eliminamos o óbvio e focamos no excepcional. Cada detalhe tem uma intenção estratégica para o seu negócio.",
+    "values_label": "Valores Inegociáveis",
+    "values": [
+      "Código 100% autoral, zero templates.",
+      "Performance como fundamento, não opcional.",
+      "Rigor técnico visível e invisível.",
+      "Design que comunica autoridade imediata."
+    ],
     "philosophy_title": "Critério Visual",
-    "philosophy_description": "Design é comunicação. Aplicamos princípios de organização e ritmo visual para criar experiências que sejam claras, diretas e memoráveis.",
+    "philosophy_description": "Aplicamos princípios de organização e ritmo visual para criar experiências que sejam claras, diretas e memoráveis.",
     "philosophy_items": [
       {
-        "title": "Minimalismo Funcional",
-        "description": "Remover o excesso para que o essencial brilhe com autoridade máxima."
+        "title": "Simplicidade",
+        "description": "Focamos no que importa para que sua mensagem seja ouvida sem ruídos."
       },
       {
         "title": "Rigor Tipográfico",
-        "description": "A tipografia como espinha dorsal da hierarquia e do ritmo visual."
+        "description": "Hierarquias de leitura desenhadas para guiar o olhar com precisão."
       },
       {
-        "title": "Consistência Técnica",
-        "description": "O que é desenhado no Figma é exatamente o que é entregue no código final."
+        "title": "Fidelidade Técnica",
+        "description": "A visão de design é executada com precisão matemática no código final."
       }
-    ],
-    "values_label": "Valores Inegociáveis",
-    "values": [
-      "Sem templates, código 100% autoral.",
-      "Performance não é opcional, é fundamento.",
-      "Rigor técnico em cada detalhe visível.",
-      "Design focado em percepção de valor."
     ]
   },
   "ProjectCases": {
