@@ -311,6 +311,7 @@
         "id": "01",
         "title": "Alignment & Strategy",
         "label": "The first layer",
+        "image": "/images/strategy.webp",
         "description": "We map the main goals, define the feasible scope, and establish the communication channels for the project. The focus here is absolute clarity on what will be built.",
         "details": [
           "Business goals definition",
@@ -322,6 +323,7 @@
         "id": "02",
         "title": "Architecture & Design",
         "label": "System design",
+        "image": "/images/ui.webp",
         "description": "We define the visual system and information organization. Every decision seeks to balance aesthetics and functionality to create an experience that converts.",
         "details": [
           "Information architecture",
@@ -333,6 +335,7 @@
         "id": "03",
         "title": "Engineering & Construction",
         "label": "Technical foundation",
+        "image": "/images/code.webp",
         "description": "Development focused on clean code, using modern tools to ensure a solid technical foundation and agile loading in the real world.",
         "details": [
           "Crafted development",
@@ -344,6 +347,7 @@
         "id": "04",
         "title": "Delivery & Monitoring",
         "label": "Evolutionary support",
+        "image": "/images/landing.webp",
         "description": "Project launch, access delivery, and the start of support to ensure the solution performs as expected in the real world and continues to evolve.",
         "details": [
           "Production deploy",

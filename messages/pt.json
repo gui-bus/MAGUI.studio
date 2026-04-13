@@ -311,6 +311,7 @@
         "id": "01",
         "title": "Estratégia & Alinhamento",
         "label": "A primeira camada",
+        "image": "/images/strategy.webp",
         "description": "Mapeamos os objetivos principais, definimos o escopo viável e estabelecemos os canais de comunicação para o projeto. O foco aqui é clareza absoluta sobre o que será construído.",
         "details": [
           "Definição de metas comerciais",
@@ -322,6 +323,7 @@
         "id": "02",
         "title": "Arquitetura & Design",
         "label": "O desenho do sistema",
+        "image": "/images/ui.webp",
         "description": "Definimos o sistema visual e a organização das informações. Cada decisão busca equilibrar estética e funcionalidade para criar uma experiência que converte.",
         "details": [
           "Arquitetura de informação",
@@ -333,6 +335,7 @@
         "id": "03",
         "title": "Engenharia & Construção",
         "label": "A fundação técnica",
+        "image": "/images/code.webp",
         "description": "Desenvolvimento focado em código limpo, utilizando ferramentas modernas para garantir uma base técnica sólida e carregamento ágil no mundo real.",
         "details": [
           "Desenvolvimento artesanal",
@@ -344,6 +347,7 @@
         "id": "04",
         "title": "Entrega & Acompanhamento",
         "label": "O suporte evolutivo",
+        "image": "/images/landing.webp",
         "description": "Lançamento do projeto, entrega de acessos e início do suporte para garantir que a solução performe como esperado no mundo real e continue evoluindo.",
         "details": [
           "Deploy em produção",
@@ -351,8 +355,7 @@
           "Ciclo de suporte"
         ]
       }
-    ],
-    "qa_title": "Cuidado Técnico",
+    ],    "qa_title": "Cuidado Técnico",
     "qa_description": "O rigor técnico é parte do nosso dia a dia. Revisamos cada entrega para garantir que ela atenda aos nossos critérios internos de qualidade e clareza.",
     "qa_items": [
       "Revisão de Performance e Carregamento",
