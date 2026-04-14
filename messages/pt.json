@@ -355,24 +355,65 @@
           "Ciclo de suporte"
         ]
       }
-    ],    "qa_title": "Cuidado Técnico",
+    ],
+    "qa_title": "Cuidado Técnico",
     "qa_description": "O rigor técnico é parte do nosso dia a dia. Revisamos cada entrega para garantir que ela atenda aos nossos critérios internos de qualidade e clareza.",
     "qa_items": [
       "Revisão de Performance e Carregamento",
       "Verificação de Acessibilidade Básica",
       "Segurança e Boas Práticas de Código",
       "Configuração de SEO e Metadados"
-    ]
+    ],
+    "protocol_highlights_label": "Base do Protocolo",
+    "protocol_highlights": [
+      "Escopo traduzido em plano acionavel",
+      "Ritmo de entrega com marcos definidos",
+      "Decisoes visuais e tecnicas conectadas"
+    ],
+    "outcomes_label": "Resultado",
+    "outcomes": [
+      {
+        "title": "Previsibilidade de entrega",
+        "description": "Cada fase possui objetivo, criterio e saida clara para reduzir retrabalho."
+      },
+      {
+        "title": "Decisao orientada por contexto",
+        "description": "As escolhas de design e engenharia nascem de metas reais de negocio."
+      },
+      {
+        "title": "Base pronta para evolucao",
+        "description": "A estrutura final e preparada para otimizar, escalar e iterar com seguranca."
+      }
+    ],
+    "map_label": "Mapa do Metodo",
+    "cadence_label": "Cadencia",
+    "cadence_title": "Ritmo de acompanhamento em ciclos curtos.",
+    "cadence_description": "Nosso fluxo evita silencio de projeto: cada ciclo gera decisao, validacao e proximo passo claro.",
+    "cadence_items": [
+      {
+        "title": "Kickoff objetivo",
+        "description": "Contexto consolidado, prioridades alinhadas e metas tecnicas definidas."
+      },
+      {
+        "title": "Revisoes direcionadas",
+        "description": "Entregas parciais com criterio visual e tecnico para validar rota cedo."
+      },
+      {
+        "title": "Release com suporte",
+        "description": "Publicacao assistida, monitoramento inicial e ajustes guiados por dados."
+      }
+    ],
+    "qa_heading": "Qualidade aplicada em cada entrega."
   },
   "StudioPage": {
     "metaTitle": "O Estúdio",
     "metaDescription": "MAGUI.studio é um estúdio de engenharia visual focado em transformar desafios de marcas em experiências digitais de elite.",
-    "eyebrow": "Sobre",
-    "title": "A Engenharia Visual.",
-    "description": "A MAGUI.studio nasceu para preencher o lacuna entre a estética de luxo e o rigor da engenharia. Somos um estúdio boutique, o que significa que não operamos em volume, mas em profundidade técnica e visual.",
+    "eyebrow": "Estúdio",
+    "title": "Direção visual para marcas com presença real.",
+    "description": "Projetamos interfaces e narrativas digitais com critério, clareza e acabamento consistente em cada detalhe.",
     "vision_label": "Posicionamento",
-    "vision_title": "Onde a forma encontra a função crítica.",
-    "vision_description": "Acreditamos que um site não deve ser apenas uma 'página na internet', mas o ativo de maior valor de uma marca. Na MAGUI, cada pixel é planejado para sustentar autoridade e cada linha de código é escrita para garantir performance absoluta.",
+    "vision_title": "Posicionamento que sustenta percepção de valor.",
+    "vision_description": "Mais do que ocupar espaço online, um site deve organizar a mensagem da marca e conduzir leitura com intenção.",
     "boutique_label": "Modelo Boutique",
     "boutique_title": "Qualidade sobre volume.",
     "boutique_description": "Trabalhamos com um número limitado de projetos por vez. Isso nos permite manter um nível de atenção aos detalhes que agências de escala jamais conseguiriam replicar. Você não fala com um gerente de contas; você fala com quem executa.",
@@ -380,12 +421,12 @@
     "founder_title": "Guilherme Bustamante",
     "founder_description": "Desenvolvedor e designer. Fundou a MAGUI para aplicar seu olhar técnico e estético na criação de produtos que buscam ser autênticos e funcionais, sem as amarras de processos burocráticos.",
     "approach_label": "Nossa Abordagem",
-    "approach_title": "Estética intencional, engenharia aplicada.",
-    "approach_description": "Eliminamos o óbvio e focamos no excepcional. Cada detalhe tem uma intenção estratégica para o seu negócio.",
+    "approach_title": "Forma, linguagem e critério em uma mesma direção.",
+    "approach_description": "Trabalhamos cada camada da interface para que estética, clareza e narrativa atuem como um sistema único.",
     "values_label": "Valores Inegociáveis",
     "values": [
-      "Código 100% autoral, zero templates.",
-      "Performance como fundamento, não opcional.",
+      "Solucoes desenhadas para cada contexto.",
+      "Decisoes claras para sustentar longevidade.",
       "Rigor técnico visível e invisível.",
       "Design que comunica autoridade imediata."
     ],
@@ -404,7 +445,51 @@
         "title": "Fidelidade Técnica",
         "description": "A visão de design é executada com precisão matemática no código final."
       }
-    ]
+    ],
+    "manifesto_label": "Manifesto",
+    "manifesto_points": [
+      "Curadoria atenta do inicio ao fechamento",
+      "Poucos projetos ativos para manter profundidade",
+      "Linguagem visual guiada por criterio e consistencia"
+    ],
+    "stats": [
+      {
+        "value": "Selecao",
+        "label": "Projetos escolhidos com criterio"
+      },
+      {
+        "value": "Dupla",
+        "label": "Direcao compartilhada"
+      },
+      {
+        "value": "Ritmo",
+        "label": "Evolucao consistente"
+      }
+    ],
+    "vision_image_alt": "Painel visual do posicionamento do estúdio",
+    "founder_image_alt": "Retrato da direção técnica da MAGUI",
+    "team_label": "Fundadores",
+    "team_title": "A liderança por trás do design.",
+    "team_description": "A dupla por trás da MAGUI.studio, unindo repertório visual, visão estratégica e presença próxima no dia a dia do estúdio.",
+    "founders": [
+      {
+        "name": "Maisa",
+        "role": "Estratégia + Operação",
+        "description": "Maisa organiza a frente estratégica e operacional do estúdio, trazendo clareza para decisões, prioridades e condução dos projetos.",
+        "image": "/images/profile_maisa.png",
+        "imageAlt": "Retrato de Maisa, cofundadora da MAGUI"
+      },
+      {
+        "name": "Guilherme",
+        "role": "Design + Desenvolvimento",
+        "description": "Desenvolvedor e designer, Guilherme conduz a construção das interfaces e garante que a direção criativa chegue ao código com precisão e consistência.",
+        "image": "/images/profile_guilherme.jpg",
+        "imageAlt": "Retrato de Guilherme, fundador da MAGUI"
+      }
+    ],
+    "hero_statement": "Um estúdio de direção próxima, com decisões objetivas e repertório visual aplicado ao contexto de cada projeto.",
+    "positioning_note": "Quando a estrutura visual é bem resolvida, a marca ganha consistência, confiança e legibilidade em todos os pontos de contato.",
+    "positioning_signature": "Assinatura MAGUI"
   },
   "ProjectCases": {
     "archive_eyebrow": "Portfólio",
@@ -504,3 +589,4 @@
     }
   }
 }
+

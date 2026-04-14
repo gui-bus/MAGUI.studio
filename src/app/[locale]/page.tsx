@@ -14,7 +14,6 @@ import { ScrollSpy } from "@/src/components/common/scrollSpy"
 import { Contact } from "@/src/components/sections/contact"
 import { FAQ } from "@/src/components/sections/faq"
 import { Hero } from "@/src/components/sections/hero"
-import { Manifesto } from "@/src/components/sections/manifesto"
 import { Services } from "@/src/components/sections/services"
 import { Value } from "@/src/components/sections/value"
 
@@ -91,7 +90,6 @@ export default function Page(): React.JSX.Element {
       <main className="pt-24 md:pt-32">
         <Hero />
         <Value />
-        <Manifesto />
         <Showcase />
         <Services />
 

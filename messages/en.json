@@ -363,17 +363,57 @@
       "Basic Accessibility Verification",
       "Security and Code Best Practices",
       "SEO and Metadata Configuration"
-    ]
+    ],
+    "protocol_highlights_label": "Protocol Base",
+    "protocol_highlights": [
+      "Scope translated into an actionable plan",
+      "Delivery rhythm with defined milestones",
+      "Visual and technical decisions connected"
+    ],
+    "outcomes_label": "Outcome",
+    "outcomes": [
+      {
+        "title": "Predictable delivery",
+        "description": "Each stage has a clear objective, criteria, and output to reduce rework."
+      },
+      {
+        "title": "Context-oriented decisions",
+        "description": "Design and engineering choices are driven by real business goals."
+      },
+      {
+        "title": "Foundation ready to evolve",
+        "description": "The final structure is prepared to optimize, scale, and iterate safely."
+      }
+    ],
+    "map_label": "Method Map",
+    "cadence_label": "Cadence",
+    "cadence_title": "Follow-up rhythm in short cycles.",
+    "cadence_description": "Our flow avoids project silence: each cycle generates a decision, a validation, and a clear next step.",
+    "cadence_items": [
+      {
+        "title": "Focused kickoff",
+        "description": "Consolidated context, aligned priorities, and defined technical goals."
+      },
+      {
+        "title": "Directed reviews",
+        "description": "Partial deliveries with visual and technical criteria to validate route early."
+      },
+      {
+        "title": "Release with support",
+        "description": "Assisted publishing, initial monitoring, and data-guided adjustments."
+      }
+    ],
+    "qa_heading": "Quality applied to every delivery."
   },
   "StudioPage": {
     "metaTitle": "The Studio",
     "metaDescription": "MAGUI.studio is a visual engineering studio focused on transforming brand challenges into elite digital experiences.",
-    "eyebrow": "About",
-    "title": "Visual Engineering.",
-    "description": "MAGUI.studio was born to bridge the gap between luxury aesthetics and engineering rigor. We are a boutique studio, which means we do not operate in volume, but in technical and visual depth.",
+    "eyebrow": "Studio",
+    "title": "Visual direction for brands seeking real presence.",
+    "description": "We design interfaces and digital narratives with criteria, clarity, and consistent finishing in every detail.",
     "vision_label": "Positioning",
-    "vision_title": "Where form meets critical function.",
-    "vision_description": "We believe a website should not just be a 'page on the internet', but a brand's most valuable asset. At MAGUI, every pixel is planned to sustain authority and every line of code is written to ensure absolute performance.",
+    "vision_title": "Positioning that sustains perceived value.",
+    "vision_description": "More than occupying online space, a website should organize the brand message and guide reading with intention.",
     "boutique_label": "Boutique Model",
     "boutique_title": "Quality over volume.",
     "boutique_description": "We work with a limited number of projects at a time. This allows us to maintain a level of attention to detail that scale agencies could never replicate. You don't talk to an account manager; you talk to the one who executes.",
@@ -381,12 +421,12 @@
     "founder_title": "Guilherme Bustamante",
     "founder_description": "Developer and designer. Founded MAGUI to apply his technical and aesthetic eye in creating products that seek to be authentic and functional, without the constraints of bureaucratic processes.",
     "approach_label": "Our Approach",
-    "approach_title": "Intentional aesthetics, applied engineering.",
-    "approach_description": "We eliminate the obvious and focus on the exceptional. Every detail has a strategic intention for your business.",
+    "approach_title": "Form, language, and criteria in one direction.",
+    "approach_description": "We shape every interface layer so aesthetics, clarity, and narrative work as one cohesive system.",
     "values_label": "Non-negotiable Values",
     "values": [
-      "100% original code, zero templates.",
-      "Performance as a foundation, not optional.",
+      "Solutions crafted for each context.",
+      "Clear decisions designed for longevity.",
       "Visible and invisible technical rigor.",
       "Design that communicates immediate authority."
     ],
@@ -405,7 +445,51 @@
         "title": "Technical Fidelity",
         "description": "The design vision is executed with mathematical precision in the final code."
       }
-    ]
+    ],
+    "manifesto_label": "Manifesto",
+    "manifesto_points": [
+      "Careful curation from kickoff to completion",
+      "Few active projects to preserve depth",
+      "Visual language guided by criteria and consistency"
+    ],
+    "stats": [
+      {
+        "value": "Selection",
+        "label": "Projects chosen with criteria"
+      },
+      {
+        "value": "Duo",
+        "label": "Shared direction"
+      },
+      {
+        "value": "Rhythm",
+        "label": "Consistent evolution"
+      }
+    ],
+    "vision_image_alt": "Studio positioning visual panel",
+    "founder_image_alt": "Portrait of MAGUI technical direction",
+    "team_label": "Founders",
+    "team_title": "The leadership behind the design.",
+    "team_description": "The duo behind MAGUI.studio, combining visual repertoire, strategic vision, and close involvement in the studio's daily work.",
+    "founders": [
+      {
+        "name": "Maisa",
+        "role": "Strategy + Operations",
+        "description": "Maisa leads the studio's strategic and operational side, bringing clarity to decisions, priorities, and project coordination.",
+        "image": "/images/profile_maisa.png",
+        "imageAlt": "Portrait of Maisa, MAGUI cofounder"
+      },
+      {
+        "name": "Guilherme",
+        "role": "Design + Development",
+        "description": "A developer and designer, Guilherme leads interface implementation and ensures the creative direction reaches the code with precision and consistency.",
+        "image": "/images/profile_guilherme.jpg",
+        "imageAlt": "Portrait of Guilherme, MAGUI founder"
+      }
+    ],
+    "hero_statement": "A studio with close direction, objective decisions, and visual repertoire tailored to each project context.",
+    "positioning_note": "When visual structure is well resolved, the brand gains consistency, trust, and readability across every touchpoint.",
+    "positioning_signature": "MAGUI Signature"
   },
   "ProjectCases": {
     "archive_eyebrow": "Portfolio",
@@ -505,3 +589,4 @@
     }
   }
 }
+

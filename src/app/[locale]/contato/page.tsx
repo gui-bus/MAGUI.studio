@@ -3,14 +3,14 @@ import * as React from "react"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 
-import { Contact } from "@/src/components/sections/contact"
 import { Footer } from "@/src/components/common/footer"
 import { Header } from "@/src/components/common/header"
+import { Contact } from "@/src/components/sections/contact"
 
 import { siteConfig } from "@/src/config/site"
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("Index.ContactPage")
+  const t = await getTranslations("ContactPage")
   const configT = await getTranslations("Config")
   const url = new URL(siteConfig.contact.path, siteConfig.url)
   const ogUrl = new URL(`${siteConfig.url}/api/og`)

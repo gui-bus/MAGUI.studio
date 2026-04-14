@@ -24,7 +24,7 @@ export async function Manifesto(): Promise<React.JSX.Element> {
   return (
     <Section
       id={idT("about")}
-      className="border-t border-foreground/5 py-24 md:py-36 lg:py-48"
+      className="border-t border-foreground/5 py-24"
       withContainer={true}
     >
       <div className="space-y-14 lg:space-y-20">
