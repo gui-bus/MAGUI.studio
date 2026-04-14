@@ -46,7 +46,7 @@ export function Hero(): React.JSX.Element {
               </span>
             </m.div>
 
-            <h1 className="font-heading text-5xl md:text-9xl lg:text-[140px] font-black leading-[0.75] tracking-[-0.06em] text-foreground uppercase select-none mt-20 md:mt-0">
+            <h1 className="font-heading text-5xl md:text-8xl 2xl:text-9xl font-black leading-[0.75] tracking-[-0.06em] text-foreground uppercase select-none mt-20 md:mt-0">
               <div className="block">
                 <StaggeredText text={t("title_1")} />
               </div>
