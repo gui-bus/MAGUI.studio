@@ -173,7 +173,6 @@ export const Header = React.memo(function Header(): React.JSX.Element {
               height={0}
               sizes="100vw"
               className="h-6 w-auto min-w-28 object-contain dark:hidden xl:min-w-32"
-              priority
             />
             <Image
               src="/logos/LOGO_VAR_03_LM.svg"
@@ -182,7 +181,6 @@ export const Header = React.memo(function Header(): React.JSX.Element {
               height={0}
               sizes="100vw"
               className="hidden h-6 w-auto min-w-28 object-contain dark:block xl:min-w-32"
-              priority
             />
           </Link>
 

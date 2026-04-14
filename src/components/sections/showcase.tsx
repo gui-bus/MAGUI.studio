@@ -143,7 +143,8 @@ export function Showcase(): React.JSX.Element {
                     src={activeProject.image}
                     alt={activeProject.title}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    sizes="(max-width: 1024px) 100vw, (max-width: 1536px) 72vw, 52vw"
+                    quality={65}
                     className="object-contain"
                     priority={currentIndex === 0}
                   />

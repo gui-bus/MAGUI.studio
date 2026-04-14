@@ -73,6 +73,12 @@ interface Web3FormsClientResponse {
   success: boolean
 }
 
+const stepFieldOrder: Array<Array<keyof ProjectInquiryFormData>> = [
+  ["name", "email", "phone"],
+  ["projectType", "projectTypeOther", "message"],
+  ["budget", "deadline"],
+]
+
 function formatPhoneNumber(value: string): string {
   const digits = value.replace(/\D/g, "").slice(0, 11)
 
@@ -369,6 +375,23 @@ export function ProjectInquiryForm({
     setStepValidationError(null)
   }, [currentStep])
 
+  const moveToStepWithError = React.useCallback(
+    (
+      formErrors: Partial<Record<keyof ProjectInquiryFormData, unknown>>
+    ): void => {
+      const nextStepIndex = stepFieldOrder.findIndex((fields) =>
+        fields.some((field) => Boolean(formErrors[field]))
+      )
+
+      if (nextStepIndex >= 0) {
+        setCurrentStep(nextStepIndex)
+      }
+
+      setStepValidationError(t("validation.stepError"))
+    },
+    [t]
+  )
+
   const onSubmit = React.useCallback(
     async (data: ProjectInquiryFormData): Promise<void> => {
       setIsSubmitting(true)
@@ -438,6 +461,15 @@ export function ProjectInquiryForm({
     [origin, referral, reset, t, web3FormsAccessKey]
   )
 
+  const handleInvalidSubmit = React.useCallback(
+    (
+      formErrors: Partial<Record<keyof ProjectInquiryFormData, unknown>>
+    ): void => {
+      moveToStepWithError(formErrors)
+    },
+    [moveToStepWithError]
+  )
+
   return isSuccess ? (
     <section className="rounded-4xl bg-background px-6 py-14 text-center shadow-[0_24px_80px_rgba(15,23,42,0.06)] md:px-10">
       <div className="flex flex-col items-center justify-center gap-7">
@@ -456,7 +488,7 @@ export function ProjectInquiryForm({
     </section>
   ) : (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, handleInvalidSubmit)}
       className="space-y-5 rounded-[2.25rem] bg-foreground/2 md:p-5"
     >
       {referral ? (

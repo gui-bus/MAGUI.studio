@@ -104,6 +104,7 @@ export async function Services(): Promise<React.JSX.Element> {
                 alt={service.title}
                 fill
                 sizes="(max-width: 1024px) 100vw, 33vw"
+                quality={60}
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div

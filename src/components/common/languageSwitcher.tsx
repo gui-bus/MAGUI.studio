@@ -10,7 +10,6 @@ import { usePathname, useRouter } from "@/src/i18n/navigation"
 import { CaretDown, Check } from "@phosphor-icons/react"
 import { m } from "framer-motion"
 import Cookies from "js-cookie"
-import ReactCountryFlag from "react-country-flag"
 
 import {
   DropdownMenu,
@@ -21,9 +20,9 @@ import {
 
 import { cn } from "@/src/lib/utils/utils"
 
-const flagCodes: Record<string, string> = {
-  en: "US",
-  pt: "BR",
+const flagSymbols: Record<string, string> = {
+  en: "🇺🇸",
+  pt: "🇧🇷",
 }
 
 interface LocaleRouteParams {
@@ -76,12 +75,12 @@ export function LanguageSwitcher(): React.JSX.Element {
       <DropdownMenuTrigger className="cursor-pointer outline-none">
         <div className="group flex h-9 items-center gap-2 rounded-full border border-border/60 bg-background/50 px-3 backdrop-blur-sm transition-all hover:border-border hover:bg-muted/50">
           <div className="flex items-center gap-2">
-            <ReactCountryFlag
-              countryCode={flagCodes[currentLocale]}
-              svg
-              className="rounded-xs opacity-90 grayscale-[0.2] transition-all group-hover:grayscale-0"
-              style={{ width: "1.1em", height: "0.8em" }}
-            />
+            <span
+              aria-hidden="true"
+              className="text-sm leading-none opacity-90 transition-all group-hover:opacity-100"
+            >
+              {flagSymbols[currentLocale]}
+            </span>
             <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-foreground">
               {currentLocale}
             </span>
@@ -111,17 +110,17 @@ export function LanguageSwitcher(): React.JSX.Element {
             )}
           >
             <div className="flex items-center gap-2.5">
-              <ReactCountryFlag
-                countryCode={flagCodes[loc]}
-                svg
+              <span
+                aria-hidden="true"
                 className={cn(
-                  "rounded-xs transition-all",
+                  "text-sm leading-none transition-all",
                   currentLocale === loc
                     ? "opacity-100"
-                    : "opacity-60 grayscale-[0.4] group-hover:opacity-100 group-hover:grayscale-0"
+                    : "opacity-60 group-hover:opacity-100"
                 )}
-                style={{ width: "1.2em", height: "0.9em" }}
-              />
+              >
+                {flagSymbols[loc]}
+              </span>
               <span className="font-bold tracking-tight">{t(loc)}</span>
             </div>
             {currentLocale === loc && (

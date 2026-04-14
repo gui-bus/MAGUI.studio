@@ -5,10 +5,10 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server"
-import Script from "next/script"
 
 import { locales } from "@/src/i18n/config"
 
+import { AnalyticsLoader } from "@/src/components/common/analyticsLoader"
 import { MotionProvider } from "@/src/components/common/motionProvider"
 import { Preloader } from "@/src/components/common/preloader"
 import { ThemeProvider } from "@/src/components/common/themeProvider"
@@ -138,27 +138,6 @@ export default async function RootLayout({
       className={cn("relative antialiased", fontVariables)}
     >
       <head>
-        {siteConfig.analytics.google ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.google}`}
-              strategy="beforeInteractive"
-            />
-            <Script id="google-analytics" strategy="beforeInteractive">
-              {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-window.gtag = gtag;
-gtag('js', new Date());
-gtag('config', '${siteConfig.analytics.google}');`}
-            </Script>
-          </>
-        ) : null}
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wbpm8rxsjw");',
-          }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -168,6 +147,10 @@ gtag('config', '${siteConfig.analytics.google}');`}
         id="page-top"
         className="mx-auto w-full max-w-440 overflow-x-hidden"
       >
+        <AnalyticsLoader
+          clarityId="wbpm8rxsjw"
+          googleAnalyticsId={siteConfig.analytics.google}
+        />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <MotionProvider>
