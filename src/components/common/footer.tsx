@@ -24,7 +24,7 @@ export async function Footer(): Promise<React.JSX.Element> {
   const navigationLinks = [
     { href: siteConfig.studio.path, label: navT("about") },
     { href: siteConfig.method.path, label: navT("method") },
-    { href: siteConfig.projects.path, label: navT("portfolio") },
+    { href: "/#portfolio", label: navT("portfolio") },
     { href: siteConfig.contact.path, label: navT("contact") },
   ]
 

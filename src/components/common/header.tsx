@@ -41,7 +41,7 @@ export const Header = React.memo(function Header(): React.JSX.Element {
 
   const navLinks = React.useMemo(
     () => [
-      { href: siteConfig.projects.path, label: t("portfolio") },
+      { href: "/#portfolio", label: t("portfolio") },
       { href: siteConfig.method.path, label: t("method") },
       { href: siteConfig.studio.path, label: t("about") },
       { href: siteConfig.contact.path, label: t("contact") },

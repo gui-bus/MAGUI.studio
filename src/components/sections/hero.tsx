@@ -50,10 +50,10 @@ export function Hero(): React.JSX.Element {
                 <StaggeredText text={t("title_1")} />
               </div>
               <div className="flex flex-wrap ml-[0.5em] text-brand-primary drop-shadow-xl">
-                <StaggeredText text={t("title_2")} delayBase={0.2} />
+                <StaggeredText text={t("title_2")} />
               </div>
               <div className="block leading-[0.8] mt-2">
-                <StaggeredText text={t("title_3")} delayBase={0.4} />
+                <StaggeredText text={t("title_3")} />
               </div>
             </h1>
           </div>

@@ -16,11 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: siteConfig.contact.path,
       priority: 0.8,
     },
-    {
-      changeFrequency: "monthly" as const,
-      path: siteConfig.projects.path,
-      priority: 0.8,
-    },
     ...getProjectCaseSlugs().map((slug) => ({
       changeFrequency: "monthly" as const,
       path: `${siteConfig.projects.path}/${slug}`,

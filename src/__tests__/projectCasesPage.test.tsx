@@ -7,9 +7,6 @@ import ProjectCasePage, {
   generateMetadata as generateProjectCaseMetadata,
   generateStaticParams,
 } from "@/src/app/[locale]/projetos/[slug]/page"
-import ProjectsPage, {
-  generateMetadata as generateProjectsMetadata,
-} from "@/src/app/[locale]/projetos/page"
 
 vi.mock("@/src/components/common/header", () => ({
   Header: () => <div>Header</div>,
@@ -20,20 +17,6 @@ vi.mock("@/src/components/common/footer", () => ({
 }))
 
 describe("project case routes", () => {
-  it("renders the projects archive page", async () => {
-    render(await ProjectsPage())
-
-    expect(screen.getByText("Projetos individuais.")).toBeInTheDocument()
-    expect(screen.getByText("Apareça e venda")).toBeInTheDocument()
-    expect(
-      screen.getByRole("heading", {
-        level: 2,
-        name: "Powervet",
-      })
-    ).toBeInTheDocument()
-    expect(screen.getByText("Horizon Travels")).toBeInTheDocument()
-  })
-
   it("renders the project case page with visual sections", async () => {
     render(
       await ProjectCasePage({
@@ -74,8 +57,7 @@ describe("project case routes", () => {
     })
   })
 
-  it("generates archive and case metadata", async () => {
-    const archiveMetadata = await generateProjectsMetadata()
+  it("generates case metadata", async () => {
     const projectMetadata = await generateProjectCaseMetadata({
       params: Promise.resolve({
         locale: "pt",
@@ -83,7 +65,6 @@ describe("project case routes", () => {
       }),
     })
 
-    expect(archiveMetadata.title).toBe("Projetos individuais.")
     expect(projectMetadata.title).toBe("Apareça e venda")
     expect(projectMetadata.description).toContain("clareza comercial")
     expect(projectMetadata.openGraph?.title).toBe("Apareça e venda")
