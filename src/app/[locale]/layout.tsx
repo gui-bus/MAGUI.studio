@@ -141,6 +141,21 @@ export default async function RootLayout({
       className={cn("relative antialiased", fontVariables)}
     >
       <head>
+        <meta
+          name="adopt-website-id"
+          content="71c75199-5d4d-4366-8b67-ad6650f48c4a"
+        />
+        <script
+          src="https://tag.goadopt.io/injector.js?website_code=71c75199-5d4d-4366-8b67-ad6650f48c4a"
+          className="adopt-injector"
+          async
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wbpm8rxsjw");',
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,10 +1,10 @@
 "use server"
 
+import { logger } from "@/src/lib/logger"
 import {
   ProjectInquiryFormData,
   createProjectInquirySchema,
 } from "@/src/lib/validations/projectInquiry"
-import { logger } from "@/src/lib/logger"
 
 import { getServerEnv } from "@/src/config/env"
 
