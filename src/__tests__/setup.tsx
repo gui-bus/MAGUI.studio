@@ -212,6 +212,76 @@ vi.mock("next/navigation", () => ({
   useSearchParams: () => new URLSearchParams(),
 }))
 
+vi.mock("@/src/i18n/navigation", () => ({
+  Link: ({
+    children,
+    href,
+    ...props
+  }: {
+    children?: React.ReactNode
+    href:
+      | string
+      | {
+          pathname: string
+          params?: Record<string, string>
+        }
+  }) => {
+    const resolvedHref =
+      typeof href === "string"
+        ? href
+        : href.pathname.replace("[slug]", href.params?.slug ?? "")
+
+    return React.createElement(
+      "a",
+      {
+        href: resolvedHref,
+        ...props,
+      } as React.HTMLAttributes<HTMLAnchorElement>,
+      children
+    )
+  },
+  getPathname: ({
+    locale,
+    href,
+  }: {
+    locale: "pt" | "en"
+    href:
+      | string
+      | {
+          pathname: string
+          params?: Record<string, string>
+        }
+  }) => {
+    const pathname = typeof href === "string" ? href : href.pathname
+    const slug = typeof href === "string" ? "" : (href.params?.slug ?? "")
+
+    if (pathname === "/contato") {
+      return locale === "en" ? "/contact" : "/contato"
+    }
+
+    if (pathname === "/metodo") {
+      return locale === "en" ? "/method" : "/metodo"
+    }
+
+    if (pathname === "/estudio") {
+      return locale === "en" ? "/studio" : "/estudio"
+    }
+
+    if (pathname === "/projetos/[slug]") {
+      return locale === "en" ? `/projects/${slug}` : `/projetos/${slug}`
+    }
+
+    return pathname
+  },
+  redirect: vi.fn(),
+  usePathname: () => "/",
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+    refresh: vi.fn(),
+  }),
+}))
+
 const motionElement = ({
   children,
   ...props

@@ -60,7 +60,7 @@ export async function Services(): Promise<React.JSX.Element> {
   return (
     <Section
       id={idT("services")}
-      className="overflow-hidden border-y border-foreground/5 py-24 md:py-32 lg:py-40"
+      className="overflow-hidden py-24 md:py-32 lg:py-40"
       withContainer={true}
     >
       <div className="space-y-16 lg:space-y-24">
@@ -92,7 +92,7 @@ export async function Services(): Promise<React.JSX.Element> {
           {services.map((service) => (
             <article
               key={service.id}
-              className="group relative isolate min-h-[30rem] overflow-hidden bg-background lg:min-h-[38rem]"
+              className="group relative isolate min-h-120 overflow-hidden bg-background lg:min-h-152"
             >
               <Image
                 src={service.image}
@@ -107,7 +107,7 @@ export async function Services(): Promise<React.JSX.Element> {
                   service.overlayClassName
                 )}
               />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-20" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-20" />
 
               <div className="relative flex h-full flex-col justify-between p-8 text-white md:p-10 lg:p-12">
                 <div className="flex items-start justify-between gap-6">

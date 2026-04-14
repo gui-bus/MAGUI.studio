@@ -1,8 +1,10 @@
 import * as React from "react"
 
 import { Metadata } from "next"
-import { getTranslations } from "next-intl/server"
+import { getLocale, getTranslations } from "next-intl/server"
 import Image from "next/image"
+
+import { getPathname } from "@/src/i18n/navigation"
 
 import { Section } from "@/src/components/ui/section"
 
@@ -10,11 +12,31 @@ import { Footer } from "@/src/components/common/footer"
 import { Header } from "@/src/components/common/header"
 import { Manifesto } from "@/src/components/sections/manifesto"
 
+import { siteConfig } from "@/src/config/site"
+
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
   const t = await getTranslations("StudioPage")
+  const url = new URL(
+    getPathname({
+      locale,
+      href: siteConfig.studio.path,
+    }),
+    siteConfig.url
+  )
+
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: {
+      canonical: url.toString(),
+    },
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+      type: "website",
+      url: url.toString(),
+    },
   }
 }
 
@@ -31,7 +53,7 @@ export default async function StudioPage(): Promise<React.JSX.Element> {
   return (
     <div className="relative min-h-svh w-full overflow-x-hidden bg-background font-sans text-foreground selection:bg-brand-primary/30 selection:text-brand-primary">
       <Header />
-      
+
       <main className="pt-24 md:pt-32">
         <Manifesto />
         <Section className="py-14 md:py-20 lg:py-24" withContainer>

@@ -36,7 +36,7 @@ export async function Value(): Promise<React.JSX.Element> {
     >
       <div className="space-y-16 lg:space-y-24">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-20">
-          <div className="space-y-8 lg:max-w-[60rem]">
+          <div className="space-y-8 lg:max-w-240">
             <div className="flex items-center gap-4">
               <div className="h-px w-12 bg-brand-primary" />
               <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
@@ -55,8 +55,7 @@ export async function Value(): Promise<React.JSX.Element> {
           </div>
 
           <div className="lg:max-w-3xl lg:self-end">
-            <div className="relative overflow-hidden rounded-2xl border border-foreground/8 bg-foreground/[0.02] p-8 md:p-10">
-              <div className="absolute left-0 top-0 h-10 w-10 border-b border-r border-brand-primary/28" />
+            <div className="relative overflow-hidden">
               <p className="text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-2xl lg:text-3xl">
                 {t("description")}
               </p>
@@ -85,7 +84,7 @@ function ValueDisciplineCard({
   index,
 }: ValueDisciplineCardProps): React.JSX.Element {
   return (
-    <article className="group relative isolate min-h-[28rem] overflow-hidden bg-background lg:min-h-[36rem]">
+    <article className="group relative isolate min-h-112 overflow-hidden bg-background lg:min-h-144">
       <Image
         src={image}
         alt={discipline.title}

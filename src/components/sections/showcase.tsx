@@ -4,9 +4,9 @@ import * as React from "react"
 
 import { useLocale, useTranslations } from "next-intl"
 import Image from "next/image"
-import Link from "next/link"
 
 import { AppLocale, getProjectCases } from "@/src/content/projects"
+import { Link } from "@/src/i18n/navigation"
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -103,7 +103,7 @@ export function Showcase(): React.JSX.Element {
     <Section
       id={idT("portfolio")}
       ref={containerRef}
-      className="relative overflow-hidden py-20 sm:py-24 lg:py-32 lg:pt-64"
+      className="relative overflow-hidden py-20 lg:pt-64"
       withContainer={true}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -225,7 +225,7 @@ export function Showcase(): React.JSX.Element {
         ) : null}
       </div>
 
-      <div className="relative z-10 min-h-[34rem] sm:min-h-[42rem] lg:min-h-[53rem]">
+      <div className="relative z-10 min-h-136 sm:min-h-168 lg:min-h-212">
         <AnimatePresence mode="wait" initial={false} custom={direction}>
           <m.div
             key={currentIndex}
@@ -242,7 +242,7 @@ export function Showcase(): React.JSX.Element {
             className={carouselClassName}
             whileDrag={{ cursor: "grabbing" }}
           >
-            <div className="group/img relative aspect-[4/3] sm:aspect-video lg:col-span-7 lg:aspect-[16/10]">
+            <div className="group/img relative aspect-4/3 sm:aspect-video lg:col-span-7 lg:aspect-16/10">
               <m.div
                 initial={{
                   clipPath:
@@ -292,7 +292,10 @@ export function Showcase(): React.JSX.Element {
 
               <div className="pt-6 sm:pt-8">
                 <Link
-                  href={`${siteConfig.projects.path}/${activeProject.slug}`}
+                  href={{
+                    pathname: "/projetos/[slug]",
+                    params: { slug: activeProject.slug },
+                  }}
                   onClick={() =>
                     trackEvent("select_content", {
                       content_type: "portfolio_case",

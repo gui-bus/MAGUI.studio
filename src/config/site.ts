@@ -41,16 +41,16 @@ export const siteConfig = {
   ],
   contact: {
     email: "contato@magui.studio",
-    path: "/contato",
+    path: "/contato" as const,
   },
   projects: {
-    path: "/#portfolio",
+    path: "/projetos" as const,
   },
   method: {
-    path: "/metodo",
+    path: "/metodo" as const,
   },
   studio: {
-    path: "/estudio",
+    path: "/estudio" as const,
   },
   locales: ["pt", "en"],
   defaultLocale: "pt",

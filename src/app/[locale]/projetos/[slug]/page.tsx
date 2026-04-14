@@ -3,7 +3,7 @@ import * as React from "react"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import Image from "next/image"
-import Link from "next/link"
+import NextLink from "next/link"
 import { notFound } from "next/navigation"
 
 import {
@@ -13,6 +13,7 @@ import {
   getProjectCaseSlugs,
 } from "@/src/content/projects"
 import { locales } from "@/src/i18n/config"
+import { Link, getPathname } from "@/src/i18n/navigation"
 
 import {
   ArrowUpRightIcon,
@@ -57,7 +58,13 @@ export async function generateMetadata({
   }
 
   const url = new URL(
-    `${siteConfig.projects.path}/${project.slug}`,
+    getPathname({
+      locale,
+      href: {
+        pathname: "/projetos/[slug]",
+        params: { slug: project.slug },
+      },
+    }),
     siteConfig.url
   )
   const imageUrl = new URL(project.image, siteConfig.url)
@@ -112,7 +119,13 @@ export default async function ProjectCasePage({
   }
 
   const projectUrl = new URL(
-    `${siteConfig.projects.path}/${project.slug}`,
+    getPathname({
+      locale,
+      href: {
+        pathname: "/projetos/[slug]",
+        params: { slug: project.slug },
+      },
+    }),
     siteConfig.url
   )
   const jsonLd = {
@@ -183,7 +196,7 @@ export default async function ProjectCasePage({
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Link
+              <NextLink
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
@@ -191,7 +204,7 @@ export default async function ProjectCasePage({
               >
                 {t("live_project")}
                 <ArrowUpRightIcon size={16} weight="bold" />
-              </Link>
+              </NextLink>
               <Link
                 href={siteConfig.contact.path}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-foreground/10 px-6 py-4 text-[11px] font-black uppercase tracking-[0.3em] text-foreground transition-colors hover:border-foreground/24"
@@ -428,12 +441,18 @@ export default async function ProjectCasePage({
           <div className="grid gap-5 md:grid-cols-2">
             {[
               {
-                href: `${siteConfig.projects.path}/${adjacentProjects.previousProject.slug}`,
+                href: {
+                  pathname: "/projetos/[slug]" as const,
+                  params: { slug: adjacentProjects.previousProject.slug },
+                },
                 label: t("previous_project"),
                 project: adjacentProjects.previousProject,
               },
               {
-                href: `${siteConfig.projects.path}/${adjacentProjects.nextProject.slug}`,
+                href: {
+                  pathname: "/projetos/[slug]" as const,
+                  params: { slug: adjacentProjects.nextProject.slug },
+                },
                 label: t("next_project"),
                 project: adjacentProjects.nextProject,
               },

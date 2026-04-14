@@ -46,12 +46,7 @@ export async function Contact(): Promise<React.JSX.Element> {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute -inset-4 z-0 rounded-[2.5rem] bg-brand-primary/5 blur-3xl" />
-          <div className="relative z-10 rounded-3xl border border-border/60 bg-background p-6 shadow-2xl shadow-black/5 md:p-10">
-            <ProjectInquiryForm origin="contact" />
-          </div>
-        </div>
+        <ProjectInquiryForm origin="contact" />
       </div>
     </Section>
   )

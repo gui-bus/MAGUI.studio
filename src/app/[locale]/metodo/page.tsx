@@ -1,17 +1,39 @@
 import * as React from "react"
 
 import { Metadata } from "next"
-import { getTranslations } from "next-intl/server"
+import { getLocale, getTranslations } from "next-intl/server"
+
+import { getPathname } from "@/src/i18n/navigation"
 
 import { Footer } from "@/src/components/common/footer"
 import { Header } from "@/src/components/common/header"
 import { Process } from "@/src/components/sections/process"
 
+import { siteConfig } from "@/src/config/site"
+
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
   const t = await getTranslations("MethodPage")
+  const url = new URL(
+    getPathname({
+      locale,
+      href: siteConfig.method.path,
+    }),
+    siteConfig.url
+  )
+
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: {
+      canonical: url.toString(),
+    },
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+      type: "website",
+      url: url.toString(),
+    },
   }
 }
 

@@ -1,7 +1,9 @@
 import * as React from "react"
 
 import { Metadata } from "next"
-import { getTranslations } from "next-intl/server"
+import { getLocale, getTranslations } from "next-intl/server"
+
+import { getPathname } from "@/src/i18n/navigation"
 
 import { Footer } from "@/src/components/common/footer"
 import { Header } from "@/src/components/common/header"
@@ -10,9 +12,16 @@ import { Contact } from "@/src/components/sections/contact"
 import { siteConfig } from "@/src/config/site"
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
   const t = await getTranslations("ContactPage")
   const configT = await getTranslations("Config")
-  const url = new URL(siteConfig.contact.path, siteConfig.url)
+  const url = new URL(
+    getPathname({
+      locale,
+      href: siteConfig.contact.path,
+    }),
+    siteConfig.url
+  )
   const ogUrl = new URL(`${siteConfig.url}/api/og`)
   ogUrl.searchParams.set("title", `${t("metaTitle")} | ${configT("name")}`)
   ogUrl.searchParams.set("description", t("metaDescription"))

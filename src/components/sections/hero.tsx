@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl"
 import Image from "next/image"
 import Link from "next/link"
 
+import { Link as LocalizedLink } from "@/src/i18n/navigation"
 import { ArrowUpRightIcon } from "@phosphor-icons/react"
 import { m } from "framer-motion"
 
@@ -106,7 +107,7 @@ export function Hero(): React.JSX.Element {
                 size="lg"
                 className="group relative h-20 rounded-full bg-brand-primary px-12 text-white shadow-2xl shadow-brand-primary/20 transition-all duration-500 hover:scale-105"
               >
-                <Link
+                <LocalizedLink
                   href={siteConfig.contact.path}
                   onClick={() =>
                     trackEvent("select_content", {
@@ -122,7 +123,7 @@ export function Hero(): React.JSX.Element {
                       className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                     />
                   </span>
-                </Link>
+                </LocalizedLink>
               </Button>
 
               <Link

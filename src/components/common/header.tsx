@@ -4,8 +4,8 @@ import * as React from "react"
 
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-import Link from "next/link"
 
+import { Link } from "@/src/i18n/navigation"
 import { AnimatePresence, m } from "framer-motion"
 
 import { NavLink } from "@/src/components/ui/navLink"
@@ -13,13 +13,15 @@ import { NavLink } from "@/src/components/ui/navLink"
 import { LanguageSwitcher } from "@/src/components/common/languageSwitcher"
 import { ThemeToggle } from "@/src/components/common/themeToggle"
 
-import { siteConfig } from "@/src/config/site"
 import { cn } from "@/src/lib/utils/utils"
+
+import { siteConfig } from "@/src/config/site"
 
 const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export const Header = React.memo(function Header(): React.JSX.Element {
   const t = useTranslations("Index.Nav")
+  const idT = useTranslations("Index.Ids")
   const [isOpen, setIsOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
   React.useEffect(() => {
@@ -41,12 +43,14 @@ export const Header = React.memo(function Header(): React.JSX.Element {
 
   const navLinks = React.useMemo(
     () => [
-      { href: "/#portfolio", label: t("portfolio") },
+      { href: "/", label: t("home") },
+      { href: `/#${idT("portfolio")}`, label: t("portfolio") },
+      { href: `/#${idT("services")}`, label: t("services") },
       { href: siteConfig.method.path, label: t("method") },
       { href: siteConfig.studio.path, label: t("about") },
       { href: siteConfig.contact.path, label: t("contact") },
     ],
-    [t]
+    [idT, t]
   )
 
   const menuVariants = {
@@ -87,48 +91,54 @@ export const Header = React.memo(function Header(): React.JSX.Element {
             : " bg-transparent backdrop-blur-none"
         )}
       >
-        <Link
-          href="/"
-          className="relative z-220 flex h-full shrink-0 items-center pr-6 xl:pr-8"
-          aria-label={t("home_label")}
-          onClick={() => setIsOpen(false)}
-        >
-          <Image
-            src="/logos/LOGO_VAR_03_DM.svg"
-            alt={t("logo_alt")}
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="h-6 w-auto min-w-28 object-contain dark:hidden xl:min-w-32"
-            priority
-          />
-          <Image
-            src="/logos/LOGO_VAR_03_LM.svg"
-            alt={t("logo_alt")}
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="hidden h-6 w-auto min-w-28 object-contain dark:block xl:min-w-32"
-            priority
-          />
-        </Link>
-
-        <div className="flex min-w-0 items-center justify-end gap-6 xl:flex-1 xl:gap-8">
-          <nav
-            className="hidden min-w-0 flex-1 items-center justify-center gap-6 xl:flex xl:gap-8"
-            aria-label={t("main_nav_label")}
+        <div className="relative z-220 flex min-w-0 shrink items-center gap-6 xl:gap-8">
+          <Link
+            href="/"
+            className="flex h-full shrink-0 items-center"
+            aria-label={t("home_label")}
+            onClick={() => setIsOpen(false)}
           >
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.href}
-                href={link.href}
-                label={link.label}
-                className="whitespace-nowrap"
-              />
-            ))}
-          </nav>
+            <Image
+              src="/logos/LOGO_VAR_03_DM.svg"
+              alt={t("logo_alt")}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="h-6 w-auto min-w-28 object-contain dark:hidden xl:min-w-32"
+              priority
+            />
+            <Image
+              src="/logos/LOGO_VAR_03_LM.svg"
+              alt={t("logo_alt")}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="hidden h-6 w-auto min-w-28 object-contain dark:block xl:min-w-32"
+              priority
+            />
+          </Link>
 
           <div className="hidden shrink-0 items-center gap-5 border-l border-foreground/10 pl-6 xl:flex">
+            <nav
+              className="hidden min-w-0 items-center xl:flex"
+              aria-label={t("main_nav_label")}
+            >
+              <div className="flex min-w-0 items-center gap-6 xl:gap-8">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.href}
+                    href={link.href}
+                    label={link.label}
+                    className="whitespace-nowrap"
+                  />
+                ))}
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div className="flex min-w-0 items-center justify-end gap-6 xl:flex-1 xl:gap-8">
+          <div className="hidden shrink-0 items-center gap-5 xl:flex">
             <LanguageSwitcher />
             <ThemeToggle />
           </div>

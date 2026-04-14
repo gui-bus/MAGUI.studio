@@ -118,4 +118,27 @@ test.describe("Critical flows", () => {
       page.getByRole("heading", { name: /Solicitação recebida/i })
     ).toBeVisible()
   })
+  test("opens localized english routes for the static studio pages", async ({
+    page,
+  }) => {
+    await setLocaleCookie(page, "en")
+
+    await page.goto("/contact")
+    await acceptCookiesIfVisible(page)
+    await expect(page.getByLabel("Name")).toBeVisible()
+
+    await page.goto("/method")
+    await expect(page).toHaveURL(/\/method$/)
+
+    await page.goto("/studio")
+    await expect(page).toHaveURL(/\/studio$/)
+  })
+
+  test("opens localized english project routes", async ({ page }) => {
+    await setLocaleCookie(page, "en")
+    await page.goto("/projects/apareca-e-venda")
+    await acceptCookiesIfVisible(page)
+
+    await expect(page).toHaveURL(/\/projects\/apareca-e-venda$/)
+  })
 })

@@ -14,8 +14,9 @@ import {
 import { AnimatePresence, m } from "framer-motion"
 import { useForm } from "react-hook-form"
 
-import { MotionProvider } from "@/src/components/common/motionProvider"
 import { Button } from "@/src/components/ui/button"
+
+import { MotionProvider } from "@/src/components/common/motionProvider"
 
 import { trackEvent } from "@/src/lib/analytics"
 import { cn } from "@/src/lib/utils/utils"

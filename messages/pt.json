@@ -14,6 +14,7 @@
       "text": "ESTRATÉGIA ✦ ENGENHARIA ✦ DESIGN ✦ PERFORMANCE ✦ AUTORIDADE ✦"
     },
     "Nav": {
+      "home": "Início",
       "portfolio": "Portfólio",
       "services": "Serviços",
       "method": "Método",
@@ -589,4 +590,3 @@
     }
   }
 }
-

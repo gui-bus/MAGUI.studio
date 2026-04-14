@@ -3,9 +3,10 @@
 import * as React from "react"
 
 import { useLocale, useTranslations } from "next-intl"
-import { usePathname, useRouter } from "next/navigation"
+import { useParams } from "next/navigation"
 
 import { locales } from "@/src/i18n/config"
+import { usePathname, useRouter } from "@/src/i18n/navigation"
 import { CaretDown, Check } from "@phosphor-icons/react"
 import { AnimatePresence, m } from "framer-motion"
 import Cookies from "js-cookie"
@@ -25,11 +26,16 @@ const flagCodes: Record<string, string> = {
   pt: "BR",
 }
 
+interface LocaleRouteParams {
+  [key: string]: string | Array<string>
+}
+
 export function LanguageSwitcher(): React.JSX.Element {
   const t = useTranslations("Locale")
   const currentLocale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
+  const params = useParams<LocaleRouteParams>()
   const [mounted, setMounted] = React.useState(false)
 
   React.useEffect(() => {
@@ -40,10 +46,23 @@ export function LanguageSwitcher(): React.JSX.Element {
     (newLocale: string): void => {
       if (newLocale === currentLocale) return
       Cookies.set("NEXT_LOCALE", newLocale, { expires: 365 })
-      const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`)
-      router.push(newPath)
+
+      if (pathname === "/projetos/[slug]") {
+        const slugParam = params.slug
+        const slug = Array.isArray(slugParam) ? slugParam[0] : slugParam
+
+        if (slug) {
+          router.replace({ pathname, params: { slug } }, { locale: newLocale })
+        }
+
+        return
+      }
+
+      router.replace(pathname as Exclude<typeof pathname, "/projetos/[slug]">, {
+        locale: newLocale,
+      })
     },
-    [currentLocale, pathname, router]
+    [currentLocale, params, pathname, router]
   )
 
   if (!mounted) {
