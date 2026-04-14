@@ -128,7 +128,7 @@ export async function Services(): Promise<React.JSX.Element> {
                 </div>
 
                 <div className="space-y-8">
-                  <h3 className="max-w-[11ch] font-heading text-3xl font-black uppercase leading-[0.84] tracking-[-0.05em] md:text-7xl">
+                  <h3 className="max-w-[11ch] font-heading text-3xl font-black uppercase leading-[0.84] tracking-[-0.05em] md:text-4xl">
                     <StaggeredText text={service.title} />
                   </h3>
 

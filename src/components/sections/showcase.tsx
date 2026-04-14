@@ -153,7 +153,7 @@ export function Showcase(): React.JSX.Element {
 
             <div className="flex flex-col justify-between gap-6 rounded-4xl bg-background/90 p-6 shadow-[0_22px_70px_rgba(15,23,42,0.05)]">
               <div className="space-y-5">
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-4">
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary/80">
                       {t("selected_case_label")}

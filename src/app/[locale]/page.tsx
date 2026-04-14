@@ -99,7 +99,7 @@ export default async function Page({
         <Showcase />
         <Services />
 
-        <div className="pt-44!">
+        <div className="md:pt-44">
           <CurvedLoop marqueeText={t("text")} speed={1.5} curveAmount={150} />
         </div>
 
