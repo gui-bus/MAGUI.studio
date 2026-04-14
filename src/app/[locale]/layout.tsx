@@ -121,11 +121,11 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={cn("antialiased", fontVariables)}
+      className={cn("relative antialiased", fontVariables)}
     >
       <head>
-        <link rel="preload" as="image" href="/utils/placeholder.svg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

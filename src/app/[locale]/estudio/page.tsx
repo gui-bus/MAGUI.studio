@@ -87,6 +87,7 @@ export default async function StudioPage(): Promise<React.JSX.Element> {
                         src={founder.image}
                         alt={founder.imageAlt}
                         fill
+                        sizes="(max-width: 767px) 100vw, 50vw"
                         className="object-cover transition duration-700 group-hover:scale-[1.03]"
                         priority={index === 0}
                       />

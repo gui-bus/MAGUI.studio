@@ -12,6 +12,7 @@ const fontDecorative = Syne({
   variable: "--font-decorative",
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
+  preload: false,
 })
 
 const fontSans = Montserrat({
@@ -25,6 +26,7 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
+  preload: false,
 })
 
 export const fonts = {

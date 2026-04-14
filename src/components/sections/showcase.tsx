@@ -120,8 +120,6 @@ export function Showcase(): React.JSX.Element {
           </aside>
         </header>
 
-        
-
         <AnimatePresence mode="wait" initial={false}>
           <m.article
             key={activeProject.id}

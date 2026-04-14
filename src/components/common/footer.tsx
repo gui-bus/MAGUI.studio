@@ -14,6 +14,7 @@ export const onest = Onest({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   variable: "--font-onest",
+  preload: false,
 })
 
 export async function Footer(): Promise<React.JSX.Element> {

@@ -3,7 +3,6 @@ import * as React from "react"
 import { Metadata } from "next"
 import { useTranslations } from "next-intl"
 import { getTranslations } from "next-intl/server"
-import dynamic from "next/dynamic"
 
 import { FAQItem } from "@/src/types/sections"
 
@@ -15,13 +14,10 @@ import { Contact } from "@/src/components/sections/contact"
 import { FAQ } from "@/src/components/sections/faq"
 import { Hero } from "@/src/components/sections/hero"
 import { Services } from "@/src/components/sections/services"
+import { Showcase } from "@/src/components/sections/showcase"
 import { Value } from "@/src/components/sections/value"
 
 import { siteConfig } from "@/src/config/site"
-
-const Showcase = dynamic(() =>
-  import("@/src/components/sections/showcase").then((mod) => mod.Showcase)
-)
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Config")
