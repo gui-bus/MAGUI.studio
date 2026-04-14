@@ -117,12 +117,12 @@ export async function Services(): Promise<React.JSX.Element> {
 
               <div className="relative flex h-full flex-col justify-between p-8 text-white md:p-10 lg:p-12">
                 <div className="flex items-start justify-between gap-6">
-                  <span className="font-heading text-5xl font-black leading-none text-white/24 md:text-6xl">
+                  <span className="font-heading text-5xl font-black leading-none text-white/45 md:text-6xl">
                     {service.id}
                   </span>
                   <div className="flex items-center gap-3">
                     <div className="h-px w-8 bg-white/30" />
-                    <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/68">
+                    <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/85">
                       {service.label}
                     </span>
                   </div>

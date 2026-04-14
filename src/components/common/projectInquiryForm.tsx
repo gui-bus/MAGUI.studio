@@ -107,7 +107,7 @@ function FormSection({
   return (
     <section className="space-y-5 rounded-4xl bg-background/92 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.05)] sm:p-6">
       <header className="space-y-2">
-        <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary/80">
+        <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary">
           {eyebrow}
         </p>
         <h3 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
@@ -529,7 +529,7 @@ export function ProjectInquiryForm({
         <div className="space-y-5">
           <div className="flex items-center justify-between gap-4">
             <div className="space-y-1">
-              <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary/80">
+              <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary">
                 {t("title")}
               </p>
             </div>

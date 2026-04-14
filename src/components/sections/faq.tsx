@@ -59,7 +59,7 @@ function FAQModule({ item, index }: FAQModuleProps): React.JSX.Element {
       <summary className="flex cursor-pointer list-none flex-col gap-6 px-6 py-7 text-left transition-colors duration-500 marker:hidden md:px-8 md:py-8 lg:px-10 lg:py-10">
         <div className="flex items-start justify-between gap-5">
           <div className="flex min-w-0 flex-1 items-start gap-4 md:gap-6">
-            <span className="font-heading text-3xl font-black leading-none text-foreground/14 transition-colors duration-500 group-hover:text-brand-primary/40 group-open:text-brand-primary/40 md:text-4xl dark:text-white/14 dark:group-hover:text-brand-primary/55 dark:group-open:text-brand-primary/55">
+            <span className="font-heading text-3xl font-black leading-none text-foreground/32 transition-colors duration-500 group-hover:text-brand-primary/60 group-open:text-brand-primary/60 md:text-4xl dark:text-white/32 dark:group-hover:text-brand-primary/70 dark:group-open:text-brand-primary/70">
               {itemNumber}
             </span>
 

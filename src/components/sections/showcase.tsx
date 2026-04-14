@@ -102,7 +102,7 @@ export function Showcase(): React.JSX.Element {
           </div>
 
           <aside className="rounded-4xl bg-muted/28 p-5 sm:p-6">
-            <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary/80">
+            <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary">
               {t("selection_label")}
             </p>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -156,7 +156,7 @@ export function Showcase(): React.JSX.Element {
               <div className="space-y-5">
                 <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-4">
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary/80">
+                    <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary">
                       {t("selected_case_label")}
                     </p>
                     <h3 className="mt-3 font-heading text-3xl font-black uppercase leading-[0.88] tracking-[-0.05em] text-foreground sm:text-5xl">

@@ -140,7 +140,7 @@ export async function Footer(): Promise<React.JSX.Element> {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-8 md:pt-12 md:flex-row">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/70 md:justify-start">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/85 md:justify-start">
             <span>{t("credits", { year: new Date().getFullYear() })}</span>
 
             <div

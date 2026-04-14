@@ -95,8 +95,8 @@ function ValueDisciplineCard({
           <span
             className={cn(
               "font-heading text-4xl font-black leading-none transition-colors duration-700 md:text-[2.65rem] lg:text-5xl",
-              index === 1 ? "text-foreground/18" : "text-foreground/14",
-              isActive && "text-white/72"
+              index === 1 ? "text-foreground/35" : "text-foreground/30",
+              isActive && "text-white/82"
             )}
           >
             {discipline.id}

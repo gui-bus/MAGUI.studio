@@ -51,6 +51,7 @@ export async function Hero(): Promise<React.JSX.Element> {
               src="/images/hero.webp"
               alt={t("image_alt")}
               fill
+              fetchPriority="high"
               sizes="(max-width: 768px) 92vw, (max-width: 1280px) 72vw, 46vw"
               quality={68}
               className="object-cover"
@@ -76,7 +77,7 @@ export async function Hero(): Promise<React.JSX.Element> {
                 className="group relative h-20 rounded-full bg-brand-primary px-12 text-white shadow-2xl shadow-brand-primary/20 transition-all duration-500 hover:scale-105"
               >
                 <LocalizedLink href={siteConfig.contact.path}>
-                  <span className="relative z-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.2em]">
+                  <span className="relative z-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.2em] text-slate-950">
                     {t("cta")}
                     <ArrowUpRightIcon
                       weight="bold"
