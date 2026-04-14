@@ -2,7 +2,7 @@
   <img src="public/logos/LOGO_VAR_03_LM.svg" width="400" alt="MAGUI.studio Logo">
 </p>
 
-<img src="https://github.com/gui-bus/magui/blob/master/public/images/og-image.webp?raw=true" width="100%" alt="Thumbnail MAGUI.studio">
+<img src="https://github.com/gui-bus/magui.studio/blob/master/public/images/og-image.webp?raw=true" width="100%" alt="Thumbnail MAGUI.studio">
 
 <p align="center">
   <img alt="React" height="60" width="60" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/React.svg">
