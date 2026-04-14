@@ -31,9 +31,6 @@ export async function generateMetadata({
     }),
     siteConfig.url
   )
-  const ogUrl = new URL(`${siteConfig.url}/api/og`)
-  ogUrl.searchParams.set("title", `${t("metaTitle")} | ${configT("name")}`)
-  ogUrl.searchParams.set("description", t("metaDescription"))
 
   return {
     title: t("metaTitle"),
@@ -48,7 +45,7 @@ export async function generateMetadata({
       url: url.toString(),
       images: [
         {
-          url: ogUrl.toString(),
+          url: siteConfig.ogImage,
           width: 1200,
           height: 630,
           alt: t("metaTitle"),
@@ -59,7 +56,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("metaTitle"),
       description: t("metaDescription"),
-      images: [ogUrl.toString()],
+      images: [siteConfig.ogImage],
     },
   }
 }

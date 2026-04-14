@@ -7,7 +7,7 @@ export const siteConfig = {
   manifestDescription:
     "Est\u00fadio de dire\u00e7\u00e3o visual, interface e experi\u00eancias digitais com foco em performance, clareza e autoridade.",
   url: publicEnv.NEXT_PUBLIC_SITE_URL,
-  ogImage: `${publicEnv.NEXT_PUBLIC_SITE_URL}/og.png`,
+  ogImage: `${publicEnv.NEXT_PUBLIC_SITE_URL}/images/og-image.webp`,
   authors: [
     {
       name: "MAGUI.studio",

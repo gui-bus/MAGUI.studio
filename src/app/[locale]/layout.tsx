@@ -5,10 +5,10 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server"
+import Script from "next/script"
 
 import { locales } from "@/src/i18n/config"
 
-import { CookieConsent } from "@/src/components/common/cookieConsent"
 import { MotionProvider } from "@/src/components/common/motionProvider"
 import { Preloader } from "@/src/components/common/preloader"
 import { ThemeProvider } from "@/src/components/common/themeProvider"
@@ -44,9 +44,6 @@ export async function generateMetadata({
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations("Config")
-  const ogUrl = new URL(`${siteConfig.url}/api/og`)
-  ogUrl.searchParams.set("title", t("name"))
-  ogUrl.searchParams.set("description", t("description"))
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -71,7 +68,7 @@ export async function generateMetadata({
       locale,
       images: [
         {
-          url: ogUrl.toString(),
+          url: siteConfig.ogImage,
           width: 1200,
           height: 630,
           alt: t("name"),
@@ -82,14 +79,14 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("name"),
       description: t("description"),
-      images: [ogUrl.toString()],
+      images: [siteConfig.ogImage],
     },
     icons: {
       icon: "/favicon.ico",
       shortcut: "/favicon-16x16.png",
       apple: "/apple-touch-icon.png",
     },
-    manifest: `${siteConfig.url}/manifest.webmanifest`,
+    manifest: "/manifest.webmanifest",
     appleWebApp: {
       capable: true,
       statusBarStyle: "default",
@@ -145,6 +142,21 @@ export default async function RootLayout({
           name="adopt-website-id"
           content="71c75199-5d4d-4366-8b67-ad6650f48c4a"
         />
+        {siteConfig.analytics.google ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.google}`}
+              strategy="beforeInteractive"
+            />
+            <Script id="google-analytics" strategy="beforeInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+window.gtag = gtag;
+gtag('js', new Date());
+gtag('config', '${siteConfig.analytics.google}');`}
+            </Script>
+          </>
+        ) : null}
         <script
           src="https://tag.goadopt.io/injector.js?website_code=71c75199-5d4d-4366-8b67-ad6650f48c4a"
           className="adopt-injector"
@@ -171,7 +183,6 @@ export default async function RootLayout({
               <Preloader />
               {children}
             </MotionProvider>
-            <CookieConsent gaId={siteConfig.analytics.google} />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
