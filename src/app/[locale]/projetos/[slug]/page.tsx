@@ -186,7 +186,7 @@ export default async function ProjectCasePage({
               <span>{project.year}</span>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-12">
               <h1 className="font-heading text-[clamp(4.5rem,12vw,9rem)] font-black uppercase leading-[0.78] tracking-[-0.08em]">
                 {project.title}
               </h1>
