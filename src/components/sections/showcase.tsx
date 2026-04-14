@@ -35,7 +35,6 @@ export function Showcase(): React.JSX.Element {
   const hasMultipleProjects = projects.length > 1
 
   const [currentIndex, setCurrentIndex] = React.useState(0)
-  const [direction, setDirection] = React.useState(1)
   const containerRef = React.useRef<HTMLElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -56,7 +55,6 @@ export function Showcase(): React.JSX.Element {
     (index: number): void => {
       if (index === currentIndex) return
 
-      setDirection(index > currentIndex ? 1 : -1)
       setCurrentIndex(index)
 
       trackEvent("select_content", {
@@ -88,7 +86,7 @@ export function Showcase(): React.JSX.Element {
         style={{ x: backgroundX }}
         className="pointer-events-none absolute right-0 top-10 z-0 hidden select-none lg:block"
       >
-        <span className="whitespace-nowrap text-[220px] font-black uppercase leading-none tracking-[-0.08em] text-foreground/[0.03]">
+        <span className="whitespace-nowrap text-[220px] font-black uppercase leading-none tracking-[-0.08em] text-foreground/3">
           {t("background_text")}
         </span>
       </m.div>
@@ -112,7 +110,7 @@ export function Showcase(): React.JSX.Element {
             </p>
           </div>
 
-          <aside className="rounded-[2rem] bg-muted/28 p-5 sm:p-6">
+          <aside className="rounded-4xl bg-muted/28 p-5 sm:p-6">
             <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary/80">
               {t("selection_label")}
             </p>
@@ -122,54 +120,7 @@ export function Showcase(): React.JSX.Element {
           </aside>
         </header>
 
-        <div
-          className="flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          role="tablist"
-          aria-label={t("projects_nav_label")}
-        >
-          {projects.map((project, index) => {
-            const isActive = index === currentIndex
-
-            return (
-              <button
-                key={project.id}
-                type="button"
-                role="tab"
-                aria-selected={isActive}
-                aria-controls={`showcase-panel-${project.id}`}
-                onClick={() => handleProjectSelect(index)}
-                className={[
-                  "group min-w-[16rem] rounded-[1.75rem] px-4 py-4 text-left transition-all duration-500 sm:min-w-[18rem] sm:px-5",
-                  isActive
-                    ? "bg-brand-primary/[0.08] shadow-[0_18px_50px_rgba(15,23,42,0.08)]"
-                    : "bg-muted/22 hover:bg-background/88",
-                ].join(" ")}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="space-y-2">
-                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-primary/80">
-                      {project.year}
-                    </p>
-                    <p className="font-heading text-2xl font-black uppercase leading-none tracking-[-0.04em] text-foreground">
-                      {project.title}
-                    </p>
-                  </div>
-                  <span
-                    className={[
-                      "mt-1 h-2.5 w-2.5 shrink-0 rounded-full transition-colors",
-                      isActive ? "bg-brand-primary" : "bg-foreground/12",
-                    ].join(" ")}
-                    aria-hidden="true"
-                  />
-                </div>
-
-                <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-                  {project.sector}
-                </p>
-              </button>
-            )
-          })}
-        </div>
+        
 
         <AnimatePresence mode="wait" initial={false}>
           <m.article
@@ -180,9 +131,9 @@ export function Showcase(): React.JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -24 }}
             transition={{ duration: 0.55, ease: EASE_SMOOTH }}
-            className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)] lg:items-stretch"
+            className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)]"
           >
-            <div className="relative overflow-hidden rounded-[2rem] bg-muted/20 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
+            <div className="relative overflow-hidden rounded-4xl bg-muted/20 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
               <Link
                 href={{
                   pathname: "/projetos/[slug]",
@@ -196,20 +147,20 @@ export function Showcase(): React.JSX.Element {
                 }
                 className="group block"
               >
-                <div className="relative aspect-[4/3] overflow-hidden lg:aspect-[16/11]">
+                <div className="relative aspect-4/3 overflow-hidden lg:aspect-video">
                   <Image
                     src={activeProject.image}
                     alt={activeProject.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 60vw"
-                    className="object-contain transition duration-700 group-hover:scale-[1.03]"
+                    className="object-contain"
                     priority
                   />
                 </div>
               </Link>
             </div>
 
-            <div className="flex flex-col justify-between gap-6 rounded-[2rem] bg-background/90 p-6 shadow-[0_22px_70px_rgba(15,23,42,0.05)] sm:p-7">
+            <div className="flex flex-col justify-between gap-6 rounded-4xl bg-background/90 p-6 shadow-[0_22px_70px_rgba(15,23,42,0.05)]">
               <div className="space-y-5">
                 <div className="flex items-center justify-between gap-4">
                   <div>
@@ -261,14 +212,10 @@ export function Showcase(): React.JSX.Element {
                     </div>
                   ))}
                 </dl>
-
-                <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-                  {activeProject.notes[0]}
-                </p>
               </div>
 
               <div className="space-y-3 pt-1">
-                <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="flex flex-col gap-3">
                   <Link
                     href={{
                       pathname: "/projetos/[slug]",
@@ -280,7 +227,7 @@ export function Showcase(): React.JSX.Element {
                         item_id: activeProject.id,
                       })
                     }
-                    className="group inline-flex flex-1 items-center justify-between gap-4 rounded-full bg-foreground px-5 py-4 text-background transition-all duration-500 hover:scale-[1.01] hover:bg-brand-primary dark:bg-white dark:text-black"
+                    className="group inline-flex flex-1 items-center justify-center gap-4 rounded-full bg-foreground px-5 py-4 text-background transition-all duration-500 hover:scale-[1.01] hover:bg-brand-primary dark:bg-white dark:text-black"
                   >
                     <span className="text-[11px] font-black uppercase tracking-[0.28em]">
                       {t("view_project")}
@@ -312,10 +259,6 @@ export function Showcase(): React.JSX.Element {
                     />
                   </NextLink>
                 </div>
-
-                <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-                  {t("cta_note")}
-                </p>
               </div>
             </div>
           </m.article>
