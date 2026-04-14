@@ -8,7 +8,7 @@ import { useParams } from "next/navigation"
 import { locales } from "@/src/i18n/config"
 import { usePathname, useRouter } from "@/src/i18n/navigation"
 import { CaretDown, Check } from "@phosphor-icons/react"
-import { AnimatePresence, m } from "framer-motion"
+import { m } from "framer-motion"
 import Cookies from "js-cookie"
 import ReactCountryFlag from "react-country-flag"
 
@@ -79,7 +79,7 @@ export function LanguageSwitcher(): React.JSX.Element {
             <ReactCountryFlag
               countryCode={flagCodes[currentLocale]}
               svg
-              className="rounded-[2px] opacity-90 grayscale-[0.2] transition-all group-hover:grayscale-0"
+              className="rounded-xs opacity-90 grayscale-[0.2] transition-all group-hover:grayscale-0"
               style={{ width: "1.1em", height: "0.8em" }}
             />
             <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-foreground">
@@ -115,7 +115,7 @@ export function LanguageSwitcher(): React.JSX.Element {
                 countryCode={flagCodes[loc]}
                 svg
                 className={cn(
-                  "rounded-[2px] transition-all",
+                  "rounded-xs transition-all",
                   currentLocale === loc
                     ? "opacity-100"
                     : "opacity-60 grayscale-[0.4] group-hover:opacity-100 group-hover:grayscale-0"
