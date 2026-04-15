@@ -102,6 +102,81 @@ export const projectCases: readonly ProjectCaseRecord[] = [
     },
   },
   {
+    id: "portfolio2026",
+    slug: "portfolio",
+    image: "/projects/guibus/cover.webp",
+    gallery: [
+      "/projects/guibus/01.webp",
+      "/projects/guibus/02.webp",
+      "/projects/guibus/03.webp",
+    ],
+    liveUrl: "https://guibus.dev",
+    colors: [
+      {
+        hex: "#ca8a04",
+        name: "Amarelo Vibrante",
+        oklch: "oklch(0.795 0.184 86.047)",
+      },
+      {
+        hex: "#17191a",
+        name: "Preto Profundo",
+        oklch: "oklch(0.218 0.008 223.9)",
+      },
+      {
+        hex: "#e8e8e8",
+        name: "Cinza Gelo",
+        oklch: "oklch(0.925 0.005 214.3)",
+      },
+    ],
+    typography: [
+      { name: "Geist Sans", category: "Heading & Body" },
+    ],
+    content: {
+      pt: {
+        title: "Portfolio GUIBUS",
+        summary:
+          "Vitrine digital de alta performance desenvolvida para demonstrar proficiência técnica em tecnologias de ponta, focada em experiência do usuário e estética minimalista.",
+        intro:
+          "Este projeto representa a convergência entre engenharia de software e design visual, servindo como uma plataforma viva para experimentação de novas tecnologias e padrões de interface.",
+        challenge:
+          "O desafio foi construir uma interface que equilibrasse o minimalismo brutalista com micro-interações ricas, garantindo performance impecável e suporte robusto a multi-idiomas via i18n.",
+        solution:
+          "Implementamos uma arquitetura moderna utilizando Next.js 16 e Tailwind CSS v4, com orquestração de animações complexas via Framer Motion e uma estrutura de dados escalável para internacionalização.",
+        sector: "Branding & Desenvolvimento",
+        scope: "Portfólio Pessoal e Vitrine Técnica",
+        role: "Arquitetura, Design e Desenvolvimento",
+        year: "2026",
+        stack: [
+          "Next.js",
+          "Tailwind CSS",
+          "Framer Motion",
+          "TypeScript",
+        ],
+      },
+      en: {
+        title: "Portfolio GUIBUS",
+        summary:
+          "High-performance digital showcase developed to demonstrate technical proficiency in cutting-edge technologies, focused on user experience and minimalist aesthetics.",
+        intro:
+          "This project represents the convergence of software engineering and visual design, serving as a living platform for experimenting with new technologies and interface patterns.",
+        challenge:
+          "The challenge was to build an interface that balanced brutalist minimalism with rich micro-interactions, ensuring flawless performance and robust multi-language support via i18n.",
+        solution:
+          "We implemented a modern architecture using Next.js 16 and Tailwind CSS v4, with complex animation orchestration via Framer Motion and a scalable data structure for internationalization.",
+        sector: "Branding & Development",
+        scope: "Personal Portfolio & Technical Showcase",
+        role: "Architecture, Design, and Development",
+        year: "2026",
+        stack: [
+          "Next.js",
+          "Tailwind CSS",
+          "Framer Motion",
+          "TypeScript",
+        ],
+      },
+    },
+  },
+  {
     id: "powervet",
     slug: "powervet",
     image: "/projects/powervet/cover.webp",
