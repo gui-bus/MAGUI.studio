@@ -74,10 +74,10 @@ export async function Hero(): Promise<React.JSX.Element> {
               <Button
                 asChild={true}
                 size="lg"
-                className="group relative h-20 rounded-full bg-brand-primary px-12 text-white shadow-2xl shadow-brand-primary/20 transition-all duration-500 hover:scale-105"
+                className="group relative h-20 rounded-full bg-brand-primary px-12 text-white! shadow-2xl shadow-brand-primary/20 transition-all duration-500 hover:scale-105"
               >
                 <LocalizedLink href={siteConfig.contact.path} prefetch={false}>
-                  <span className="relative z-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.2em] text-slate-950">
+                  <span className="relative z-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.2em]">
                     {t("cta")}
                     <ArrowUpRightIcon
                       weight="bold"
