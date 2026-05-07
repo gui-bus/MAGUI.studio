@@ -20,7 +20,7 @@
     "analyze": "ANALYZE=true pnpm build",
     "audit": "unlighthouse --site http://localhost:3000",
     "clean": "rm -rf .next node_modules pnpm-lock.yaml",
-    "prepare": "husky"
+    "prepare": "git rev-parse --is-inside-work-tree > /dev/null 2>&1 && husky || true"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -95,7 +95,8 @@
       "puppeteer",
       "sharp",
       "unrs-resolver",
-      "vue-demi"
+      "vue-demi",
+      "husky"
     ]
   }
 }
