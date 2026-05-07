@@ -92,7 +92,8 @@
       "postinstall",
       "preprepare",
       "prepare",
-      "postprepare"
+      "postprepare",
+      "build"
     ],
     "neverBuiltDependencies": []
   }
