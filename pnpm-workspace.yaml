@@ -1,9 +1,9 @@
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@swc/core'
-  - esbuild
-  - msw
-  - puppeteer
-  - sharp
-  - unrs-resolver
-  - vue-demi
+allowBuilds:
+  "@parcel/watcher": true
+  "@swc/core": true
+  esbuild: true
+  msw: true
+  puppeteer: true
+  sharp: true
+  unrs-resolver: true
+  vue-demi: true
