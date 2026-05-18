@@ -32,7 +32,7 @@ export async function Manifesto(): Promise<React.JSX.Element> {
           </div>
 
           <div className="space-y-8">
-            <h2 className="font-heading text-5xl font-black uppercase leading-[0.82] tracking-[-0.06em] text-foreground md:text-7xl lg:text-[128px]">
+            <h2 className="font-heading text-5xl font-black uppercase leading-[1.2] tracking-[-0.06em] text-foreground md:text-7xl lg:text-[128px]">
               <span className="block">
                 <StaggeredText text={t("title_1")} />
               </span>
