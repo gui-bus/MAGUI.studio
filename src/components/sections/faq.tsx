@@ -31,7 +31,7 @@ export async function FAQ(): Promise<React.JSX.Element> {
           </div>
 
           <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.65fr)] xl:items-end">
-            <h2 className="font-heading text-5xl font-black uppercase leading-[1.2] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
+            <h2 className="font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
               <span className="block">
                 <StaggeredText text={faqTitlePrimary} />
               </span>
@@ -70,7 +70,7 @@ function FAQModule({ item, index }: FAQModuleProps): React.JSX.Element {
             </span>
 
             <div className="min-w-0">
-              <h3 className="font-heading text-lg font-black uppercase leading-tight tracking-[-0.04em] text-foreground transition-colors duration-500 group-open:text-brand-primary sm:text-xl md:text-2xl lg:text-3xl dark:text-white">
+              <h3 className="font-heading text-lg font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground transition-colors duration-500 group-open:text-brand-primary sm:text-xl md:text-2xl lg:text-3xl dark:text-white">
                 {item.question}
               </h3>
             </div>

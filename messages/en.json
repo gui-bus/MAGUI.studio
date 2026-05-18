@@ -138,8 +138,9 @@
     },
     "Showcase": {
       "eyebrow": "Curated Portfolio",
-      "title": "Featured projects.",
-      "description": "A concise selection of work to explore calmly and open only what feels relevant.",
+      "title_primary": "Project",
+      "title_accent": "Spotlight.",
+      "description": "Projects shaped to turn positioning into digital presence, with strong visual direction, strategic clarity, and high-level execution.",
       "selection_label": "Selection",
       "selection_description": "Choose a project to see the essentials before opening the full case study.",
       "projects_nav_label": "Project selection",
@@ -149,8 +150,9 @@
       "sector_label": "Sector",
       "scope_label": "Scope",
       "year_label": "Year",
-      "view_project": "View full case",
-      "live_project": "Open live project",
+      "view_case": "View full case",
+      "view_project": "View project",
+      "project_cta": "I want a project like this",
       "cta_note": "Open the full case study to review the complete rationale.",
       "background_text": "Selected Work",
       "previous_project_label": "Previous project",
@@ -184,28 +186,44 @@
       "title": "Frequently Asked Questions.",
       "items": [
         {
-          "question": "How long does a project usually take?",
-          "answer": "The timeline depends on scope and complexity. Focused projects can move in a few weeks, while more dense experiences require a broader schedule to ensure the quality of each stage."
+          "question": "Does MAGUI.studio only build standard landing pages?",
+          "answer": "No. We develop high-converting landing pages, institutional websites, and complete digital ecosystems. Our focus goes way beyond the basics: we design structures tailored for strategic positioning, elevating your brand's perceived value, and driving real results."
         },
         {
-          "question": "How do you define the budget?",
-          "answer": "Pricing is shaped by goals, content volume, and deliverables involved. After the initial analysis, the proposal details what is included in the project."
+          "question": "What is the difference between a landing page and an institutional website?",
+          "answer": "A landing page is a single page designed with one specific goal in mind (such as selling a product or capturing leads). On the other hand, an institutional website acts as your company's digital headquarters, showcasing your brand's story, full range of services, team, and building overall market authority."
+        },
+        {
+          "question": "Do you handle both design and development?",
+          "answer": "Yes, we deliver an end-to-end solution. We don't just create a beautiful layout in Figma; we transform that strategy into a live, fast, and fully functional website that effectively communicates your value and optimizes your conversions."
+        },
+        {
+          "question": "Is copywriting included in your services?",
+          "answer": "We guide the entire narrative structure, positioning, and direction of your communication. Depending on the specific plan chosen for your project, we can draft the final copy based on your briefing, saving you from having to write everything from scratch."
+        },
+        {
+          "question": "Will the website be mobile-friendly right away?",
+          "answer": "Absolutely. Today, the vast majority of web traffic comes from mobile devices. That is why all of our projects are developed using responsive technology, ensuring a seamless and perfect experience across desktops, smartphones, and tablets alike."
+        },
+        {
+          "question": "How long does it take to complete a project?",
+          "answer": "The timeline varies based on the scope and complexity of the project. Focused landing pages and websites can often be developed in a few weeks, while more complex platforms require a longer schedule. Generally, final delivery takes between 10 to 20 business days."
         },
         {
           "question": "What do I need to have ready before we start?",
-          "answer": "You do not need to arrive with everything solved. References, goals, or brand assets help, but we can also guide the process from the early stages to shape your idea."
+          "answer": "Don't worry, you don't need to have everything figured out. If you already have visual references, clear goals, or a brand identity guideline, that's great! If not, our team is ready to guide you from the very beginning to shape and bring your idea to life."
         },
         {
-          "question": "Can I request changes during the project?",
-          "answer": "Yes. We work with alignment stages throughout the process. Adjustments are part of the natural evolution of the delivery to reach the best possible result."
+          "question": "Can I request adjustments during the project?",
+          "answer": "Of course. Our process includes planned review and alignment stages. These revisions and adjustments are a natural part of the project's evolution, ensuring the final result exceeds your expectations."
         },
         {
-          "question": "How does support work after delivery?",
-          "answer": "After launch, we can offer technical maintenance and specific adjustments based on real usage and business needs."
+          "question": "How does support work after the website is launched?",
+          "answer": "Once your site goes live, we won't leave you hanging. All support and follow-ups are centralized within MAGUI's client portal. There, you can easily open tickets, track your request history, and keep everything organized in one place."
         },
         {
-          "question": "Which technologies does the studio use?",
-          "answer": "We work with modern technologies like Next.js and React, focusing on performance and scalability. Technical choices always aim for the best support for the client's final outcome."
+          "question": "What technologies does the studio use?",
+          "answer": "We work with cutting-edge tools in the tech industry, such as Next.js, React, and Tailwind CSS. We choose these solutions because they ensure your website is extremely fast, secure, and scalable, delivering the best possible performance for your business."
         }
       ],
       "summary_label": "FAQ",

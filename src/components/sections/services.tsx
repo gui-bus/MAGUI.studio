@@ -78,7 +78,7 @@ export async function Services(): Promise<React.JSX.Element> {
               </span>
             </div>
 
-            <h2 className="font-heading text-5xl font-black uppercase leading-[1.2] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
+            <h2 className="font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
               <span className="block">
                 <StaggeredText text={t("title_1")} />
               </span>
@@ -129,7 +129,7 @@ export async function Services(): Promise<React.JSX.Element> {
                 </div>
 
                 <div className="space-y-8">
-                  <h3 className="max-w-[11ch] font-heading text-3xl font-black uppercase leading-[0.84] tracking-[-0.05em] md:text-4xl">
+                  <h3 className="max-w-[11ch] font-heading text-3xl font-black uppercase leading-[1.15] tracking-[-0.06em] md:text-4xl">
                     <StaggeredText text={service.title} />
                   </h3>
 

@@ -32,7 +32,7 @@ export async function Manifesto(): Promise<React.JSX.Element> {
           </div>
 
           <div className="space-y-8">
-            <h2 className="font-heading text-5xl font-black uppercase leading-[1.2] tracking-[-0.06em] text-foreground md:text-7xl lg:text-[128px]">
+            <h2 className="font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
               <span className="block">
                 <StaggeredText text={t("title_1")} />
               </span>
@@ -89,7 +89,7 @@ export async function Manifesto(): Promise<React.JSX.Element> {
                     {t("badge")}
                   </span>
 
-                  <h3 className="mt-8 font-heading text-4xl font-black uppercase leading-[0.9] tracking-tighter md:text-5xl">
+                  <h3 className="mt-8 font-heading text-4xl font-black uppercase leading-[1.15] tracking-[-0.06em] md:text-5xl">
                     {t("title")}
                   </h3>
 
@@ -128,7 +128,7 @@ export async function Manifesto(): Promise<React.JSX.Element> {
                 </span>
 
                 <div className="space-y-4">
-                  <h3 className="font-heading text-4xl font-black uppercase leading-[0.88] tracking-tighter md:text-6xl">
+                  <h3 className="font-heading text-4xl font-black uppercase leading-[1.15] tracking-[-0.06em] md:text-6xl">
                     {t("panel_title")}
                   </h3>
                   <p className="text-lg font-medium leading-relaxed text-white/76 dark:text-black/72">

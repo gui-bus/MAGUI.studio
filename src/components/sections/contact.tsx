@@ -35,7 +35,7 @@ export async function Contact(): Promise<React.JSX.Element> {
           </div>
 
           <div className="space-y-6">
-            <h2 className="max-w-5xl font-heading text-5xl font-black uppercase leading-[1.2] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
+            <h2 className="max-w-5xl font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
               <span className="block">
                 <StaggeredText text={contactTitlePrimary} />
               </span>

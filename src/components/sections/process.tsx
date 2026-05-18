@@ -49,7 +49,7 @@ export async function Process(): Promise<React.JSX.Element> {
             </span>
           </div>
 
-          <h2 className="font-heading text-5xl font-black uppercase leading-[0.8] tracking-[-0.06em] text-foreground md:text-7xl lg:text-[132px]">
+          <h2 className="font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
             <span className="block">
               <StaggeredText text={t("title_1")} />
             </span>
@@ -110,7 +110,7 @@ function ProcessCard({
             <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
               {stepLabel}
             </span>
-            <h3 className="font-heading text-3xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-foreground md:text-6xl">
+            <h3 className="font-heading text-3xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-6xl">
               {step.title}
             </h3>
           </div>

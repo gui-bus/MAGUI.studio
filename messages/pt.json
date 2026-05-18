@@ -138,8 +138,9 @@
     },
     "Showcase": {
       "eyebrow": "Portfólio Curado",
-      "title": "Projetos em destaque.",
-      "description": "Uma seleção enxuta de trabalhos para explorar sem pressa e abrir só o que fizer sentido.",
+      "title_primary": "Projetos",
+      "title_accent": "em destaque",
+      "description": "Projetos pensados para traduzir posicionamento em presen\u00e7a digital, com dire\u00e7\u00e3o visual forte, clareza estrat\u00e9gica e execu\u00e7\u00e3o de alto n\u00edvel.",
       "selection_label": "Seleção",
       "selection_description": "Escolha um projeto para ver o essencial antes de entrar no case completo.",
       "projects_nav_label": "Seleção de projetos",
@@ -149,8 +150,9 @@
       "sector_label": "Setor",
       "scope_label": "Escopo",
       "year_label": "Ano",
-      "view_project": "Ver case completo",
-      "live_project": "Abrir projeto ao vivo",
+      "view_case": "Ver case completo",
+      "view_project": "Ver projeto",
+      "project_cta": "Quero um projeto assim",
       "cta_note": "Abra o case completo para ver a construção em detalhe.",
       "background_text": "Trabalho Selecionado",
       "previous_project_label": "Projeto anterior",
@@ -184,28 +186,44 @@
       "title": "Perguntas Frequentes.",
       "items": [
         {
-          "question": "Quanto tempo leva para um projeto ficar pronto?",
-          "answer": "O prazo varia conforme o escopo e a complexidade. Projetos focados podem avançar em poucas semanas, enquanto experiências mais densas pedem um cronograma maior para garantir a qualidade de cada etapa."
+          "question": "A MAGUI.studio desenvolve apenas landing pages comuns?",
+          "answer": "Não. Nós criamos landing pages de alta conversão, sites institucionais e ecossistemas digitais completos. Nosso foco vai além do básico: desenhamos estruturas focadas em posicionamento estratégico, aumento na percepção de valor da sua marca e resultados reais."
         },
         {
-          "question": "Como vocês definem o orçamento?",
-          "answer": "O investimento é calculado a partir dos objetivos, volume de conteúdo e entregáveis envolvidos. Após o envio das informações, a proposta detalha o que está incluído no projeto."
+          "question": "Qual é a diferença entre uma landing page e um site institucional?",
+          "answer": "A landing page é uma página única com foco em um único objetivo objetivo (como vender um produto ou capturar contatos). Já o site institucional funciona como a sede digital da sua empresa, apresentando a história da marca, todos os seus serviços, equipe e gerando autoridade no mercado."
         },
         {
-          "question": "O que eu preciso ter pronto antes de começar?",
-          "answer": "Você não precisa ter tudo resolvido. Referências, metas ou identidade visual ajudam, mas podemos conduzir o processo desde a fase inicial para dar forma à sua ideia."
+          "question": "Vocês cuidam tanto do design quanto do desenvolvimento?",
+          "answer": "Sim, entregamos a solução de ponta a ponta. Não criamos apenas um design bonito no Figma; nós transformamos essa estratégia em um site real, rápido e funcional, pronto para comunicar bem o seu valor e otimizar suas conversões."
         },
         {
-          "question": "Posso pedir ajustes durante o projeto?",
-          "answer": "Sim. Trabalhamos com etapas de alinhamento ao longo do processo. Ajustes fazem parte da evolução natural da entrega para chegarmos ao melhor resultado possível."
+          "question": "Os textos do site também estão inclusos no serviço?",
+          "answer": "Nós orientamos toda a estrutura narrativa, o posicionamento e a direção da sua comunicação. Dependendo do plano escolhido para o seu projeto, nós mesmos podemos redigir os textos finais com base no seu briefing, poupando você de ter que escrever tudo do zero."
         },
         {
-          "question": "Como funciona o suporte depois da entrega?",
-          "answer": "Após o lançamento, podemos oferecer acompanhamento para manutenção técnica e ajustes pontuais conforme o uso real e as necessidades do negócio."
+          "question": "O site já é entregue adaptado para celulares?",
+          "answer": "Com certeza. Hoje, a maior parte dos acessos vem de dispositivos móveis. Por isso, todos os nossos projetos são desenvolvidos com tecnologia responsiva, garantindo uma experiência perfeita e fluida tanto em computadores quanto em celulares e tablets."
         },
         {
-          "question": "Quais tecnologias o estúdio utiliza?",
-          "answer": "Trabalhamos com tecnologias modernas como Next.js e React, focando em performance e escalabilidade. A escolha técnica sempre visa o melhor suporte para o resultado final do cliente."
+          "question": "Quanto tempo leva para o projeto ficar pronto?",
+          "answer": "O prazo varia conforme a complexidade do projeto. Landing pages e sites focados costumam ficar prontos em poucas semanas, enquanto plataformas mais densas exigem um cronograma maior. No geral, a entrega final acontece entre 10 e 20 dias úteis."
+        },
+        {
+          "question": "O que eu preciso ter em mãos antes de começarmos?",
+          "answer": "Não se preocupe, você não precisa ter tudo pronto. Se você já tiver referências visuais, metas claras ou um manual de identidade visual, ótimo! Se não tiver, nossa equipe está pronta para conduzir você desde a fase inicial e dar forma à sua ideia."
+        },
+        {
+          "question": "Posso solicitar alterações durante o desenvolvimento?",
+          "answer": "Com certeza. Nosso processo conta com etapas planejadas de aprovação e alinhamento. Essas revisões e ajustes fazem parte da evolução natural do projeto para garantir que o resultado final supere as suas expectativas."
+        },
+        {
+          "question": "Como funciona o suporte pós-lançamento?",
+          "answer": "Após a entrega, você não fica na mão. Todo o suporte e acompanhamento são centralizados no portal de atendimento da MAGUI. Por lá, você pode abrir chamados, acompanhar o histórico de solicitações e manter tudo organizado em um só lugar."
+        },
+        {
+          "question": "Quais tecnologias vocês utilizam no estúdio?",
+          "answer": "Utilizamos ferramentas de ponta no mercado de tecnologia, como Next.js, React e Tailwind CSS. Escolhemos essas soluções porque elas garantem que seu site seja extremamente rápido, seguro e escalável, oferecendo a melhor performance para o seu negócio."
         }
       ],
       "summary_label": "FAQ",

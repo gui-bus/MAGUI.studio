@@ -94,7 +94,7 @@ function ValueDisciplineCard({
           </span>
           <span
             className={cn(
-              "font-heading text-4xl font-black leading-none transition-colors duration-700 md:text-[2.65rem] lg:text-5xl",
+              "font-heading text-4xl font-black leading-[1.15] tracking-[-0.06em] transition-colors duration-700 md:text-[2.65rem] lg:text-5xl",
               index === 1 ? "text-foreground/35" : "text-foreground/30",
               isActive && "text-white/82"
             )}
@@ -106,7 +106,7 @@ function ValueDisciplineCard({
         <div className="space-y-6 md:space-y-7 lg:space-y-8">
           <h3
             className={cn(
-              "max-w-[10ch] font-heading text-4xl font-black uppercase leading-[0.9] tracking-[-0.05em] transition-colors duration-700 md:text-[2.65rem] lg:text-6xl",
+              "max-w-[10ch] font-heading text-4xl font-black uppercase leading-[1.15] tracking-[-0.06em] transition-colors duration-700 md:text-[2.65rem] lg:text-6xl",
               isActive ? "text-white" : "text-foreground"
             )}
           >
